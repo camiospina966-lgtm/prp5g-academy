@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRP 5G Academy — Acceso</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#c9a84c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #c9a84c;
+            --gold-light: #f0d080;
+            --dark: #0a0a0a;
+            --dark2: #111111;
+            --dark3: #1a1a1a;
+            --text: #e0e0e0;
+            --text2: #aaaaaa;
+            --green: #2ecc71;
+            --red: #e74c3c;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* FONDO ANIMADO */
+        .bg-animation {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201,168,76,0.08), transparent);
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .bg-circle:nth-child(1) { width: 600px; height: 600px; top: -200px; left: -200px; animation-delay: 0s; }
+        .bg-circle:nth-child(2) { width: 400px; height: 400px; bottom: -100px; right: -100px; animation-delay: 3s; }
+        .bg-circle:nth-child(3) { width: 300px; height: 300px; top: 50%; left: 50%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-30px) scale(1.05); opacity: 1; }
+        }
+
+        /* CONTAINER */
+        .container {
+            width: 100%;
+            max-width: 440px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* LOGO */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 15px;
+            box-shadow: 0 10px 40px rgba(201,168,76,0.3);
+        }
+
+        .logo-section h1 {
+            font-size: 26px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-section p {
+            font-size: 13px;
+            color: var(--text2);
+            margin-top: 5px;
+        }
+
+        /* CARD */
+        .card {
+            background: var(--dark2);
+            border: 1px solid #2a2a2a;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            background: var(--dark3);
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 28px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text2);
+            transition: all 0.3s;
+            border: none;
+            background: none;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+        }
+
+        /* FORMS */
+        .form { display: none; }
+        .form.active { display: block; }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 7px;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 13px 16px;
+            background: var(--dark3);
+            border: 1.5px solid #2a2a2a;
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .field input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+            background: #1f1f1f;
+        }
+
+        .field .input-wrapper {
+            position: relative;
+        }
+
+        .field .input-wrapper input {
+            padding-right: 45px;
+        }
+
+        .toggle-pass {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--text2);
+            font-size: 16px;
+            background: none;
+            border: none;
+        }
+
+        /* REMEMBER ME */
+        .remember-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text2);
+        }
+
+        .checkbox-label input {
+            accent-color: var(--gold);
+            width: 15px;
+            height: 15px;
+        }
+
+        .forgot-link {
+            font-size: 13px;
+            color: var(--gold);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .forgot-link:hover { text-decoration: underline; }
+
+        /* BTN */
+        .btn-primary {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201,168,76,0.4);
+        }
+
+        .btn-primary:active { transform: translateY(0); }
+
+        /* DIVIDER */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: var(--text2);
+            font-size: 12px;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #2a2a2a;
+        }
+
+        /* SOCIAL BTNS */
+        .social-btns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn-social {
+            padding: 11px;
+            border-radius: 10px;
+            border: 1.5px solid #2a2a2a;
+            background: var(--dark3);
+            color: var(--text);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .btn-social:hover {
+            border-color: var(--gold);
+            background: rgba(201,168,76,0.05);
+        }
+
+        /* PLAN SELECTOR */
+        .plans {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .plan-card {
+            padding: 15px;
+            border: 1.5px solid #2a2a2a;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            background: var(--dark3);
+        }
+
+        .plan-card:hover, .plan-card.selected {
+            border-color: var(--gold);
+            background: rgba(201,168,76,0.08);
+        }
+
+        .plan-card .plan-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .plan-card .plan-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .plan-card .plan-period {
+            font-size: 11px;
+            color: var(--text2);
+        }
+
+        .plan-card .plan-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 4px;
+        }
+
+        /* ALERT */
+        .alert {
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .alert.success {
+            background: rgba(46,204,113,0.1);
+            border: 1px solid var(--green);
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .alert.error {
+            background: rgba(231,76,60,0.1);
+            border: 1px solid var(--red);
+            color: #ff9999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* LOADING */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #333;
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* FOOTER */
+        .card-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--text2);
+        }
+
+        .card-footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* MODAL RECUPERAR */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--dark2);
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 35px;
+            width: 90%;
+            max-width: 380px;
+        }
+
+        .modal h3 {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .modal p {
+            color: var(--text2);
+            font-size: 13px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* PWA INSTALL */
+        .pwa-banner {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark2);
+            border: 1px solid var(--gold);
+            border-radius: 15px;
+            padding: 15px 20px;
+            width: 90%;
+            max-width: 400px;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .pwa-banner.show { display: flex; align-items: center; gap: 15px; }
+
+        .pwa-banner .pwa-icon { font-size: 30px; }
+
+        .pwa-banner .pwa-text { flex: 1; }
+
+        .pwa-banner .pwa-text p { font-size: 13px; color: var(--text2); }
+
+        .pwa-banner .pwa-text strong { font-size: 14px; color: white; display: block; margin-bottom: 2px; }
+
+        .btn-install {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+            border: none;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 25px 20px; }
+            .social-btns { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- FONDO -->
+<div class="bg-animation">
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+</div>
+
+<!-- MODAL RECUPERAR CONTRASEÑA -->
+<div class="modal-overlay" id="forgotModal">
+    <div class="modal">
+        <h3>🔑 Recuperar Contraseña</h3>
+        <p>Ingresa tu correo y te enviaremos instrucciones para restablecer tu contraseña.</p>
+        <div class="field">
+            <label>Correo electrónico</label>
+            <input type="email" id="forgotEmail" placeholder="tu@correo.com">
+        </div>
+        <div id="forgotAlert" class="alert"></div>
+        <button class="btn-primary" onclick="sendRecovery()" style="margin-bottom:10px;">
+            📧 Enviar instrucciones
+        </button>
+        <button onclick="document.getElementById('forgotModal').classList.remove('active')"
+            style="width:100%;padding:12px;background:none;border:1px solid #333;border-radius:10px;color:var(--text2);cursor:pointer;font-size:14px;">
+            Cancelar
+        </button>
+    </div>
+</div>
+
+<!-- PWA BANNER -->
+<div class="pwa-banner" id="pwaBanner">
+    <div class="pwa-icon">📱</div>
+    <div class="pwa-text">
+        <strong>Instalar App</strong>
+        <p>Agrega PRP 5G Academy a tu pantalla de inicio</p>
+    </div>
+    <button class="btn-install" id="installBtn">Instalar</button>
+    <button onclick="document.getElementById('pwaBanner').classList.remove('show')"
+        style="background:none;border:none;color:var(--text2);cursor:pointer;font-size:18px;">✕</button>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+    <!-- LOGO -->
+    <div class="logo-section">
+        <div class="logo-icon">🧬</div>
+        <h1>PRP 5G ACADEMY</h1>
+        <p>Medicina Regenerativa Avanzada</p>
+    </div>
+
+    <!-- CARD -->
+    <div class="card">
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('login')">Iniciar Sesión</button>
+            <button class="tab" onclick="switchTab('register')">Registrarse</button>
+        </div>
+
+        <!-- ===== LOGIN FORM ===== -->
+        <form class="form active" id="loginForm" onsubmit="handleLogin(event)">
+
+            <div id="loginAlert" class="alert"></div>
+
+            <div class="field">
+                <label>📧 Correo Electrónico</label>
+                <input type="email" id="loginEmail" placeholder="tu@correo.com" required>
+            </div>
+
+            <div class="field">
+                <label>🔒 Contraseña</label>
+                <div class="input-wrapper">
+                    <input type="password" id="loginPass" placeholder="Tu contraseña" required>
+                    <button type="button" class="toggle-pass" onclick="togglePassword('loginPass', this)">👁️</button>
+                </div>
+            </div>
+
+            <div class="remember-row">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="rememberMe"> Recordarme
+                </label>
+                <span class="forgot-link" onclick="openForgot()">¿Olvidaste tu contraseña?</span>
+            </div>
+
+            <div class="loading" id="loginLoading">
+                <div class="spinner"></div>
+                <p style="color:var(--text2);font-size:13px;">Verificando...</p>
+            </div>
+
+            <button type="submit" class="btn-primary" id="loginBtn">
+                🚀 Ingresar al Curso
+            </button>
+
+            <div class="divider">O continúa con</div>
+
+            <div class="social-btns">
+                <button type="button" class="btn-social" onclick="socialLogin('Google')">
+                    🔵 Google
+                </button>
+                <button type="button" class="btn-social" onclick="socialLogin('Facebook')">
+                    🔷 Facebook
+                </button>
+            </div>
+
+            <div class="card-footer">
+                ¿No tienes cuenta?
+                <a onclick="switchTab('register')">Regístrate gratis</a>
+            </div>
+
+        </form>
+
+        <!-- ===== REGISTER FORM ===== -->
+        <form class="form" id="registerForm" onsubmit="handleRegister(event)">
+
+            <div id="registerAlert" class="alert"></div>
+
+            <div class="field">
+                <label>👤 Nombre Completo</label>
+                <input type="text" id="regName" placeholder="Tu nombre completo" required>
+            </div>
+
+            <div class="field">
+                <label>📧 Correo Electrónico</label>
+                <input type="email" id="regEmail" placeholder="tu@correo.com" required>
+            </div>
+
+            <div class="field">
+                <label>📱 WhatsApp</label>
+                <input type="tel" id="regPhone" placeholder="+56 9 XXXX XXXX">
+            </div>
+
+            <div class="field">
+                <label>🔒 Contraseña</label>
+                <div class="input-wrapper">
+                    <input type="password" id="regPass" placeholder="Mínimo 6 caracteres" required minlength="6">
+                    <button type="button" class="toggle-pass" onclick="togglePassword('regPass', this)">👁️</button>
+                </div>
+            </div>
+
+            <!-- PLANES -->
+            <div class="field">
+                <label>💎 Elige tu Plan</label>
+                <div class="plans">
+                    <div class="plan-card selected" onclick="selectPlan(this, 'basico', 49900)">
+                        <div class="plan-name">Básico</div>
+                        <div class="plan-price">$49.900</div>
+                        <div class="plan-period">Pago único</div>
+                    </div>
+                    <div class="plan-card" onclick="selectPlan(this, 'premium', 89900)">
+                        <div class="plan-name">Premium</div>
+                        <div class="plan-price">$89.900</div>
+                        <div class="plan-period">Pago único</div>
+                        <div class="plan-badge">⭐ RECOMENDADO</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading" id="registerLoading">
+                <div class="spinner"></div>
+                <p style="color:var(--text2);font-size:13px;">Creando tu cuenta...</p>
+            </div>
+
+            <button type="submit" class="btn-primary" id="registerBtn">
+                ✨ Crear Cuenta y Continuar al Pago
+            </button>
+
+            <div class="card-footer" style="margin-top:15px;">
+                Al registrarte aceptas nuestros
+                <a href="#">Términos y Condiciones</a> y
+                <a href="#">Política de Privacidad</a>
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- INFO ABAJO -->
+    <div style="text-align:center; margin-top:20px;">
+        <p style="font-size:11px; color:#555;">
+            🔒 Conexión segura SSL · 💳 Pago seguro · 📱 App incluida
+        </p>
+    </div>
+
+</div>
+
+<script>
+    // =====================
+    // ESTADO
+    // =====================
+    let selectedPlan = { name: 'basico', price: 49900 };
+    let deferredPrompt;
+
+    // =====================
+    // TABS
+    // =====================
+    function switchTab(tab) {
+        document.querySelectorAll('.tab').forEach((t, i) => {
+            t.classList.toggle('active', (i === 0 && tab === 'login') || (i === 1 && tab === 'register'));
+        });
+        document.getElementById('loginForm').classList.toggle('active', tab === 'login');
+        document.getElementById('registerForm').classList.toggle('active', tab === 'register');
+        clearAlerts();
+    }
+
+    // =====================
+    // LOGIN
+    // =====================
+    function handleLogin(e) {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const pass = document.getElementById('loginPass').value;
+        const remember = document.getElementById('rememberMe').checked;
+
+        showLoading('loginLoading', 'loginBtn');
+
+        setTimeout(() => {
+            hideLoading('loginLoading', 'loginBtn', '🚀 Ingresar al Curso');
+
+            // Verificar usuarios registrados
+            const users = JSON.parse(localStorage.getItem('prp5g_users') || '[]');
+            const user = users.find(u => u.email === email && u.password === pass);
+
+            // Usuario demo
+            if (email === 'demo@prp5g.com' && pass === 'demo123') {
+                loginSuccess({ name: 'Usuario Demo', email, plan: 'premium' }, remember);
+                return;
+            }
+
+            if (user) {
+                // Verificar si pagó
+                if (!user.paid) {
+                    window.location.href = `payment.html?email=${encodeURIComponent(email)}&plan=${user.plan}&price=${user.planPrice}`;
+                    return;
+                }
+                loginSuccess(user, remember);
+            } else {
+                showAlert('loginAlert', 'error', '❌ Correo o contraseña incorrectos');
+            }
+        }, 1500);
+    }
+
+    function loginSuccess(user, remember) {
+        const storage = remember ? localStorage : sessionStorage;
+        storage.setItem('prp5g_session', JSON.stringify(user));
+        showAlert('loginAlert', 'success', `✅ ¡Bienvenida ${user.name}! Redirigiendo...`);
+        setTimeout(() => { window.location.href = 'dashboard.html'; }, 1200);
+    }
+
+    // =====================
+    // REGISTRO
+    // =====================
+    function handleRegister(e) {
+        e.preventDefault();
+        const name = document.getElementById('regName').value;
+        const email = document.getElementById('regEmail').value;
+        const phone = document.getElementById('regPhone').value;
+        const pass = document.getElementById('regPass').value;
+
+        if (pass.length < 6) {
+            showAlert('registerAlert', 'error', '❌ La contraseña debe tener al menos 6 caracteres');
+            return;
+        }
+
+        showLoading('registerLoading', 'registerBtn');
+
+        setTimeout(() => {
+            hideLoading('registerLoading', 'registerBtn', '✨ Crear Cuenta y Continuar al Pago');
+
+            const users = JSON.parse(localStorage.getItem('prp5g_users') || '[]');
+
+            if (users.find(u => u.email === email)) {
+                showAlert('registerAlert', 'error', '❌ Este correo ya está registrado');
+                return;
+            }
+
+            const newUser = {
+                name, email, phone, password: pass,
+                plan: selectedPlan.name,
+                planPrice: selectedPlan.price,
+                paid: false,
+                createdAt: new Date().toISOString()
+            };
+
+            users.push(newUser);
+            localStorage.setItem('prp5g_users', JSON.stringify(users));
+
+            showAlert('registerAlert', 'success', '✅ ¡Cuenta creada! Redirigiendo al pago...');
+
+            setTimeout(() => {
+                window.location.href = `payment.html?email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&plan=${selectedPlan.name}&price=${selectedPlan.price}`;
+            }, 1200);
+        }, 1500);
+    }
+
+    // =====================
+    // PLAN SELECTOR
+    // =====================
+    function selectPlan(el, name, price) {
+        document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        selectedPlan = { name, price };
+    }
+
+    // =====================
+    // SOCIAL LOGIN
+    // =====================
+    function socialLogin(provider) {
+        showAlert('loginAlert', 'success', `✅ Conectando con ${provider}...`);
+        setTimeout(() => {
+            const fakeUser = { name: `Usuario ${provider}`, email: `user@${provider.toLowerCase()}.com`, plan: 'basico', paid: true };
+            sessionStorage.setItem('prp5g_session', JSON.stringify(fakeUser));
+            window.location.href = 'dashboard.html';
+        }, 1500);
+    }
+
+    // =====================
+    // RECUPERAR CONTRASEÑA
+    // =====================
+    function openForgot() {
+        document.getElementById('forgotModal').classList.add('active');
+    }
+
+    function sendRecovery() {
+        const email = document.getElementById('forgotEmail').value;
+        if (!email) return;
+        const alert = document.getElementById('forgotAlert');
+        alert.className = 'alert success';
+        alert.innerHTML = '✅ Instrucciones enviadas a ' + email;
+        alert.style.display = 'flex';
+    }
+
+    // =====================
+    // HELPERS
+    // =====================
+    function togglePassword(inputId, btn) {
+        const input = document.getElementById(inputId);
+        input.type = input.type === 'password' ? 'text' : 'password';
+        btn.textContent = input.type === 'password' ? '👁️' : '🙈';
+    }
+
+    function showAlert(id, type, msg) {
+        const el = document.getElementById(id);
+        el.className = 'alert ' + type;
+        el.innerHTML = msg;
+        el.style.display = 'flex';
+    }
+
+    function clearAlerts() {
+        document.querySelectorAll('.alert').forEach(a => a.style.display = 'none');
+    }
+
+    function showLoading(loadId, btnId) {
+        document.getElementById(loadId).style.display = 'block';
+        document.getElementById(btnId).style.display = 'none';
+    }
+
+    function hideLoading(loadId, btnId, btnText) {
+        document.getElementById(loadId).style.display = 'none';
+        const btn = document.getElementById(btnId);
+        btn.style.display = 'block';
+        btn.textContent = btnText;
+    }
+
+    // =====================
+    // PWA INSTALL
+    // =====================
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        document.getElementById('pwaBanner').classList.add('show');
+    });
+
+    document.getElementById('installBtn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            document.getElementById('pwaBanner').classList.remove('show');
+        }
+    });
+
+    // Verificar sesión activa
+    const session = localStorage.getItem('prp5g_session') || sessionStorage.getItem('prp5g_session');
+    if (session) {
+        window.location.href = 'dashboard.html';
+    }
+</script>
+
+</body>
+</html>
