@@ -4346,6 +4346,75 @@
     let currentLesson = 'home';
     let quizAnswers = {};
 
+    // ============================
+    // VERIFICAR ACCESO 12 MESES
+    // ============================
+    function checkAccess() {
+        const session = localStorage.getItem('prp5g_session') || sessionStorage.getItem('prp5g_session');
+        if (!session) {
+            window.location.href = 'index.html';
+            return false;
+        }
+        const user = JSON.parse(session);
+        if (user.paidAt) {
+            const paidDate = new Date(user.paidAt);
+            const now = new Date();
+            const diffDays = Math.floor((now - paidDate) / (1000 * 60 * 60 * 24));
+            const daysLeft = 365 - diffDays;
+            if (daysLeft <= 0) {
+                showAccessExpired();
+                return false;
+            }
+            showAccessBanner(daysLeft);
+        }
+        return true;
+    }
+
+    function showAccessBanner(daysLeft) {
+        const banner = document.createElement('div');
+        const color = daysLeft <= 30 ? '#e74c3c' : daysLeft <= 60 ? '#f39c12' : '#2ecc71';
+        banner.style.cssText = `
+            position: fixed; bottom: 20px; right: 20px;
+            background: #111; border: 1px solid ${color};
+            border-radius: 12px; padding: 12px 18px;
+            font-size: 12px; color: ${color};
+            z-index: 999; box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        `;
+        banner.innerHTML = `⏰ <strong>${daysLeft} days</strong> of access remaining`;
+        document.body.appendChild(banner);
+        setTimeout(() => banner.remove(), 6000);
+    }
+
+    function showAccessExpired() {
+        document.body.innerHTML = `
+            <div style="min-height:100vh;background:#0a0a0a;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',sans-serif;">
+                <div style="text-align:center;padding:40px;background:#111;border:2px solid #e74c3c;border-radius:20px;max-width:420px;">
+                    <div style="font-size:60px;margin-bottom:20px;">⏰</div>
+                    <h2 style="color:#e74c3c;margin-bottom:10px;">Access Expired</h2>
+                    <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:25px;">
+                        Your 12-month access to PRP 5G Academy has expired.<br>
+                        Renew now to continue learning.
+                    </p>
+                    <a href="payment.html?plan=renewal&price=97"
+                        style="display:inline-block;padding:14px 30px;background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;">
+                        🔄 Renew Access — $97 USD
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+
+    // ============================
+    // CERTIFICADO BLOQUEADO
+    // ============================
+    function isCourseComplete() {
+        const requiredLessons = allLessons.filter(l => l !== 'certificate');
+        return requiredLessons.every(l => completedLessons.includes(l));
+    }
+
+    // ============================
+    // NAVEGACIÓN
+    // ============================
     function toggleSidebar() {
         document.getElementById('sidebar').classList.toggle('open');
         document.getElementById('overlay').classList.toggle('active');
@@ -4362,6 +4431,14 @@
     }
 
     function showPage(id) {
+        // Bloquear certificado si no completó todo
+        if (id === 'certificate') {
+            if (!isCourseComplete()) {
+                showCertificateLocked();
+                return;
+            }
+        }
+
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         const page = document.getElementById('page-' + id);
         if (page) {
@@ -4376,41 +4453,41 @@
         if (navItem) navItem.classList.add('active');
 
         const titles = {
-            'home': 'Inicio del Curso',
-            'l0-1': 'Bienvenida al curso',
-            'l0-2': 'Metodología de estudio',
-            'l0-3': 'Materiales necesarios',
-            'l1-1': 'Historia y evolución del PRP',
-            'l1-2': 'Biología plaquetaria',
-            'l1-3': 'Factores de crecimiento',
-            'l1-4': 'Regeneración tisular',
-            'quiz1': 'Evaluación Módulo 1',
-            'l2-1': 'PRP 1G al 3G',
-            'l2-2': 'PRP 4G — Biorreactor',
-            'l2-3': 'PRP 5G — Tecnología total',
-            'l2-4': 'Comparativa generacional',
-            'quiz2': 'Evaluación Módulo 2',
-            'l3-1': 'Nanotecnología en PRP',
-            'l3-2': 'Exosomas y vesículas',
-            'l3-3': 'Inteligencia Artificial',
-            'l3-4': 'Sistemas de centrifugación',
-            'quiz3': 'Evaluación Módulo 3',
-            'l4-1': 'Selección del paciente',
-            'l4-2': 'Extracción y procesamiento',
-            'l4-3': 'Activación avanzada',
-            'l4-4': 'Técnicas de aplicación',
-            'quiz4': 'Evaluación Módulo 4',
-            'l5-1': 'Rejuvenecimiento facial',
-            'l5-2': 'Acné y cicatrices',
+            'home': 'Course Home',
+            'l0-1': 'Welcome to the course',
+            'l0-2': 'Study methodology',
+            'l0-3': 'Required materials',
+            'l1-1': 'History and evolution of PRP',
+            'l1-2': 'Platelet biology',
+            'l1-3': 'Growth factors',
+            'l1-4': 'Tissue regeneration',
+            'quiz1': 'Module 1 Evaluation',
+            'l2-1': 'PRP 1G to 3G',
+            'l2-2': 'PRP 4G — Bioreactor',
+            'l2-3': 'PRP 5G — Total technology',
+            'l2-4': 'Generational comparison',
+            'quiz2': 'Module 2 Evaluation',
+            'l3-1': 'Nanotechnology in PRP',
+            'l3-2': 'Exosomes and vesicles',
+            'l3-3': 'Artificial Intelligence',
+            'l3-4': 'Centrifugation systems',
+            'quiz3': 'Module 3 Evaluation',
+            'l4-1': 'Patient selection',
+            'l4-2': 'Extraction and processing',
+            'l4-3': 'Advanced activation',
+            'l4-4': 'Application techniques',
+            'quiz4': 'Module 4 Evaluation',
+            'l5-1': 'Facial rejuvenation',
+            'l5-2': 'Acne and scars',
             'l5-3': 'Alopecia',
-            'l5-4': 'Zona periocular',
-            'quiz5': 'Evaluación Módulo 5',
-            'l6-1': 'Contraindicaciones absolutas',
-            'l6-2': 'Efectos adversos y manejo',
-            'l6-3': 'Bioseguridad avanzada',
-            'quiz6': 'Evaluación Módulo 6',
-            'final-exam': 'Examen Final',
-            'certificate': 'Mi Certificado'
+            'l5-4': 'Periocular zone',
+            'quiz5': 'Module 5 Evaluation',
+            'l6-1': 'Absolute contraindications',
+            'l6-2': 'Adverse effects and management',
+            'l6-3': 'Advanced biosafety',
+            'quiz6': 'Module 6 Evaluation',
+            'final-exam': 'Final Exam',
+            'certificate': 'My Certificate'
         };
 
         document.getElementById('currentLessonTitle').textContent = titles[id] || id;
@@ -4419,9 +4496,56 @@
         closeSidebar();
 
         if (id === 'certificate') {
-            document.getElementById('certDate').textContent = new Date().toLocaleDateString('es-ES', {year:'numeric',month:'long',day:'numeric'});
+            document.getElementById('certDate').textContent = new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
             document.getElementById('certCode').textContent = 'PRP5G-' + Math.random().toString(36).substr(2,8).toUpperCase();
         }
+    }
+
+    function showCertificateLocked() {
+        const total = allLessons.filter(l => l !== 'certificate').length;
+        const done = completedLessons.length;
+        const pct = Math.round((done / total) * 100);
+        const remaining = total - done;
+
+        // Mostrar modal de bloqueo
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        `;
+        modal.innerHTML = `
+            <div style="background:#111;border:2px solid #c9a84c;border-radius:20px;padding:40px;text-align:center;max-width:400px;width:90%;">
+                <div style="font-size:60px;margin-bottom:15px;">🔒</div>
+                <h2 style="color:#c9a84c;font-size:22px;margin-bottom:10px;">Certificate Locked</h2>
+                <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:20px;">
+                    You must complete <strong style="color:white;">100% of the course</strong> to download your certificate.
+                </p>
+                <div style="background:#1a1a1a;border-radius:10px;padding:15px;margin-bottom:20px;">
+                    <div style="display:flex;justify-content:space-between;font-size:13px;color:#aaa;margin-bottom:8px;">
+                        <span>Progress</span>
+                        <span style="color:#c9a84c;font-weight:700;">${pct}%</span>
+                    </div>
+                    <div style="background:#333;border-radius:10px;height:8px;overflow:hidden;">
+                        <div style="width:${pct}%;height:100%;background:linear-gradient(90deg,#c9a84c,#f0d080);border-radius:10px;"></div>
+                    </div>
+                    <p style="color:#aaa;font-size:12px;margin-top:8px;">
+                        ${remaining} lesson${remaining !== 1 ? 's' : ''} remaining to complete
+                    </p>
+                </div>
+                <button onclick="this.closest('div[style]').remove()"
+                    style="padding:12px 30px;background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border:none;border-radius:12px;font-weight:700;cursor:pointer;font-size:14px;">
+                    📚 Continue Learning
+                </button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.remove();
+        });
     }
 
     function prevLesson() {
@@ -4442,13 +4566,50 @@
         }
         const btn = document.getElementById('complete-' + id);
         if (btn) {
-            btn.textContent = '✅ Completada';
+            btn.textContent = '✅ Completed';
             btn.classList.add('done');
         }
         const navItem = document.getElementById('nav-' + id);
         if (navItem) navItem.classList.add('completed');
         updateProgress();
-        setTimeout(() => nextLesson(), 800);
+
+        // Si completó todo el curso mostrar mensaje especial
+        if (isCourseComplete()) {
+            setTimeout(() => showCourseCompleteMessage(), 500);
+        } else {
+            setTimeout(() => nextLesson(), 800);
+        }
+    }
+
+    function showCourseCompleteMessage() {
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        `;
+        modal.innerHTML = `
+            <div style="background:#111;border:2px solid #2ecc71;border-radius:20px;padding:50px 40px;text-align:center;max-width:420px;width:90%;">
+                <div style="font-size:70px;margin-bottom:20px;animation:bounce 0.6s ease;">🎉</div>
+                <h2 style="color:#2ecc71;font-size:26px;margin-bottom:10px;">Course Complete!</h2>
+                <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:25px;">
+                    Congratulations! You have completed <strong style="color:white;">100%</strong> of PRP 5G Academy.<br><br>
+                    Your certificate is now available to download!
+                </p>
+                <button onclick="this.closest('div[style]').remove(); showPage('certificate')"
+                    style="width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border:none;border-radius:12px;font-weight:800;cursor:pointer;font-size:16px;margin-bottom:10px;">
+                    🏆 Download My Certificate
+                </button>
+                <button onclick="this.closest('div[style]').remove()"
+                    style="width:100%;padding:12px;background:none;border:1px solid #333;border-radius:12px;color:#aaa;cursor:pointer;font-size:14px;">
+                    Close
+                </button>
+            </div>
+        `;
+        document.body.appendChild(modal);
     }
 
     function updateProgress() {
@@ -4456,16 +4617,27 @@
         const done = completedLessons.length;
         const pct = Math.round((done / total) * 100);
         document.getElementById('progressFill').style.width = pct + '%';
-        document.getElementById('progressPercent').textContent = pct + '% completado';
+        document.getElementById('progressPercent').textContent = pct + '% completed';
         completedLessons.forEach(id => {
             const navItem = document.getElementById('nav-' + id);
             if (navItem) navItem.classList.add('completed');
             const btn = document.getElementById('complete-' + id);
             if (btn) {
-                btn.textContent = '✅ Completada';
+                btn.textContent = '✅ Completed';
                 btn.classList.add('done');
             }
         });
+
+        // Actualizar ícono del certificado en sidebar
+        const certNav = document.getElementById('nav-certificate');
+        if (certNav) {
+            if (isCourseComplete()) {
+                certNav.style.color = '#c9a84c';
+                certNav.innerHTML = certNav.innerHTML.replace('🎓', '🏆');
+            } else {
+                certNav.style.opacity = '0.5';
+            }
+        }
     }
 
     function selectOption(el, qName, val) {
@@ -4503,11 +4675,11 @@
         resultEl.style.display = 'block';
         if (pct >= 70) {
             resultEl.className = 'quiz-result pass';
-            resultEl.innerHTML = '🎉 ¡Excelente! Obtuviste ' + correct + '/' + total + ' (' + pct + '%) — ¡APROBADO!';
+            resultEl.innerHTML = '🎉 Excellent! You scored ' + correct + '/' + total + ' (' + pct + '%) — PASSED!';
             completeLesson(quizId);
         } else {
             resultEl.className = 'quiz-result fail';
-            resultEl.innerHTML = '❌ Obtuviste ' + correct + '/' + total + ' (' + pct + '%) — Necesitas 70% para aprobar.';
+            resultEl.innerHTML = '❌ You scored ' + correct + '/' + total + ' (' + pct + '%) — You need 70% to pass. Try again!';
         }
     }
 
@@ -4535,29 +4707,30 @@
         resultEl.style.display = 'block';
         if (pct >= 80) {
             resultEl.className = 'quiz-result pass';
-            resultEl.innerHTML = '🏆 ¡FELICITACIONES! Obtuviste ' + score + '/' + correct.length + ' (' + pct + '%) — ¡CERTIFICADO DESBLOQUEADO!<br><br>' +
-                '<button onclick="showPage(\'certificate\')" style="background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border:none;padding:12px 25px;border-radius:20px;font-weight:700;cursor:pointer;margin-top:10px;">🎓 Ver mi Certificado</button>';
+            resultEl.innerHTML = '🏆 CONGRATULATIONS! You scored ' + score + '/' + correct.length + ' (' + pct + '%) — CERTIFICATE UNLOCKED!<br><br>' +
+                '<button onclick="showPage(\'certificate\')" style="background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border:none;padding:12px 25px;border-radius:20px;font-weight:700;cursor:pointer;margin-top:10px;">🎓 View My Certificate</button>';
             completeLesson('final-exam');
         } else {
             resultEl.className = 'quiz-result fail';
-            resultEl.innerHTML = '❌ Obtuviste ' + score + '/' + correct.length + ' (' + pct + '%) — Necesitas 80% para certificarte.';
+            resultEl.innerHTML = '❌ You scored ' + score + '/' + correct.length + ' (' + pct + '%) — You need 80% to get certified. Try again!';
         }
     }
 
     function updateCertName(name) {
-        document.getElementById('certName').textContent = name || 'Profesional del Curso';
+        document.getElementById('certName').textContent = name || 'Course Professional';
     }
 
     function playVideo(el) {
         const playBtn = el.querySelector('.play-btn');
         const title = el.querySelector('.video-title');
         if(playBtn) playBtn.textContent = '⏸';
-        if(title) title.textContent = '▶ Reproduciendo...';
+        if(title) title.textContent = '▶ Playing...';
         el.style.borderColor = 'var(--gold)';
         el.style.background = 'linear-gradient(135deg, #1a1500, #0a0a0a)';
     }
 
     window.onload = function() {
+        checkAccess();
         updateProgress();
         toggleModule('mod0');
         toggleModule('mod1');
