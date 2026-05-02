@@ -6,498 +6,99 @@
     <title>Secure Payment — PRP 5G Academy</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
-            --gold: #c9a84c;
-            --gold-light: #f0d080;
-            --dark: #0a0a0a;
-            --dark2: #111111;
-            --dark3: #1a1a1a;
-            --text: #e0e0e0;
-            --text2: #aaaaaa;
-            --green: #2ecc71;
-            --red: #e74c3c;
+            --gold: #c9a84c; --gold-light: #f0d080;
+            --dark: #0a0a0a; --dark2: #111111; --dark3: #1a1a1a;
+            --text: #e0e0e0; --text2: #aaaaaa;
+            --green: #2ecc71; --red: #e74c3c;
         }
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: var(--dark);
-            color: var(--text);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .payment-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .pay-header {
-            text-align: center;
-            padding: 30px 20px;
-            margin-bottom: 30px;
-        }
-
-        .pay-header h1 {
-            font-size: 24px;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .pay-header p {
-            color: var(--text2);
-            font-size: 14px;
-        }
-
-        .secure-badges {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .secure-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--dark2);
-            border: 1px solid #2a2a2a;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            color: var(--text2);
-        }
-
-        .pay-grid {
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 25px;
-        }
-
-        .pay-card {
-            background: var(--dark2);
-            border: 1px solid #2a2a2a;
-            border-radius: 16px;
-            padding: 28px;
-            margin-bottom: 20px;
-        }
-
-        .pay-card h2 {
-            font-size: 16px;
-            color: var(--gold);
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #2a2a2a;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 22px;
-        }
-
-        .method-btn {
-            padding: 14px 10px;
-            border: 1.5px solid #2a2a2a;
-            border-radius: 12px;
-            background: var(--dark3);
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .method-btn:hover, .method-btn.active {
-            border-color: var(--gold);
-            background: rgba(201,168,76,0.08);
-        }
-
+        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; padding: 20px; }
+        .payment-container { max-width: 900px; margin: 0 auto; }
+        .pay-header { text-align: center; padding: 30px 20px; margin-bottom: 30px; }
+        .pay-header h1 { font-size: 24px; font-weight: 800; color: white; margin-bottom: 8px; }
+        .pay-header p { color: var(--text2); font-size: 14px; }
+        .secure-badges { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
+        .secure-badge { display: flex; align-items: center; gap: 6px; background: var(--dark2); border: 1px solid #2a2a2a; padding: 6px 14px; border-radius: 20px; font-size: 12px; color: var(--text2); }
+        .pay-grid { display: grid; grid-template-columns: 1fr 380px; gap: 25px; }
+        .pay-card { background: var(--dark2); border: 1px solid #2a2a2a; border-radius: 16px; padding: 28px; margin-bottom: 20px; }
+        .pay-card h2 { font-size: 16px; color: var(--gold); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #2a2a2a; display: flex; align-items: center; gap: 8px; }
+        .payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 22px; }
+        .method-btn { padding: 14px 10px; border: 1.5px solid #2a2a2a; border-radius: 12px; background: var(--dark3); cursor: pointer; text-align: center; transition: all 0.3s; }
+        .method-btn:hover, .method-btn.active { border-color: var(--gold); background: rgba(201,168,76,0.08); }
         .method-btn .method-icon { font-size: 22px; margin-bottom: 5px; }
         .method-btn .method-name { font-size: 12px; color: var(--text2); font-weight: 600; }
         .method-btn.active .method-name { color: var(--gold); }
-
         .payment-form { display: none; }
         .payment-form.active { display: block; }
-
         .field { margin-bottom: 16px; }
-
-        .field label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 7px;
-        }
-
-        .field input, .field select {
-            width: 100%;
-            padding: 12px 15px;
-            background: var(--dark3);
-            border: 1.5px solid #2a2a2a;
-            border-radius: 10px;
-            color: var(--text);
-            font-size: 14px;
-            outline: none;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-
-        .field input:focus, .field select:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
-        }
-
+        .field label { display: block; font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 7px; }
+        .field input, .field select { width: 100%; padding: 12px 15px; background: var(--dark3); border: 1.5px solid #2a2a2a; border-radius: 10px; color: var(--text); font-size: 14px; outline: none; transition: all 0.3s; font-family: inherit; }
+        .field input:focus, .field select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
         .field select option { background: var(--dark3); }
-
-        .field-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .card-visual {
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-            min-height: 180px;
-        }
-
-        .card-visual::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(201,168,76,0.15), transparent);
-            border-radius: 50%;
-        }
-
-        .card-chip {
-            width: 45px;
-            height: 35px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            border-radius: 6px;
-            margin-bottom: 20px;
-        }
-
-        .card-number-display {
-            font-size: 18px;
-            letter-spacing: 3px;
-            color: white;
-            margin-bottom: 15px;
-            font-family: monospace;
-        }
-
-        .card-info-row {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .card-info-item .label {
-            font-size: 10px;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            margin-bottom: 3px;
-        }
-
-        .card-info-item .value {
-            font-size: 14px;
-            color: white;
-            font-weight: 600;
-        }
-
-        .transfer-info {
-            background: var(--dark3);
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .transfer-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #2a2a2a;
-            font-size: 14px;
-        }
-
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .card-visual { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); border-radius: 16px; padding: 25px; margin-bottom: 20px; position: relative; overflow: hidden; min-height: 180px; }
+        .card-visual::before { content: ''; position: absolute; top: -50%; right: -30%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(201,168,76,0.15), transparent); border-radius: 50%; }
+        .card-chip { width: 45px; height: 35px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 6px; margin-bottom: 20px; }
+        .card-number-display { font-size: 18px; letter-spacing: 3px; color: white; margin-bottom: 15px; font-family: monospace; }
+        .card-info-row { display: flex; justify-content: space-between; }
+        .card-info-item .label { font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 3px; }
+        .card-info-item .value { font-size: 14px; color: white; font-weight: 600; }
+        .transfer-info { background: var(--dark3); border: 1px solid #2a2a2a; border-radius: 12px; padding: 20px; }
+        .transfer-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2a2a2a; font-size: 14px; }
         .transfer-row:last-child { border-bottom: none; }
         .transfer-row .label { color: var(--text2); }
         .transfer-row .value { color: white; font-weight: 600; }
-        .transfer-row .value.copyable {
-            color: var(--gold);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .order-summary {
-            position: sticky;
-            top: 20px;
-        }
-
-        .summary-item {
-            display: flex;
-            gap: 15px;
-            padding: 15px 0;
-            border-bottom: 1px solid #2a2a2a;
-        }
-
-        .summary-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
-        }
-
-        .summary-details h3 {
-            font-size: 14px;
-            color: white;
-            margin-bottom: 4px;
-        }
-
-        .summary-details p {
-            font-size: 12px;
-            color: var(--text2);
-            line-height: 1.5;
-        }
-
+        .transfer-row .value.copyable { color: var(--gold); cursor: pointer; display: flex; align-items: center; gap: 6px; }
+        .order-summary { position: sticky; top: 20px; }
+        .summary-item { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #2a2a2a; }
+        .summary-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+        .summary-details h3 { font-size: 14px; color: white; margin-bottom: 4px; }
+        .summary-details p { font-size: 12px; color: var(--text2); line-height: 1.5; }
         .price-breakdown { padding: 15px 0; }
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            font-size: 14px;
-        }
-
+        .price-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; }
         .price-row .label { color: var(--text2); }
         .price-row .value { color: var(--text); font-weight: 600; }
-
-        .price-row.total {
-            border-top: 1px solid #2a2a2a;
-            margin-top: 8px;
-            padding-top: 15px;
-        }
-
+        .price-row.total { border-top: 1px solid #2a2a2a; margin-top: 8px; padding-top: 15px; }
         .price-row.total .label { color: white; font-size: 16px; font-weight: 700; }
         .price-row.total .value { color: var(--gold); font-size: 22px; font-weight: 800; }
-
-        .discount-row {
-            display: flex;
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .discount-row input {
-            flex: 1;
-            padding: 10px 14px;
-            background: var(--dark3);
-            border: 1.5px solid #2a2a2a;
-            border-radius: 10px;
-            color: var(--text);
-            font-size: 13px;
-            outline: none;
-            font-family: inherit;
-        }
-
+        .discount-row { display: flex; gap: 10px; margin: 15px 0; }
+        .discount-row input { flex: 1; padding: 10px 14px; background: var(--dark3); border: 1.5px solid #2a2a2a; border-radius: 10px; color: var(--text); font-size: 13px; outline: none; font-family: inherit; }
         .discount-row input:focus { border-color: var(--gold); }
-
-        .btn-discount {
-            padding: 10px 16px;
-            background: var(--dark3);
-            border: 1.5px solid var(--gold);
-            border-radius: 10px;
-            color: var(--gold);
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .includes-list {
-            list-style: none;
-            padding: 15px 0;
-        }
-
-        .includes-list li {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: var(--text2);
-            padding: 5px 0;
-        }
-
-        .includes-list li::before {
-            content: '✓';
-            color: var(--green);
-            font-weight: 700;
-        }
-
-        .btn-pay {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            color: var(--dark);
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 5px;
-        }
-
-        .btn-pay:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201,168,76,0.4);
-        }
-
-        .garantia {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background: rgba(46,204,113,0.05);
-            border: 1px solid rgba(46,204,113,0.2);
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-
+        .btn-discount { padding: 10px 16px; background: var(--dark3); border: 1.5px solid var(--gold); border-radius: 10px; color: var(--gold); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+        .includes-list { list-style: none; padding: 15px 0; }
+        .includes-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text2); padding: 5px 0; }
+        .includes-list li::before { content: '✓'; color: var(--green); font-weight: 700; }
+        .btn-pay { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--dark); border: none; border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; transition: all 0.3s; margin-top: 5px; }
+        .btn-pay:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.4); }
+        .garantia { display: flex; align-items: flex-start; gap: 12px; background: rgba(46,204,113,0.05); border: 1px solid rgba(46,204,113,0.2); border-radius: 12px; padding: 15px; margin-top: 15px; }
         .garantia-icon { font-size: 28px; }
-
-        .garantia-text h4 {
-            font-size: 14px;
-            color: var(--green);
-            margin-bottom: 4px;
-        }
-
-        .garantia-text p {
-            font-size: 12px;
-            color: var(--text2);
-            line-height: 1.5;
-        }
-
-        .success-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
+        .garantia-text h4 { font-size: 14px; color: var(--green); margin-bottom: 4px; }
+        .garantia-text p { font-size: 12px; color: var(--text2); line-height: 1.5; }
+        .success-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; }
         .success-modal.active { display: flex; }
-
-        .success-box {
-            background: var(--dark2);
-            border: 2px solid var(--green);
-            border-radius: 20px;
-            padding: 50px 40px;
-            text-align: center;
-            max-width: 420px;
-            width: 90%;
-        }
-
-        .success-box .success-icon {
-            font-size: 70px;
-            margin-bottom: 20px;
-            animation: bounce 0.6s ease;
-        }
-
-        @keyframes bounce {
-            0% { transform: scale(0); }
-            60% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        .success-box h2 {
-            font-size: 24px;
-            color: var(--green);
-            margin-bottom: 10px;
-        }
-
-        .success-box p {
-            color: var(--text2);
-            font-size: 14px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .loading-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.8);
-            z-index: 999;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 20px;
-        }
-
+        .success-box { background: var(--dark2); border: 2px solid var(--green); border-radius: 20px; padding: 50px 40px; text-align: center; max-width: 420px; width: 90%; }
+        .success-box .success-icon { font-size: 70px; margin-bottom: 20px; animation: bounce 0.6s ease; }
+        @keyframes bounce { 0% { transform: scale(0); } 60% { transform: scale(1.2); } 100% { transform: scale(1); } }
+        .success-box h2 { font-size: 24px; color: var(--green); margin-bottom: 10px; }
+        .success-box p { color: var(--text2); font-size: 14px; line-height: 1.7; margin-bottom: 25px; }
+        .loading-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 999; align-items: center; justify-content: center; flex-direction: column; gap: 20px; }
         .loading-overlay.active { display: flex; }
-
-        .big-spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid #333;
-            border-top-color: var(--gold);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
+        .big-spinner { width: 60px; height: 60px; border: 4px solid #333; border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
-
         .loading-overlay p { color: var(--text2); font-size: 16px; }
-
-        .loading-overlay .loading-steps {
-            color: var(--text2);
-            font-size: 14px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .pay-grid { grid-template-columns: 1fr; }
-            .payment-methods { grid-template-columns: repeat(3, 1fr); }
-            .order-summary { position: static; }
-        }
-
-        @media (max-width: 480px) {
-            .payment-methods { grid-template-columns: 1fr 1fr; }
-            .field-row { grid-template-columns: 1fr; }
-        }
+        .loading-overlay .loading-steps { color: var(--text2); font-size: 14px; text-align: center; }
+        @media (max-width: 768px) { .pay-grid { grid-template-columns: 1fr; } .payment-methods { grid-template-columns: repeat(3, 1fr); } .order-summary { position: static; } }
+        @media (max-width: 480px) { .payment-methods { grid-template-columns: 1fr 1fr; } .field-row { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-<!-- LOADING OVERLAY -->
 <div class="loading-overlay" id="loadingOverlay">
     <div class="big-spinner"></div>
     <p>Processing your payment...</p>
     <div class="loading-steps" id="loadingSteps">Verifying data...</div>
 </div>
 
-<!-- SUCCESS MODAL -->
 <div class="success-modal" id="successModal">
     <div class="success-box">
         <div class="success-icon">🎉</div>
@@ -505,19 +106,16 @@
         <p>Your course access has been activated.<br>
         You will receive a confirmation email with your access details.<br><br>
         <strong style="color:var(--gold)">Welcome to PRP 5G Academy!</strong></p>
-        <button class="btn-pay" onclick="goToCourse()">
-            🚀 Start the Course Now
-        </button>
+        <button class="btn-pay" onclick="goToCourse()">🚀 Start the Course Now</button>
     </div>
 </div>
 
 <div class="payment-container">
 
-    <!-- HEADER -->
     <div class="pay-header">
         <div style="font-size:30px; margin-bottom:10px;">🔐</div>
         <h1>Secure Payment — PRP 5G Academy</h1>
-        <p>Complete your registration and get immediate access to the course</p>
+        <p>Complete your registration and get immediate 12-month access to the course</p>
         <div class="secure-badges">
             <div class="secure-badge">🔒 SSL Encrypted</div>
             <div class="secure-badge">✅ 100% Secure Payment</div>
@@ -527,10 +125,7 @@
     </div>
 
     <div class="pay-grid">
-
-        <!-- LEFT COLUMN: PAYMENT METHODS -->
         <div>
-
             <div class="pay-card">
                 <h2>💳 Payment Method</h2>
                 <div class="payment-methods">
@@ -556,7 +151,6 @@
                     </div>
                 </div>
 
-                <!-- CREDIT CARD -->
                 <div class="payment-form active" id="form-card">
                     <div class="card-visual" id="cardVisual">
                         <div class="card-chip"></div>
@@ -572,24 +166,18 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="field">
                         <label>Card Number</label>
-                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456"
-                            maxlength="19" oninput="formatCard(this)"
-                            onkeyup="document.getElementById('cardNumDisplay').textContent = this.value || '•••• •••• •••• ••••'">
+                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)" onkeyup="document.getElementById('cardNumDisplay').textContent = this.value || '•••• •••• •••• ••••'">
                     </div>
                     <div class="field">
                         <label>Name on Card</label>
-                        <input type="text" id="cardName" placeholder="Name as it appears on card"
-                            oninput="document.getElementById('cardNameDisplay').textContent = this.value.toUpperCase() || 'FULL NAME'">
+                        <input type="text" id="cardName" placeholder="Name as it appears on card" oninput="document.getElementById('cardNameDisplay').textContent = this.value.toUpperCase() || 'FULL NAME'">
                     </div>
                     <div class="field-row">
                         <div class="field">
                             <label>Expiration Date</label>
-                            <input type="text" id="cardExp" placeholder="MM/YY" maxlength="5"
-                                oninput="formatExp(this)"
-                                onkeyup="document.getElementById('cardExpDisplay').textContent = this.value || 'MM/YY'">
+                            <input type="text" id="cardExp" placeholder="MM/YY" maxlength="5" oninput="formatExp(this)" onkeyup="document.getElementById('cardExpDisplay').textContent = this.value || 'MM/YY'">
                         </div>
                         <div class="field">
                             <label>CVV</label>
@@ -607,39 +195,14 @@
                     </div>
                 </div>
 
-                <!-- WIRE TRANSFER -->
                 <div class="payment-form" id="form-transfer">
                     <div class="transfer-info">
-                        <div class="transfer-row">
-                            <span class="label">Bank</span>
-                            <span class="value">Bank of America</span>
-                        </div>
-                        <div class="transfer-row">
-                            <span class="label">Account Type</span>
-                            <span class="value">Checking Account</span>
-                        </div>
-                        <div class="transfer-row">
-                            <span class="label">Account Number</span>
-                            <span class="value copyable" onclick="copyText('123456789')">
-                                123456789 📋
-                            </span>
-                        </div>
-                        <div class="transfer-row">
-                            <span class="label">Routing Number</span>
-                            <span class="value copyable" onclick="copyText('021000021')">
-                                021000021 📋
-                            </span>
-                        </div>
-                        <div class="transfer-row">
-                            <span class="label">Account Name</span>
-                            <span class="value">PRP 5G Academy LLC</span>
-                        </div>
-                        <div class="transfer-row">
-                            <span class="label">Email for receipt</span>
-                            <span class="value copyable" onclick="copyText('payments@prp5gacademy.com')">
-                                payments@prp5gacademy.com 📋
-                            </span>
-                        </div>
+                        <div class="transfer-row"><span class="label">Bank</span><span class="value">Bank of America</span></div>
+                        <div class="transfer-row"><span class="label">Account Type</span><span class="value">Checking Account</span></div>
+                        <div class="transfer-row"><span class="label">Account Number</span><span class="value copyable" onclick="copyText('123456789')">123456789 📋</span></div>
+                        <div class="transfer-row"><span class="label">Routing Number</span><span class="value copyable" onclick="copyText('021000021')">021000021 📋</span></div>
+                        <div class="transfer-row"><span class="label">Account Name</span><span class="value">PRP 5G Academy LLC</span></div>
+                        <div class="transfer-row"><span class="label">Email for receipt</span><span class="value copyable" onclick="copyText('payments@prp5gacademy.com')">payments@prp5gacademy.com 📋</span></div>
                     </div>
                     <div style="margin-top:15px;">
                         <div class="field">
@@ -649,33 +212,24 @@
                     </div>
                 </div>
 
-                <!-- PAYPAL -->
                 <div class="payment-form" id="form-paypal">
                     <div style="text-align:center; padding:30px;">
                         <div style="font-size:50px; margin-bottom:15px;">🅿️</div>
                         <h3 style="color:white; margin-bottom:10px;">Pay with PayPal</h3>
                         <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">Pay securely with your PayPal account or international credit card.</p>
-                        <button onclick="redirectPayment('PayPal')"
-                            style="padding:14px 35px; background:linear-gradient(135deg,#003087,#009cde); border:none; border-radius:10px; color:white; font-weight:700; cursor:pointer; font-size:15px; width:100%;">
-                            🅿️ Continue with PayPal
-                        </button>
+                        <button onclick="redirectPayment('PayPal')" style="padding:14px 35px; background:linear-gradient(135deg,#003087,#009cde); border:none; border-radius:10px; color:white; font-weight:700; cursor:pointer; font-size:15px; width:100%;">🅿️ Continue with PayPal</button>
                     </div>
                 </div>
 
-                <!-- MERCADO PAGO -->
                 <div class="payment-form" id="form-mp">
                     <div style="text-align:center; padding:30px;">
                         <div style="font-size:50px; margin-bottom:15px;">💙</div>
                         <h3 style="color:white; margin-bottom:10px;">Mercado Pago</h3>
                         <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">Pay with Mercado Pago balance, card or cash at 1000+ payment points.</p>
-                        <button onclick="redirectPayment('Mercado Pago')"
-                            style="padding:14px 35px; background:linear-gradient(135deg,#009ee3,#00cbff); border:none; border-radius:10px; color:white; font-weight:700; cursor:pointer; font-size:15px; width:100%;">
-                            💙 Pay with Mercado Pago
-                        </button>
+                        <button onclick="redirectPayment('Mercado Pago')" style="padding:14px 35px; background:linear-gradient(135deg,#009ee3,#00cbff); border:none; border-radius:10px; color:white; font-weight:700; cursor:pointer; font-size:15px; width:100%;">💙 Pay with Mercado Pago</button>
                     </div>
                 </div>
 
-                <!-- CRYPTO -->
                 <div class="payment-form" id="form-crypto">
                     <div style="text-align:center; padding:30px;">
                         <div style="font-size:50px; margin-bottom:15px;">₿</div>
@@ -683,22 +237,18 @@
                         <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">We accept Bitcoin, Ethereum and USDT.</p>
                         <div style="background:var(--dark3); border:1px solid #2a2a2a; border-radius:12px; padding:20px;">
                             <p style="font-size:12px; color:var(--text2); margin-bottom:8px;">Bitcoin Wallet (BTC)</p>
-                            <p style="font-size:13px; color:var(--gold); word-break:break-all; cursor:pointer;" onclick="copyText('1A1zP1eP5QGefi2DMPTfTL5SLmv7Divf')">
-                                1A1zP1eP5QGefi2DMPTfTL5SLmv7Divf 📋
-                            </p>
+                            <p style="font-size:13px; color:var(--gold); word-break:break-all; cursor:pointer;" onclick="copyText('1A1zP1eP5QGefi2DMPTfTL5SLmv7Divf')">1A1zP1eP5QGefi2DMPTfTL5SLmv7Divf 📋</p>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <!-- BILLING DETAILS -->
             <div class="pay-card">
                 <h2>👤 Billing Details</h2>
                 <div class="field-row">
                     <div class="field">
                         <label>First Name</label>
-                        <input type="text" id="billName" placeholder="Your first name" value="">
+                        <input type="text" id="billName" placeholder="Your first name">
                     </div>
                     <div class="field">
                         <label>Last Name</label>
@@ -707,7 +257,7 @@
                 </div>
                 <div class="field">
                     <label>Email Address</label>
-                    <input type="email" id="billEmail" placeholder="you@email.com" value="">
+                    <input type="email" id="billEmail" placeholder="you@email.com">
                 </div>
                 <div class="field-row">
                     <div class="field">
@@ -733,12 +283,10 @@
                     </select>
                 </div>
             </div>
-
         </div>
 
-        <!-- RIGHT COLUMN: ORDER SUMMARY -->
+        <!-- ORDER SUMMARY -->
         <div class="order-summary">
-
             <div class="pay-card">
                 <h2>🛒 Order Summary</h2>
 
@@ -746,7 +294,16 @@
                     <div class="summary-icon">🧬</div>
                     <div class="summary-details">
                         <h3>PRP 5th Generation Course</h3>
-                        <p><span id="planName">Premium</span> Plan · Lifetime Access · Certificate included</p>
+                        <p><span id="planName">Complete ⭐</span> · 12 Months Access · Certificate included</p>
+                    </div>
+                </div>
+
+                <!-- ACCESS BADGE -->
+                <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:12px 15px;margin:15px 0;display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:22px;">⏰</span>
+                    <div>
+                        <p style="font-size:13px;color:white;font-weight:700;">12 Months Access</p>
+                        <p style="font-size:11px;color:var(--text2);">Access starts from your payment date</p>
                     </div>
                 </div>
 
@@ -769,30 +326,26 @@
                     </div>
                 </div>
 
-                <!-- COUPON -->
                 <div class="discount-row">
                     <input type="text" id="couponInput" placeholder="🎟️ Discount code">
                     <button class="btn-discount" onclick="applyCoupon()">Apply</button>
                 </div>
                 <div id="couponMsg" style="font-size:12px; margin-bottom:10px;"></div>
 
-                <!-- INCLUDES -->
                 <ul class="includes-list">
-                    <li>Lifetime access to the course</li>
+                    <li>12 months access from payment date</li>
                     <li>6 complete modules + evaluations</li>
-                    <li>Verifiable digital certificate</li>
-                    <li>Free updates</li>
+                    <li>Certificate only after 100% completion</li>
                     <li>Mobile app included</li>
                     <li>Downloadable PDF materials</li>
                     <li>Email support included</li>
+                    <li>Renewal available at $97 USD</li>
                 </ul>
 
-                <!-- PAY BUTTON -->
                 <button class="btn-pay" onclick="procesarPago()">
                     🔐 Pay <span id="btnPrice">$197 USD</span>
                 </button>
 
-                <!-- GUARANTEE -->
                 <div class="garantia">
                     <div class="garantia-icon">🛡️</div>
                     <div class="garantia-text">
@@ -802,13 +355,9 @@
                 </div>
 
                 <div style="text-align:center; margin-top:15px;">
-                    <p style="font-size:11px; color:#555;">
-                        🔒 Secure payment · 💳 SSL Encryption · ✅ No surprises
-                    </p>
+                    <p style="font-size:11px; color:#555;">🔒 Secure payment · 💳 SSL Encryption · ✅ No surprises</p>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
@@ -817,15 +366,17 @@
     const params = new URLSearchParams(window.location.search);
     const userEmail = params.get('email') || '';
     const userName = params.get('name') || '';
-    const planParam = params.get('plan') || 'premium';
+    const planParam = params.get('plan') || 'complete';
 
-    // USD prices
+    // ✅ PRECIO ÚNICO $197 USD
     const prices = {
-        basico:  { original: 297, sale: 97  },
-        premium: { original: 397, sale: 197 }
+        basico:   { original: 297, sale: 197 },
+        premium:  { original: 297, sale: 197 },
+        complete: { original: 297, sale: 197 },
+        renewal:  { original: 197, sale: 97  }
     };
 
-    const plan = prices[planParam] || prices.premium;
+    const plan = prices[planParam] || prices.complete;
     let finalPrice = plan.sale;
     let couponApplied = false;
 
@@ -833,7 +384,13 @@
     document.getElementById('billEmail').value = userEmail;
     document.getElementById('billName').value = userName.split(' ')[0] || '';
     document.getElementById('billLastname').value = userName.split(' ').slice(1).join(' ') || '';
-    document.getElementById('planName').textContent = planParam === 'premium' ? 'Premium ⭐' : 'Basic';
+
+    // Plan name
+    if (planParam === 'renewal') {
+        document.getElementById('planName').textContent = '🔄 Renewal';
+    } else {
+        document.getElementById('planName').textContent = 'Complete ⭐';
+    }
 
     // Set prices
     document.getElementById('originalPrice').textContent = '$' + plan.original + ' USD';
@@ -853,21 +410,14 @@
         let matches = v.match(/\d{4,16}/g);
         let match = matches && matches[0] || '';
         let parts = [];
-        for (let i = 0; i < match.length; i += 4) {
-            parts.push(match.substring(i, i + 4));
-        }
+        for (let i = 0; i < match.length; i += 4) parts.push(match.substring(i, i + 4));
         input.value = parts.length ? parts.join(' ') : v;
         document.getElementById('cardNumDisplay').textContent = input.value || '•••• •••• •••• ••••';
-
         const num = input.value.replace(/\s/g, '');
         const visual = document.getElementById('cardVisual');
-        if (num.startsWith('4')) {
-            visual.style.background = 'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
-        } else if (num.startsWith('5')) {
-            visual.style.background = 'linear-gradient(135deg, #1a0a2e, #2d1b4e, #4a1a6e)';
-        } else if (num.startsWith('3')) {
-            visual.style.background = 'linear-gradient(135deg, #0a2e1a, #1a4e2d, #1a6e4a)';
-        }
+        if (num.startsWith('4')) visual.style.background = 'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
+        else if (num.startsWith('5')) visual.style.background = 'linear-gradient(135deg, #1a0a2e, #2d1b4e, #4a1a6e)';
+        else if (num.startsWith('3')) visual.style.background = 'linear-gradient(135deg, #0a2e1a, #1a4e2d, #1a6e4a)';
     }
 
     function formatExp(input) {
@@ -877,33 +427,20 @@
         document.getElementById('cardExpDisplay').textContent = input.value || 'MM/YY';
     }
 
-    const coupons = {
-        'WELCOME': 20,
-        'PRP5G': 15,
-        'PROMO2025': 30,
-        'VIP50': 50
-    };
+    const coupons = { 'WELCOME': 20, 'PRP5G': 15, 'PROMO2025': 30, 'VIP50': 50 };
 
     function applyCoupon() {
         const code = document.getElementById('couponInput').value.toUpperCase().trim();
         const msg = document.getElementById('couponMsg');
-
-        if (couponApplied) {
-            msg.textContent = '⚠️ A coupon is already applied';
-            msg.style.color = 'orange';
-            return;
-        }
-
+        if (couponApplied) { msg.textContent = '⚠️ A coupon is already applied'; msg.style.color = 'orange'; return; }
         if (coupons[code]) {
             const discount = Math.round(plan.sale * coupons[code] / 100);
             finalPrice = plan.sale - discount;
             couponApplied = true;
-
             document.getElementById('couponRow').style.display = 'flex';
             document.getElementById('couponAmount').textContent = '-$' + discount + ' USD';
             document.getElementById('totalPrice').textContent = '$' + finalPrice + ' USD';
             document.getElementById('btnPrice').textContent = '$' + finalPrice + ' USD';
-
             msg.textContent = `✅ Coupon applied: ${coupons[code]}% discount`;
             msg.style.color = '#2ecc71';
         } else {
@@ -913,72 +450,42 @@
     }
 
     function copyText(text) {
-        navigator.clipboard.writeText(text).then(() => {
-            alert('✅ Copied: ' + text);
-        });
+        navigator.clipboard.writeText(text).then(() => { alert('✅ Copied: ' + text); });
     }
 
     function redirectPayment(platform) {
         const overlay = document.getElementById('loadingOverlay');
         overlay.classList.add('active');
         document.getElementById('loadingSteps').textContent = `Connecting to ${platform}...`;
-
         setTimeout(() => {
             overlay.classList.remove('active');
-            alert(`💡 To integrate with ${platform}, you need:\n• Create account on ${platform}\n• Get API Keys\n• Implement webhooks\n\nSimulating successful payment.`);
+            alert(`💡 To integrate with ${platform}:\n• Create account\n• Get API Keys\n• Implement webhooks\n\nSimulating successful payment.`);
             simulateSuccess();
         }, 2000);
     }
 
     function procesarPago() {
         const activeMethod = document.querySelector('.method-btn.active .method-name').textContent;
-
         if (activeMethod === 'Card') {
             const cardNum = document.getElementById('cardNumber').value.replace(/\s/g, '');
             const cardName = document.getElementById('cardName').value;
             const cardExp = document.getElementById('cardExp').value;
             const cardCvv = document.getElementById('cardCvv').value;
-
-            if (!cardNum || cardNum.length < 16) {
-                alert('⚠️ Please enter a valid card number');
-                return;
-            }
-            if (!cardName) {
-                alert('⚠️ Please enter the cardholder name');
-                return;
-            }
-            if (!cardExp || cardExp.length < 5) {
-                alert('⚠️ Please enter the expiration date');
-                return;
-            }
-            if (!cardCvv || cardCvv.length < 3) {
-                alert('⚠️ Please enter the CVV');
-                return;
-            }
+            if (!cardNum || cardNum.length < 16) { alert('⚠️ Please enter a valid card number'); return; }
+            if (!cardName) { alert('⚠️ Please enter the cardholder name'); return; }
+            if (!cardExp || cardExp.length < 5) { alert('⚠️ Please enter the expiration date'); return; }
+            if (!cardCvv || cardCvv.length < 3) { alert('⚠️ Please enter the CVV'); return; }
         }
-
         const overlay = document.getElementById('loadingOverlay');
         overlay.classList.add('active');
-
-        const steps = [
-            'Verifying data...',
-            'Connecting to payment processor...',
-            'Validating card...',
-            'Processing transaction...',
-            'Activating course access...',
-            'Payment complete!'
-        ];
-
+        const steps = ['Verifying data...','Connecting to payment processor...','Validating card...','Processing transaction...','Activating course access...','Payment complete!'];
         let i = 0;
         const interval = setInterval(() => {
             document.getElementById('loadingSteps').textContent = steps[i] || steps[steps.length - 1];
             i++;
             if (i >= steps.length) {
                 clearInterval(interval);
-                setTimeout(() => {
-                    overlay.classList.remove('active');
-                    simulateSuccess();
-                }, 500);
+                setTimeout(() => { overlay.classList.remove('active'); simulateSuccess(); }, 500);
             }
         }, 700);
     }
@@ -996,9 +503,7 @@
         document.getElementById('successModal').classList.add('active');
     }
 
-    function goToCourse() {
-        window.location.href = 'dashboard.html';
-    }
+    function goToCourse() { window.location.href = 'dashboard.html'; }
 </script>
 
 </body>
