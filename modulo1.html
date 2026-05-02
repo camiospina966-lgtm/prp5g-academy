@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 1 - PRP 5G Academy</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+  }
+
+  .slide {
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px;
+    border-bottom: 3px solid #c9a84c;
+    position: relative;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 20px;
+    right: 20px; bottom: 20px;
+    border: 1px solid #c9a84c;
+    pointer-events: none;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #c9a84c;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .academy-tag {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    color: #c9a84c;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  h1.main-title {
+    font-size: 52px;
+    color: #c9a84c;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(201,168,76,0.3);
+  }
+
+  h2.slide-title {
+    font-size: 36px;
+    color: #c9a84c;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #c9a84c;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 20px;
+    color: #c9a84c;
+    margin: 20px 0 10px;
+  }
+
+  p, li {
+    font-size: 16px;
+    color: #e8e8e8;
+    margin-bottom: 8px;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 20px;
+  }
+
+  ul li::before {
+    content: '→ ';
+    color: #c9a84c;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 22px;
+    color: #e8e8e8;
+    margin-bottom: 15px;
+  }
+
+  .instructor {
+    text-align: center;
+    font-size: 18px;
+    color: #c9a84c;
+    margin-top: 30px;
+    letter-spacing: 2px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .box {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 25px;
+    border-radius: 4px;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .timeline-date {
+    background: #c9a84c;
+    color: #000;
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 13px;
+    height: fit-content;
+    min-width: 100px;
+    text-align: center;
+    border-radius: 2px;
+  }
+
+  .table-compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .table-compare th {
+    background: #c9a84c;
+    color: #000;
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .table-compare td {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    font-size: 14px;
+    color: #e8e8e8;
+  }
+
+  .table-compare tr:nth-child(even) td {
+    background: rgba(201,168,76,0.05);
+  }
+
+  .tag-green {
+    color: #4caf50;
+    font-weight: bold;
+  }
+
+  .tag-gold {
+    color: #c9a84c;
+    font-weight: bold;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #c9a84c;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 4px;
+  }
+
+  .warning-box {
+    background: rgba(255,165,0,0.1);
+    border-left: 4px solid #c9a84c;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .danger-box {
+    background: rgba(255,0,0,0.08);
+    border-left: 4px solid #ff4444;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .success-box {
+    background: rgba(76,175,80,0.08);
+    border-left: 4px solid #4caf50;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .index-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    font-size: 17px;
+    color: #e8e8e8;
+  }
+
+  .index-num {
+    background: #c9a84c;
+    color: #000;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(201,168,76,0.2);
+    border-radius: 3px;
+    margin-top: 30px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: #c9a84c;
+    border-radius: 3px;
+    width: 16.6%;
+  }
+
+  .progress-text {
+    text-align: right;
+    font-size: 13px;
+    color: #c9a84c;
+    margin-top: 8px;
+  }
+
+  .ornament {
+    text-align: center;
+    color: #c9a84c;
+    font-size: 28px;
+    margin: 20px 0;
+    letter-spacing: 10px;
+  }
+
+  .next-module {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid #c9a84c;
+    padding: 25px;
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 4px;
+  }
+
+  .factor-card {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 18px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+
+  .factor-name {
+    color: #c9a84c;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  .phase-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .phase-num {
+    background: rgba(201,168,76,0.15);
+    border: 2px solid #c9a84c;
+    color: #c9a84c;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+
+  .glosario-item {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .glosario-term {
+    color: #c9a84c;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .summary-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .check {
+    color: #4caf50;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  @media print {
+    .slide {
+      page-break-after: always;
+      min-height: 100vh;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 1: PORTADA ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">01 / 15</span>
+  
+  <div class="ornament">✦ ✦ ✦</div>
+  
+  <h1 class="main-title">
+    Bases Científicas del<br>
+    PRP 5ª Generación
+  </h1>
+  
+  <div class="ornament">— ✦ —</div>
+  
+  <p class="subtitle">Módulo 1 — PRP 5G Academy</p>
+  <p class="subtitle" style="font-size:18px; color:#aaa;">
+    Formación Avanzada en Medicina Regenerativa
+  </p>
+  
+  <p class="instructor">Dr./Dra. [Tu Nombre]</p>
+  
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
+  <p class="progress-text">Módulo 1 de 6</p>
+</div>
+
+<!-- ==================== SLIDE 2: ÍNDICE ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">02 / 15</span>
+  
+  <h2 class="slide-title">Contenido del Módulo 1</h2>
+  
+  <div class="grid-2">
+    <div>
+      <div class="index-item">
+        <span class="index-num">1</span>
+        ¿Qué es el PRP?
+      </div>
+      <div class="index-item">
+        <span class="index-num">2</span>
+        Historia y Evolución (1G al 5G)
+      </div>
+      <div class="index-item">
+        <span class="index-num">3</span>
+        Componentes del PRP 5G
+      </div>
+      <div class="index-item">
+        <span class="index-num">4</span>
+        Factores de Crecimiento
+      </div>
+      <div class="index-item">
+        <span class="index-num">5</span>
+        Mecanismo de Acción
+      </div>
+    </div>
+    <div>
+      <div class="index-item">
+        <span class="index-num">6</span>
+        PRP Tradicional vs PRP 5G
+      </div>
+      <div class="index-item">
+        <span class="index-num">7</span>
+        Indicaciones Clínicas
+      </div>
+      <div class="index-item">
+        <span class="index-num">8</span>
+        Contraindicaciones
+      </div>
+      <div class="index-item">
+        <span class="index-num">9</span>
+        Evidencia Científica
+      </div>
+      <div class="index-item">
+        <span class="index-num">10</span>
+        Glosario de Términos
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 3: QUÉ ES EL PRP ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">03 / 15</span>
+  
+  <h2 class="slide-title">¿Qué es el PRP?</h2>
+  
+  <div class="grid-2">
+    <div>
+      <div class="box">
+        <h3>Definición</h3>
+        <p>El Plasma Rico en Plaquetas (PRP) es una fracción <span class="tag-gold">autóloga</span> de sangre centrifugada que contiene una concentración de plaquetas muy superior a la basal normal.</p>
+      </div>
+      
+      <div class="box" style="margin-top:20px;">
+        <h3>Valores de Referencia</h3>
+        <ul>
+          <li>Sangre normal: <span class="tag-gold">150,000 - 400,000</span> plaquetas/μL</li>
+          <li>PRP terapéutico: <span class="tag-gold">1,000,000 - 2,000,000</span> plaquetas/μL</li>
+          <li>Concentración: <span class="tag-gold">3 a 10 veces</span> el valor basal</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div>
+      <div class="box">
+        <h3>¿Por qué son importantes las plaquetas?</h3>
+        <p>Las plaquetas contienen <span class="tag-gold">gránulos alfa</span> con más de 30 factores de crecimiento y proteínas bioactivas esenciales.</p>
+        <br>
+        <h3>Funciones Principales</h3>
+        <ul>
+          <li>Reparación de tejidos dañados</li>
+          <li>Regeneración celular activa</li>
+          <li>Angiogénesis (nuevos vasos)</li>
+          <li>Síntesis de colágeno tipo I y III</li>
+          <li>Modulación de la inflamación</li>
+          <li>Activación de células madre</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 4: HISTORIA ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">04 / 15</span>
+  
+  <h2 class="slide-title">Evolución del PRP: De 1G a 5G</h2>
+  
+  <div class="timeline-item">
+    <div class="timeline-date">PRP 1G<br>1970-1990</div>
+    <div>
+      <ul>
+        <li>Uso inicial en cirugía cardiotorácica como sellante biológico</li>
+        <li>Técnica básica: 1 centrifugación — Sistemas abiertos</li>
+        <li>Concentración: 2-3x basal — Sin activación controlada</li>
+        <li>Ferrari (1987): primer uso documentado en literatura médica</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-date">PRP 2G<br>1990-2005</div>
+    <div>
+      <ul>
+        <li>Doble centrifugación — Concentración: 4-5x basal</li>
+        <li>Uso en odontología y ortopedia</li>
+        <li>Marx (1998): primer estudio clínico controlado publicado</li>
+        <li>Primeros kits comerciales en el mercado</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-date">PRP 3G<br>2005-2010</div>
+    <div>
+      <ul>
+        <li>Sistemas semicerrados — Concentración: 5-6x basal</li>
+        <li>Aparece el PRF (Fibrina Rica en Plaquetas)</li>
+        <li>Choukroun desarrolla L-PRF y A-PRF</li>
+        <li>Uso en regeneración ósea y dermatología estética</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-date">PRP 4G<br>2010-2018</div>
+    <div>
+      <ul>
+        <li>Sistemas completamente cerrados — Concentración: 6-7x basal</li>
+        <li>Centrifugación programable — Separación leucocitaria selectiva</li>
+        <li>Activación con CaCl2 estandarizada</li>
+        <li>Expansión a múltiples especialidades médicas</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="timeline-item" style="border:none; margin-bottom:0;">
+    <div class="timeline-date" style="background:#c9a84c;">PRP 5G<br>2018-HOY</div>
+    <div>
+      <ul>
+        <li>Nanotecnología + Inteligencia Artificial + Biorreactores</li>
+        <li>Exosomas incorporados — Microneedling robótico</li>
+        <li>Bio-geles avanzados — Concentración: <strong style="color:#c9a84c;">8-10x basal</strong></li>
+        <li>Hasta 2,000,000 plaquetas/μL — Personalización total por paciente</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 5: COMPONENTES ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">05 / 15</span>
+  
+  <h2 class="slide-title">Componentes del PRP 5G</h2>
+  
+  <div class="grid-2">
+    <div>
+      <div class="box">
+        <h3>🔬 Plaquetas (Trombocitos)</h3>
+        <p>Células anucleadas de <span class="tag-gold">2-4 μm</span> — Vida media: 7-10 días</p>
+        <br>
+        <ul>
+          <li>Concentración máxima en PRP 5G</li>
+          <li>Alta viabilidad celular</li>
+          <li>Gránulos alfa completamente intactos</li>
+          <li>Membrana perfectamente preservada</li>
+        </ul>
+      </div>
+      
+      <div class="box" style="margin-top:20px;">
+        <h3>🔬 Plasma</h3>
+        <p>Componente líquido que contiene:</p>
+        <ul>
+          <li>Agua (91%)</li>
+          <li>Proteínas plasmáticas</li>
+          <li>Fibrinógeno (precursor fibrina)</li>
+          <li>Factores de coagulación</li>
+          <li>pH fisiológico mantenido</li>
+          <li>Osmolaridad conservada</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div>
+      <div class="box">
+        <h3>🔬 Fibrina</h3>
+        <p>En PRP 5G se obtiene como:</p>
+        <ul>
+          <li><span class="tag-gold">Membrana de fibrina:</span> Para regeneración ósea y cierre de heridas</li>
+          <li><span class="tag-gold">Gel de fibrina:</span> Para aplicaciones faciales y capilares</li>
+          <li><span class="tag-gold">Bio-gel avanzado:</span> Con liberación sostenida de factores de crecimiento</li>
+        </ul>
+      </div>
+      
+      <div class="box" style="margin-top:20px;">
+        <h3>🔬 Leucocitos Selectivos</h3>
+        <ul>
+          <li><span class="tag-gold">L-PRP</span> (rico en leucocitos): Efecto antimicrobiano, mayor respuesta inflamatoria controlada</li>
+          <li><span class="tag-gold">P-PRP</span> (pobre en leucocitos): Para articulaciones y tejidos sensibles, menor riesgo de degradación</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 6: FACTORES DE CRECIMIENTO ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">06 / 15</span>
+  
+  <h2 class="slide-title">Factores de Crecimiento en PRP 5G</h2>
+  
+  <div class="grid-2">
+    <div>
+      <div class="factor-card">
+        <div class="factor-name">PDGF — Factor de Crecimiento Derivado de Plaquetas</div>
+        <ul>
+          <li>Función: Mitogénesis y proliferación celular</li>
+          <li>Células diana: Fibroblastos, células óseas y musculares</li>
+          <li>En PRP 5G: <span class="tag-gold">3-5x más concentrado</span></li>
+        </ul>
+      </div>
+      
+      <div class="factor-card">
+        <div class="factor-name">TGF-β — Factor Transformante de Crecimiento Beta</div>
+        <ul>
+          <li>Función: Síntesis de colágeno tipo I y modulación inmune</li>
+          <li>El factor <span class="tag-gold">más abundante</span> en gránulos alfa</li>
+          <li>Dosificación controlada para evitar fibrosis</li>
+        </ul>
+      </div>
+      
+      <div class="factor-card">
+        <div class="factor-name">VEGF — Factor de Crecimiento Endotelial Vascular</div>
+        <ul>
+          <li>Función: Angiogénesis y formación de nuevos vasos</li>
+          <li>Sin VEGF no hay formación de nuevos tejidos vasculares</li>
+          <li>En PRP 5G: liberación controlada y maximizada</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div>
+      <div class="factor-card">
+        <div class="factor-name">EGF — Factor de Crecimiento Epidérmico</div>
+        <ul>
+          <li>Función: Proliferación de queratinocitos y regeneración epidérmica</li>
+          <li>Uso principal: Aplicaciones dermatológicas y estéticas faciales</li>
+        </ul>
+      </div>
+      
+      <div class="factor-card">
+        <div class="factor-name">IGF-1 — Factor de Crecimiento Similar a la Insulina</div>
+        <ul>
+          <li>Función: Metabolismo celular, síntesis proteica y crecimiento</li>
+          <li>Potencia efectos anabólicos en músculos y huesos</li>
+        </ul>
+      </div>
+      
+      <div class="factor-card">
+        <div class="factor-name">FGF — Factor de Crecimiento de Fibroblastos</div>
+        <ul>
+          <li>Función: Reparación de tejido conectivo y cartílago</li>
+          <li>23 isoformas diferentes — Uso en protocolos ortopédicos</li>
+        </ul>
+      </div>
+      
+      <div class="factor-card">
+        <div class="factor-name">HGF — Factor de Crecimiento Hepatocitario</div>
+        <ul>
+          <li>Función: Antiapoptosis y regeneración tisular profunda</li>
+          <li>Protege células de muerte durante el proceso regenerativo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 7: MECANISMO DE ACCIÓN ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">07 / 15</span>
+  
+  <h2 class="slide-title">Cascada de Regeneración PRP 5G</h2>
+  
+  <div class="phase-item">
+    <div class="phase-num">1</div>
+    <div class="box" style="flex:1;">
+      <h3>Activación Plaquetaria (0-2 horas)</h3>
+      <ul>
+        <li>Las plaquetas detectan señales de daño tisular</li>
+        <li>Desgranulación controlada de gránulos alfa</li>
+        <li>Liberación masiva de factores de crecimiento</li>
+        <li>Inicio de cascada de reparación tisular</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="phase-item">
+    <div class="phase-num">2</div>
+    <div class="box" style="flex:1;">
+      <h3>Fase Inflamatoria (0-72 horas)</h3>
+      <ul>
+        <li>Reclutamiento de células del sistema inmune</li>
+        <li>Limpieza de tejido dañado y detritos celulares</li>
+        <li>Liberación de citoquinas proinflamatorias controladas</li>
+        <li>Inicio de angiogénesis en zona tratada</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="phase-item">
+    <div class="phase-num">3</div>
+    <div class="box" style="flex:1;">
+      <h3>Fase Proliferativa (3-21 días)</h3>
+      <ul>
+        <li>Proliferación activa de fibroblastos</li>
+        <li>Síntesis de colágeno nuevo y organizado</li>
+        <li>Formación de matriz extracelular</li>
+        <li>Neovascularización activa — Migración de células madre</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="phase-item" style="margin-bottom:0;">
+    <div class="phase-num">4</div>
+    <div class="box" style="flex:1;">
+      <h3>Fase de Remodelación (21 días - 12 meses)</h3>
+      <ul>
+        <li>Maduración del colágeno — Reorganización de fibras</li>
+        <li>Mejora de arquitectura tisular completa</li>
+        <li>Resultados clínicos visibles y duraderos</li>
+        <li><span class="tag-gold">PRP 5G:</span> Resultados 40% superiores vs PRP tradicional</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 8: COMPARATIVA ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">08 / 15</span>
+  
+  <h2 class="slide-title">PRP Tradicional vs PRP 5G</h2>
+  
+  <table class="table-compare">
+    <thead>
+      <tr>
+        <th>Parámetro</th>
+        <th>PRP Tradicional</th>
+        <th>PRP 5G</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Concentración plaquetaria</td>
+        <td>2-4x basal</td>
+        <td><span class="tag-gold">8-10x basal</span></td>
+      </tr>
+      <tr>
+        <td>Pureza del preparado</td>
+        <td>Media</td>
+        <td><span class="tag-gold">Ultra alta</span></td>
+      </tr>
+      <tr>
+        <td>Sistema de obtención</td>
+        <td>Abierto / Semicerrado</td>
+        <td><span class="tag-gold">Cerrado estéril</span></td>
+      </tr>
+      <tr>
+        <td>Centrifugación</td>
+        <td>1-2 ciclos básicos</td>
+        <td><span class="tag-gold">Multiprogramable</span></td>
+      </tr>
+      <tr>
+        <td>Activación</td>
+        <td>Manual y básica</td>
+        <td><span class="tag-gold">Controlada y precisa</span></td>
+      </tr>
+      <tr>
+        <td>Temperatura</td>
+        <td>No controlada</td>
+        <td><span class="tag-gold">Controlada 37°C</span></td>
+      </tr>
+      <tr>
+        <td>Personalización con IA</td>
+        <td>No disponible</td>
+        <td><span class="tag-gold">Sí integrada</span></td>
+      </tr>
+      <tr>
+        <td>Exosomas</td>
+        <td>No incluidos</td>
+        <td><span class="tag-gold">Sí incorporados</span></td>
+      </tr>
+      <tr>
+        <td>Nanotecnología</td>
+        <td>No aplicada</td>
+        <td><span class="tag-gold">Sí integrada</span></td>
+      </tr>
+      <tr>
+        <td>Duración del efecto</td>
+        <td>3-6 meses</td>
+        <td><span class="tag-gold">6-18 meses</span></td>
+      </tr>
+      <tr>
+        <td>Sesiones necesarias</td>
+        <td>3-4 sesiones</td>
+        <td><span class="tag-gold">1-2 sesiones</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== SLIDE 9: INDICACIONES ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">09 / 15</span>
+  
+  <h2 class="slide-title">Indicaciones Clínicas del PRP 5G</h2>
+  
+  <div class="grid-3">
+    <div class="box">
+      <h3>🌟 Dermatología y Estética</h3>
+      <ul>
+        <li>Rejuvenecimiento facial</li>
+        <li>Arrugas y líneas finas</li>
+        <li>Manchas y melasma</li>
+        <li>Cicatrices de acné</li>
+        <li>Flacidez cutánea leve-moderada</li>
+        <li>Ojeras y bolsas perioculares</li>
+        <li>Cuello y escote envejecido</li>
+      </ul>
+    </div>
+    
+    <div class="box">
+      <h3>💆 Tricología y Capilar</h3>
+      <ul>
+        <li>Alopecia androgenética masculina y femenina</li>
+        <li>Alopecia areata</li>
+        <li>Efluvio telógeno crónico</li>
+        <li>Post trasplante capilar</li>
+        <li>Cejas y pestañas hipotróficas</li>
+      </ul>
+      <br>
+      <h3>🦷 Odontología</h3>
+      <ul>
+        <li>Regeneración ósea alveolar</li>
+        <li>Post exodoncia compleja</li>
+        <li>Implantología dental avanzada</li>
+        <li>Periodontitis severa</li>
+        <li>Elevación de seno maxilar</li>
+      </ul>
+    </div>
+    
+    <div class="box">
+      <h3>🦴 Ortopedia y Deportiva</h3>
+      <ul>
+        <li>Tendinitis y tendinopatías</li>
+        <li>Lesiones de ligamentos</li>
+        <li>Osteoartritis de rodilla</li>
+        <li>Lesiones musculares</li>
+        <li>Fascitis plantar</li>
+        <li>Epicondilitis lateral</li>
+        <li>Manguito rotador</li>
+      </ul>
+      <br>
+      <h3>🌸 Ginecología Regenerativa</h3>
+      <ul>
+        <li>Rejuvenecimiento vaginal</li>
+        <li>Disfunción sexual femenina</li>
+        <li>Atrofia vulvovaginal</li>
+        <li>Incontinencia urinaria leve</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 10: CONTRAINDICACIONES ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">10 / 15</span>
+  
+  <h2 class="slide-title">Contraindicaciones del PRP 5G</h2>
+  
+  <div class="grid-2">
+    <div>
+      <div class="danger-box">
+        <h3 style="color:#ff4444; margin-bottom:15px;">🚫 Contraindicaciones Absolutas</h3>
+        <ul>
+          <li>Trombocitopenia (plaquetas &lt; 100,000/μL)</li>
+          <li>Enfermedades hematológicas activas (leucemia, linfoma)</li>
+          <li>Infección activa en zona de tratamiento</li>
+          <li>Sepsis o infección sistémica</li>
+          <li>Anticoagulación terapéutica (warfarina, acenocumarol)</li>
+          <li>Cáncer activo o en tratamiento oncológico</li>
+          <li>Inestabilidad hemodinámica</li>
+          <li>Sin consentimiento informado firmado</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div>
+      <div class="warning-box">
+        <h3 style="color:#c9a84c; margin-bottom:15px;">⚠️ Contraindicaciones Relativas</h3>
+        <ul>
+          <li>Embarazo y lactancia</li>
+          <li>AINEs los 7 días previos (ibuprofeno, aspirina)</li>
+          <li>Corticoterapia sistémica activa</li>
+          <li>Anemia severa (Hemoglobina &lt; 10 g/dL)</li>
+          <li>Hipertensión arterial no controlada</li>
+          <li>Diabetes mellitus descompensada</li>
+          <li>Tabaquismo activo intenso</li>
+          <li>Inmunosupresión activa</li>
+          <li>Enfermedades autoinmunes en fase activa</li>
+          <li>Antecedentes de queloides</li>
+        </ul>
+      </div>
+      
+      <div class="box" style="margin-top:20px;">
+        <h3>⚕️ Precauciones PRP 5G</h3>
+        <ul>
+          <li>Verificar medicamentos que alteran función plaquetaria</li>
+          <li>Evaluar recuento plaquetario pre-procedimiento siempre</li>
+          <li>Revisar historial alérgico completo</li>
+          <li>Documentar todo en historia clínica</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 11: EVIDENCIA CIENTÍFICA ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">11 / 15</span>
+  
+  <h2 class="slide-title">Evidencia Científica del PRP 5G</h2>
+  
+  <div class="grid-2">
+    <div>
+      <div class="box">
+        <h3>📖 Estudio 1 — Rejuvenecimiento Facial</h3>
+        <p><span class="tag-gold">Elnehrawy et al. (2017)</span><br>Journal of Cosmetic Dermatology</p>
+        <br>
+        <ul>
+          <li>Muestra: 20 pacientes tratados</li>
+          <li>78% mejora en arrugas finas</li>
+          <li>65% mejora en textura cutánea</li>
+          <li>Sin efectos adversos graves reportados</li>
+        </ul>
+      </div>
+      
+      <div class="box" style="margin-top:20px;">
+        <h3>📖 Estudio 2 — Alopecia Androgenética</h3>
+        <p><span class="tag-gold">Gentile et al. (2015)</span><br>Stem Cells Translational Medicine</p>
+        <br>
+        <ul>
+          <li>Muestra: 23 pacientes con alopecia</li>
+          <li>+33.6% densidad capilar</li>
+          <li>+45.9% folículos activos</li>
+          <li>Superior a placebo estadísticamente</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div>
+      <div class="box">
+        <h3>📖 Estudio 3 — Ortopedia de Rodilla</h3>
+        <p><span class="tag-gold">Filardo et al. (2015)</span><br>American Journal of Sports Medicine</p>
+        <br>
+        <ul>
+          <li>Muestra: 109 pacientes con lesión de rodilla</li>
+          <li>73% mejoría funcional documentada</li>
+          <li>Reducción significativa del dolor (EVA)</li>
+          <li>Retorno al deporte: promedio 6 semanas</li>
+        </ul>
+      </div>
+      
+      <div class="box" style="margin-top:20px;">
+        <h3>📊 Meta-Análisis Actualizado 2022</h3>
+        <p><span class="tag-gold">Sclafani & McCormick</span><br>JAMA Dermatology</p>
+        <br>
+        <ul>
+          <li>47 estudios / 1,247 pacientes totales</li>
+          <li>PRP alta concentración superior al estándar</li>
+          <li>Activación controlada mejora resultados en <span class="tag-gold">40%</span></li>
+          <li>Sistemas cerrados reducen infecciones en <span class="tag-gold">89%</span></li>
+          <li>Personalización con IA mejora en <span class="tag-gold">35%</span></li>
+        </ul>
+      </div>
+      
+      <div class="warning-box" style="margin-top:20px;">
+        <p style="font-size:13px; color:#c9a84c;">⚠️ Nota: "PRP 5G" no está universalmente estandarizado. Siempre consulta fuentes peer-reviewed actualizadas.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 12: GLOSARIO BÁSICO ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">12 / 15</span>
+  
+  <h2 class="slide-title">Glosario — Términos Básicos</h2>
+  
+  <div class="grid-2">
+    <div>
+      <div class="glosario-item">
+        <div class="glosario-term">PRP — Plasma Rico en Plaquetas</div>
+        <p>Fracción autóloga de sangre con concentración plaquetaria 3-10x superior al valor basal. Base de todos los protocolos de medicina regenerativa.</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">PRF — Fibrina Rica en Plaquetas</div>
+        <p>Concentrado plaquetario sin anticoagulante que forma membrana de fibrina natural sólida. Desarrollado por Choukroun.</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">PPP — Plasma Pobre en Plaquetas</div>
+        <p>Fracción con mínima concentración plaquetaria (&lt;100,000/μL). Usada como base en ciertos protocolos de activación.</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">AUTÓLOGO</div>
+        <p>Material biológico obtenido del mismo paciente que lo recibirá. Cero riesgo de rechazo inmunológico ni transmisión de enfermedades.</p>
+      </div>
+    </div>
+    
+    <div>
+      <div class="glosario-item">
+        <div class="glosario-term">BUFFY COAT</div>
+        <p>Capa intermedia blanquecina entre el plasma amarillo y los eritrocitos rojos tras centrifugación. Contiene la mayor concentración de plaquetas y leucocitos.</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">ANTICOAGULANTE</div>
+        <p>Sustancia que impide la coagulación durante el proceso. El más usado en PRP 5G es citrato de sodio 3.8% en ratio 9:1 (sangre:anticoagulante).</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">CENTRIFUGACIÓN</div>
+        <p>Proceso físico que separa componentes de la sangre según su densidad mediante fuerza centrífuga. Se mide en RPM o g (gravedad relativa).</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">ACTIVACIÓN PLAQUETARIA</div>
+        <p>Proceso que inicia la desgranulación y liberación de factores de crecimiento. Métodos: CaCl2, trombina autóloga, activación física o por colágeno.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 13: GLOSARIO TECNOLOGÍA ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">13 / 15</span>
+  
+  <h2 class="slide-title">Glosario — Tecnología PRP 5G</h2>
+  
+  <div class="grid-2">
+    <div>
+      <div class="glosario-item">
+        <div class="glosario-term">NANOTECNOLOGÍA</div>
+        <p>Ciencia a escala de 1-100 nm. En PRP 5G permite nanopartículas portadoras de GF, nanocápsulas de liberación controlada y penetración celular hasta 10x superior al PRP convencional.</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">BIORREACTOR</div>
+        <p>Dispositivo que mantiene condiciones óptimas: temperatura 37°C, CO2 5%, humedad 95%, pH 7.35-7.45. Tiempo de incubación del PRP: 15-30 minutos previo a la aplicación.</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">EXOSOMAS</div>
+        <p>Vesículas extracelulares de 30-150 nm con ARN, proteínas y lípidos. Función: comunicación intercelular y transferencia de información regenerativa entre células del organismo.</p>
+      </div>
+    </div>
+    
+    <div>
+      <div class="glosario-item">
+        <div class="glosario-term">INTELIGENCIA ARTIFICIAL (IA)</div>
+        <p>En PRP 5G analiza perfil del paciente, calcula concentración óptima, determina parámetros de centrifugación, predice respuesta al tratamiento y personaliza el protocolo completo.</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">MICRONEEDLING ROBÓTICO</div>
+        <p>Aplicación asistida por robot de microagujas para infusión del PRP 5G. Profundidad exacta 0.5-3mm, presión uniforme 100%, sin variabilidad de operador, menor dolor para el paciente.</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">SISTEMA CERRADO</div>
+        <p>La sangre nunca entra en contacto con el ambiente exterior durante todo el proceso. Elimina riesgo de contaminación bacteriana. Requerimiento obligatorio en PRP 5G certificado CE/FDA.</p>
+      </div>
+      <div class="glosario-item">
+        <div class="glosario-term">BIO-GEL PRP 5G</div>
+        <p>PRP activado con consistencia gel para aplicaciones específicas. Formas: inyectable, membrana sólida, parche transdérmico o spray. Ventaja: liberación sostenida de factores de crecimiento.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 14: BIOSEGURIDAD ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">14 / 15</span>
+  
+  <h2 class="slide-title">Bioseguridad y Ética en PRP 5G</h2>
+  
+  <div class="grid-2">
+    <div>
+      <div class="box">
+        <h3>🛡️ Nivel 1 — Protección Personal</h3>
+        <ul>
+          <li>Guantes estériles dobles siempre</li>
+          <li>Mascarilla quirúrgica N95</li>
+          <li>Gafas de protección ocular</li>
+          <li>Bata estéril o delantal protector</li>
+          <li>Gorro quirúrgico obligatorio</li>
+        </ul>
+      </div>
+      
+      <div class="box" style="margin-top:20px;">
+        <h3>🛡️ Nivel 2 — Área de Trabajo</h3>
+        <ul>
+          <li>Campo estéril certificado</li>
+          <li>Superficies desinfectadas alcohol 70% + cloro</li>
+          <li>Control temperatura ambiente 18-22°C</li>
+          <li>Flujo laminar si está disponible</li>
+        </ul>
+      </div>
+      
+      <div class="box" style="margin-top:20px;">
+        <h3>🛡️ Nivel 3 — Materiales y Equipos</h3>
+        <ul>
+          <li>Solo kits certificados CE/FDA</li>
+          <li>Tubos y agujas de un solo uso</li>
+          <li>Centrifuga calibrada con mantenimiento vigente</li>
+          <li>Verificar lotes y fechas de vencimiento</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div>
+      <div class="box">
+        <h3>🛡️ Nivel 4 — Documentación</h3>
+        <ul>
+          <li>Consentimiento informado firmado</li>
+          <li>Historia clínica completa antes de iniciar</li>
+          <li>Registro del lote del kit utilizado</li>
+          <li>Fotografías pre y post procedimiento</li>
+          <li>Seguimiento y control post-procedimiento</li>
+        </ul>
+      </div>
+      
+      <div class="box" style="margin-top:20px;">
+        <h3>⚖️ Ética Profesional PRP 5G</h3>
+        <ul>
+          <li>Solo practicar con formación certificada</li>
+          <li>Informar honestamente sobre resultados esperados</li>
+          <li>Nunca prometer resultados sin evidencia</li>
+          <li>Precio justo y completamente transparente</li>
+          <li>Confidencialidad absoluta del paciente</li>
+          <li>Actualización continua y constante</li>
+          <li>Derivar casos que superan tu competencia</li>
+          <li>Reportar todos los efectos adversos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 15: CIERRE Y RESUMEN ==================== -->
+<div class="slide">
+  <span class="academy-tag">PRP 5G Academy</span>
+  <span class="slide-number">15 / 15</span>
+  
+  <h2 class="slide-title">Resumen — Módulo 1 Completado</h2>
+  
+  <div class="grid-2">
+    <div>
+      <h3 style="margin-bottom:15px;">✅ Lo que aprendiste:</h3>
+      
+      <div class="summary-item">
+        <span class="check">✓</span>
+        <p>El PRP es una fracción autóloga con concentración plaquetaria 3-10x superior al valor basal normal</p>
+      </div>
+      <div class="summary-item">
+        <span class="check">✓</span>
+        <p>El PRP ha evolucionado en 5 generaciones desde los años 70 hasta hoy incorporando nueva tecnología</p>
+      </div>
+      <div class="summary-item">
+        <span class="check">✓</span>
+        <p>El PRP 5G incorpora IA, nanotecnología, exosomas, biorreactores y sistemas cerrados estériles</p>
+      </div>
+      <div class="summary-item">
+        <span class="check">✓</span>
+        <p>Los factores de crecimiento (PDGF, TGF-β, VEGF, EGF, IGF-1, FGF, HGF) son los responsables de la regeneración</p>
+      </div>
+      <div class="summary-item">
+        <span class="check">✓</span>
+        <p>La cascada de regeneración tiene 4 fases: activación, inflamatoria, proliferativa y remodelación</p>
+      </div>
+      <div class="summary-item">
+        <span class="check">✓</span>
+        <p>El PRP 5G supera al tradicional en concentración, pureza, duración de efectos y sesiones necesarias</p>
+      </div>
+      <div class="summary-item">
+        <span class="check">✓</span>
+        <p>La bioseguridad y ética profesional son fundamentales e innegociables en toda práctica clínica</p>
+      </div>
+    </div>
+    
+    <div>
+      <div class="next-module">
+        <h3 style="font-size:22px; margin-bottom:15px;">🎯 Próximo Módulo</h3>
+        <p style="font-size:20px; color:#c9a84c; margin-bottom:15px;">
+          "Tecnología y Equipamiento para PRP 5G"
+        </p>
+        <ul style="text-align:left;">
+          <li>Centrífugas avanzadas y programables</li>
+          <li>Kits certificados CE y FDA</li>
+          <li>Sistemas de biorreactores</li>
+          <li>Equipos de aplicación robótica</li>
+          <li>Software de IA para protocolos</li>
+        </ul>
+      </div>
+      
+      <div class="box" style="margin-top:20px; text-align:center;">
+        <h3 style="margin-bottom:15px;">📝 Evaluación del Módulo 1</h3>
+        <p>Completa el Quiz antes de continuar al Módulo 2</p>
+        <br>
+        <span class="badge">10 preguntas</span>
+        <span class="badge">Tiempo: 15 min</span>
+        <span class="badge">Mínimo: 70%</span>
+      </div>
+      
+      <div class="progress-bar" style="margin-top:25px;">
+        <div class="progress-fill"></div>
+      </div>
+      <p class="progress-text">Módulo 1 de 6 — 16.6% completado</p>
+    </div>
+  </div>
+  
+  <div class="ornament" style="margin-top:30px;">✦ ✦ ✦</div>
+</div>
+
+</body>
+</html>
