@@ -3110,21 +3110,37 @@ function startPlaying() {
   isPlaying = true;
   document.getElementById('playPauseBtn').textContent = '⏸ Pausar';
 
-  autoPlayInterval = setInterval(() => {
-    if (currentSlide < totalSlides) {
-      showSlide(currentSlide + 1);
-    } else {
-      stopPlaying();
-    }
-  }, slideSpeed);
-
-  // Timer
+  clearInterval(timerInterval);
   timerInterval = setInterval(() => {
-    elapsedSeconds += slideSpeed / 1000;
-    if (elapsedSeconds > totalSeconds) elapsedSeconds = totalSeconds;
-    updateTimer();
-  }, slideSpeed);
+    if (isPlaying) {
+      currentTime++;
+      updateTimer();
+    }
+  }, 1000);
+
+  function avanzarSlide() {
+    if (!isPlaying) return;
+    if (currentSlide >= totalSlides) {
+      stopPlaying();
+      document.getElementById('playPauseBtn').textContent = '↺ Reiniciar';
+      return;
+    }
+    showSlide(currentSlide + 1);
+    setTimeout(() => {
+      const esperarVoz = setInterval(() => {
+        if (!window.speechSynthesis.speaking) {
+          clearInterval(esperarVoz);
+          setTimeout(() => {
+            avanzarSlide();
+          }, 1500);
+        }
+      }, 500);
+    }, 1000);
+  }
+
+  avanzarSlide();
 }
+
 
 function stopPlaying() {
   isPlaying = false;
