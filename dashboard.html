@@ -2422,7 +2422,7 @@ let currentSlide = 1;
 const totalSlides = 9;
 let isPlaying = false;
 let autoPlayInterval = null;
-let slideSpeed = 2000;
+let slideSpeed = 146000;
 let elapsedSeconds = 0;
 let timerInterval = null;
 const totalSeconds = 22 * 60;
@@ -2434,7 +2434,49 @@ function startVideo() {
 }
 
 function showSlide(n) {
-  // Ocultar todas
+
+  // VOZ - cancelar anterior y leer nuevo texto
+  window.speechSynthesis.cancel();
+
+  const textos = {
+    1: "Bienvenidos a la lección sobre Historia del PRP. En esta lección exploraremos cómo el PRP pasó de ser una técnica quirúrgica experimental a convertirse en uno de los tratamientos más innovadores de la medicina regenerativa moderna. Prepárate para un recorrido fascinante por más de 50 años de innovación médica.",
+    2: "Años 1970. Los concentrados plaquetarios aparecen por primera vez en medicina transfusional. Los científicos comienzan a estudiar el rol de las plaquetas en la coagulación y curación de heridas. Este fue el punto de partida de una revolución en medicina regenerativa. Primer uso documentado en transfusiones quirúrgicas.",
+    3: "1987. Primer PRP documentado en la historia. Ferrari y colaboradores utilizan por primera vez el término Plasma Rico en Plaquetas durante una cirugía cardíaca. El objetivo era reducir transfusiones y acelerar la recuperación del paciente. Un hito histórico que cambiaría la medicina para siempre.",
+    4: "1998. El PRP llega a la cirugía oral y la ortopedia. Marx y colaboradores demuestran científicamente que el PRP acelera la regeneración ósea en cirugías maxilofaciales. La ortopedia adopta rápidamente el PRP para el tratamiento de tendones y articulaciones lesionadas.",
+    5: "2006. El PRP llega a la medicina estética. Este es un momento revolucionario. Se populariza el llamado Vampire Facial y los tratamientos de rejuvenecimiento facial con plasma rico en plaquetas. Comienza oficialmente la era del PRP cosmético con aplicaciones en rostro, cabello y cicatrices.",
+    6: "2015. Aparece la Fibrina Rica en Plaquetas, la tercera generación. Esta evolución del PRP elimina el anticoagulante del proceso. Los protocolos se vuelven más naturales y ofrecen una liberación prolongada y más fisiológica de los factores de crecimiento. Un avance significativo en la tecnología plaquetaria.",
+    7: "2019. PRP con Biorreactor, la cuarta generación. Se incorporan biorreactores para una activación controlada y precisa. Se comienzan a combinar exosomas y bioactivos para potenciar los resultados clínicos. Inicia la era de la personalización avanzada de los protocolos de PRP.",
+    8: "2022 en adelante. Bienvenidos al PRP de Quinta Generación. El PRP 5G integra nanotecnología, inteligencia artificial y sistemas de ultra-centrifugación de alta precisión. Los protocolos se personalizan con exosomas, bio-geles y microneedling robótico para obtener resultados verdaderamente sin precedentes en la historia de la medicina regenerativa.",
+    9: "Hemos completado el recorrido histórico del PRP. Desde los concentrados plaquetarios de los años 70 hasta el PRP de quinta generación con inteligencia artificial y nanotecnología. En este curso aprenderás a dominar cada una de estas generaciones y a aplicar los protocolos más avanzados disponibles hoy en día. Felicitaciones por completar esta primera lección."
+  };
+
+  if (textos[n]) {
+    setTimeout(() => {
+      const utterance = new SpeechSynthesisUtterance(textos[n]);
+      utterance.lang = 'es-ES';
+      utterance.rate = 0.82;
+      utterance.pitch = 1.05;
+      utterance.volume = 1.0;
+
+      // Elegir mejor voz en español si está disponible
+      const voices = window.speechSynthesis.getVoices();
+      const vozEspanol = voices.find(v =>
+        v.lang.includes('es') && (
+          v.name.includes('Google') ||
+          v.name.includes('Microsoft') ||
+          v.name.includes('Paulina') ||
+          v.name.includes('Monica') ||
+          v.name.includes('Lucia') ||
+          v.name.includes('Jorge')
+        )
+      );
+      if (vozEspanol) utterance.voice = vozEspanol;
+
+      window.speechSynthesis.speak(utterance);
+    }, 300);
+  }
+
+  // Ocultar todas las slides
   for (let i = 1; i <= totalSlides; i++) {
     const s = document.getElementById('slide-' + i);
     if (s) {
@@ -2442,16 +2484,21 @@ function showSlide(n) {
       s.style.opacity = '0';
     }
   }
-  // Mostrar la actual con animación
+
+  // Mostrar slide actual con animación
   currentSlide = n;
   const current = document.getElementById('slide-' + n);
   if (current) {
     current.style.display = 'flex';
-    setTimeout(() => { current.style.opacity = '1'; current.style.transition = 'opacity 0.5s'; }, 50);
+    setTimeout(() => {
+      current.style.opacity = '1';
+      current.style.transition = 'opacity 0.5s';
+    }, 50);
   }
 
   // Actualizar contador
-  document.getElementById('slideCounter').textContent = 'Sección ' + n + ' de ' + totalSlides;
+  document.getElementById('slideCounter').textContent =
+    'Sección ' + n + ' de ' + totalSlides;
 
   // Actualizar barra de progreso
   const progress = ((n - 1) / (totalSlides - 1)) * 100;
@@ -2463,6 +2510,7 @@ function showSlide(n) {
     document.getElementById('playPauseBtn').textContent = '↺ Reiniciar';
   }
 }
+
 
 function startPlaying() {
   isPlaying = true;
