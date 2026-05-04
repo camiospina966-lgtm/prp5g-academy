@@ -3160,7 +3160,7 @@ function showSlide(n) {
       );
       if (vozEspanol) utterance.voice = vozEspanol;
 
-      window.speechSynthesis.speak(utterance);
+      if (!isPlaying) return; window.speechSynthesis.speak(utterance);
     }, 300);
   }
 
@@ -3205,27 +3205,9 @@ function startPlaying() {
   timerInterval = setInterval(() => {
     if (isPlaying) { currentTime++; updateTimer(); }
   }, 1000);
-  function avanzarSlide() {
-    if (!isPlaying) return;
-    if (currentSlide >= totalSlides) {
-      isPlaying = false;
-      window.speechSynthesis.cancel();
-      clearInterval(timerInterval);
-      document.getElementById('playPauseBtn').textContent = '↺ Reiniciar';
-      return;
-    }
-    showSlide(currentSlide + 1);
-    setTimeout(() => {
-      const chk = setInterval(() => {
-        if (!window.speechSynthesis.speaking) {
-          clearInterval(chk);
-          if (isPlaying) setTimeout(() => avanzarSlide(), 1500);
-        }
-      }, 500);
-    }, 1000);
-  }
-  avanzarSlide();
+  avanzarDesde(currentSlide + 1);
 }
+
 
 function stopPlaying() {
   isPlaying = false;
@@ -3236,20 +3218,63 @@ function stopPlaying() {
 
 function togglePlayPause() {
   const btn = document.getElementById('playPauseBtn');
+
   if (btn.textContent.includes('Reiniciar')) {
     currentSlide = 0;
     currentTime = 0;
+    isPlaying = false;
+    window.speechSynthesis.cancel();
+    clearInterval(timerInterval);
     updateTimer();
     document.getElementById('playOverlay').style.display = 'flex';
     btn.textContent = '▶ Reproducir';
     return;
   }
+
   if (isPlaying) {
-    stopPlaying();
+    isPlaying = false;
+    window.speechSynthesis.cancel();
+    clearInterval(timerInterval);
+    btn.textContent = '▶ Reproducir';
   } else {
-    startPlaying();
+    isPlaying = true;
+    btn.textContent = '⏸ Pausar';
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+      if (isPlaying) { currentTime++; updateTimer(); }
+    }, 1000);
+    showSlide(currentSlide);
+    setTimeout(() => {
+      const chk = setInterval(() => {
+        if (!window.speechSynthesis.speaking) {
+          clearInterval(chk);
+          if (isPlaying) setTimeout(() => avanzarDesde(currentSlide + 1), 1500);
+        }
+      }, 500);
+    }, 500);
   }
 }
+
+function avanzarDesde(n) {
+  if (!isPlaying) return;
+  if (n > totalSlides) {
+    isPlaying = false;
+    window.speechSynthesis.cancel();
+    clearInterval(timerInterval);
+    document.getElementById('playPauseBtn').textContent = '↺ Reiniciar';
+    return;
+  }
+  showSlide(n);
+  setTimeout(() => {
+    const chk = setInterval(() => {
+      if (!window.speechSynthesis.speaking) {
+        clearInterval(chk);
+        if (isPlaying) setTimeout(() => avanzarDesde(n + 1), 1500);
+      }
+    }, 500);
+  }, 1000);
+}
+
 
 
 
