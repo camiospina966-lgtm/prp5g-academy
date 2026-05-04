@@ -3142,8 +3142,8 @@ function showSlide(n) {
     setTimeout(() => {
       const utterance = new SpeechSynthesisUtterance(textos[n]);
       utterance.lang = 'es-ES';
-      utterance.rate = 0.82;
-      utterance.pitch = 1.05;
+      utterance.rate = 0.78;
+      utterance.pitch = 0.95;
       utterance.volume = 1.0;
 
       // Elegir mejor voz en español si está disponible
@@ -3158,7 +3158,7 @@ function showSlide(n) {
           v.name.includes('Jorge')
         )
       );
-      if (vozEspanol) utterance.voice = vozEspanol;
+      const vozFinal =    voices.find(v => v.name === 'Google español (Estados Unidos)') ||   voices.find(v => v.name === 'Google español') ||   voices.find(v => v.name.includes('Paulina')) ||   voices.find(v => v.name.includes('Monica')) ||   voices.find(v => v.lang === 'es-US') ||   voices.find(v => v.lang === 'es-ES'); if (vozFinal) utterance.voice = vozFinal;
 
       if (!isPlaying) return; window.speechSynthesis.speak(utterance);
     }, 300);
