@@ -1492,7 +1492,32 @@
 
                 gap: 20px;
 
-            }
+           /* Player controls en móvil */
+div[style*="display:flex"][style*="gap:10px"] {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+}
+
+/* Slide container en móvil */
+#slideContainer, .slide-display {
+    padding-bottom: 20px !important;
+    overflow-y: auto !important;
+}
+
+/* Botones Anterior/Siguiente/Pausar */
+div[style*="display:flex"][style*="gap:12px"],
+div[style*="display:flex"][style*="gap:15px"] {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    width: 100% !important;
+}
+
+/* Timer y sección no encima del texto */
+#timerDisplay, #slideCounter {
+    position: relative !important;
+    z-index: 1 !important;
+}
+ }
 
                .slide-container {
             padding: 10px;
