@@ -3174,6 +3174,12 @@ function startVideo() {
 }
 
 
+function stopPlaying() {
+    isPlaying = false;
+    window.speechSynthesis.cancel();
+    clearInterval(timerInterval);
+    document.getElementById('playPauseBtn').textContent = '▶ Reproducir';
+}
 function togglePlayPause() {
    if (typeof currentTime === 'undefined') currentTime = 0;
   const btn = document.getElementById('playPauseBtn');
