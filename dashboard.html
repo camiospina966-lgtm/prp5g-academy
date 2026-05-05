@@ -3181,6 +3181,7 @@ function stopPlaying() {
 }
 
 function togglePlayPause() {
+   if (typeof currentTime === 'undefined') currentTime = 0;
   const btn = document.getElementById('playPauseBtn');
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
