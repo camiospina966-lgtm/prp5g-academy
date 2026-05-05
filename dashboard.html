@@ -3173,12 +3173,6 @@ function startVideo() {
   avanzarSlide();
 }
 
-function stopPlaying() {
-  isPlaying = false;
-  window.speechSynthesis.cancel();
-  clearInterval(timerInterval);
-  document.getElementById('playPauseBtn').textContent = '▶ Reproducir';
-}
 
 function togglePlayPause() {
    if (typeof currentTime === 'undefined') currentTime = 0;
@@ -3210,14 +3204,19 @@ function togglePlayPause() {
       if (isPlaying) { currentTime++; updateTimer(); }
     }, 1000);
     showSlide(currentSlide);
-    setTimeout(() => {
-      const chk = setInterval(() => {
-        if (!window.speechSynthesis.speaking) {
-          clearInterval(chk);
-          if (isPlaying) setTimeout(() => avanzarDesde(currentSlide + 1), 1500);
-        }
-      }, 500);
-    }, isMobile ? 800 : 500);
+           setTimeout(() => {
+            const chk = setInterval(() => {
+                if (!window.speechSynthesis.speaking) {
+                    clearInterval(chk);
+                    if (isPlaying) {
+                        setTimeout(() => {
+                            avanzarDesde(currentSlide + 1);
+                        }, 1200);
+                    }
+                }
+            }, 500);
+        }, isMobile ? 800 : 500);
+
   }
 }
 
