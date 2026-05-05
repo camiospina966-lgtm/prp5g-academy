@@ -3370,29 +3370,6 @@ function togglePlayPause() {
     return;
   }
 
-  if (isPlaying) {
-    isPlaying = false;
-    window.speechSynthesis.cancel();
-    clearInterval(timerInterval);
-    btn.textContent = '▶ Reproducir';
-  } else {
-    isPlaying = true;
-    btn.textContent = '⏸ Pausar';
-    clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
-      if (isPlaying) { currentTime++; updateTimer(); }
-    }, 1000);
-    showSlide(currentSlide);
-    setTimeout(() => {
-      const chk = setInterval(() => {
-        if (!window.speechSynthesis.speaking) {
-          clearInterval(chk);
-          if (isPlaying) setTimeout(() => avanzarDesde(currentSlide + 1), 1500);
-        }
-      }, 500);
-    }, 500);
-  }
-}
 
 function avanzarDesde(n) {
   if (!isPlaying) return;
