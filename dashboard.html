@@ -6886,10 +6886,8 @@ showSlide(1);
                     <label style="color:var(--text2);font-size:13px;">Tu nombre en el certificado:</label>
 
                     <input type="text" id="certNameInput" placeholder="Escribe tu nombre completo"
-
-                        style="display:block;margin:8px auto;padding:10px 20px;background:#222;border:1px solid var(--gold);border-radius:25px;color:white;font-size:14px;width:300px;text-align:center;outline:none;"
-
-                        onchange="updateCertName(this.value)">
+    style="display:block;margin:8px auto;padding:10px 20px;background:#222;border:1px solid var(--gold);border-radius:25px;color:white;font-size:14px;width:300px;text-align:center;outline:none;"
+    oninput="updateCertName(this.value)">
 
                 </div>
 
@@ -7108,79 +7106,44 @@ document.body.innerHTML = `
 
         if (navItem) navItem.classList.add('active');
 
-        const titles = {
+       const titles = {
+    'home': 'Inicio del Curso',
+    'l0-1': 'Bienvenida al curso',
+    'l0-2': 'Metodología de estudio',
+    'l0-3': 'Materiales necesarios',
+    'l1-1': 'Historia y evolución del PRP',
+    'l1-2': 'Biología plaquetaria',
+    'l1-3': 'Factores de crecimiento',
+    'l1-4': 'Regeneración tisular',
+    'quiz1': 'Evaluación Módulo 1',
+    'l2-1': 'PRP 1G al 3G',
+    'l2-2': 'PRP 4G — Biorreactor',
+    'l2-3': 'PRP 5G — Tecnología total',
+    'l2-4': 'Comparativa generacional',
+    'quiz2': 'Evaluación Módulo 2',
+    'l3-1': 'Nanotecnología en PRP',
+    'l3-2': 'Exosomas y vesículas',
+    'l3-3': 'Inteligencia Artificial',
+    'l3-4': 'Sistemas de centrifugación',
+    'quiz3': 'Evaluación Módulo 3',
+    'l4-1': 'Selección del paciente',
+    'l4-2': 'Extracción y procesamiento',
+    'l4-3': 'Activación avanzada',
+    'l4-4': 'Técnicas de aplicación',
+    'quiz4': 'Evaluación Módulo 4',
+    'l5-1': 'Rejuvenecimiento facial',
+    'l5-2': 'Acné y cicatrices',
+    'l5-3': 'Alopecia',
+    'l5-4': 'Zona periocular',
+    'quiz5': 'Evaluación Módulo 5',
+    'l6-1': 'Contraindicaciones absolutas',
+    'l6-2': 'Efectos adversos y manejo',
+    'l6-3': 'Bioseguridad avanzada',
+    'quiz6': 'Evaluación Módulo 6',
+    'final-exam': 'Examen Final',
+    'certificate': 'Mi Certificado'
+};
 
-            'home': 'Course Home',
-
-            'l0-1': 'Welcome to the course',
-
-            'l0-2': 'Study methodology',
-
-            'l0-3': 'Required materials',
-
-            'l1-1': 'History and evolution of PRP',
-
-            'l1-2': 'Platelet biology',
-
-            'l1-3': 'Growth factors',
-
-            'l1-4': 'Tissue regeneration',
-
-            'quiz1': 'Module 1 Evaluation',
-
-            'l2-1': 'PRP 1G to 3G',
-
-            'l2-2': 'PRP 4G — Bioreactor',
-
-            'l2-3': 'PRP 5G — Total technology',
-
-            'l2-4': 'Generational comparison',
-
-            'quiz2': 'Module 2 Evaluation',
-
-            'l3-1': 'Nanotechnology in PRP',
-
-            'l3-2': 'Exosomes and vesicles',
-
-            'l3-3': 'Artificial Intelligence',
-
-            'l3-4': 'Centrifugation systems',
-
-            'quiz3': 'Module 3 Evaluation',
-
-            'l4-1': 'Patient selection',
-
-            'l4-2': 'Extraction and processing',
-
-            'l4-3': 'Advanced activation',
-
-            'l4-4': 'Application techniques',
-
-            'quiz4': 'Module 4 Evaluation',
-
-            'l5-1': 'Facial rejuvenation',
-
-            'l5-2': 'Acne and scars',
-
-            'l5-3': 'Alopecia',
-
-            'l5-4': 'Periocular zone',
-
-            'quiz5': 'Module 5 Evaluation',
-
-            'l6-1': 'Absolute contraindications',
-
-            'l6-2': 'Adverse effects and management',
-
-            'l6-3': 'Advanced biosafety',
-
-            'quiz6': 'Module 6 Evaluation',
-
-            'final-exam': 'Final Exam',
-
-            'certificate': 'My Certificate'
-
-        };
 
         document.getElementById('currentLessonTitle').textContent = titles[id] || id;
 
@@ -7383,41 +7346,26 @@ function completeLesson(id) {
 
         `;
 
-        modal.innerHTML = `
+    
+modal.innerHTML = `
+    <div style="background:#111;border:2px solid #2ecc71;border-radius:20px;padding:50px 40px;text-align:center;max-width:420px;width:90%;">
+        <div style="font-size:70px;margin-bottom:20px;">🎉</div>
+        <h2 style="color:#2ecc71;font-size:26px;margin-bottom:10px;">¡Curso Completado!</h2>
+        <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:25px;">
+            ¡Felicitaciones! Completaste el <strong style="color:white;">100%</strong> de PRP 5G Academy.<br><br>
+            ¡Tu certificado ya está disponible para descargar!
+        </p>
+        <button onclick="this.closest('div[style]').remove(); showPage('certificate')"
+            style="width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border:none;border-radius:12px;font-weight:800;cursor:pointer;font-size:16px;margin-bottom:10px;">
+            🏆 Ver mi Certificado
+        </button>
+        <button onclick="this.closest('div[style]').remove()"
+            style="width:100%;padding:12px;background:none;border:1px solid #333;border-radius:12px;color:#aaa;cursor:pointer;font-size:14px;">
+            Cerrar
+        </button>
+    </div>
+`;
 
-            <div style="background:#111;border:2px solid #2ecc71;border-radius:20px;padding:50px 40px;text-align:center;max-width:420px;width:90%;">
-
-                <div style="font-size:70px;margin-bottom:20px;animation:bounce 0.6s ease;">🎉</div>
-
-                <h2 style="color:#2ecc71;font-size:26px;margin-bottom:10px;">Course Complete!</h2>
-
-                <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:25px;">
-
-                    Congratulations! You have completed <strong style="color:white;">100%</strong> of PRP 5G Academy.<br><br>
-
-                    Your certificate is now available to download!
-
-                </p>
-
-                <button onclick="this.closest('div[style]').remove(); showPage('certificate')"
-
-                    style="width:100%;padding:15px;background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border:none;border-radius:12px;font-weight:800;cursor:pointer;font-size:16px;margin-bottom:10px;">
-
-                    🏆 Download My Certificate
-
-                </button>
-
-                <button onclick="this.closest('div[style]').remove()"
-
-                    style="width:100%;padding:12px;background:none;border:1px solid #333;border-radius:12px;color:#aaa;cursor:pointer;font-size:14px;">
-
-                    Close
-
-                </button>
-
-            </div>
-
-        `;
 
         document.body.appendChild(modal);
 
@@ -7433,7 +7381,7 @@ function completeLesson(id) {
 
         document.getElementById('progressFill').style.width = pct + '%';
 
-        document.getElementById('progressPercent').textContent = pct + '% completed';
+        document.getElementById('progressPercent').textContent = pct + '% completado';
 
         completedLessons.forEach(id => {
 
@@ -7445,7 +7393,7 @@ function completeLesson(id) {
 
             if (btn) {
 
-                btn.textContent = '✅ Completed';
+               btn.textContent = '✅ Completada';
 
                 btn.classList.add('done');
 
