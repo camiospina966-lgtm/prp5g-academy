@@ -6934,16 +6934,35 @@ showSlide(1);
     // ============================
 
     function checkAccess() {
+    const session = localStorage.getItem('prp5g_session') ||
+    sessionStorage.getItem('prp5g_session');
 
-        const session = localStorage.getItem('prp5g_session') || sessionStorage.getItem('prp5g_session');
+    // ⚠️ Si no hay sesión — redirigir al login
+    if (!session) {
+        window.location.href = 'index.html';
+        return false;
+    }
 
-        if (!session) {
-
-            window.location.href = 'index.html';
-
-            return false;
-
+    try {
+        const user = JSON.parse(session);
+        if (user.paidAt) {
+            const paidDate = new Date(user.paidAt);
+            const now = new Date();
+            const diffDays = Math.floor((now - paidDate) / (1000 * 60 * 60 * 24));
+            const daysLeft = 365 - diffDays;
+            if (daysLeft <= 0) {
+                showAccessExpired();
+                return false;
+            }
+            showAccessBanner(daysLeft);
         }
+    } catch(e) {
+        console.log('Error parsing session:', e);
+    }
+
+    return true;
+}
+
 
         const user = JSON.parse(session);
 
@@ -7591,8 +7610,10 @@ function playVideo(el) {
 }
 
 
-  window.onload = function() {
-    checkAccess();
+ window.onload = function() {
+    // Verificar acceso
+    if (!checkAccess()) return;
+
     updateProgress();
 
     // Abrir módulos por defecto
@@ -7617,8 +7638,7 @@ function playVideo(el) {
         const modMap = {
             'l0': 'mod0', 'l1': 'mod1', 'l2': 'mod2',
             'l3': 'mod3', 'l4': 'mod4', 'l5': 'mod5',
-            'l6': 'mod6', 'quiz': null, 'final': 'mod7',
-            'certificate': 'mod7'
+            'l6': 'mod6', 'final': 'mod7', 'certificate': 'mod7'
         };
         const prefix = Object.keys(modMap).find(k => lastLesson.startsWith(k));
         if (prefix && modMap[prefix]) {
@@ -7627,6 +7647,7 @@ function playVideo(el) {
         }
     }
 };
+
 
 
 </script>
