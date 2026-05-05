@@ -1569,6 +1569,7 @@
             .hero-stats {
 
                 gap: 20px;
+         }
 
            /* Player controls en móvil */
 
@@ -1729,16 +1730,23 @@ div[style*="display:flex"][style*="gap:15px"] {
  }
 
         /* HOME PAGE */
+        
+.page {
+    display: none;
+}
 
-       #page-home { display: block; }
+.page.active {
+    display: block;
+}
 
-.page.active { display: block !important; }
+#page-home {
+    display: none;
+}
 
-.page:not(.active) { display: none !important; }
+#page-home.active {
+    display: block;
+}
 
-        .page { display: none; }
-
-        .page.active { display: block; }
 
         /* ANIMACIONES */
 
@@ -3347,590 +3355,247 @@ div[style*="display:flex"][style*="gap:15px"] {
 </div>
 
 <script>
-
 // ================================
-
 // VIDEO ANIMADO - HISTORIA DEL PRP
-
 // ================================
-
 let currentSlide = 1;
-
 const totalSlides = 45;
-
 let isPlaying = false;
-
-let autoPlayInterval = null;
-
-let slideSpeed = 29000;
-
-let elapsedSeconds = 0;
-
-let timerInterval = null;
-
-const totalSeconds = 22 * 60;
-
 let currentTime = 0;
+let timerInterval = null;
+const totalSeconds = 22 * 60;
+let speechRate = 0.78;
 
-    
+const textos = {
+    1: "Bienvenido a la lección sobre Historia del PRP. Exploraremos más de 50 años de evolución, desde los primeros concentrados plaquetarios hasta la revolucionaria quinta generación con inteligencia artificial.",
+    2: "Los objetivos de esta lección son: conocer el origen histórico del PRP, entender cada generación, identificar los hitos científicos clave y comprender la evolución hacia el PRP de quinta generación.",
+    3: "El Plasma Rico en Plaquetas es una concentración autóloga de plaquetas en pequeño volumen de plasma. Contiene factores de crecimiento que estimulan la regeneración celular y la producción de colágeno.",
+    4: "En la década de 1970, los hematólogos comenzaron a estudiar los concentrados plaquetarios como alternativa a las transfusiones. El objetivo era reducir el riesgo de sangrado en pacientes con trombocitopenia.",
+    5: "En los años 70 se realizó la primera centrifugación de sangre para separar plaquetas. Se usó en oncología y hematología clínica, donde se observaron por primera vez las propiedades regenerativas plaquetarias.",
+    6: "Los investigadores descubren que las plaquetas liberan factores de crecimiento como PDGF, TGF-beta y EGF que activan la proliferación celular y la regeneración de tejidos dañados.",
+    7: "En 1987, el Dr. Ferrari documenta por primera vez el uso del término Plasma Rico en Plaquetas en una cirugía cardíaca abierta, utilizándolo para evitar transfusiones y acelerar la recuperación.",
+    8: "La publicación de Ferrari en 1987 marcó un antes y un después. Por primera vez se documentaba científicamente que el plasma enriquecido con plaquetas podía acelerar la cicatrización quirúrgica.",
+    9: "Entre 1987 y 1995 el PRP se expande a cirugía cardiovascular, maxilofacial, trauma ortopédico y neurocirugía reconstructiva, consolidándose como herramienta regenerativa multipropósito.",
+    10: "El proceso inicial era simple: extraer sangre, centrifugarla una vez y reinfundir el concentrado. Sin protocolos estandarizados ni kits especializados, todo era artesanal.",
+    11: "En 1998, el Dr. Robert Marx publica un estudio revolucionario demostrando que el PRP acelera la regeneración ósea en cirugías de mandíbula, estableciendo la concentración plaquetaria mínima efectiva.",
+    12: "El estudio de Marx estableció que se necesitan al menos un millón de plaquetas por microlitro. Demostró regeneración ósea dos veces más rápida y fue publicado en el Journal of Oral and Maxillofacial Surgery.",
+    13: "A partir del año 2000, los equipos deportivos de élite comienzan a usar PRP para tratar lesiones musculares y tendinosas en atletas profesionales, permitiendo retornos más rápidos a la competencia.",
+    14: "Casos famosos incluyen futbolistas europeos con lesiones de tendón, jugadores de NFL con problemas de rodilla, tenistas con epicondilitis y nadadores con lesiones de hombro tratados exitosamente con PRP.",
+    15: "En 2003 se estandarizan los primeros kits comerciales de PRP. El PRP de primera generación usa anticoagulante, doble centrifugación y activación con trombina bovina como protocolo estándar.",
+    16: "En 2006, los dermatólogos descubren que el PRP puede aplicarse en el rostro para estimular colágeno, mejorar la textura y rejuvenecer el aspecto facial.",
+    17: "En 2009, el Dr. Charles Runels populariza el Vampire Facial combinando microneedling con PRP tópico. Kim Kardashian lo muestra públicamente generando un interés masivo mundial en el PRP estético.",
+    18: "En 2010 se publican los primeros estudios clínicos sobre PRP en alopecia androgenética. Las inyecciones en cuero cabelludo reducen la caída del cabello en más de un 70 por ciento.",
+    19: "La segunda generación del PRP incorpora centrifugación optimizada en dos fases, elimina la trombina bovina, logra mayor concentración plaquetaria y usa kits cerrados más seguros.",
+    20: "En 2014, el Dr. Joseph Choukroun desarrolla la Fibrina Rica en Plaquetas. Sin anticoagulante, la sangre centrifugada forma una membrana de fibrina natural con liberación prolongada de factores de crecimiento.",
+    21: "La diferencia clave entre PRP y PRF es que el PRP usa anticoagulante y tiene liberación inmediata en forma líquida, mientras el PRF no usa anticoagulante y forma una membrana sólida con liberación prolongada.",
+    22: "En 2015 el PRF se adopta masivamente en cirugía oral, implantología y estética facial. Las membranas actúan como scaffolds biológicos que aceleran la regeneración y se usan en lifting y rellenos naturales.",
+    23: "En 2016 se desarrolla el injectable PRF, versión líquida obtenida con menor velocidad de centrifugación. Permite inyección directa en tejidos blandos para bioestimulación facial.",
+    24: "En 2018, la cuarta generación incorpora biorreactores para activación controlada del PRP, incubación a temperatura corporal y concentración selectiva de factores de crecimiento específicos.",
+    25: "La investigación en exosomas abre nuevas posibilidades en 2018. Combinar PRP con exosomas de células madre potencia significativamente los efectos regenerativos, iniciando los protocolos de cuarta generación.",
+    26: "En 2019 se consolida la personalización avanzada de protocolos según tipo de piel, edad del paciente, indicación clínica y análisis del recuento plaquetario basal individual.",
+    27: "Durante la pandemia de 2020 la investigación en plasma convaleciente impulsa avances en la aplicación sistémica del PRP y sus efectos inmunomoduladores y antiinflamatorios.",
+    28: "En 2021 los primeros algoritmos de inteligencia artificial se aplican para predecir la respuesta individual al PRP, analizando parámetros hematológicos y características de la piel del paciente.",
+    29: "En 2022 nace el concepto de PRP de Quinta Generación: una convergencia de tecnologías avanzadas que transforma completamente la preparación, personalización y aplicación del plasma rico en plaquetas.",
+    30: "La nanotecnología del PRP 5G encapsula factores de crecimiento en nanopartículas de liberación controlada, mejorando la biodisponibilidad hasta 10 veces y prolongando la acción regenerativa en el tejido.",
+    31: "La inteligencia artificial en el PRP 5G analiza el hemograma completo, predice la respuesta tisular, ajusta automáticamente los parámetros de centrifugación y genera un protocolo único para cada paciente.",
+    32: "Los sistemas de ultra-centrifugación de quinta generación alcanzan 15 mil revoluciones por minuto con control de temperatura integrado, separando subpoblaciones plaquetarias según su actividad biológica.",
+    33: "Los exosomas del PRP 5G son vesículas de 30 a 150 nanómetros que transportan ARN mensajero y proteínas bioactivas. Derivados de células madre mesenquimales, amplifican exponencialmente la señalización regenerativa.",
+    34: "El microneedling robótico de quinta generación aplica PRP con precisión submilimétrica, controlando automáticamente la profundidad de penetración y distribución según el mapeo facial tridimensional del paciente.",
+    35: "Los bio-geles de PRP 5G son matrices tridimensionales de fibrina que actúan como scaffolds inteligentes. Los parches transdérmicos liberan factores de crecimiento durante 48 a 72 horas post-procedimiento.",
+    36: "Los sistemas cerrados estériles del PRP 5G operan en circuito completamente cerrado, con filtración ultrafina integrada, temperatura controlada a 37 grados y trazabilidad digital completa del proceso.",
+    37: "Las plataformas digitales de monitoreo siguen en tiempo real la evolución del tratamiento. La inteligencia artificial analiza fotografías seriadas midiendo cambios en textura, pigmentación y volumen facial.",
+    38: "El PRP 5G opera bajo regulación de terapias avanzadas. La FDA, la Agencia Europea de Medicamentos y organismos latinoamericanos requieren protocolos estrictos de bioseguridad y trazabilidad documentada.",
+    39: "La ética en el PRP 5G requiere consentimiento informado detallado, expectativas realistas del paciente, publicidad veraz y responsable, y capacitación continua obligatoria para los profesionales.",
+    40: "El futuro del PRP incluye terapia génica integrada, organoides plaquetarios, impresión tridimensional de scaffolds con factores de crecimiento y sistemas de liberación cuántica personalizados a nivel genómico.",
+    41: "Las cinco generaciones del PRP evolucionan desde anticoagulante con trombina bovina, pasando por kits cerrados, fibrina sin anticoagulante, biorreactores con exosomas, hasta la inteligencia artificial y nanotecnología.",
+    42: "El mercado global del PRP alcanza 500 millones de dólares en 2024 con crecimiento anual del 12 por ciento. Los profesionales certificados en PRP 5G tienen alta demanda y se diferencian en el mercado estético.",
+    43: "Los puntos clave: el PRP nació en los años 70 en hematología, Ferrari lo documentó en 1987, Marx lo estandarizó en 1998, el Vampire Facial lo popularizó, y el PRP 5G integra inteligencia artificial y nanotecnología.",
+    44: "Pregunta de reflexión: ¿En qué año se documentó por primera vez el Plasma Rico en Plaquetas y en qué tipo de cirugía se utilizó? Reflexiona sobre la respuesta antes de continuar al quiz.",
+    45: "Felicitaciones. Has completado la lección sobre Historia y Evolución del PRP. 45 secciones en 22 minutos de contenido educativo de alta calidad. Continúa con la siguiente lección del módulo."
+};
 
-function startVideo() {
-
-  document.getElementById('playOverlay').style.display = 'none';
-
-  currentSlide = 0;
-
-  isPlaying = true;
-
-  document.getElementById('playPauseBtn').textContent = '⏸ Pausar';
-
-  clearInterval(timerInterval);
-
-  timerInterval = setInterval(() => {
-
-    if (isPlaying) {
-
-      currentTime++;
-
-      updateTimer();
-
-    }
-
-  }, 1000);
-
-  function avanzarSlide() {
-
-    if (!isPlaying) return;
-
-    if (currentSlide >= totalSlides) {
-
-      isPlaying = false;
-
-      window.speechSynthesis.cancel();
-
-      clearInterval(timerInterval);
-
-      document.getElementById('playPauseBtn').textContent = '↺ Reiniciar';
-
-      return;
-
-    }
-
-    showSlide(currentSlide + 1);
-
-    setTimeout(() => {
-
-      const esperarVoz = setInterval(() => {
-
-        if (!window.speechSynthesis.speaking) {
-
-          clearInterval(esperarVoz);
-
-          if (isPlaying) {
-
-            setTimeout(() => {
-
-              avanzarSlide();
-
-            }, 1500);
-
-          }
-
-        }
-
-      }, 500);
-
-    }, 1000);
-
-  }
-
-  avanzarSlide();
-
+function getVoz() {
+    const voices = window.speechSynthesis.getVoices();
+    return voices.find(v => v.name === 'Google español (Estados Unidos)') ||
+           voices.find(v => v.name === 'Google español') ||
+           voices.find(v => v.name.includes('Paulina')) ||
+           voices.find(v => v.name.includes('Monica')) ||
+           voices.find(v => v.lang === 'es-US') ||
+           voices.find(v => v.lang === 'es-ES') ||
+           null;
 }
 
-function stopPlaying() {
-
-    isPlaying = false;
-
+function hablar(texto) {
+    if (!texto || !isPlaying) return;
     window.speechSynthesis.cancel();
-
-    clearInterval(timerInterval);
-
-    document.getElementById('playPauseBtn').textContent = '▶ Reproducir';
-
-}
-
-function togglePlayPause() {
-
-   if (typeof currentTime === 'undefined') currentTime = 0;
-
-  const btn = document.getElementById('playPauseBtn');
-
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-  if (btn.textContent.includes('Reiniciar')) {
-
-    currentSlide = 0;
-
-    currentTime = 0;
-
-    isPlaying = false;
-
-    window.speechSynthesis.cancel();
-
-    clearInterval(timerInterval);
-
-    updateTimer();
-
-    document.getElementById('playOverlay').style.display = 'flex';
-
-    btn.textContent = '▶ Reproducir';
-
-    return;
-
-  }
-
-  if (isPlaying) {
-
-    isPlaying = false;
-
-    window.speechSynthesis.cancel();
-
-    clearInterval(timerInterval);
-
-    btn.textContent = '▶ Reproducir';
-
-  } else {
-
-    isPlaying = true;
-
-    btn.textContent = '⏸ Pausar';
-
-    clearInterval(timerInterval);
-
-    timerInterval = setInterval(() => {
-
-      if (isPlaying) { currentTime++; updateTimer(); }
-
-    }, 1000);
-
-    showSlide(currentSlide);
-
-           setTimeout(() => {
-
-            const chk = setInterval(() => {
-
-                if (!window.speechSynthesis.speaking) {
-
-                    clearInterval(chk);
-
-                    if (isPlaying) {
-
-                        setTimeout(() => {
-
-                            avanzarDesde(currentSlide + 1);
-
-                        }, 1200);
-
-                    }
-
-                }
-
-            }, 500);
-
-        }, isMobile ? 800 : 500);
-
-  }
-
+    const u = new SpeechSynthesisUtterance(texto);
+    u.lang = 'es-ES';
+    u.rate = speechRate;
+    u.pitch = 0.95;
+    u.volume = 1.0;
+    const voz = getVoz();
+    if (voz) u.voice = voz;
+    window.speechSynthesis.speak(u);
 }
 
 function showSlide(n) {
-
-  // VOZ - cancelar anterior y leer nuevo texto
-
-  window.speechSynthesis.cancel();
-
-  const textos = {
-
-  1: "Bienvenido a la lección sobre Historia del PRP. Exploraremos más de 50 años de evolución, desde los primeros concentrados plaquetarios hasta la revolucionaria quinta generación con inteligencia artificial.",
-
-  2: "Los objetivos de esta lección son: conocer el origen histórico del PRP, entender cada generación, identificar los hitos científicos clave y comprender la evolución hacia el PRP de quinta generación.",
-
-  3: "El Plasma Rico en Plaquetas es una concentración autóloga de plaquetas en pequeño volumen de plasma. Contiene factores de crecimiento que estimulan la regeneración celular y la producción de colágeno.",
-
-  4: "En la década de 1970, los hematólogos comenzaron a estudiar los concentrados plaquetarios como alternativa a las transfusiones. El objetivo era reducir el riesgo de sangrado en pacientes con trombocitopenia.",
-
-  5: "En los años 70 se realizó la primera centrifugación de sangre para separar plaquetas. Se usó en oncología y hematología clínica, donde se observaron por primera vez las propiedades regenerativas plaquetarias.",
-
-  6: "Los investigadores descubren que las plaquetas liberan factores de crecimiento como PDGF, TGF-beta y EGF que activan la proliferación celular y la regeneración de tejidos dañados.",
-
-  7: "En 1987, el Dr. Ferrari documenta por primera vez el uso del término Plasma Rico en Plaquetas en una cirugía cardíaca abierta, utilizándolo para evitar transfusiones y acelerar la recuperación.",
-
-  8: "La publicación de Ferrari en 1987 marcó un antes y un después. Por primera vez se documentaba científicamente que el plasma enriquecido con plaquetas podía acelerar la cicatrización quirúrgica.",
-
-  9: "Entre 1987 y 1995 el PRP se expande a cirugía cardiovascular, maxilofacial, trauma ortopédico y neurocirugía reconstructiva, consolidándose como herramienta regenerativa multipropósito.",
-
-  10: "El proceso inicial era simple: extraer sangre, centrifugarla una vez y reinfundir el concentrado. Sin protocolos estandarizados ni kits especializados, todo era artesanal y dependía del criterio del cirujano.",
-
-  11: "En 1998, el Dr. Robert Marx publica un estudio revolucionario demostrando que el PRP acelera la regeneración ósea en cirugías de mandíbula, estableciendo la concentración plaquetaria mínima efectiva.",
-
-  12: "El estudio de Marx estableció que se necesitan al menos un millón de plaquetas por microlitro para efectos terapéuticos. Demostró regeneración ósea dos veces más rápida y fue publicado en el Journal of Oral and Maxillofacial Surgery.",
-
-  13: "A partir del año 2000, los equipos deportivos de élite comienzan a usar PRP para tratar lesiones musculares y tendinosas en atletas profesionales, permitiendo retornos más rápidos a la competencia.",
-
-  14: "Casos famosos incluyen futbolistas europeos con lesiones de tendón, jugadores de NFL con problemas de rodilla, tenistas con epicondilitis y nadadores con lesiones de hombro tratados exitosamente con PRP.",
-
-  15: "En 2003 se estandarizan los primeros kits comerciales de PRP. El PRP de primera generación usa anticoagulante, doble centrifugación y activación con trombina bovina como protocolo estándar.",
-
-  16: "En 2006, un momento revolucionario: los dermatólogos descubren que el PRP puede aplicarse en el rostro para estimular colágeno, mejorar la textura y rejuvenecer el aspecto facial.",
-
-  17: "En 2009, el Dr. Charles Runels populariza el Vampire Facial combinando microneedling con PRP tópico. Kim Kardashian lo muestra públicamente generando un interés masivo mundial en el PRP estético.",
-
-  18: "En 2010 se publican los primeros estudios clínicos sobre PRP en alopecia androgenética. Las inyecciones en cuero cabelludo reducen la caída del cabello en más de un 70 por ciento.",
-
-  19: "La segunda generación del PRP incorpora centrifugación optimizada en dos fases, elimina la trombina bovina, logra mayor concentración plaquetaria y usa kits cerrados más seguros.",
-
-  20: "En 2014, el Dr. Joseph Choukroun desarrolla la Fibrina Rica en Plaquetas. Sin anticoagulante, la sangre centrifugada forma una membrana de fibrina natural con liberación prolongada de factores de crecimiento.",
-
-  21: "La diferencia clave entre PRP y PRF es que el PRP usa anticoagulante y tiene liberación inmediata en forma líquida, mientras el PRF no usa anticoagulante y forma una membrana sólida con liberación prolongada.",
-
-  22: "En 2015 el PRF se adopta masivamente en cirugía oral, implantología y estética facial. Las membranas actúan como scaffolds biológicos que aceleran la regeneración y se usan en lifting y rellenos naturales.",
-
-  23: "En 2016 se desarrolla el injectable PRF, versión líquida obtenida con menor velocidad de centrifugación. Conserva la forma líquida más tiempo antes de gelificar, permitiendo inyección directa en tejidos blandos.",
-
-  24: "En 2018, la cuarta generación incorpora biorreactores para activación controlada del PRP, incubación a temperatura corporal y concentración selectiva de factores de crecimiento específicos.",
-
-  25: "La investigación en exosomas abre nuevas posibilidades en 2018. Combinar PRP con exosomas de células madre potencia significativamente los efectos regenerativos, iniciando los protocolos de cuarta generación.",
-
-  26: "En 2019 se consolida la personalización avanzada de protocolos según tipo de piel, edad del paciente, indicación clínica y análisis del recuento plaquetario basal individual.",
-
-  27: "Durante la pandemia de 2020 la investigación en plasma convaleciente impulsa avances en la aplicación sistémica del PRP y sus efectos inmunomoduladores y antiinflamatorios.",
-
-  28: "En 2021 los primeros algoritmos de inteligencia artificial se aplican para predecir la respuesta individual al PRP, analizando parámetros hematológicos y características de la piel del paciente.",
-
-  29: "En 2022 nace el concepto de PRP de Quinta Generación: una convergencia de tecnologías avanzadas que transforma completamente la preparación, personalización y aplicación del plasma rico en plaquetas.",
-
-  30: "La nanotecnología del PRP 5G encapsula factores de crecimiento en nanopartículas de liberación controlada, mejorando la biodisponibilidad hasta 10 veces y prolongando la acción regenerativa en el tejido.",
-
-  31: "La inteligencia artificial en el PRP 5G analiza el hemograma completo, predice la respuesta tisular, ajusta automáticamente los parámetros de centrifugación y genera un protocolo único para cada paciente.",
-
-  32: "Los sistemas de ultra-centrifugación de quinta generación alcanzan 15 mil revoluciones por minuto con control de temperatura integrado, separando subpoblaciones plaquetarias según su actividad biológica.",
-
-  33: "Los exosomas del PRP 5G son vesículas de 30 a 150 nanómetros que transportan ARN mensajero y proteínas bioactivas. Derivados de células madre mesenquimales, amplifican exponencialmente la señalización regenerativa.",
-
-  34: "El microneedling robótico de quinta generación aplica PRP con precisión submilimétrica, controlando automáticamente la profundidad de penetración y distribución según el mapeo facial tridimensional del paciente.",
-
-  35: "Los bio-geles de PRP 5G son matrices tridimensionales de fibrina que actúan como scaffolds inteligentes. Los parches transdérmicos liberan factores de crecimiento durante 48 a 72 horas post-procedimiento.",
-
-  36: "Los sistemas cerrados estériles del PRP 5G operan en circuito completamente cerrado, con filtración ultrafina integrada, temperatura controlada a 37 grados y trazabilidad digital completa del proceso.",
-
-  37: "Las plataformas digitales de monitoreo siguen en tiempo real la evolución del tratamiento. La inteligencia artificial analiza fotografías seriadas midiendo cambios en textura, pigmentación y volumen facial.",
-
-  38: "El PRP 5G opera bajo regulación de terapias avanzadas. La FDA, la Agencia Europea de Medicamentos y organismos latinoamericanos requieren protocolos estrictos de bioseguridad y trazabilidad documentada.",
-
-  39: "La ética en el PRP 5G requiere consentimiento informado detallado, expectativas realistas del paciente, publicidad veraz y responsable, y capacitación continua obligatoria para los profesionales.",
-
-  40: "El futuro del PRP incluye terapia génica integrada, organoides plaquetarios, impresión tridimensional de scaffolds con factores de crecimiento y sistemas de liberación cuántica personalizados a nivel genómico.",
-
-  41: "Las cinco generaciones del PRP evolucionan desde anticoagulante con trombina bovina, pasando por kits cerrados, fibrina sin anticoagulante, biorreactores con exosomas, hasta la inteligencia artificial y nanotecnología.",
-
-  42: "El mercado global del PRP alcanza 500 millones de dólares en 2024 con crecimiento anual del 12 por ciento. Los profesionales certificados en PRP 5G tienen alta demanda y se diferencian en el mercado estético.",
-
-  43: "Los puntos clave: el PRP nació en los años 70 en hematología, Ferrari lo documentó en 1987, Marx lo estandarizó en 1998, el Vampire Facial lo popularizó, y el PRP 5G integra inteligencia artificial y nanotecnología.",
-
-  44: "Pregunta de reflexión: ¿En qué año se documentó por primera vez el Plasma Rico en Plaquetas y en qué tipo de cirugía se utilizó? Reflexiona sobre la respuesta antes de continuar al quiz.",
-
-  45: "Felicitaciones. Has completado la lección sobre Historia y Evolución del PRP. 45 secciones en 22 minutos de contenido educativo de alta calidad. Continúa con la siguiente lección del módulo."
-
-};
-
-  if (textos[n]) {
-
-    setTimeout(() => {
-
-      const utterance = new SpeechSynthesisUtterance(textos[n]);
-
-      utterance.lang = 'es-ES';
-
-      utterance.rate = 0.78;
-
-      utterance.pitch = 0.95;
-
-      utterance.volume = 1.0;
-
-      // Elegir mejor voz en español si está disponible
-
-      const voices = window.speechSynthesis.getVoices();
-
-      const vozEspanol = voices.find(v =>
-
-        v.lang.includes('es') && (
-
-          v.name.includes('Google') ||
-
-          v.name.includes('Microsoft') ||
-
-          v.name.includes('Paulina') ||
-
-          v.name.includes('Monica') ||
-
-          v.name.includes('Lucia') ||
-
-          v.name.includes('Jorge')
-
-        )
-
-      );
-
-      const vozFinal =    voices.find(v => v.name === 'Google español (Estados Unidos)') ||   voices.find(v => v.name === 'Google español') ||   voices.find(v => v.name.includes('Paulina')) ||   voices.find(v => v.name.includes('Monica')) ||   voices.find(v => v.lang === 'es-US') ||   voices.find(v => v.lang === 'es-ES'); if (vozFinal) utterance.voice = vozFinal;
-
-     if (!isPlaying) return; window.speechSynthesis.speak(utterance);
-
-    }, 300);
-
-  }
-
-  // Ocultar todas las slides
-
-  for (let i = 1; i <= totalSlides; i++) {
-
-    const s = document.getElementById('slide-' + i);
-
-    if (s) {
-
-      s.style.display = 'none';
-
-      s.style.opacity = '0';
-
+    if (n < 1 || n > totalSlides) return;
+    window.speechSynthesis.cancel();
+
+    for (let i = 1; i <= totalSlides; i++) {
+        const s = document.getElementById('slide-' + i);
+        if (s) { s.style.display = 'none'; s.style.opacity = '0'; }
     }
 
-  }
+    currentSlide = n;
+    const current = document.getElementById('slide-' + n);
+    if (current) {
+        current.style.display = 'flex';
+        setTimeout(() => {
+            current.style.opacity = '1';
+            current.style.transition = 'opacity 0.5s';
+        }, 50);
+    }
 
-  // Mostrar slide actual con animación
+    document.getElementById('slideCounter').textContent = 'Sección ' + n + ' de ' + totalSlides;
+    const progress = ((n - 1) / (totalSlides - 1)) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
 
-  currentSlide = n;
+    if (isPlaying && textos[n]) {
+        setTimeout(() => hablar(textos[n]), 300);
+    }
 
-  const current = document.getElementById('slide-' + n);
+    if (n === totalSlides) {
+        detener();
+        document.getElementById('playPauseBtn').textContent = '↺ Reiniciar';
+    }
+}
 
-  if (current) {
-
-    current.style.display = 'flex';
-
+function avanzarDesde(n) {
+    if (!isPlaying) return;
+    if (n > totalSlides) {
+        detener();
+        document.getElementById('playPauseBtn').textContent = '↺ Reiniciar';
+        return;
+    }
+    showSlide(n);
     setTimeout(() => {
-
-      current.style.opacity = '1';
-
-      current.style.transition = 'opacity 0.5s';
-
-    }, 50);
-
-  }
-
-  // Actualizar contador
-
-  document.getElementById('slideCounter').textContent =
-
-    'Sección ' + n + ' de ' + totalSlides;
-
-  // Actualizar barra de progreso
-
-  const progress = ((n - 1) / (totalSlides - 1)) * 100;
-
-  document.getElementById('progressBar').style.width = progress + '%';
-
-  // Si llegó al final
-
-  if (n === totalSlides) {
-
-    stopPlaying();
-
-    document.getElementById('playPauseBtn').textContent = '↺ Reiniciar';
-
-  }
-
+        const chk = setInterval(() => {
+            if (!isPlaying) { clearInterval(chk); return; }
+            if (!window.speechSynthesis.speaking) {
+                clearInterval(chk);
+                setTimeout(() => { if (isPlaying) avanzarDesde(n + 1); }, 1500);
+            }
+        }, 500);
+    }, 1000);
 }
 
-function startPlaying() {
-
-  isPlaying = true;
-
-  document.getElementById('playPauseBtn').textContent = '⏸ Pausar';
-
-  clearInterval(timerInterval);
-
-  timerInterval = setInterval(() => {
-
-    if (isPlaying) { currentTime++; updateTimer(); }
-
-  }, 1000);
-
-  avanzarDesde(currentSlide + 1);
-
+function detener() {
+    isPlaying = false;
+    window.speechSynthesis.cancel();
+    clearInterval(timerInterval);
+    document.getElementById('playPauseBtn').textContent = '▶ Reproducir';
 }
 
-function stopPlaying() {
-
-  isPlaying = false;
-
-  window.speechSynthesis.cancel();
-
-  clearInterval(timerInterval);
-
-  document.getElementById('playPauseBtn').textContent = '▶ Reproducir';
-
+function startVideo() {
+    document.getElementById('playOverlay').style.display = 'none';
+    currentSlide = 0;
+    currentTime = 0;
+    isPlaying = true;
+    document.getElementById('playPauseBtn').textContent = '⏸ Pausar';
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        if (isPlaying) { currentTime++; updateTimer(); }
+    }, 1000);
+    avanzarDesde(1);
 }
 
 function togglePlayPause() {
+    const btn = document.getElementById('playPauseBtn');
 
-  const btn = document.getElementById('playPauseBtn');
+    if (btn.textContent.includes('Reiniciar')) {
+        currentSlide = 0;
+        currentTime = 0;
+        isPlaying = false;
+        window.speechSynthesis.cancel();
+        clearInterval(timerInterval);
+        updateTimer();
+        document.getElementById('playOverlay').style.display = 'flex';
+        btn.textContent = '▶ Reproducir';
+        return;
+    }
 
-  if (btn.textContent.includes('Reiniciar')) {
-
-    currentSlide = 0;
-
-    currentTime = 0;
-
-    isPlaying = false;
-
-    window.speechSynthesis.cancel();
-
-    clearInterval(timerInterval);
-
-    updateTimer();
-
-    document.getElementById('playOverlay').style.display = 'flex';
-
-    btn.textContent = '▶ Reproducir';
-
-    return;
-
-  }
-
-function avanzarDesde(n) {
-
-  if (!isPlaying) return;
-
-  if (n > totalSlides) {
-
-    isPlaying = false;
-
-    window.speechSynthesis.cancel();
-
-    clearInterval(timerInterval);
-
-    document.getElementById('playPauseBtn').textContent = '↺ Reiniciar';
-
-    return;
-
-  }
-
-  showSlide(n);
-
-  setTimeout(() => {
-
-    const chk = setInterval(() => {
-
-      if (!window.speechSynthesis.speaking) {
-
-        clearInterval(chk);
-
-        if (isPlaying) setTimeout(() => avanzarDesde(n + 1), 1500);
-
-      }
-
-    }, 500);
-
-  }, 1000);
-
+    if (isPlaying) {
+        detener();
+    } else {
+        isPlaying = true;
+        btn.textContent = '⏸ Pausar';
+        clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+            if (isPlaying) { currentTime++; updateTimer(); }
+        }, 1000);
+        showSlide(currentSlide || 1);
+        setTimeout(() => {
+            const chk = setInterval(() => {
+                if (!isPlaying) { clearInterval(chk); return; }
+                if (!window.speechSynthesis.speaking) {
+                    clearInterval(chk);
+                    setTimeout(() => { if (isPlaying) avanzarDesde(currentSlide + 1); }, 1500);
+                }
+            }, 500);
+        }, 500);
+    }
 }
 
 function nextSlide() {
-
-  stopPlaying();
-
-  if (currentSlide < totalSlides) {
-
-    showSlide(currentSlide + 1);
-
-  }
-
+    detener();
+    if (currentSlide < totalSlides) showSlide(currentSlide + 1);
 }
 
 function prevSlide() {
-
-  stopPlaying();
-
-  if (currentSlide > 1) {
-
-    showSlide(currentSlide - 1);
-
-  }
-
+    detener();
+    if (currentSlide > 1) showSlide(currentSlide - 1);
 }
 
 function changeSpeed(val) {
-
-  slideSpeed = parseInt(val);
-
-  if (isPlaying) {
-
-    stopPlaying();
-
-    startPlaying();
-
-  }
-
+    const speeds = { '3000': 0.45, '2000': 0.78, '1000': 1.1, '500': 1.5 };
+    speechRate = speeds[val] || 0.78;
+    if (isPlaying) { window.speechSynthesis.cancel(); hablar(textos[currentSlide]); }
 }
 
 function updateTimer() {
-
-  const mins = Math.floor(elapsedSeconds / 60).toString().padStart(2, '0');
-
-  const secs = Math.floor(elapsedSeconds % 60).toString().padStart(2, '0');
-
-  document.getElementById('timeDisplay').textContent = mins + ':' + secs + ' / 22:00';
-
+    const mins = Math.floor(currentTime / 60).toString().padStart(2, '0');
+    const secs = Math.floor(currentTime % 60).toString().padStart(2, '0');
+    const el = document.getElementById('timeDisplay');
+    if (el) el.textContent = mins + ':' + secs + ' / 22:00';
 }
 
 function seekVideo(e, bar) {
-
-  const rect = bar.getBoundingClientRect();
-
-  const x = e.clientX - rect.left;
-
-  const pct = x / rect.width;
-
-  const targetSlide = Math.max(1, Math.min(totalSlides, Math.round(pct * totalSlides)));
-
-  stopPlaying();
-
-  elapsedSeconds = pct * totalSeconds;
-
-  updateTimer();
-
-  showSlide(targetSlide);
-
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const targetSlide = Math.max(1, Math.min(totalSlides, Math.round(pct * totalSlides)));
+    detener();
+    currentTime = Math.round(pct * totalSeconds);
+    updateTimer();
+    showSlide(targetSlide);
 }
 
 function toggleFullscreen() {
-
-  const el = document.querySelector('.video-player-container');
-
-  if (!document.fullscreenElement) {
-
-    el.requestFullscreen();
-
-  } else {
-
-    document.exitFullscreen();
-
-  }
-
+    const el = document.querySelector('.video-player-container');
+    if (!el) return;
+    if (!document.fullscreenElement) {
+        el.requestFullscreen().catch(e => console.log(e));
+    } else {
+        document.exitFullscreen();
+    }
 }
 
-// Mostrar slide 1 al cargar
+if (window.speechSynthesis) {
+    window.speechSynthesis.onvoiceschanged = function() { getVoz(); };
+}
 
 showSlide(1);
+
 
             <div class="lesson-content">
 
@@ -7290,7 +6955,7 @@ showSlide(1);
 
             const now = new Date();
 
-            const diffDays = Math.floor((now - paidDate) / (1000  60  60 * 24));
+            const diffDays = Math.floor((now - paidDate) / (1000 * 60 * 60 * 24));
 
             const daysLeft = 365 - diffDays;
 
@@ -7330,7 +6995,7 @@ showSlide(1);
 
         `;
 
-        banner.innerHTML = ⏰ <strong>${daysLeft} days</strong> of access remaining;
+        banner.innerHTML = `⏰ <strong>${daysLeft} días</strong> de acceso restantes`;
 
         document.body.appendChild(banner);
 
@@ -7340,37 +7005,24 @@ showSlide(1);
 
     function showAccessExpired() {
 
-        document.body.innerHTML = `
+        // ✅ DESPUÉS (correcto):
+document.body.innerHTML = `
+    <div style="min-height:100vh;background:#0a0a0a;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',sans-serif;">
+        <div style="text-align:center;padding:40px;background:#111;border:2px solid #e74c3c;border-radius:20px;max-width:420px;">
+            <div style="font-size:60px;margin-bottom:20px;">⏰</div>
+            <h2 style="color:#e74c3c;margin-bottom:10px;">Acceso Expirado</h2>
+            <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:25px;">
+                Tu acceso de 12 meses a PRP 5G Academy ha expirado.<br>
+                Renueva ahora para continuar aprendiendo.
+            </p>
+            <a href="payment.html?plan=renewal&price=97"
+                style="display:inline-block;padding:14px 30px;background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;">
+                🔄 Renovar Acceso — $97 USD
+            </a>
+        </div>
+    </div>
+`;
 
-            <div style="min-height:100vh;background:#0a0a0a;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',sans-serif;">
-
-                <div style="text-align:center;padding:40px;background:#111;border:2px solid #e74c3c;border-radius:20px;max-width:420px;">
-
-                    <div style="font-size:60px;margin-bottom:20px;">⏰</div>
-
-                    <h2 style="color:#e74c3c;margin-bottom:10px;">Access Expired</h2>
-
-                    <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:25px;">
-
-                        Your 12-month access to PRP 5G Academy has expired.<br>
-
-                        Renew now to continue learning.
-
-                    </p>
-
-                    <a href="payment.html?plan=renewal&price=97"
-
-                        style="display:inline-block;padding:14px 30px;background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;">
-
-                        🔄 Renew Access — $97 USD
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        `;
 
     }
 
@@ -7532,11 +7184,11 @@ showSlide(1);
 
         document.getElementById('currentLessonTitle').textContent = titles[id] || id;
 
-        currentLesson = id;
+       currentLesson = id;
+       localStorage.setItem('prp5g_lastLesson', id);
+       window.scrollTo(0, 0);
+       closeSidebar();
 
-        window.scrollTo(0, 0);
-
-        closeSidebar();
 
         if (id === 'certificate') {
 
@@ -7548,95 +7200,116 @@ showSlide(1);
 
     }
 
-    function showCertificateLocked() {
+function showCertificateLocked() {
+    // Eliminar modal anterior si existe
+    const existing = document.getElementById('lockedModal');
+    if (existing) existing.remove();
 
-        const total = allLessons.filter(l => l !== 'certificate').length;
+    const modal = document.createElement('div');
+    modal.id = 'lockedModal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    `;
 
-        const done = completedLessons.length;
+    modal.innerHTML = `
+        <div style="
+            background: #111;
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        ">
+            <!-- Botón X para cerrar -->
+            <button onclick="closeCertificateLocked()" style="
+                position: absolute;
+                top: 12px; right: 16px;
+                background: none;
+                border: none;
+                color: #aaa;
+                font-size: 22px;
+                cursor: pointer;
+                line-height: 1;
+            ">✕</button>
 
-        const pct = Math.round((done / total) * 100);
+            <div style="font-size: 60px; margin-bottom: 15px;">🔒</div>
+            <h2 style="color: var(--gold); margin-bottom: 10px;">
+                Certificado Bloqueado
+            </h2>
+            <p style="color: #aaa; font-size: 14px; line-height: 1.7; margin-bottom: 25px;">
+                Debes completar todas las lecciones y aprobar<br>
+                el examen final para desbloquear tu certificado.
+            </p>
 
-        const remaining = total - done;
-
-        // Mostrar modal de bloqueo
-
-        const modal = document.createElement('div');
-
-        modal.style.cssText = `
-
-            position: fixed; inset: 0;
-
-            background: rgba(0,0,0,0.85);
-
-            z-index: 9999;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-        `;
-
-        modal.innerHTML = `
-
-            <div style="background:#111;border:2px solid #c9a84c;border-radius:20px;padding:40px;text-align:center;max-width:400px;width:90%;">
-
-                <div style="font-size:60px;margin-bottom:15px;">🔒</div>
-
-                <h2 style="color:#c9a84c;font-size:22px;margin-bottom:10px;">Certificate Locked</h2>
-
-                <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:20px;">
-
-                    You must complete <strong style="color:white;">100% of the course</strong> to download your certificate.
-
-                </p>
-
-                <div style="background:#1a1a1a;border-radius:10px;padding:15px;margin-bottom:20px;">
-
-                    <div style="display:flex;justify-content:space-between;font-size:13px;color:#aaa;margin-bottom:8px;">
-
-                        <span>Progress</span>
-
-                        <span style="color:#c9a84c;font-weight:700;">${pct}%</span>
-
-                    </div>
-
-                    <div style="background:#333;border-radius:10px;height:8px;overflow:hidden;">
-
-                        <div style="width:${pct}%;height:100%;background:linear-gradient(90deg,#c9a84c,#f0d080);border-radius:10px;"></div>
-
-                    </div>
-
-                    <p style="color:#aaa;font-size:12px;margin-top:8px;">
-
-                        ${remaining} lesson${remaining !== 1 ? 's' : ''} remaining to complete
-
-                    </p>
-
-                </div>
-
-                <button onclick="this.closest('div[style]').remove()"
-
-                    style="padding:12px 30px;background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border:none;border-radius:12px;font-weight:700;cursor:pointer;font-size:14px;">
-
-                    📚 Continue Learning
-
-                </button>
-
+            <!-- Barra de progreso del curso -->
+            <div style="
+                background: #222;
+                border-radius: 10px;
+                height: 10px;
+                margin-bottom: 20px;
+                overflow: hidden;
+            ">
+                <div id="modalProgressBar" style="
+                    height: 100%;
+                    background: linear-gradient(135deg, #c9a84c, #f0d080);
+                    border-radius: 10px;
+                    transition: width 0.5s;
+                "></div>
             </div>
+            <p id="modalProgressText" style="
+                color: var(--gold);
+                font-size: 13px;
+                margin-bottom: 25px;
+            "></p>
 
-        `;
+            <button onclick="closeCertificateLocked()" style="
+                background: linear-gradient(135deg, #c9a84c, #f0d080);
+                color: #000;
+                border: none;
+                padding: 12px 30px;
+                border-radius: 12px;
+                font-weight: 700;
+                cursor: pointer;
+                font-size: 15px;
+            ">📚 Continuar Aprendiendo</button>
+        </div>
+    `;
 
-        document.body.appendChild(modal);
+    // Cerrar al hacer clic fuera
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeCertificateLocked();
+    });
 
-        modal.addEventListener('click', (e) => {
+    document.body.appendChild(modal);
 
-            if (e.target === modal) modal.remove();
+    // Mostrar progreso actual
+    const total = 13;
+    const done = completedLessons.length;
+    const pct = Math.round((done / total) * 100);
+    const bar = document.getElementById('modalProgressBar');
+    const txt = document.getElementById('modalProgressText');
+    if (bar) bar.style.width = pct + '%';
+    if (txt) txt.textContent = done + ' de ' + total + ' lecciones completadas (' + pct + '%)';
+}
 
-        });
-
+function closeCertificateLocked() {
+    const modal = document.getElementById('lockedModal');
+    if (modal) {
+        modal.style.opacity = '0';
+        modal.style.transition = 'opacity 0.3s';
+        setTimeout(() => modal.remove(), 300);
     }
+}
+
 
     function prevLesson() {
 
@@ -7656,45 +7329,39 @@ showSlide(1);
 
     }
 
-    function completeLesson(id) {
-
-        if (!completedLessons.includes(id)) {
-
-            completedLessons.push(id);
-
-            localStorage.setItem('prp5g_completed', JSON.stringify(completedLessons));
-
-        }
-
-        const btn = document.getElementById('complete-' + id);
-
-        if (btn) {
-
-            btn.textContent = '✅ Completed';
-
-            btn.classList.add('done');
-
-        }
-
-        const navItem = document.getElementById('nav-' + id);
-
-        if (navItem) navItem.classList.add('completed');
-
-        updateProgress();
-
-        // Si completó todo el curso mostrar mensaje especial
-
-        if (isCourseComplete()) {
-
-            setTimeout(() => showCourseCompleteMessage(), 500);
-
-        } else {
-
-            setTimeout(() => nextLesson(), 800);
-
-        }
-
+    // ✅ DESPUÉS (correcto):
+function completeLesson(id) {
+    if (!completedLessons.includes(id)) {
+        completedLessons.push(id);
+        localStorage.setItem('prp5g_completed', JSON.stringify(completedLessons));
     }
+
+    // Actualizar botón si existe
+    const btn = document.getElementById('complete-' + id);
+    if (btn) {
+        btn.textContent = '✅ Completada';
+        btn.classList.add('done');
+    }
+
+    // Marcar en el menú lateral
+    const navItem = document.getElementById('nav-' + id);
+    if (navItem) navItem.classList.add('completed');
+
+    updateProgress();
+
+    // Si es un quiz o examen — NO avanzar automáticamente
+    // Dejar que el usuario vea su resultado
+    const esQuiz = id.includes('quiz') || id.includes('exam');
+
+    if (isCourseComplete()) {
+        setTimeout(() => showCourseCompleteMessage(), 1000);
+    } else if (!esQuiz) {
+        // Solo avanzar automáticamente en lecciones normales
+        setTimeout(() => nextLesson(), 800);
+    }
+    // Si es quiz: el usuario avanza manualmente
+}
+
 
     function showCourseCompleteMessage() {
 
@@ -7828,165 +7495,191 @@ showSlide(1);
 
     }
 
-    function checkQuiz(quizId, correctAnswers) {
-
-        let correct = 0;
-
-        const total = correctAnswers.length;
-
-        correctAnswers.forEach((ans, i) => {
-
-            const qName = 'q' + (i + 1);
-
-            const userAns = quizAnswers[qName];
-
-            const question = document.querySelectorAll('#page-' + quizId + ' .question')[i];
-
-            if(question) {
-
-                question.querySelectorAll('.option').forEach(opt => {
-
-                    const match = opt.getAttribute('onclick').match(/'([a-d])'\)$/);
-
-                    if(match) {
-
-                        const optVal = match[1];
-
-                        if(optVal === ans) opt.classList.add('correct');
-
-                        else if(optVal === userAns && userAns !== ans) opt.classList.add('wrong');
-
-                    }
-
-                });
-
-            }
-
-            if (userAns === ans) correct++;
-
-        });
-
-        const pct = Math.round((correct / total) * 100);
-
-        const resultEl = document.getElementById('result-' + quizId);
-
-        resultEl.style.display = 'block';
-
-        if (pct >= 70) {
-
-            resultEl.className = 'quiz-result pass';
-
-            resultEl.innerHTML = '🎉 Excellent! You scored ' + correct + '/' + total + ' (' + pct + '%) — PASSED!';
-
-            completeLesson(quizId);
-
-        } else {
-
-            resultEl.className = 'quiz-result fail';
-
-            resultEl.innerHTML = '❌ You scored ' + correct + '/' + total + ' (' + pct + '%) — You need 70% to pass. Try again!';
-
-        }
-
-    }
-
-    function checkFinalExam() {
-
-        const correct = ['b','c','c','b','b'];
-
-        let score = 0;
-
-        correct.forEach((ans, i) => {
-
-            const qName = 'fq' + (i + 1);
-
-            const userAns = quizAnswers[qName];
-
-            const question = document.querySelectorAll('#page-final-exam .question')[i];
-
-            if(question) {
-
-                question.querySelectorAll('.option').forEach(opt => {
-
-                    const match = opt.getAttribute('onclick').match(/'([a-d])'\)$/);
-
-                    if(match) {
-
-                        const optVal = match[1];
-
-                        if(optVal === ans) opt.classList.add('correct');
-
-                        else if(optVal === userAns && userAns !== ans) opt.classList.add('wrong');
-
-                    }
-
-                });
-
-            }
-
-            if (userAns === ans) score++;
-
-        });
-
-        const pct = Math.round((score / correct.length) * 100);
-
-        const resultEl = document.getElementById('result-final');
-
-        resultEl.style.display = 'block';
-
-        if (pct >= 80) {
-
-            resultEl.className = 'quiz-result pass';
-
-            resultEl.innerHTML = '🏆 CONGRATULATIONS! You scored ' + score + '/' + correct.length + ' (' + pct + '%) — CERTIFICATE UNLOCKED!<br><br>' +
-
-                '<button onclick="showPage(\'certificate\')" style="background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border:none;padding:12px 25px;border-radius:20px;font-weight:700;cursor:pointer;margin-top:10px;">🎓 View My Certificate</button>';
-
-            completeLesson('final-exam');
-
-        } else {
-
-            resultEl.className = 'quiz-result fail';
-
-            resultEl.innerHTML = '❌ You scored ' + score + '/' + correct.length + ' (' + pct + '%) — You need 80% to get certified. Try again!';
-
-        }
-
-    }
-
-    function updateCertName(name) {
-
-        document.getElementById('certName').textContent = name || 'Course Professional';
-
-    }
-
-    function playVideo(el) {
-
-        const playBtn = el.querySelector('.play-btn');
-
-        const title = el.querySelector('.video-title');
-
-        if(playBtn) playBtn.textContent = '⏸';
-
-        if(title) title.textContent = '▶ Playing...';
-
-        el.style.borderColor = 'var(--gold)';
-
-        el.style.background = 'linear-gradient(135deg, #1a1500, #0a0a0a)';
-
-    }
-
-    window.onload = function() {
-
-        checkAccess();
-
-        updateProgress();
-
-        toggleModule('mod0');
-
-        toggleModule('mod1');
-
+    // ✅ DESPUÉS (correcto):
+function checkQuiz(quizId, correctAnswers) {
+    let correct = 0;
+    const total = correctAnswers.length;
+
+    const prefijos = {
+        'quiz1': 'q',
+        'quiz2': 'q2_',
+        'quiz3': 'q3_',
+        'quiz4': 'q4_',
+        'quiz5': 'q5_',
+        'quiz6': 'q6_'
     };
+    const prefix = prefijos[quizId] || 'q';
+
+    correctAnswers.forEach((ans, i) => {
+        const qNum = i + 1;
+        const qName = (quizId === 'quiz1') ? 'q' + qNum : prefix + qNum;
+        const userAns = quizAnswers[qName];
+        const question = document.querySelectorAll('#page-' + quizId + ' .question')[i];
+
+        if (question) {
+            question.querySelectorAll('.option').forEach(opt => {
+                const match = opt.getAttribute('onclick').match(/'([a-d])'\)$/);
+                if (match) {
+                    const optVal = match[1];
+                    if (optVal === ans) opt.classList.add('correct');
+                    else if (optVal === userAns && userAns !== ans) opt.classList.add('wrong');
+                }
+            });
+        }
+        if (userAns === ans) correct++;
+    });
+
+    const pct = Math.round((correct / total) * 100);
+    const resultEl = document.getElementById('result-' + quizId);
+    if (!resultEl) return;
+
+    resultEl.style.display = 'block';
+    if (pct >= 70) {
+        resultEl.className = 'quiz-result pass';
+        resultEl.innerHTML = '🎉 ¡Excelente! Obtuviste ' + correct + '/' + total + ' (' + pct + '%) — ¡APROBADO!';
+        completeLesson(quizId);
+    } else {
+        resultEl.className = 'quiz-result fail';
+        resultEl.innerHTML = '❌ Obtuviste ' + correct + '/' + total + ' (' + pct + '%) — Necesitas 70% para aprobar. ¡Inténtalo de nuevo!';
+    }
+}
+
+
+    // ✅ DESPUÉS (correcto):
+function checkFinalExam() {
+    const correctas = ['b','c','c','b','b'];
+    let score = 0;
+
+    correctas.forEach((ans, i) => {
+        const qName = 'fq' + (i + 1);
+        const userAns = quizAnswers[qName];
+        const question = document.querySelectorAll('#page-final-exam .question')[i];
+
+        if (question) {
+            question.querySelectorAll('.option').forEach(opt => {
+                const match = opt.getAttribute('onclick').match(/'([a-d])'\)$/);
+                if (match) {
+                    const optVal = match[1];
+                    if (optVal === ans) opt.classList.add('correct');
+                    else if (optVal === userAns && userAns !== ans) opt.classList.add('wrong');
+                }
+            });
+        }
+        if (userAns === ans) score++;
+    });
+
+    const pct = Math.round((score / correctas.length) * 100);
+    const resultEl = document.getElementById('result-final');
+    if (!resultEl) return;
+
+    resultEl.style.display = 'block';
+    if (pct >= 80) {
+        resultEl.className = 'quiz-result pass';
+        resultEl.innerHTML = '🏆 ¡FELICITACIONES! Obtuviste ' + score + '/' + correctas.length + 
+            ' (' + pct + '%) — ¡CERTIFICADO DESBLOQUEADO!<br><br>' +
+            '<button onclick="showPage(\'certificate\')" style="background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border:none;padding:12px 25px;border-radius:20px;font-weight:700;cursor:pointer;margin-top:10px;">🎓 Ver mi Certificado</button>';
+        completeLesson('final-exam');
+    } else {
+        resultEl.className = 'quiz-result fail';
+        resultEl.innerHTML = '❌ Obtuviste ' + score + '/' + correctas.length + 
+            ' (' + pct + '%) — Necesitas 80% para certificarte. ¡Inténtalo de nuevo!';
+    }
+}
+
+
+    function updateCertName(val) {
+    const nombre = val.trim();
+    document.getElementById('certName').textContent = nombre || 'Profesional del Curso';
+
+    // Ajustar tamaño de fuente si el nombre es muy largo
+    const certNameEl = document.getElementById('certName');
+    if (nombre.length > 30) {
+        certNameEl.style.fontSize = '24px';
+    } else if (nombre.length > 20) {
+        certNameEl.style.fontSize = '28px';
+    } else {
+        certNameEl.style.fontSize = '36px';
+    }
+}
+
+
+   // ✅ DESPUÉS (correcto):
+function playVideo(el) {
+    const playBtn = el.querySelector('.play-btn');
+    const title = el.querySelector('.video-title');
+    const duration = el.querySelector('.video-duration');
+
+    if (playBtn) playBtn.textContent = '⏸';
+    if (title) title.textContent = '▶ Reproduciendo...';
+
+    // Cambiar estilo del contenedor
+    el.style.borderColor = 'var(--gold)';
+    el.style.boxShadow = '0 0 30px rgba(201,168,76,0.3)';
+
+    // Simular progreso de reproducción
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += 1;
+        if (duration) duration.textContent = '⏱ Reproduciendo: ' + progress + 's';
+        if (progress >= 10) {
+            clearInterval(interval);
+            if (playBtn) playBtn.textContent = '▶';
+            if (title) {
+                const originalTitle = el.getAttribute('data-title') || title.textContent;
+                title.textContent = originalTitle;
+            }
+            if (duration) {
+                const originalDuration = el.getAttribute('data-duration') || duration.textContent;
+                duration.textContent = originalDuration;
+            }
+            el.style.borderColor = '';
+            el.style.boxShadow = '';
+        }
+    }, 1000);
+
+    // Guardar textos originales
+    if (title) el.setAttribute('data-title', title.textContent);
+    if (duration) el.setAttribute('data-duration', duration.textContent);
+}
+
+
+  window.onload = function() {
+    checkAccess();
+    updateProgress();
+
+    // Abrir módulos por defecto
+    toggleModule('mod0');
+    toggleModule('mod1');
+
+    // Restaurar última lección visitada
+    const lastLesson = localStorage.getItem('prp5g_lastLesson');
+    if (lastLesson && lastLesson !== 'home') {
+        showPage(lastLesson);
+    }
+
+    // Marcar lecciones completadas en el menú
+    const completed = JSON.parse(localStorage.getItem('prp5g_completed') || '[]');
+    completed.forEach(id => {
+        const navItem = document.getElementById('nav-' + id);
+        if (navItem) navItem.classList.add('completed');
+    });
+
+    // Abrir el módulo de la última lección visitada
+    if (lastLesson) {
+        const modMap = {
+            'l0': 'mod0', 'l1': 'mod1', 'l2': 'mod2',
+            'l3': 'mod3', 'l4': 'mod4', 'l5': 'mod5',
+            'l6': 'mod6', 'quiz': null, 'final': 'mod7',
+            'certificate': 'mod7'
+        };
+        const prefix = Object.keys(modMap).find(k => lastLesson.startsWith(k));
+        if (prefix && modMap[prefix]) {
+            const modEl = document.getElementById(modMap[prefix]);
+            if (modEl) modEl.classList.add('open');
+        }
+    }
+};
+
 
 </script>
 
