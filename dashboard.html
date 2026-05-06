@@ -6921,6 +6921,24 @@ showSlide(1);
         'final-exam','certificate'
 
     ];
+    
+        function toggleModule(moduleId) {
+            const content = document.getElementById(moduleId);
+            const header = event.currentTarget;
+            const arrow = header.querySelector('span:last-child');
+            
+            if (!content) return;
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.display = 'none';
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+
 
     let completedLessons = JSON.parse(localStorage.getItem('prp5g_completed') || '[]');
 
