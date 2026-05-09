@@ -3406,26 +3406,38 @@ const textos = {
 // ============================================================
 function getVoz() {
     const voices = window.speechSynthesis.getVoices();
+    if (!voices || voices.length === 0) return null;
     return voices.find(v => v.name === 'Google español (Estados Unidos)') ||
            voices.find(v => v.name === 'Google español') ||
            voices.find(v => v.name.includes('Paulina')) ||
            voices.find(v => v.name.includes('Monica')) ||
+           voices.find(v => v.name.includes('Lupe')) ||
            voices.find(v => v.lang === 'es-US') ||
            voices.find(v => v.lang === 'es-ES') ||
-           null;
+           voices.find(v => v.lang && v.lang.startsWith('es')) ||
+           voices[0];
 }
 
 function hablar(texto) {
     if (!texto || !isPlaying) return;
+    if (!window.speechSynthesis) {
+        console.log('speechSynthesis no disponible');
+        return;
+    }
     window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(texto);
-    u.lang = 'es-ES';
-    u.rate = speechRate;
-    u.pitch = 0.95;
-    u.volume = 1.0;
-    const voz = getVoz();
-    if (voz) u.voice = voz;
-    window.speechSynthesis.speak(u);
+    setTimeout(function() {
+        const u = new SpeechSynthesisUtterance(texto);
+        u.lang = 'es-ES';
+        u.rate = speechRate;
+        u.pitch = 0.95;
+        u.volume = 1.0;
+        const voz = getVoz();
+        if (voz) u.voice = voz;
+        u.onerror = function(e) {
+            console.log('Error audio:', e.error);
+        };
+        window.speechSynthesis.speak(u);
+    }, 100);
 }
 
 function showSlide(n) {
@@ -3493,6 +3505,7 @@ function detener() {
 }
 
 function startVideo() {
+    window.speechSynthesis.cancel();
     const overlay = document.getElementById('playOverlay');
     if (overlay) overlay.style.display = 'none';
     currentSlide = 0;
@@ -3501,11 +3514,17 @@ function startVideo() {
     const btn = document.getElementById('playPauseBtn');
     if (btn) btn.textContent = '⏸ Pausar';
     clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
+    timerInterval = setInterval(function() {
         if (isPlaying) { currentTime++; updateTimer(); }
     }, 1000);
-    avanzarDesde(1);
+    setTimeout(function() {
+        window.speechSynthesis.getVoices();
+        setTimeout(function() {
+            avanzarDesde(1);
+        }, 300);
+    }, 200);
 }
+
 
 function togglePlayPause() {
     const btn = document.getElementById('playPauseBtn');
@@ -3594,7 +3613,12 @@ function toggleFullscreen() {
 }
 
 if (window.speechSynthesis) {
-    window.speechSynthesis.onvoiceschanged = function() { getVoz(); };
+    window.speechSynthesis.onvoiceschanged = function() {
+        console.log('Voces cargadas:', window.speechSynthesis.getVoices().length);
+        getVoz();
+    };
+    // Forzar carga de voces
+    window.speechSynthesis.getVoices();
 }
 
 // ============================================================
