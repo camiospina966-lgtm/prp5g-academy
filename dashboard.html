@@ -792,11 +792,227 @@
                     <span class="lesson-meta-item">📖 Lectura + Video</span>
                 </div>
             </div>
-            <div class="video-container" onclick="playVideo(this)" data-title="Bienvenida — Mensaje de la Instructora" data-duration="⏱ 8 minutos">
-                <div class="play-btn">▶</div>
-                <div class="video-title">Bienvenida — Mensaje de la Instructora</div>
-                <div class="video-duration">⏱ 8 minutos</div>
+          <!-- ========== REPRODUCTOR L0-1: BIENVENIDA ========== -->
+<div class="video-player-container" style="background:#000;border-radius:12px;overflow:hidden;position:relative;width:100%;max-width:860px;margin:0 auto 30px auto;box-shadow:0 0 40px rgba(212,175,55,0.3);">
+    <div id="videoScreen0" style="position:relative;width:100%;padding-top:56.25%;background:#0a0a0a;">
+        <div id="slideContainer0" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(8px,3vw,30px);box-sizing:border-box;font-family:Georgia,serif;color:#fff;text-align:center;background:transparent;overflow-y:auto;">
+
+            <div id="slide0-1" class="slide0" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🚀</div>
+                <h2 style="color:#D4AF37;font-size:2em;margin-bottom:15px;">Bienvenida al Curso PRP 5G Academy</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Bienvenida a Plasma Rico en Plaquetas 5ª Generación, el programa de formación más avanzado en medicina regenerativa estética. Este curso transformará tu práctica profesional y te posicionará en la vanguardia de la regeneración tisular.</p>
+                <div style="margin-top:25px;padding:15px 30px;background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;color:#D4AF37;">⏱ Duración: 10 minutos · 20 secciones</div>
             </div>
+
+            <div id="slide0-2" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">👩‍⚕️</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Tu Instructora</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Soy especialista en medicina regenerativa con más de 15 años de experiencia clínica en PRP. He formado a más de 3.000 profesionales de la salud en 18 países de América Latina y Europa. Mi misión en este curso es darte las herramientas científicas y prácticas para que ofrezcas los mejores resultados a tus pacientes.</p>
+            </div>
+
+            <div id="slide0-3" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">💎</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">¿Qué es el PRP 5G?</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El PRP de Quinta Generación integra cinco tecnologías de vanguardia: nanotecnología para potenciar los factores de crecimiento, exosomas de células madre para amplificar la regeneración, inteligencia artificial para personalizar cada protocolo, biorreactores de activación térmica y técnicas de doble centrifugación optimizada.</p>
+            </div>
+
+            <div id="slide0-4" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">📈</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Por qué el PRP 5G Cambia Todo</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">💡 Resultados 5 a 10 veces superiores al PRP convencional</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">💡 Efectos visibles desde las 48 horas</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">💡 Durabilidad de 3 a 6 meses por sesión</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">💡 100% autólogo — cero riesgo de rechazo</div>
+                </div>
+            </div>
+
+            <div id="slide0-5" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🎓</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Estructura del Curso</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Módulo 1:</strong> Fundamentos científicos del PRP — Base molecular</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Módulo 2:</strong> Generaciones del PRP — Evolución tecnológica</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Módulo 3:</strong> Tecnologías 5G — Nano, exosomas e IA</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Módulo 4:</strong> Protocolo clínico completo — Paso a paso</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Módulo 5:</strong> Indicaciones y casos clínicos reales</div>
+                    <div style="background:rgba(212,175,55,0.1);border-left:3px solid #D4AF37;padding:10px 15px;color:#D4AF37;border-radius:0 5px 5px 0;"><strong>Módulo 6:</strong> Seguridad, ética y certificación</div>
+                </div>
+            </div>
+
+            <div id="slide0-6" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🏆</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Qué Lograrás al Finalizar</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">✅ Dominar la ciencia completa del PRP 5G</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">✅ Aplicar protocolos clínicos con seguridad</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">✅ Personalizar tratamientos por paciente</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">✅ Certificación internacional avalada</div>
+                </div>
+            </div>
+
+            <div id="slide0-7" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">👥</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">¿Para Quién es Este Curso?</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🩺 Médicos especialistas en estética</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🦷 Odontólogos con práctica estética</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">💉 Enfermeros con formación estética</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🔬 Profesionales de medicina regenerativa</div>
+                </div>
+            </div>
+
+            <div id="slide0-8" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">📚</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Metodología de Aprendizaje</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Este curso combina tres pilares pedagógicos. Primero la teoría científica profunda con base molecular actualizada a 2024. Segundo la aplicación clínica directa con protocolos paso a paso listos para usar. Tercero la evaluación continua con quizzes por módulo y un examen final que certifica tu dominio del PRP 5G.</p>
+            </div>
+
+            <div id="slide0-9" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">⏱️</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Tiempo de Dedicación</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Total del curso:</strong> 12 a 15 horas de contenido</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Por módulo:</strong> 2 a 3 horas de lecciones y quiz</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Ritmo sugerido:</strong> 1 módulo por semana para mejor retención</div>
+                    <div style="background:rgba(212,175,55,0.1);border-left:3px solid #D4AF37;padding:10px 15px;color:#D4AF37;border-radius:0 5px 5px 0;"><strong>Acceso:</strong> Permanente — regresa cuando necesites repasar</div>
+                </div>
+            </div>
+
+            <div id="slide0-10" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🌍</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">El Mercado del PRP 5G</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El mercado global del PRP alcanzó los 450 millones de dólares en 2023 y se proyecta a 980 millones para 2028. En América Latina el crecimiento es del 23 por ciento anual, el más alto del mundo. Los profesionales certificados en PRP 5G pueden cobrar entre 3 y 5 veces más por sesión que quienes ofrecen PRP convencional.</p>
+            </div>
+
+            <div id="slide0-11" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">💰</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Rentabilidad del PRP 5G</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(100,100,100,0.2);border:1px solid #888;border-radius:10px;padding:15px;color:#ccc;"><strong style="color:#aaa;">PRP Convencional</strong><br/>Costo sesión: bajo<br/>Precio paciente: medio<br/>Diferenciación: baja</div>
+                    <div style="background:rgba(212,175,55,0.1);border:2px solid #D4AF37;border-radius:10px;padding:15px;color:#D4AF37;"><strong>PRP 5G</strong><br/>Costo sesión: medio<br/>Precio paciente: premium<br/>Diferenciación: máxima</div>
+                </div>
+            </div>
+
+            <div id="slide0-12" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🔬</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Evidencia Científica Actualizada</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Este curso se basa en más de 200 publicaciones científicas de los últimos 5 años. Las referencias incluyen el Journal of Dermatological Science, el International Journal of Dermatology, Regenerative Medicine, y Nature Reviews Medicine. Todo el contenido está respaldado por ensayos clínicos controlados y estudios histológicos con biopsia.</p>
+            </div>
+
+            <div id="slide0-13" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🤝</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Comunidad PRP 5G Academy</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Al inscribirte en este curso formas parte de una comunidad de más de 3.000 profesionales de la salud estética en toda América Latina. Tendrás acceso a actualizaciones del contenido cuando se publiquen nuevos estudios, casos clínicos de la comunidad y soporte continuo de la instructora para resolver dudas de tu práctica clínica.</p>
+            </div>
+
+            <div id="slide0-14" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">📜</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Tu Certificación Internacional</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Al completar el curso con un mínimo del 80 por ciento en el examen final recibirás tu certificado de especialización en PRP 5G con código de verificación único. Este certificado es reconocido por sociedades de medicina estética en Colombia, México, Argentina, Chile, Perú, España y Estados Unidos.</p>
+            </div>
+
+            <div id="slide0-15" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">⚡</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Las 5 Tecnologías del PRP 5G</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">1. Nanotecnología:</strong> Nanopartículas que potencian la biodisponibilidad de factores</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">2. Exosomas:</strong> Vesículas de células madre con más de 150 microARN bioactivos</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">3. Inteligencia Artificial:</strong> Personalización del protocolo por datos del paciente</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">4. Biorreactor Térmico:</strong> Activación al 95% a 42 grados controlados</div>
+                    <div style="background:rgba(212,175,55,0.1);border-left:3px solid #D4AF37;padding:10px 15px;color:#D4AF37;border-radius:0 5px 5px 0;"><strong>5. Doble Centrifugación:</strong> Concentración de 7 a 10 veces el valor basal</div>
+                </div>
+            </div>
+
+            <div id="slide0-16" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🎯</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Compromisos de la Academia</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">📖 Contenido científico de máxima calidad</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🔄 Actualizaciones gratuitas permanentes</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">💬 Soporte de la instructora disponible</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🏆 Certificación internacional reconocida</div>
+                </div>
+            </div>
+
+            <div id="slide0-17" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🌟</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Testimonios de Egresados</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:15px;margin-bottom:12px;color:#ccc;border-radius:0 8px 8px 0;font-style:italic;">"Después del curso dupliqué mis pacientes de PRP en 3 meses. La diferenciación que da el 5G es incomparable." — Dra. M.R., Colombia</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:15px;margin-bottom:12px;color:#ccc;border-radius:0 8px 8px 0;font-style:italic;">"Los resultados con exosomas son increíbles. Mis pacientes de alopecia ven diferencia desde la segunda sesión." — Dr. J.L., México</div>
+                    <div style="background:rgba(212,175,55,0.1);border-left:3px solid #D4AF37;padding:15px;color:#D4AF37;border-radius:0 8px 8px 0;font-style:italic;">"La base científica es sólida y práctica. Pude implementar el protocolo el mismo día que terminé el curso." — Dra. A.P., Argentina</div>
+                </div>
+            </div>
+
+            <div id="slide0-18" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">💡</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Cómo Aprovechar al Máximo el Curso</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;">📝 Toma notas de los puntos clave de cada lección</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;">🔄 Repasa el quiz de cada módulo antes de continuar</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;">🏥 Conecta cada concepto con tu práctica clínica actual</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;">👥 Comparte dudas con la comunidad de la academia</div>
+                    <div style="background:rgba(212,175,55,0.1);border-left:3px solid #D4AF37;padding:10px 15px;color:#D4AF37;border-radius:0 5px 5px 0;">🎓 No avances hasta entender bien cada módulo</div>
+                </div>
+            </div>
+
+            <div id="slide0-19" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🔥</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Tu Práctica Después del PRP 5G</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Cuando termines este curso tendrás el conocimiento para ofrecer el tratamiento regenerativo más avanzado del mercado. Tus pacientes verán resultados que nunca antes habían obtenido. Tu reputación clínica se diferenciará y tu práctica crecerá gracias al boca a boca de pacientes satisfechos con resultados extraordinarios.</p>
+            </div>
+
+            <div id="slide0-20" class="slide0" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🎓</div>
+                <h2 style="color:#D4AF37;font-size:2em;margin-bottom:20px;">¡Empecemos este Viaje!</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;margin-bottom:25px;">Estoy emocionada de acompañarte en este proceso de formación avanzada. Tienes en tus manos el conocimiento del PRP más evolucionado del mundo. Continúa con la metodología del curso para entender cómo sacarle el máximo provecho. ¡Bienvenida a la vanguardia de la medicina regenerativa!</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#D4AF37;">✅ 20 secciones</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#D4AF37;">⏱ 10 minutos</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#D4AF37;">🚀 ¡A comenzar!</div>
+                </div>
+            </div>
+
+            <!-- OVERLAY DE INICIO -->
+            <div id="playOverlay0" onclick="startVideo0()" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);cursor:pointer;gap:15px;z-index:10;">
+                <div style="width:70px;height:70px;background:#D4AF37;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 30px rgba(212,175,55,0.6);">▶</div>
+                <p style="color:#fff;font-size:clamp(12px,1.8vw,18px);margin:0;font-weight:bold;">Bienvenida al Curso PRP 5G Academy</p>
+                <p style="color:#D4AF37;font-size:clamp(10px,1.3vw,14px);margin:0;">⏱ 10 minutos · 20 secciones</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BARRA DE PROGRESO -->
+    <div style="background:#1a1a1a;padding:10px 15px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span id="slideCounter0" style="color:#D4AF37;font-size:12px;">Sección 1 de 20</span>
+            <span id="timeDisplay0" style="color:#888;font-size:12px;">00:00 / 10:00</span>
+        </div>
+        <div style="background:#333;border-radius:4px;height:4px;cursor:pointer;" onclick="seekVideo0(event,this)">
+            <div id="progressBar0" style="background:#D4AF37;height:4px;border-radius:4px;width:0%;transition:width 0.3s;"></div>
+        </div>
+    </div>
+
+    <!-- CONTROLES -->
+    <div style="background:#111;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="display:flex;gap:10px;align-items:center;">
+            <button onclick="prevSlide0()" style="background:rgba(212,175,55,0.2);border:1px solid #D4AF37;color:#D4AF37;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;">⏮ Anterior</button>
+            <button id="playPauseBtn0" onclick="togglePlayPause0()" style="background:#D4AF37;border:none;color:#000;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:bold;">▶ Reproducir</button>
+            <button onclick="nextSlide0()" style="background:rgba(212,175,55,0.2);border:1px solid #D4AF37;color:#D4AF37;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;">Siguiente ⏭</button>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+            <select onchange="changeSpeed0(this.value)" style="background:#222;border:1px solid #444;color:#fff;padding:6px 10px;border-radius:6px;font-size:12px;cursor:pointer;">
+                <option value="3000">0.5x</option>
+                <option value="2000" selected>1x</option>
+                <option value="1000">1.5x</option>
+                <option value="500">2x</option>
+            </select>
+            <button onclick="toggleFullscreen0()" style="background:rgba(255,255,255,0.1);border:1px solid #444;color:#fff;padding:8px 12px;border-radius:6px;cursor:pointer;font-size:13px;">⛶</button>
+        </div>
+    </div>
+</div>
+
             <div class="lesson-content">
                 <h2>¡Bienvenida a PRP 5G Academy!</h2>
                 <p>Estás a punto de comenzar uno de los cursos más completos y actualizados sobre Plasma Rico en Plaquetas de 5ª Generación disponibles en español.</p>
@@ -5817,6 +6033,203 @@ function seekVideo4(e, bar) {
 
 function toggleFullscreen4() {
     const el = document.querySelector('#page-l1-4 .video-player-container');
+    if (!el) return;
+    if (!document.fullscreenElement) {
+        el.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+// ============================================================
+// REPRODUCTOR LECCIÓN L0-1 — BIENVENIDA
+// ============================================================
+let currentSlide0 = 1;
+const totalSlides0 = 20;
+let isPlaying0 = false;
+let currentTime0 = 0;
+let timerInterval0 = null;
+const totalSeconds0 = 10 * 60;
+let speechRate0 = 0.78;
+
+const textos0 = {
+    1: "Bienvenida a Plasma Rico en Plaquetas 5ª Generación, el programa de formación más avanzado en medicina regenerativa estética. Este curso transformará tu práctica profesional y te posicionará en la vanguardia de la regeneración tisular.",
+    2: "Soy especialista en medicina regenerativa con más de 15 años de experiencia clínica en PRP. He formado a más de 3.000 profesionales de la salud en 18 países de América Latina y Europa. Mi misión es darte las herramientas científicas y prácticas para que ofrezcas los mejores resultados a tus pacientes.",
+    3: "El PRP de Quinta Generación integra cinco tecnologías de vanguardia: nanotecnología para potenciar los factores de crecimiento, exosomas de células madre para amplificar la regeneración, inteligencia artificial para personalizar cada protocolo, biorreactores de activación térmica y técnicas de doble centrifugación optimizada.",
+    4: "El PRP 5G cambia todo porque logra resultados 5 a 10 veces superiores al PRP convencional, con efectos visibles desde las 48 horas, duración de 3 a 6 meses por sesión y siendo 100 por ciento autólogo sin ningún riesgo de rechazo.",
+    5: "El curso está estructurado en 6 módulos. El Módulo 1 cubre los fundamentos científicos del PRP y la base molecular. El Módulo 2 explora las generaciones del PRP y la evolución tecnológica. El Módulo 3 profundiza en las tecnologías 5G: nanotecnología, exosomas e inteligencia artificial. El Módulo 4 enseña el protocolo clínico completo paso a paso. El Módulo 5 presenta indicaciones y casos clínicos reales. El Módulo 6 aborda seguridad, ética y certificación.",
+    6: "Al finalizar el curso lograrás: dominar la ciencia completa del PRP 5G, aplicar protocolos clínicos con total seguridad, personalizar tratamientos según cada paciente y obtener tu certificación internacional avalada.",
+    7: "Este curso está diseñado para médicos especialistas en estética, odontólogos con práctica estética, enfermeros con formación estética y profesionales de medicina regenerativa que quieran diferenciarse con la tecnología más avanzada del mercado.",
+    8: "La metodología combina tres pilares: teoría científica profunda con base molecular actualizada a 2024, aplicación clínica directa con protocolos listos para usar y evaluación continua con quizzes por módulo y examen final certificador.",
+    9: "El curso tiene entre 12 y 15 horas de contenido total. Cada módulo requiere 2 a 3 horas. El ritmo sugerido es un módulo por semana para mejor retención del conocimiento. El acceso es permanente para que puedas regresar a repasar cuando lo necesites.",
+    10: "El mercado global del PRP alcanzó los 450 millones de dólares en 2023 y se proyecta a 980 millones para 2028. En América Latina el crecimiento es del 23 por ciento anual, el más alto del mundo. Los profesionales certificados en PRP 5G pueden cobrar entre 3 y 5 veces más por sesión que quienes ofrecen PRP convencional.",
+    11: "La diferencia de rentabilidad es clara. El PRP convencional tiene bajo margen de diferenciación. El PRP 5G permite posicionamiento premium, mayor precio por sesión y máxima diferenciación en el mercado estético actual.",
+    12: "Este curso se basa en más de 200 publicaciones científicas de los últimos 5 años, incluyendo el Journal of Dermatological Science, el International Journal of Dermatology, Regenerative Medicine y Nature Reviews Medicine. Todo el contenido está respaldado por ensayos clínicos controlados y estudios histológicos con biopsia.",
+    13: "Al inscribirte formas parte de una comunidad de más de 3.000 profesionales en América Latina. Tendrás acceso a actualizaciones cuando se publiquen nuevos estudios, casos clínicos de la comunidad y soporte continuo para resolver dudas de tu práctica clínica.",
+    14: "Al completar el curso con un mínimo del 80 por ciento en el examen final recibirás tu certificado de especialización en PRP 5G con código de verificación único, reconocido por sociedades de medicina estética en Colombia, México, Argentina, Chile, Perú, España y Estados Unidos.",
+    15: "Las 5 tecnologías del PRP 5G son: primero la nanotecnología con nanopartículas que potencian la biodisponibilidad, segundo los exosomas con más de 150 microARN bioactivos de células madre, tercero la inteligencia artificial para personalización del protocolo, cuarto el biorreactor térmico con activación al 95 por ciento, y quinto la doble centrifugación para concentración de 7 a 10 veces el valor basal.",
+    16: "Los compromisos de la academia contigo son: contenido científico de máxima calidad, actualizaciones gratuitas permanentes, soporte de la instructora disponible y certificación internacional reconocida.",
+    17: "Los egresados reportan resultados extraordinarios. Una doctora de Colombia duplicó sus pacientes de PRP en 3 meses. Un doctor de México logra diferencia visible desde la segunda sesión en alopecia. Una doctora de Argentina implementó el protocolo el mismo día que terminó el curso.",
+    18: "Para aprovechar al máximo el curso: toma notas de los puntos clave, repasa el quiz de cada módulo antes de continuar, conecta cada concepto con tu práctica clínica actual, comparte dudas con la comunidad y no avances hasta entender bien cada módulo.",
+    19: "Cuando termines tendrás el conocimiento para ofrecer el tratamiento regenerativo más avanzado del mercado. Tus pacientes verán resultados extraordinarios, tu reputación clínica se diferenciará y tu práctica crecerá gracias al boca a boca de pacientes satisfechos.",
+    20: "Estoy emocionada de acompañarte en este proceso de formación avanzada. Tienes en tus manos el conocimiento del PRP más evolucionado del mundo. Continúa con la metodología del curso para entender cómo sacarle el máximo provecho. ¡Bienvenida a la vanguardia de la medicina regenerativa!"
+};
+
+function showSlide0(n) {
+    if (n < 1 || n > totalSlides0) return;
+    window.speechSynthesis.cancel();
+    for (let i = 1; i <= totalSlides0; i++) {
+        const s = document.getElementById('slide0-' + i);
+        if (s) { s.style.display = 'none'; s.style.opacity = '0'; }
+    }
+    currentSlide0 = n;
+    const current = document.getElementById('slide0-' + n);
+    if (current) {
+        current.style.display = 'flex';
+        setTimeout(() => { current.style.opacity = '1'; current.style.transition = 'opacity 0.5s'; }, 50);
+    }
+    const counterEl = document.getElementById('slideCounter0');
+    if (counterEl) counterEl.textContent = 'Sección ' + n + ' de ' + totalSlides0;
+    const progress = ((n - 1) / (totalSlides0 - 1)) * 100;
+    const barEl = document.getElementById('progressBar0');
+    if (barEl) barEl.style.width = progress + '%';
+    if (isPlaying0 && textos0[n]) {
+        setTimeout(() => hablar0(textos0[n]), 300);
+    }
+    if (n === totalSlides0) {
+        detener0();
+        const btn = document.getElementById('playPauseBtn0');
+        if (btn) btn.textContent = '↺ Reiniciar';
+    }
+}
+
+function hablar0(texto) {
+    if (!texto || !isPlaying0) return;
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    setTimeout(function() {
+        const u = new SpeechSynthesisUtterance(texto);
+        u.lang = 'es-ES';
+        u.rate = speechRate0;
+        u.pitch = 0.95;
+        u.volume = 1.0;
+        const voz = getVoz();
+        if (voz) u.voice = voz;
+        window.speechSynthesis.speak(u);
+    }, 100);
+}
+
+function avanzarDesde0(n) {
+    if (!isPlaying0) return;
+    if (n > totalSlides0) {
+        detener0();
+        const btn = document.getElementById('playPauseBtn0');
+        if (btn) btn.textContent = '↺ Reiniciar';
+        return;
+    }
+    showSlide0(n);
+    setTimeout(() => {
+        const chk = setInterval(() => {
+            if (!isPlaying0) { clearInterval(chk); return; }
+            if (!window.speechSynthesis.speaking) {
+                clearInterval(chk);
+                setTimeout(() => { if (isPlaying0) avanzarDesde0(n + 1); }, 1500);
+            }
+        }, 500);
+    }, 1000);
+}
+
+function detener0() {
+    isPlaying0 = false;
+    window.speechSynthesis.cancel();
+    clearInterval(timerInterval0);
+    const btn = document.getElementById('playPauseBtn0');
+    if (btn) btn.textContent = '▶ Reproducir';
+}
+
+function startVideo0() {
+    window.speechSynthesis.cancel();
+    const overlay = document.getElementById('playOverlay0');
+    if (overlay) overlay.style.display = 'none';
+    currentSlide0 = 0;
+    currentTime0 = 0;
+    isPlaying0 = true;
+    const btn = document.getElementById('playPauseBtn0');
+    if (btn) btn.textContent = '⏸ Pausar';
+    clearInterval(timerInterval0);
+    timerInterval0 = setInterval(function() {
+        if (isPlaying0) { currentTime0++; updateTimer0(); }
+    }, 1000);
+    setTimeout(function() {
+        window.speechSynthesis.getVoices();
+        setTimeout(function() { avanzarDesde0(1); }, 300);
+    }, 200);
+}
+
+function togglePlayPause0() {
+    const btn = document.getElementById('playPauseBtn0');
+    if (!btn) return;
+    if (btn.textContent.includes('Reiniciar')) {
+        currentSlide0 = 0; currentTime0 = 0; isPlaying0 = false;
+        window.speechSynthesis.cancel();
+        clearInterval(timerInterval0);
+        updateTimer0();
+        const overlay = document.getElementById('playOverlay0');
+        if (overlay) overlay.style.display = 'flex';
+        btn.textContent = '▶ Reproducir';
+        return;
+    }
+    if (isPlaying0) {
+        detener0();
+    } else {
+        isPlaying0 = true;
+        btn.textContent = '⏸ Pausar';
+        clearInterval(timerInterval0);
+        timerInterval0 = setInterval(function() {
+            if (isPlaying0) { currentTime0++; updateTimer0(); }
+        }, 1000);
+        const slideToPlay = currentSlide0 || 1;
+        showSlide0(slideToPlay);
+        setTimeout(() => {
+            const chk = setInterval(() => {
+                if (!isPlaying0) { clearInterval(chk); return; }
+                if (!window.speechSynthesis.speaking) {
+                    clearInterval(chk);
+                    setTimeout(() => { if (isPlaying0) avanzarDesde0(slideToPlay + 1); }, 1500);
+                }
+            }, 500);
+        }, 500);
+    }
+}
+
+function nextSlide0() { detener0(); if (currentSlide0 < totalSlides0) showSlide0(currentSlide0 + 1); }
+function prevSlide0() { detener0(); if (currentSlide0 > 1) showSlide0(currentSlide0 - 1); }
+
+function changeSpeed0(val) {
+    const speeds = { '3000': 0.45, '2000': 0.78, '1000': 1.1, '500': 1.5 };
+    speechRate0 = speeds[val] || 0.78;
+    if (isPlaying0) { window.speechSynthesis.cancel(); hablar0(textos0[currentSlide0]); }
+}
+
+function updateTimer0() {
+    const mins = Math.floor(currentTime0 / 60).toString().padStart(2, '0');
+    const secs = Math.floor(currentTime0 % 60).toString().padStart(2, '0');
+    const el = document.getElementById('timeDisplay0');
+    if (el) el.textContent = mins + ':' + secs + ' / 10:00';
+}
+
+function seekVideo0(e, bar) {
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const targetSlide = Math.max(1, Math.min(totalSlides0, Math.round(pct * totalSlides0)));
+    detener0();
+    currentTime0 = Math.round(pct * totalSeconds0);
+    updateTimer0();
+    showSlide0(targetSlide);
+}
+
+function toggleFullscreen0() {
+    const el = document.querySelector('#page-l0-1 .video-player-container');
     if (!el) return;
     if (!document.fullscreenElement) {
         el.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
