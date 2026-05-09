@@ -90,6 +90,7 @@
             margin-top: 4px;
         }
         .module-nav { padding: 10px 0; }
+                /* ===== SIDEBAR MÓDULOS — CORREGIDO ===== */
         .module-header {
             padding: 12px 20px;
             font-size: 11px;
@@ -103,6 +104,7 @@
             align-items: center;
             border-left: 3px solid transparent;
             transition: all 0.2s;
+            user-select: none;
         }
         .module-header:hover {
             background: var(--dark3);
@@ -112,7 +114,8 @@
             display: none;
             background: var(--dark3);
         }
-        .module-lessons.open { display: block; }
+       .module-lessons.open { display: block !important; }
+        }
         .lesson-item {
             padding: 10px 20px 10px 35px;
             font-size: 12px;
@@ -123,6 +126,7 @@
             gap: 8px;
             border-left: 3px solid transparent;
             transition: all 0.2s;
+            user-select: none;
         }
         .lesson-item:hover {
             background: var(--dark4);
@@ -134,22 +138,27 @@
             background: rgba(201,168,76,0.1);
             border-left-color: var(--gold);
         }
-        .lesson-item.completed { color: var(--green); }
+        .lesson-item.completed {
+            color: var(--green);
+        }
         .lesson-item.completed::before {
             content: '✓';
             color: var(--green);
             font-weight: 700;
             font-size: 11px;
+            margin-right: 4px;
         }
         .lesson-item:not(.completed)::before {
             content: '○';
             color: var(--text2);
             font-size: 10px;
+            margin-right: 4px;
         }
         .lesson-item.active:not(.completed)::before {
             content: '▶';
             color: var(--gold);
             font-size: 10px;
+            margin-right: 4px;
         }
 
         /* ===== MAIN ===== */
@@ -3676,8 +3685,26 @@ function closeSidebar() {
 
 function toggleModule(id) {
     const el = document.getElementById(id);
-    if (el) el.classList.toggle('open');
+    if (!el) return;
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.module-lessons').forEach(function(m) {
+        m.classList.remove('open');
+        const header = m.previousElementSibling;
+        if (header) {
+            const arrow = header.querySelector('.arrow');
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+        }
+    });
+    if (!isOpen) {
+        el.classList.add('open');
+        const header = el.previousElementSibling;
+        if (header) {
+            const arrow = header.querySelector('.arrow');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        }
+    }
 }
+
 
 // ============================================================
 // MOSTRAR PÁGINA
@@ -4051,8 +4078,6 @@ window.onload = function() {
     checkAccess();
     updateProgress();
     showSlide(1);
-    toggleModule('mod0');
-    toggleModule('mod1');
     const lastLesson = localStorage.getItem('prp5g_lastLesson');
     if (lastLesson && lastLesson !== 'home' && lastLesson !== 'null') {
         showPage(lastLesson);
