@@ -1374,11 +1374,364 @@
                     <span class="lesson-meta-item">📖 Lectura completa</span>
                 </div>
             </div>
-            <div class="video-container" onclick="playVideo(this)" data-title="Anatomía y función de las plaquetas — Animación 3D" data-duration="⏱ 30 minutos">
-                <div class="play-btn">▶</div>
-                <div class="video-title">Anatomía y función de las plaquetas — Animación 3D</div>
-                <div class="video-duration">⏱ 30 minutos</div>
+        <!-- ========== REPRODUCTOR L1-2: BIOLOGÍA PLAQUETARIA ========== -->
+<div class="video-player-container" style="background:#000;border-radius:12px;overflow:hidden;position:relative;width:100%;max-width:860px;margin:0 auto 30px auto;box-shadow:0 0 40px rgba(212,175,55,0.3);">
+    <div id="videoScreen2" style="position:relative;width:100%;padding-top:56.25%;background:#0a0a0a;">
+        <div id="slideContainer2" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(8px,3vw,30px);box-sizing:border-box;font-family:Georgia,serif;color:#fff;text-align:center;background:transparent;overflow-y:auto;">
+
+            <div id="slide2-1" class="slide2" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🩸</div>
+                <h2 style="color:#D4AF37;font-size:2em;margin-bottom:15px;">Biología Plaquetaria</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Bienvenida a esta lección. Exploraremos en profundidad la biología de las plaquetas, sus componentes internos, su ciclo de vida y cómo estos conocimientos son fundamentales para entender el poder del PRP 5G.</p>
+                <div style="margin-top:25px;padding:15px 30px;background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;color:#D4AF37;">⏱ Duración: 30 minutos · 40 secciones</div>
             </div>
+
+            <div id="slide2-2" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🎯</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Objetivos de esta Lección</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">📌 Conocer la estructura interna de la plaqueta</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">📌 Entender los tipos de gránulos plaquetarios</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">📌 Comprender el proceso de activación plaquetaria</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">📌 Identificar factores que afectan la calidad del PRP</div>
+                </div>
+            </div>
+
+            <div id="slide2-3" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🔬</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">¿Qué es una Plaqueta?</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Las plaquetas o trombocitos son fragmentos celulares anucleados derivados de los megacariocitos en la médula ósea. Con un diámetro de 2 a 4 micrómetros y una vida media de 7 a 10 días, son las células más pequeñas de la sangre pero con un impacto regenerativo extraordinario en el PRP.</p>
+            </div>
+
+            <div id="slide2-4" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🏭</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Producción Plaquetaria</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Las plaquetas se producen en la médula ósea a partir de células gigantes llamadas megacariocitos. Cada megacariocito puede generar entre 1.000 y 3.000 plaquetas. Este proceso se llama trombopoyesis y está regulado por la hormona trombopoyetina producida en el hígado y los riñones.</p>
+            </div>
+
+            <div id="slide2-5" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">⚙️</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Estructura Interna — Visión General</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🟡 Gránulos Alpha (α) — Factores de crecimiento</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🔴 Gránulos Dense (δ) — ADP y serotonina</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🟣 Gránulos Lambda (λ) — Enzimas lisosomales</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🔵 Membrana fosfolipídica — Señalización celular</div>
+                </div>
+            </div>
+
+            <div id="slide2-6" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">⭐</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Gránulos Alpha — Los más Importantes</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;margin-bottom:20px;">Los gránulos alpha son los protagonistas del PRP. Cada plaqueta contiene entre 50 y 80 gránulos alpha. Son los responsables de almacenar y liberar todos los factores de crecimiento que hacen posible la regeneración tisular cuando se activa el plasma rico en plaquetas.</p>
+                <div style="padding:15px;background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;color:#D4AF37;max-width:600px;">PDGF · TGF-β · VEGF · EGF · IGF-1 · FGF · HGF</div>
+            </div>
+
+            <div id="slide2-7" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🧬</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">PDGF — Factor de Crecimiento Derivado de Plaquetas</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El PDGF es el primer factor liberado tras la activación plaquetaria. Estimula la proliferación de fibroblastos y células musculares lisas. Es el principal responsable de iniciar la cascada regenerativa e iniciar la formación de nuevos vasos sanguíneos en el tejido tratado con PRP.</p>
+            </div>
+
+            <div id="slide2-8" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🏗️</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">TGF-β — Factor Transformante de Crecimiento</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El TGF-beta es el factor más importante para la síntesis de colágeno. Activa directamente los fibroblastos para producir colágeno tipo I y tipo III. También regula la melanogénesis, lo que lo hace fundamental en tratamientos para manchas y pigmentación irregular en piel fotodañada.</p>
+            </div>
+
+            <div id="slide2-9" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🩸</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">VEGF — Factor de Crecimiento Vascular</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El VEGF estimula la formación de nuevos vasos sanguíneos, un proceso llamado angiogénesis. En el cuero cabelludo, el VEGF aumenta la vascularización del bulbo folicular, mejorando el aporte de nutrientes y oxígeno a cada folículo piloso, lo que prolonga la fase anágena del cabello.</p>
+            </div>
+
+            <div id="slide2-10" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">✨</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">EGF — Factor de Crecimiento Epidérmico</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El EGF estimula la proliferación de queratinocitos y células epidérmicas. Es el principal responsable de la renovación celular visible que se observa en los tratamientos PRP faciales: mejora la textura de la piel, reduce los poros dilatados y produce esa luminosidad característica post-procedimiento.</p>
+            </div>
+
+            <div id="slide2-11" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">💪</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">IGF-1 — Factor de Crecimiento Insulínico</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El IGF-1 tiene dos acciones fundamentales en el PRP. En piel, estimula la proliferación fibroblástica para producir colágeno y elastina. En cabello, prolonga directamente la fase anágena o fase de crecimiento activo del folículo piloso, siendo el factor clave en los protocolos de alopecia con PRP.</p>
+            </div>
+
+            <div id="slide2-12" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🔧</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Gránulos Dense — Activadores Plaquetarios</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Los gránulos dense o gránulos delta contienen ADP, serotonina y calcio ionizado. Su función principal es amplificar la señal de activación reclutando más plaquetas al sitio de lesión. En el PRP, el CaCl2 que añadimos como activador imita precisamente la acción del calcio de los gránulos dense.</p>
+            </div>
+
+            <div id="slide2-13" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🧪</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Gránulos Lambda — Remodeladores Tisulares</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Los gránulos lambda contienen enzimas lisosomales como la catepsina D, elastasa y colagenasa. Estas enzimas son responsables de la remodelación de la matriz extracelular, eliminando tejido dañado y preparando el terreno para la síntesis de colágeno nuevo por parte de los fibroblastos activados.</p>
+            </div>
+
+            <div id="slide2-14" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🔗</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Membrana Fosfolipídica Plaquetaria</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">La membrana fosfolipídica de la plaqueta expresa glucoproteínas específicas como GPIb, GPIIb/IIIa y GPIa. Estas proteínas permiten la adhesión al colágeno, la agregación entre plaquetas y la interacción con otras células del sistema inmune. Son la interfaz de comunicación molecular de la plaqueta.</p>
+            </div>
+
+            <div id="slide2-15" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">⚡</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Proceso de Activación Plaquetaria</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Paso 1:</strong> Exposición al colágeno o activador químico</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Paso 2:</strong> Cambio de forma — de disco a esfera con pseudópodos</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Paso 3:</strong> Degranulación — liberación de factores de crecimiento</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Paso 4:</strong> Agregación — formación del tapón plaquetario</div>
+                    <div style="background:rgba(212,175,55,0.1);border-left:3px solid #D4AF37;padding:10px 15px;color:#D4AF37;border-radius:0 5px 5px 0;"><strong>Paso 5:</strong> Cascada de coagulación y formación de fibrina</div>
+                </div>
+            </div>
+
+            <div id="slide2-16" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🌡️</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Activación con CaCl2 — El Activador más Usado</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El cloruro de calcio al 10 por ciento es el activador más utilizado en protocolos PRP. El calcio iónico activa la cascada de coagulación vía factor tisular, genera trombina endógena y produce degranulación plaquetaria. La proporción correcta es 0.1 mililitros de CaCl2 por cada mililitro de PRP.</p>
+            </div>
+
+            <div id="slide2-17" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🔥</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Activación Térmica — Exclusiva del PRP 5G</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El biorreactor térmico del PRP 5G activa las plaquetas mediante ciclos de temperatura controlada. A 42 grados centígrados se produce el pico máximo de degranulación, liberando el 85 al 95 por ciento de todos los factores de crecimiento contenidos en los gránulos alpha de cada plaqueta.</p>
+            </div>
+
+            <div id="slide2-18" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">📊</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Recuento Plaquetario y Calidad del PRP</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="background:rgba(231,76,60,0.1);border-left:3px solid #e74c3c;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#e74c3c;">Menor de 150.000/μL:</strong> No recomendado para PRP</div>
+                    <div style="background:rgba(243,156,18,0.1);border-left:3px solid #f39c12;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#f39c12;">150.000 a 250.000/μL:</strong> PRP aceptable — calidad básica</div>
+                    <div style="background:rgba(46,204,113,0.1);border-left:3px solid #2ecc71;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#2ecc71;">250.000 a 350.000/μL:</strong> PRP de buena calidad — rango ideal</div>
+                    <div style="background:rgba(212,175,55,0.1);border-left:3px solid #D4AF37;padding:10px 15px;color:#D4AF37;border-radius:0 5px 5px 0;"><strong>Mayor de 350.000/μL:</strong> PRP excelente — máxima eficacia</div>
+                </div>
+            </div>
+
+            <div id="slide2-19" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">💊</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Medicamentos que Afectan las Plaquetas</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(231,76,60,0.1);border:1px solid #e74c3c;border-radius:10px;padding:15px;color:#ff9999;">❌ Aspirina — inhibe hasta 7-10 días</div>
+                    <div style="background:rgba(231,76,60,0.1);border:1px solid #e74c3c;border-radius:10px;padding:15px;color:#ff9999;">❌ Ibuprofeno — inhibe función plaquetaria</div>
+                    <div style="background:rgba(231,76,60,0.1);border:1px solid #e74c3c;border-radius:10px;padding:15px;color:#ff9999;">❌ Naproxeno — antiagregante reversible</div>
+                    <div style="background:rgba(231,76,60,0.1);border:1px solid #e74c3c;border-radius:10px;padding:15px;color:#ff9999;">❌ Clopidogrel — antiagregante potente</div>
+                </div>
+            </div>
+
+            <div id="slide2-20" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🚬</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Tabaquismo y Calidad Plaquetaria</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El tabaquismo reduce la función plaquetaria en un 30 a 40 por ciento. La nicotina activa crónicamente las plaquetas, agotando sus gránulos alpha. El monóxido de carbono reduce la oxigenación tisular. Los fumadores producen un PRP de menor calidad con menor concentración de factores de crecimiento funcionales.</p>
+            </div>
+
+            <div id="slide2-21" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">💧</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Hidratación y Volumen Plasmático</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Un paciente bien hidratado tiene mejor volumen plasmático, lo que facilita la extracción de sangre y mejora el rendimiento del PRP. Recomendar tomar 500 mililitros de agua 30 minutos antes del procedimiento. La deshidratación concentra los eritrocitos y reduce el volumen de plasma disponible para centrifugar.</p>
+            </div>
+
+            <div id="slide2-22" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🎂</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Edad y Calidad del PRP</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">A mayor edad, menor concentración de factores de crecimiento por plaqueta. Un paciente de 25 años tiene plaquetas con el triple de concentración de IGF-1 que un paciente de 65 años. Por esto, en pacientes mayores de 50 años el PRP 5G con exosomas es especialmente importante para compensar esta reducción natural.</p>
+            </div>
+
+            <div id="slide2-23" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">😰</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Estrés Crónico y Plaquetas</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El estrés crónico eleva el cortisol, que inhibe la trombopoyesis en la médula ósea. Los pacientes con estrés elevado tienen menor recuento plaquetario y plaquetas con menor capacidad de degranulación. Evaluar el estado de estrés del paciente antes del procedimiento y considerar técnicas de relajación previas.</p>
+            </div>
+
+            <div id="slide2-24" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🥗</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Nutrición y Producción Plaquetaria</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(46,204,113,0.1);border:1px solid #2ecc71;border-radius:10px;padding:15px;color:#99ffcc;">✅ Vitamina B12 — producción megacariocitos</div>
+                    <div style="background:rgba(46,204,113,0.1);border:1px solid #2ecc71;border-radius:10px;padding:15px;color:#99ffcc;">✅ Ácido fólico — maduración plaquetaria</div>
+                    <div style="background:rgba(46,204,113,0.1);border:1px solid #2ecc71;border-radius:10px;padding:15px;color:#99ffcc;">✅ Vitamina C — síntesis de colágeno post-PRP</div>
+                    <div style="background:rgba(46,204,113,0.1);border:1px solid #2ecc71;border-radius:10px;padding:15px;color:#99ffcc;">✅ Zinc — función plaquetaria óptima</div>
+                </div>
+            </div>
+
+            <div id="slide2-25" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🔄</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Ciclo de Vida de la Plaqueta</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Producción:</strong> Megacariocitos en médula ósea — 7 a 10 días de maduración</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Circulación:</strong> 7 a 10 días activas en sangre periférica</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Activación:</strong> Respuesta a señales de daño tisular</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Degranulación:</strong> Liberación de factores de crecimiento</div>
+                    <div style="background:rgba(212,175,55,0.1);border-left:3px solid #D4AF37;padding:10px 15px;color:#D4AF37;border-radius:0 5px 5px 0;"><strong>Eliminación:</strong> Bazo e hígado retiran plaquetas envejecidas</div>
+                </div>
+            </div>
+
+            <div id="slide2-26" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🏆</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Concentración Plaquetaria Óptima en PRP</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">El Dr. Robert Marx estableció en 1998 que se necesitan al menos un millón de plaquetas por microlitro para que el PRP tenga efecto terapéutico demostrable. En el PRP 5G, la doble centrifugación combinada con el biorreactor permite alcanzar concentraciones de 7 a 10 veces el valor basal del paciente.</p>
+            </div>
+
+            <div id="slide2-27" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">⚠️</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Plaqueta Mal Activada — El Error más Costoso</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Una plaqueta mal activada libera solo el 30 al 40 por ciento de sus factores de crecimiento. Los errores más comunes son: agitar el tubo post-centrifugación, usar temperatura incorrecta en el biorreactor, proporción incorrecta de CaCl2 y no respetar el tiempo máximo de uso de 45 minutos post-activación.</p>
+            </div>
+
+            <div id="slide2-28" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🔬</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Diferencia: PRP con y sin Leucocitos</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;"><strong style="color:#D4AF37;">LP-PRP</strong><br/>Sin leucocitos<br/>Menos inflamación<br/>Mejor para articulaciones</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;"><strong style="color:#D4AF37;">LR-PRP</strong><br/>Con leucocitos<br/>Mayor acción antimicrobiana<br/>Mejor para cicatrices</div>
+                </div>
+            </div>
+
+            <div id="slide2-29" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🧫</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Plaquetas y Sistema Inmune</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Las plaquetas no solo participan en la hemostasia y regeneración. También son células inmunes que liberan sustancias antimicrobianas, modulan la respuesta inflamatoria y activan los neutrófilos y macrófagos. Por esto el PRP tiene propiedades antiinfecciosas naturales cuando se prepara correctamente.</p>
+            </div>
+
+            <div id="slide2-30" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">💎</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Plaquetas en el PRP 5G vs PRP Tradicional</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.05);border:1px solid #555;border-radius:10px;padding:15px;color:#ccc;"><strong style="color:#aaa;">PRP Tradicional</strong><br/>Activación: 60-70%<br/>Factores: 3-4<br/>Duración: 24-48h</div>
+                    <div style="background:rgba(212,175,55,0.1);border:2px solid #D4AF37;border-radius:10px;padding:15px;color:#D4AF37;"><strong>PRP 5G</strong><br/>Activación: 90-98%<br/>Factores: 7+<br/>Duración: 3-6 semanas</div>
+                </div>
+            </div>
+
+            <div id="slide2-31" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🩺</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Hemograma Pre-PRP — Qué Evaluar</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Plaquetas:</strong> Mínimo 150.000/μL — idealmente mayor de 250.000</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">Hematocrito:</strong> Mayor del 33% para volumen plasmático adecuado</div>
+                    <div style="background:rgba(212,175,55,0.05);border-left:3px solid #D4AF37;padding:10px 15px;margin-bottom:8px;color:#ccc;border-radius:0 5px 5px 0;"><strong style="color:#D4AF37;">TP y TTPA:</strong> Dentro de rangos normales — descartar coagulopatía</div>
+                    <div style="background:rgba(212,175,55,0.1);border-left:3px solid #D4AF37;padding:10px 15px;color:#D4AF37;border-radius:0 5px 5px 0;"><strong>Glucosa:</strong> Menor de 126 mg/dL en ayunas para descartar diabetes</div>
+                </div>
+            </div>
+
+            <div id="slide2-32" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🔍</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Control de Calidad Visual del PRP</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(46,204,113,0.1);border:1px solid #2ecc71;border-radius:10px;padding:15px;color:#99ffcc;">✅ Color: Amarillo dorado turbio</div>
+                    <div style="background:rgba(46,204,113,0.1);border:1px solid #2ecc71;border-radius:10px;padding:15px;color:#99ffcc;">✅ Consistencia: Levemente viscosa</div>
+                    <div style="background:rgba(231,76,60,0.1);border:1px solid #e74c3c;border-radius:10px;padding:15px;color:#ff9999;">❌ Rosado o rojo: PRP hemolizado</div>
+                    <div style="background:rgba(231,76,60,0.1);border:1px solid #e74c3c;border-radius:10px;padding:15px;color:#ff9999;">❌ Transparente: Baja concentración</div>
+                </div>
+            </div>
+
+            <div id="slide2-33" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🧬</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Sinergia Plaquetas + Exosomas en PRP 5G</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Cuando combinamos los factores de crecimiento plaquetarios con exosomas de células madre, se produce una sinergia exponencial. Los exosomas aportan microARN que reactivan genes regenerativos silenciados por el envejecimiento. Esta combinación multiplica el efecto del PRP entre 5 y 10 veces comparado con el PRP solo.</p>
+            </div>
+
+            <div id="slide2-34" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">📱</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">IA y Análisis Plaquetario Personalizado</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Los sistemas de inteligencia artificial del PRP 5G analizan el hemograma completo del paciente y calculan automáticamente los parámetros de centrifugación óptimos para obtener la concentración plaquetaria ideal. Esto elimina la variabilidad humana y garantiza la máxima calidad en cada procedimiento.</p>
+            </div>
+
+            <div id="slide2-35" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🏥</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Plaquetas en Medicina Regenerativa</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🦴 Ortopedia — regeneración de tendones y cartílago</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🦷 Odontología — implantes y cirugía oral</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">✨ Estética — rejuvenecimiento y alopecia</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#ccc;">🔬 Dermatología — cicatrices y manchas</div>
+                </div>
+            </div>
+
+            <div id="slide2-36" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">⏰</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Tiempo Crítico Post-Activación</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Una vez que el PRP es activado, los factores de crecimiento comienzan a degradarse por las proteasas tisulares. El tiempo máximo de uso es de 30 a 45 minutos post-activación. Pasado este tiempo, la eficacia disminuye progresivamente. Nunca prepare el PRP y lo deje esperando.</p>
+            </div>
+
+            <div id="slide2-37" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🌟</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">El Futuro: Plaquetas Artificiales</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;">Los organoides plaquetarios son la próxima frontera. Plaquetas diseñadas en laboratorio con mayor concentración de factores de crecimiento específicos, capaces de liberar su contenido en zonas concretas gracias a nanopartículas dirigidas. Combinados con IA y edición genética, representan el futuro del PRP más allá de la quinta generación.</p>
+            </div>
+
+            <div id="slide2-38" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">📝</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Puntos Clave de Biología Plaquetaria</h2>
+                <div style="width:100%;max-width:700px;text-align:left;">
+                    <div style="color:#ccc;padding:8px 0;border-bottom:1px solid rgba(212,175,55,0.2);">✦ Las plaquetas son fragmentos celulares sin núcleo del megacariocito</div>
+                    <div style="color:#ccc;padding:8px 0;border-bottom:1px solid rgba(212,175,55,0.2);">✦ Los gránulos alpha contienen todos los factores de crecimiento</div>
+                    <div style="color:#ccc;padding:8px 0;border-bottom:1px solid rgba(212,175,55,0.2);">✦ Se necesita mínimo un millón de plaquetas por microlitro</div>
+                    <div style="color:#ccc;padding:8px 0;border-bottom:1px solid rgba(212,175,55,0.2);">✦ El biorreactor activa el 85-95% de los gránulos alpha</div>
+                    <div style="color:#ccc;padding:8px 0;border-bottom:1px solid rgba(212,175,55,0.2);">✦ El tabaco, el estrés y los AINEs reducen la calidad del PRP</div>
+                    <div style="color:#ccc;padding:8px 0;">✦ El PRP 5G logra 7 a 10 veces la concentración plaquetaria basal</div>
+                </div>
+            </div>
+
+            <div id="slide2-39" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">❓</div>
+                <h2 style="color:#D4AF37;font-size:1.8em;margin-bottom:15px;">Pregunta de Reflexión</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;margin-bottom:25px;">¿Cuál es el componente específico de la plaqueta que contiene los factores de crecimiento PDGF, TGF-beta, VEGF, EGF e IGF-1? Reflexiona sobre la respuesta antes de continuar a la siguiente lección.</p>
+                <div style="padding:15px 30px;background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;color:#D4AF37;">💡 La respuesta aparece en el quiz del Módulo 1</div>
+            </div>
+
+            <div id="slide2-40" class="slide2" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 0.8s;">
+                <div style="font-size:3em;margin-bottom:20px;">🎓</div>
+                <h2 style="color:#D4AF37;font-size:2em;margin-bottom:20px;">¡Lección Completada!</h2>
+                <p style="color:#ccc;font-size:1.1em;max-width:700px;line-height:1.8;margin-bottom:25px;">Has completado la lección sobre Biología Plaquetaria. Ahora comprendes a profundidad por qué las plaquetas son los protagonistas del PRP y cómo el PRP 5G maximiza su potencial regenerativo. ¡Continúa con Factores de Crecimiento!</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;max-width:700px;">
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#D4AF37;">✅ 40 secciones</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#D4AF37;">⏱ 30 minutos</div>
+                    <div style="background:rgba(212,175,55,0.1);border:1px solid #D4AF37;border-radius:10px;padding:15px;color:#D4AF37;">🏆 Lección 2 de 24</div>
+                </div>
+            </div>
+
+            <!-- OVERLAY DE INICIO -->
+            <div id="playOverlay2" onclick="startVideo2()" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);cursor:pointer;gap:15px;z-index:10;">
+                <div style="width:70px;height:70px;background:#D4AF37;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 30px rgba(212,175,55,0.6);">▶</div>
+                <p style="color:#fff;font-size:clamp(12px,1.8vw,18px);margin:0;font-weight:bold;">Biología Plaquetaria: Estructura y función de las plaquetas</p>
+                <p style="color:#D4AF37;font-size:clamp(10px,1.3vw,14px);margin:0;">⏱ 30 minutos · 40 secciones</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BARRA DE PROGRESO -->
+    <div style="background:#1a1a1a;padding:10px 15px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span id="slideCounter2" style="color:#D4AF37;font-size:12px;">Sección 1 de 40</span>
+            <span id="timeDisplay2" style="color:#888;font-size:12px;">00:00 / 30:00</span>
+        </div>
+        <div style="background:#333;border-radius:4px;height:4px;cursor:pointer;" onclick="seekVideo2(event,this)">
+            <div id="progressBar2" style="background:#D4AF37;height:4px;border-radius:4px;width:0%;transition:width 0.3s;"></div>
+        </div>
+    </div>
+
+    <!-- CONTROLES -->
+    <div style="background:#111;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="display:flex;gap:10px;align-items:center;">
+            <button onclick="prevSlide2()" style="background:rgba(212,175,55,0.2);border:1px solid #D4AF37;color:#D4AF37;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;">⏮ Anterior</button>
+            <button id="playPauseBtn2" onclick="togglePlayPause2()" style="background:#D4AF37;border:none;color:#000;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:bold;">▶ Reproducir</button>
+            <button onclick="nextSlide2()" style="background:rgba(212,175,55,0.2);border:1px solid #D4AF37;color:#D4AF37;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;">Siguiente ⏭</button>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+            <select onchange="changeSpeed2(this.value)" style="background:#222;border:1px solid #444;color:#fff;padding:6px 10px;border-radius:6px;font-size:12px;cursor:pointer;">
+                <option value="3000">0.5x</option>
+                <option value="2000" selected>1x</option>
+                <option value="1000">1.5x</option>
+                <option value="500">2x</option>
+            </select>
+            <button onclick="toggleFullscreen2()" style="background:rgba(255,255,255,0.1);border:1px solid #444;color:#fff;padding:8px 12px;border-radius:6px;cursor:pointer;font-size:13px;">⛶</button>
+        </div>
+    </div>
+</div>
+
             <div class="lesson-content">
                 <h2>🩸 Las Plaquetas: Protagonistas del PRP</h2>
                 <p>Las plaquetas (trombocitos) son fragmentos celulares anucleados derivados de los megacariocitos en la médula ósea. Con un diámetro de 2-4 micrómetros y una vida media de 7-10 días, son las células más pequeñas de la sangre pero con un impacto regenerativo extraordinario.</p>
@@ -4134,6 +4487,223 @@ window.onload = function() {
         if (navItem) navItem.classList.add('completed');
     });
 };
+// ============================================================
+// REPRODUCTOR LECCIÓN L1-2 — BIOLOGÍA PLAQUETARIA
+// ============================================================
+let currentSlide2 = 1;
+const totalSlides2 = 40;
+let isPlaying2 = false;
+let currentTime2 = 0;
+let timerInterval2 = null;
+const totalSeconds2 = 30 * 60;
+let speechRate2 = 0.78;
+
+const textos2 = {
+    1: "Bienvenida a la lección sobre Biología Plaquetaria. Exploraremos en profundidad la estructura interna de las plaquetas, sus componentes, su ciclo de vida y cómo estos conocimientos son fundamentales para entender el poder del PRP 5G.",
+    2: "Los objetivos de esta lección son: conocer la estructura interna de la plaqueta, entender los tipos de gránulos plaquetarios, comprender el proceso de activación e identificar los factores que afectan la calidad del PRP.",
+    3: "Las plaquetas o trombocitos son fragmentos celulares anucleados derivados de los megacariocitos en la médula ósea. Con un diámetro de 2 a 4 micrómetros y una vida media de 7 a 10 días, son las células más pequeñas de la sangre pero con un impacto regenerativo extraordinario.",
+    4: "Las plaquetas se producen en la médula ósea a partir de células gigantes llamadas megacariocitos. Cada megacariocito puede generar entre 1.000 y 3.000 plaquetas. Este proceso se llama trombopoyesis y está regulado por la hormona trombopoyetina.",
+    5: "La estructura interna de la plaqueta tiene cuatro componentes principales: los gránulos alpha que contienen los factores de crecimiento, los gránulos dense con ADP y serotonina, los gránulos lambda con enzimas lisosomales, y la membrana fosfolipídica exterior.",
+    6: "Los gránulos alpha son los protagonistas del PRP. Cada plaqueta contiene entre 50 y 80 gránulos alpha que almacenan y liberan todos los factores de crecimiento que hacen posible la regeneración tisular. Contienen PDGF, TGF-beta, VEGF, EGF, IGF-1, FGF y HGF.",
+    7: "El PDGF o Factor de Crecimiento Derivado de Plaquetas es el primer factor liberado tras la activación plaquetaria. Estimula la proliferación de fibroblastos y es el principal responsable de iniciar la cascada regenerativa y la formación de nuevos vasos sanguíneos.",
+    8: "El TGF-beta o Factor Transformante de Crecimiento es el factor más importante para la síntesis de colágeno. Activa directamente los fibroblastos para producir colágeno tipo I y III. También regula la melanogénesis, siendo fundamental en tratamientos para manchas y pigmentación.",
+    9: "El VEGF o Factor de Crecimiento Vascular Endotelial estimula la formación de nuevos vasos sanguíneos. En el cuero cabelludo, aumenta la vascularización del bulbo folicular, mejorando el aporte de nutrientes y oxígeno a cada folículo piloso y prolongando la fase anágena.",
+    10: "El EGF o Factor de Crecimiento Epidérmico estimula la proliferación de queratinocitos y células epidérmicas. Es el principal responsable de la renovación celular: mejora la textura de la piel, reduce los poros dilatados y produce la luminosidad característica post-procedimiento.",
+    11: "El IGF-1 o Factor de Crecimiento Insulínico tiene dos acciones fundamentales. En piel estimula la proliferación fibroblástica para producir colágeno y elastina. En cabello, prolonga directamente la fase anágena del folículo piloso, siendo el factor clave en los protocolos de alopecia.",
+    12: "Los gránulos dense o gránulos delta contienen ADP, serotonina y calcio ionizado. Su función es amplificar la señal de activación reclutando más plaquetas al sitio de lesión. El CaCl2 que añadimos como activador imita precisamente la acción del calcio de los gránulos dense.",
+    13: "Los gránulos lambda contienen enzimas lisosomales como catepsina D, elastasa y colagenasa. Estas enzimas son responsables de la remodelación de la matriz extracelular, eliminando tejido dañado y preparando el terreno para la síntesis de colágeno nuevo.",
+    14: "La membrana fosfolipídica de la plaqueta expresa glucoproteínas como GPIb, GPIIb y GPIa. Estas proteínas permiten la adhesión al colágeno, la agregación entre plaquetas y la interacción con otras células del sistema inmune.",
+    15: "El proceso de activación plaquetaria tiene cinco pasos: primero la exposición al colágeno o activador, luego el cambio de forma de disco a esfera con pseudópodos, después la degranulación con liberación de factores, luego la agregación y finalmente la formación de fibrina.",
+    16: "El cloruro de calcio al 10 por ciento es el activador más utilizado en protocolos PRP. El calcio iónico activa la cascada de coagulación, genera trombina endógena y produce degranulación plaquetaria. La proporción correcta es 0.1 mililitros de CaCl2 por cada mililitro de PRP.",
+    17: "El biorreactor térmico del PRP 5G activa las plaquetas mediante ciclos de temperatura controlada. A 42 grados centígrados se produce el pico máximo de degranulación, liberando el 85 al 95 por ciento de todos los factores de crecimiento de los gránulos alpha.",
+    18: "Para la calidad del PRP, un recuento menor de 150.000 plaquetas por microlitro no es recomendado. Entre 150.000 y 250.000 es aceptable. Entre 250.000 y 350.000 es bueno y el rango ideal. Mayor de 350.000 es excelente para máxima eficacia del PRP.",
+    19: "Los medicamentos antiinflamatorios afectan seriamente la calidad del PRP. La aspirina inhibe la función plaquetaria hasta 7 a 10 días. El ibuprofeno y el naproxeno son antiagregantes reversibles. El clopidogrel es un antiagregante muy potente. Todos deben suspenderse antes del procedimiento.",
+    20: "El tabaquismo reduce la función plaquetaria en un 30 a 40 por ciento. La nicotina activa crónicamente las plaquetas, agotando sus gránulos alpha. Los fumadores producen un PRP de menor calidad con menor concentración de factores de crecimiento funcionales.",
+    21: "Un paciente bien hidratado tiene mejor volumen plasmático y facilita la extracción de sangre. Se recomienda tomar 500 mililitros de agua 30 minutos antes del procedimiento. La deshidratación concentra los eritrocitos y reduce el volumen de plasma disponible.",
+    22: "A mayor edad, menor concentración de factores de crecimiento por plaqueta. Un paciente de 25 años tiene plaquetas con el triple de concentración de IGF-1 que uno de 65 años. Por esto, en mayores de 50 años el PRP 5G con exosomas es especialmente importante para compensar esta reducción.",
+    23: "El estrés crónico eleva el cortisol que inhibe la trombopoyesis en la médula ósea. Los pacientes con estrés elevado tienen menor recuento plaquetario y plaquetas con menor capacidad de degranulación. Evaluar el estado de estrés antes del procedimiento.",
+    24: "La nutrición afecta directamente la producción plaquetaria. La vitamina B12 es necesaria para la producción de megacariocitos. El ácido fólico regula la maduración plaquetaria. La vitamina C es cofactor para la síntesis de colágeno post-PRP. El zinc optimiza la función plaquetaria.",
+    25: "El ciclo de vida de la plaqueta comienza con su producción en médula ósea durante 7 a 10 días, luego circula activa en sangre periférica por 7 a 10 días, se activa en respuesta a daño tisular, libera sus factores en la degranulación y finalmente es eliminada por el bazo e hígado.",
+    26: "El Dr. Robert Marx estableció en 1998 que se necesitan al menos un millón de plaquetas por microlitro para efecto terapéutico demostrable. En el PRP 5G, la doble centrifugación combinada con el biorreactor permite alcanzar concentraciones de 7 a 10 veces el valor basal del paciente.",
+    27: "Una plaqueta mal activada libera solo el 30 al 40 por ciento de sus factores de crecimiento. Los errores más comunes son: agitar el tubo post-centrifugación, usar temperatura incorrecta en el biorreactor, proporción incorrecta de CaCl2 y no respetar el tiempo máximo de 45 minutos post-activación.",
+    28: "El PRP sin leucocitos o LP-PRP produce menos inflamación y es mejor para articulaciones. El PRP con leucocitos o LR-PRP tiene mayor acción antimicrobiana y es mejor para cicatrices. El PRP 5G utiliza protocolos específicos según la indicación clínica para seleccionar el tipo correcto.",
+    29: "Las plaquetas no solo participan en hemostasia y regeneración. También son células inmunes que liberan sustancias antimicrobianas y modulan la respuesta inflamatoria. Por esto el PRP tiene propiedades antiinfecciosas naturales cuando se prepara correctamente.",
+    30: "El PRP tradicional logra una activación del 60 al 70 por ciento con 3 a 4 factores de crecimiento activos y duración de 24 a 48 horas. El PRP 5G logra una activación del 90 al 98 por ciento con 7 o más factores activos y duración de 3 a 6 semanas.",
+    31: "Para el hemograma pre-PRP se evalúan cuatro parámetros clave: plaquetas mínimo 150.000 por microlitro, hematocrito mayor del 33 por ciento, tiempo de protrombina y TTPA dentro de rangos normales, y glucosa menor de 126 miligramos por decilitro en ayunas.",
+    32: "El control de calidad visual del PRP incluye: color amarillo dorado ligeramente turbio indica buena calidad. Consistencia levemente viscosa es correcta. Si está rosado o rojo indica hemólisis. Si está completamente transparente indica baja concentración plaquetaria.",
+    33: "Cuando combinamos factores de crecimiento plaquetarios con exosomas de células madre, se produce una sinergia exponencial. Los exosomas aportan microARN que reactivan genes regenerativos silenciados por el envejecimiento, multiplicando el efecto del PRP entre 5 y 10 veces.",
+    34: "Los sistemas de inteligencia artificial del PRP 5G analizan el hemograma completo y calculan automáticamente los parámetros de centrifugación óptimos para obtener la concentración plaquetaria ideal, eliminando la variabilidad humana y garantizando máxima calidad en cada procedimiento.",
+    35: "Las plaquetas tienen aplicaciones en toda la medicina regenerativa: en ortopedia para tendones y cartílago, en odontología para implantes y cirugía oral, en estética para rejuvenecimiento y alopecia, y en dermatología para cicatrices y manchas.",
+    36: "Una vez activado el PRP, los factores de crecimiento comienzan a degradarse por proteasas tisulares. El tiempo máximo de uso es de 30 a 45 minutos post-activación. Pasado este tiempo la eficacia disminuye progresivamente. Nunca prepare el PRP y lo deje esperando.",
+    37: "Los organoides plaquetarios son la próxima frontera. Plaquetas diseñadas en laboratorio con mayor concentración de factores de crecimiento específicos, capaces de liberar su contenido en zonas concretas gracias a nanopartículas dirigidas. Representan el futuro del PRP más allá de la quinta generación.",
+    38: "Los puntos clave de biología plaquetaria: las plaquetas son fragmentos del megacariocito sin núcleo, los gránulos alpha contienen todos los factores de crecimiento, se necesita mínimo un millón por microlitro, el biorreactor activa el 85 al 95 por ciento y el PRP 5G logra 7 a 10 veces la concentración basal.",
+    39: "Pregunta de reflexión: ¿Cuál es el componente específico de la plaqueta que contiene los factores de crecimiento PDGF, TGF-beta, VEGF, EGF e IGF-1? Reflexiona sobre la respuesta antes de continuar a la siguiente lección.",
+    40: "Felicitaciones. Has completado la lección sobre Biología Plaquetaria. Ahora comprendes a profundidad por qué las plaquetas son los protagonistas del PRP y cómo el PRP 5G maximiza su potencial regenerativo. Continúa con la lección sobre Factores de Crecimiento."
+};
+
+function showSlide2(n) {
+    if (n < 1 || n > totalSlides2) return;
+    window.speechSynthesis.cancel();
+    for (let i = 1; i <= totalSlides2; i++) {
+        const s = document.getElementById('slide2-' + i);
+        if (s) { s.style.display = 'none'; s.style.opacity = '0'; }
+    }
+    currentSlide2 = n;
+    const current = document.getElementById('slide2-' + n);
+    if (current) {
+        current.style.display = 'flex';
+        setTimeout(() => { current.style.opacity = '1'; current.style.transition = 'opacity 0.5s'; }, 50);
+    }
+    const counterEl = document.getElementById('slideCounter2');
+    if (counterEl) counterEl.textContent = 'Sección ' + n + ' de ' + totalSlides2;
+    const progress = ((n - 1) / (totalSlides2 - 1)) * 100;
+    const barEl = document.getElementById('progressBar2');
+    if (barEl) barEl.style.width = progress + '%';
+    if (isPlaying2 && textos2[n]) {
+        setTimeout(() => hablar2(textos2[n]), 300);
+    }
+    if (n === totalSlides2) {
+        detener2();
+        const btn = document.getElementById('playPauseBtn2');
+        if (btn) btn.textContent = '↺ Reiniciar';
+    }
+}
+
+function hablar2(texto) {
+    if (!texto || !isPlaying2) return;
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    setTimeout(function() {
+        const u = new SpeechSynthesisUtterance(texto);
+        u.lang = 'es-ES';
+        u.rate = speechRate2;
+        u.pitch = 0.95;
+        u.volume = 1.0;
+        const voz = getVoz();
+        if (voz) u.voice = voz;
+        window.speechSynthesis.speak(u);
+    }, 100);
+}
+
+function avanzarDesde2(n) {
+    if (!isPlaying2) return;
+    if (n > totalSlides2) {
+        detener2();
+        const btn = document.getElementById('playPauseBtn2');
+        if (btn) btn.textContent = '↺ Reiniciar';
+        return;
+    }
+    showSlide2(n);
+    setTimeout(() => {
+        const chk = setInterval(() => {
+            if (!isPlaying2) { clearInterval(chk); return; }
+            if (!window.speechSynthesis.speaking) {
+                clearInterval(chk);
+                setTimeout(() => { if (isPlaying2) avanzarDesde2(n + 1); }, 1500);
+            }
+        }, 500);
+    }, 1000);
+}
+
+function detener2() {
+    isPlaying2 = false;
+    window.speechSynthesis.cancel();
+    clearInterval(timerInterval2);
+    const btn = document.getElementById('playPauseBtn2');
+    if (btn) btn.textContent = '▶ Reproducir';
+}
+
+function startVideo2() {
+    window.speechSynthesis.cancel();
+    const overlay = document.getElementById('playOverlay2');
+    if (overlay) overlay.style.display = 'none';
+    currentSlide2 = 0;
+    currentTime2 = 0;
+    isPlaying2 = true;
+    const btn = document.getElementById('playPauseBtn2');
+    if (btn) btn.textContent = '⏸ Pausar';
+    clearInterval(timerInterval2);
+    timerInterval2 = setInterval(function() {
+        if (isPlaying2) { currentTime2++; updateTimer2(); }
+    }, 1000);
+    setTimeout(function() {
+        window.speechSynthesis.getVoices();
+        setTimeout(function() { avanzarDesde2(1); }, 300);
+    }, 200);
+}
+
+function togglePlayPause2() {
+    const btn = document.getElementById('playPauseBtn2');
+    if (!btn) return;
+    if (btn.textContent.includes('Reiniciar')) {
+        currentSlide2 = 0; currentTime2 = 0; isPlaying2 = false;
+        window.speechSynthesis.cancel();
+        clearInterval(timerInterval2);
+        updateTimer2();
+        const overlay = document.getElementById('playOverlay2');
+        if (overlay) overlay.style.display = 'flex';
+        btn.textContent = '▶ Reproducir';
+        return;
+    }
+    if (isPlaying2) {
+        detener2();
+    } else {
+        isPlaying2 = true;
+        btn.textContent = '⏸ Pausar';
+        clearInterval(timerInterval2);
+        timerInterval2 = setInterval(function() {
+            if (isPlaying2) { currentTime2++; updateTimer2(); }
+        }, 1000);
+        const slideToPlay = currentSlide2 || 1;
+        showSlide2(slideToPlay);
+        setTimeout(() => {
+            const chk = setInterval(() => {
+                if (!isPlaying2) { clearInterval(chk); return; }
+                if (!window.speechSynthesis.speaking) {
+                    clearInterval(chk);
+                    setTimeout(() => { if (isPlaying2) avanzarDesde2(slideToPlay + 1); }, 1500);
+                }
+            }, 500);
+        }, 500);
+    }
+}
+
+function nextSlide2() { detener2(); if (currentSlide2 < totalSlides2) showSlide2(currentSlide2 + 1); }
+function prevSlide2() { detener2(); if (currentSlide2 > 1) showSlide2(currentSlide2 - 1); }
+
+function changeSpeed2(val) {
+    const speeds = { '3000': 0.45, '2000': 0.78, '1000': 1.1, '500': 1.5 };
+    speechRate2 = speeds[val] || 0.78;
+    if (isPlaying2) { window.speechSynthesis.cancel(); hablar2(textos2[currentSlide2]); }
+}
+
+function updateTimer2() {
+    const mins = Math.floor(currentTime2 / 60).toString().padStart(2, '0');
+    const secs = Math.floor(currentTime2 % 60).toString().padStart(2, '0');
+    const el = document.getElementById('timeDisplay2');
+    if (el) el.textContent = mins + ':' + secs + ' / 30:00';
+}
+
+function seekVideo2(e, bar) {
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const targetSlide = Math.max(1, Math.min(totalSlides2, Math.round(pct * totalSlides2)));
+    detener2();
+    currentTime2 = Math.round(pct * totalSeconds2);
+    updateTimer2();
+    showSlide2(targetSlide);
+}
+
+function toggleFullscreen2() {
+    const el = document.querySelector('#page-l1-2 .video-player-container');
+    if (!el) return;
+    if (!document.fullscreenElement) {
+        el.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
+    } else {
+        document.exitFullscreen();
+    }
+}
+    
 </script>
 </body>
 </html>
