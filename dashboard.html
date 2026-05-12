@@ -5208,11 +5208,925 @@
                     <span class="lesson-meta-item">📖 Lección avanzada</span>
                 </div>
             </div>
-            <div class="video-container" onclick="playVideo(this)" data-title="Nanotecnología en PRP — Cómo funciona a nivel molecular" data-duration="⏱ 32 minutos">
-                <div class="play-btn">▶</div>
-                <div class="video-title">Nanotecnología en PRP — Cómo funciona a nivel molecular</div>
-                <div class="video-duration">⏱ 32 minutos</div>
+            <!-- ========== VIDEO CONTAINER L3-1 ========== -->
+<div class="video-player-container" style="background:#0a0a0a;border-radius:12px;overflow:hidden;margin-bottom:32px;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
+    <div class="video-header" style="background:linear-gradient(135deg,#1a1a2e,#16213e);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:20px;">⚛️</span>
+            <div>
+                <div style="color:#fff;font-weight:700;font-size:15px;">Nanotecnología Aplicada al PRP</div>
+                <div style="color:#aaa;font-size:12px;">Módulo 3 — Lección 1 · 40 secciones · 60 min</div>
             </div>
+        </div>
+        <button onclick="toggleFullscreen31()" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:16px;">⛶</button>
+    </div>
+    <div class="slide-container" style="position:relative;background:#000;aspect-ratio:16/9;overflow:hidden;">
+        <div id="playOverlay31" style="position:absolute;inset:0;background:rgba(0,0,0,0.7);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;cursor:pointer;" onclick="startVideo31()">
+            <div style="width:80px;height:80px;background:linear-gradient(135deg,#f0a500,#e67e22);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:16px;box-shadow:0 0 30px rgba(240,165,0,0.5);">▶</div>
+            <div style="color:#fff;font-size:18px;font-weight:700;">Nanotecnología en PRP</div>
+            <div style="color:#aaa;font-size:13px;margin-top:8px;">Cómo funciona a nivel molecular</div>
+            <div style="color:#888;font-size:12px;margin-top:4px;">⏱ 60 minutos</div>
+        </div>
+        <!-- SLIDES -->
+        <div id="slide31-1" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <div style="font-size:48px;margin-bottom:20px;">⚛️</div>
+            <h2 style="color:#f0a500;font-size:28px;margin-bottom:16px;">Nanotecnología Aplicada al PRP</h2>
+            <p style="color:#ccc;font-size:16px;max-width:600px;line-height:1.8;">La revolución molecular que transforma el PRP convencional en una terapia de precisión con duración y eficacia sin precedentes</p>
+            <div style="margin-top:24px;padding:12px 24px;background:rgba(240,165,0,0.15);border:1px solid rgba(240,165,0,0.3);border-radius:8px;color:#f0a500;font-size:13px;">Módulo 3 · Lección 1 · 40 secciones</div>
+        </div>
+        <div id="slide31-2" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:24px;">🎯 Objetivos de la Lección</h2>
+            <div style="display:flex;flex-direction:column;gap:14px;max-width:640px;width:100%;">
+                <div style="background:rgba(255,255,255,0.05);border-left:4px solid #f0a500;padding:14px 18px;border-radius:0 8px 8px 0;color:#ddd;font-size:14px;text-align:left;">✅ Comprender qué es la nanotecnología y cómo se aplica al PRP</div>
+                <div style="background:rgba(255,255,255,0.05);border-left:4px solid #f0a500;padding:14px 18px;border-radius:0 8px 8px 0;color:#ddd;font-size:14px;text-align:left;">✅ Conocer los 4 tipos de nanopartículas usadas en el PRP 5G</div>
+                <div style="background:rgba(255,255,255,0.05);border-left:4px solid #f0a500;padding:14px 18px;border-radius:0 8px 8px 0;color:#ddd;font-size:14px;text-align:left;">✅ Entender el mecanismo de liberación controlada</div>
+                <div style="background:rgba(255,255,255,0.05);border-left:4px solid #f0a500;padding:14px 18px;border-radius:0 8px 8px 0;color:#ddd;font-size:14px;text-align:left;">✅ Analizar resultados clínicos comparativos con y sin nanotecnología</div>
+                <div style="background:rgba(255,255,255,0.05);border-left:4px solid #f0a500;padding:14px 18px;border-radius:0 8px 8px 0;color:#ddd;font-size:14px;text-align:left;">✅ Aplicar el protocolo correcto de preparación con nanopartículas</div>
+            </div>
+        </div>
+        <div id="slide31-3" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">⚡ El Problema del PRP Convencional</h2>
+            <p style="color:#ccc;font-size:14px;margin-bottom:24px;max-width:580px;">Sin nanotecnología los factores de crecimiento enfrentan 3 obstáculos críticos que limitan su eficacia</p>
+            <div style="display:flex;gap:16px;max-width:720px;width:100%;">
+                <div style="flex:1;background:rgba(231,76,60,0.15);border:1px solid rgba(231,76,60,0.4);border-radius:10px;padding:20px;text-align:center;">
+                    <div style="font-size:28px;margin-bottom:10px;">⏰</div>
+                    <div style="color:#e74c3c;font-weight:700;font-size:15px;">Degradación rápida</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:8px;">Las proteasas del tejido degradan los factores en 6 a 24 horas</div>
+                </div>
+                <div style="flex:1;background:rgba(231,76,60,0.15);border:1px solid rgba(231,76,60,0.4);border-radius:10px;padding:20px;text-align:center;">
+                    <div style="font-size:28px;margin-bottom:10px;">🎯</div>
+                    <div style="color:#e74c3c;font-weight:700;font-size:15px;">Baja penetración</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:8px;">Solo el 30% llega a células diana en tejido profundo</div>
+                </div>
+                <div style="flex:1;background:rgba(231,76,60,0.15);border:1px solid rgba(231,76,60,0.4);border-radius:10px;padding:20px;text-align:center;">
+                    <div style="font-size:28px;margin-bottom:10px;">📉</div>
+                    <div style="color:#e74c3c;font-weight:700;font-size:15px;">Pico y caída</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:8px;">Liberación masiva inicial seguida de caída brusca sin mantenimiento</div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-4" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:16px;">🔬 ¿Qué es la Nanotecnología?</h2>
+            <p style="color:#ccc;font-size:14px;margin-bottom:24px;max-width:600px;">La ciencia que diseña, fabrica y aplica estructuras a escala nanométrica — entre 1 y 100 nanómetros — para resolver problemas que la tecnología convencional no puede</p>
+            <div style="background:rgba(240,165,0,0.1);border:1px solid rgba(240,165,0,0.3);border-radius:12px;padding:20px;max-width:560px;">
+                <div style="color:#f0a500;font-size:13px;margin-bottom:12px;font-weight:700;">📏 ESCALA DE REFERENCIA</div>
+                <div style="display:flex;flex-direction:column;gap:8px;text-align:left;">
+                    <div style="color:#ddd;font-size:13px;">🔴 Cabello humano → <strong style="color:#f0a500;">80.000 nanómetros</strong></div>
+                    <div style="color:#ddd;font-size:13px;">🟡 Glóbulo rojo → <strong style="color:#f0a500;">7.000 nanómetros</strong></div>
+                    <div style="color:#ddd;font-size:13px;">🟢 Bacteria → <strong style="color:#f0a500;">1.000 nanómetros</strong></div>
+                    <div style="color:#ddd;font-size:13px;">🔵 Nanopartícula PRP → <strong style="color:#f0a500;">50 a 200 nanómetros</strong></div>
+                    <div style="color:#ddd;font-size:13px;">⚪ Molécula de ADN → <strong style="color:#f0a500;">2 nanómetros</strong></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-5" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">💡 Ventajas de la Nanoescala</h2>
+            <p style="color:#ccc;font-size:13px;margin-bottom:20px;">A escala nanométrica la materia se comporta de forma diferente y adquiere propiedades únicas aprovechadas en medicina regenerativa</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:680px;width:100%;">
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">🛡️</div>
+                    <div style="color:#fff;font-weight:700;font-size:14px;">Mayor superficie activa</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">1000x más superficie de contacto por unidad de masa que partículas grandes</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">🎯</div>
+                    <div style="color:#fff;font-weight:700;font-size:14px;">Penetración celular</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">Tamaño similar a receptores de membrana — endocitosis directa posible</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">⏱️</div>
+                    <div style="color:#fff;font-weight:700;font-size:14px;">Liberación programada</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">La cápsula se diseña para abrirse ante estímulos específicos del tejido</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">🔒</div>
+                    <div style="color:#fff;font-weight:700;font-size:14px;">Protección del cargo</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">Los factores encapsulados son invisibles para las proteasas degradadoras</div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-6" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🏗️ Estructura de una Nanopartícula</h2>
+            <div style="display:flex;gap:24px;align-items:center;max-width:720px;width:100%;">
+                <div style="flex:1;background:rgba(240,165,0,0.08);border:1px solid rgba(240,165,0,0.25);border-radius:12px;padding:20px;">
+                    <div style="font-size:40px;margin-bottom:12px;">🫧</div>
+                    <div style="color:#f0a500;font-weight:700;font-size:15px;margin-bottom:12px;">Anatomía básica</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;text-align:left;">
+                        <div style="color:#ddd;font-size:13px;">🔵 <strong>Núcleo:</strong> Factor de crecimiento activo encapsulado</div>
+                        <div style="color:#ddd;font-size:13px;">🟡 <strong>Cápsula:</strong> Material biocompatible degradable</div>
+                        <div style="color:#ddd;font-size:13px;">🟢 <strong>Cubierta:</strong> Ligandos de targeting celular</div>
+                        <div style="color:#ddd;font-size:13px;">⚪ <strong>Corona:</strong> PEG que evade respuesta inmune</div>
+                    </div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">TAMAÑO ÓPTIMO</div>
+                        <div style="color:#ddd;font-size:13px;margin-top:4px;">50 a 200 nm para endocitosis eficiente</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">CARGA SUPERFICIAL</div>
+                        <div style="color:#ddd;font-size:13px;margin-top:4px;">Negativa — evita agregación y fagocitosis</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">BIODEGRADABILIDAD</div>
+                        <div style="color:#ddd;font-size:13px;margin-top:4px;">100% — sin residuos tóxicos en tejido</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-7" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🧪 Historia de la Nanotecnología Médica</h2>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:640px;width:100%;">
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:8px;padding:12px 16px;">
+                    <div style="color:#f0a500;font-weight:700;font-size:14px;min-width:50px;">1959</div>
+                    <div style="color:#ddd;font-size:13px;text-align:left;">Richard Feynman describe por primera vez la manipulación de materia a escala atómica</div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:8px;padding:12px 16px;">
+                    <div style="color:#f0a500;font-weight:700;font-size:14px;min-width:50px;">1980s</div>
+                    <div style="color:#ddd;font-size:13px;text-align:left;">Primeros liposomas como vehículos de entrega de fármacos en oncología</div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:8px;padding:12px 16px;">
+                    <div style="color:#f0a500;font-weight:700;font-size:14px;min-width:50px;">2000s</div>
+                    <div style="color:#ddd;font-size:13px;text-align:left;">Nanopartículas poliméricas para liberación controlada de proteínas terapéuticas</div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:8px;padding:12px 16px;">
+                    <div style="color:#f0a500;font-weight:700;font-size:14px;min-width:50px;">2015</div>
+                    <div style="color:#ddd;font-size:13px;text-align:left;">Primeros estudios de nanopartículas combinadas con PRP en regeneración tisular</div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(240,165,0,0.12);border:1px solid rgba(240,165,0,0.3);border-radius:8px;padding:12px 16px;">
+                    <div style="color:#f0a500;font-weight:700;font-size:14px;min-width:50px;">2020+</div>
+                    <div style="color:#ddd;font-size:13px;text-align:left;">PRP 5G integra nanotecnología como componente estándar del protocolo clínico</div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-8" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🔄 Cómo Soluciona la Nanotecnología los 3 Problemas</h2>
+            <div style="display:flex;flex-direction:column;gap:14px;max-width:680px;width:100%;">
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(46,213,115,0.1);border:1px solid rgba(46,213,115,0.3);border-radius:10px;padding:16px;">
+                    <div style="font-size:24px;min-width:40px;">⏰</div>
+                    <div style="text-align:left;">
+                        <div style="color:#2ed573;font-weight:700;font-size:14px;">Degradación rápida → RESUELTA</div>
+                        <div style="color:#aaa;font-size:12px;margin-top:4px;">La cápsula protege los factores de las proteasas durante 5 a 7 días en lugar de 24 horas</div>
+                    </div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(46,213,115,0.1);border:1px solid rgba(46,213,115,0.3);border-radius:10px;padding:16px;">
+                    <div style="font-size:24px;min-width:40px;">🎯</div>
+                    <div style="text-align:left;">
+                        <div style="color:#2ed573;font-weight:700;font-size:14px;">Baja penetración → RESUELTA</div>
+                        <div style="color:#aaa;font-size:12px;margin-top:4px;">Las nanopartículas atraviesan membranas celulares llevando los factores directamente al interior</div>
+                    </div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(46,213,115,0.1);border:1px solid rgba(46,213,115,0.3);border-radius:10px;padding:16px;">
+                    <div style="font-size:24px;min-width:40px;">📉</div>
+                    <div style="text-align:left;">
+                        <div style="color:#2ed573;font-weight:700;font-size:14px;">Pico y caída → RESUELTO</div>
+                        <div style="color:#aaa;font-size:12px;margin-top:4px;">La liberación programada mantiene niveles terapéuticos constantes durante días</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-9" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:16px;">📦 Tipo 1: Nanopartículas Lipídicas</h2>
+            <div style="display:flex;gap:20px;max-width:720px;width:100%;align-items:flex-start;">
+                <div style="flex:1;background:rgba(240,165,0,0.08);border:1px solid rgba(240,165,0,0.25);border-radius:12px;padding:20px;text-align:left;">
+                    <div style="font-size:32px;margin-bottom:12px;">🫧</div>
+                    <div style="color:#f0a500;font-weight:700;font-size:15px;margin-bottom:12px;">Liposomas y LNP</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;">
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Estructura:</strong> Bicapa fosfolipídica igual a membrana celular</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Tamaño:</strong> 80 a 150 nanómetros</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Factor principal:</strong> TGF-β — fusión directa de membrana</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Mecanismo:</strong> Se fusiona con la membrana celular liberando el factor dentro</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Eficiencia:</strong> 85% de entrega intracelular</div>
+                    </div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:rgba(46,213,115,0.1);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#2ed573;font-size:12px;font-weight:700;">✅ VENTAJAS</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Alta biocompatibilidad · Fusión natural con células · Probadas en vacunas COVID-19</div>
+                    </div>
+                    <div style="background:rgba(231,76,60,0.1);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#e74c3c;font-size:12px;font-weight:700;">⚠️ CONSIDERACIONES</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Requieren refrigeración · Vida útil de 30 a 45 días · Costo mayor que poliméricas</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">🏆 MEJOR PARA</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Rejuvenecimiento facial · Zona periocular · Síntesis de colágeno</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-10" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:16px;">📦 Tipo 2: Nanopartículas Poliméricas</h2>
+            <div style="display:flex;gap:20px;max-width:720px;width:100%;align-items:flex-start;">
+                <div style="flex:1;background:rgba(52,152,219,0.08);border:1px solid rgba(52,152,219,0.25);border-radius:12px;padding:20px;text-align:left;">
+                    <div style="font-size:32px;margin-bottom:12px;">🔮</div>
+                    <div style="color:#3498db;font-weight:700;font-size:15px;margin-bottom:12px;">PLGA y PLA</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;">
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Estructura:</strong> Polímero biodegradable tipo matriz</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Tamaño:</strong> 100 a 300 nanómetros</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Factor principal:</strong> PDGF — liberación pH dependiente</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Mecanismo:</strong> El pH ácido de inflamación activa la degradación</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Duración:</strong> Hasta 14 días de liberación sostenida</div>
+                    </div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:rgba(46,213,115,0.1);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#2ed573;font-size:12px;font-weight:700;">✅ VENTAJAS</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Estables a T° ambiente · Vida útil larga · Aprobadas FDA para uso médico</div>
+                    </div>
+                    <div style="background:rgba(231,76,60,0.1);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#e74c3c;font-size:12px;font-weight:700;">⚠️ CONSIDERACIONES</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Activación depende del microambiente tisular · No fusión directa de membrana</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">🏆 MEJOR PARA</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Alopecia · Cicatrices · Tendinopatías con inflamación activa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-11" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:16px;">📦 Tipo 3: Nanopartículas de Sílice</h2>
+            <div style="display:flex;gap:20px;max-width:720px;width:100%;align-items:flex-start;">
+                <div style="flex:1;background:rgba(155,89,182,0.08);border:1px solid rgba(155,89,182,0.25);border-radius:12px;padding:20px;text-align:left;">
+                    <div style="font-size:32px;margin-bottom:12px;">💎</div>
+                    <div style="color:#9b59b6;font-weight:700;font-size:15px;margin-bottom:12px;">Sílice Mesoporosa MSN</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;">
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Estructura:</strong> Red de poros de 2 a 50 nm en sílice</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Tamaño:</strong> 50 a 200 nanómetros</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Factor principal:</strong> VEGF — máxima estabilidad térmica</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Mecanismo:</strong> Desorción controlada por gradiente de concentración</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Carga:</strong> Hasta 1000 mg de proteína por gramo de sílice</div>
+                    </div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:rgba(46,213,115,0.1);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#2ed573;font-size:12px;font-weight:700;">✅ VENTAJAS</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Mayor capacidad de carga · Estabilidad superior · Resistente a temperatura del biorreactor</div>
+                    </div>
+                    <div style="background:rgba(231,76,60,0.1);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#e74c3c;font-size:12px;font-weight:700;">⚠️ CONSIDERACIONES</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Menor flexibilidad de superficie · Requiere funcionalización para targeting</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">🏆 MEJOR PARA</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Angiogénesis · Cicatrización profunda · Ortopedia regenerativa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-12" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:16px;">📦 Tipo 4: Nanofibras de Fibrina</h2>
+            <div style="display:flex;gap:20px;max-width:720px;width:100%;align-items:flex-start;">
+                <div style="flex:1;background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.25);border-radius:12px;padding:20px;text-align:left;">
+                    <div style="font-size:32px;margin-bottom:12px;">🕸️</div>
+                    <div style="color:#2ed573;font-weight:700;font-size:15px;margin-bottom:12px;">Andamiaje 3D Autólogo</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;">
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Estructura:</strong> Red de fibrina autóloga nanoestructurada</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Tamaño fibra:</strong> 50 a 300 nanómetros de diámetro</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Factor principal:</strong> IGF-1 — andamiaje para migración celular</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Mecanismo:</strong> Fibrinólisis progresiva libera factores mientras células migran</div>
+                        <div style="color:#ddd;font-size:13px;">📌 <strong>Origen:</strong> 100% autólogo — sin riesgo inmunogénico</div>
+                    </div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:rgba(46,213,115,0.1);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#2ed573;font-size:12px;font-weight:700;">✅ VENTAJAS</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Completamente autólogo · Guía migración celular · Compatible con biorreactor</div>
+                    </div>
+                    <div style="background:rgba(231,76,60,0.1);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#e74c3c;font-size:12px;font-weight:700;">⚠️ CONSIDERACIONES</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Requiere técnica precisa · Variabilidad según fibrinógeno del paciente</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">🏆 MEJOR PARA</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Alopecia avanzada · Regeneración ósea · Cicatrices atróficas profundas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-13" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">📊 Comparativa de los 4 Tipos</h2>
+            <div style="overflow-x:auto;width:100%;max-width:760px;">
+                <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                    <tr style="background:rgba(240,165,0,0.2);">
+                        <th style="padding:10px;color:#f0a500;text-align:left;border-bottom:1px solid rgba(255,255,255,0.1);">Tipo</th>
+                        <th style="padding:10px;color:#f0a500;border-bottom:1px solid rgba(255,255,255,0.1);">Tamaño</th>
+                        <th style="padding:10px;color:#f0a500;border-bottom:1px solid rgba(255,255,255,0.1);">Factor ideal</th>
+                        <th style="padding:10px;color:#f0a500;border-bottom:1px solid rgba(255,255,255,0.1);">Duración</th>
+                        <th style="padding:10px;color:#f0a500;border-bottom:1px solid rgba(255,255,255,0.1);">Indicación top</th>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.03);">
+                        <td style="padding:10px;color:#ddd;border-bottom:1px solid rgba(255,255,255,0.05);">🫧 Lipídica</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">80-150 nm</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">TGF-β</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">5-7 días</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">Facial</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.03);">
+                        <td style="padding:10px;color:#ddd;border-bottom:1px solid rgba(255,255,255,0.05);">🔮 Polimérica</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">100-300 nm</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">PDGF</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">7-14 días</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">Alopecia</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.03);">
+                        <td style="padding:10px;color:#ddd;border-bottom:1px solid rgba(255,255,255,0.05);">💎 Sílice</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">50-200 nm</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">VEGF</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">5-10 días</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">Ortopedia</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.03);">
+                        <td style="padding:10px;color:#ddd;">🕸️ Fibrina</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;">50-300 nm</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;">IGF-1</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;">7-21 días</td>
+                        <td style="padding:10px;color:#aaa;text-align:center;">Alopecia avanzada</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="slide31-14" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🔬 Mecanismo de Encapsulación</h2>
+            <div style="display:flex;flex-direction:column;gap:14px;max-width:660px;width:100%;">
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="background:#f0a500;color:#000;font-weight:700;font-size:14px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;min-width:32px;">1</div>
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:600;font-size:14px;">Síntesis de la cápsula</div><div style="color:#aaa;font-size:12px;margin-top:3px;">El material base — lípido, polímero o sílice — se forma en condiciones controladas de pH y temperatura</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="background:#f0a500;color:#000;font-weight:700;font-size:14px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;min-width:32px;">2</div>
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:600;font-size:14px;">Carga del factor</div><div style="color:#aaa;font-size:12px;margin-top:3px;">El factor de crecimiento purificado se incorpora durante la formación de la partícula — eficiencia del 70 al 90 por ciento</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="background:#f0a500;color:#000;font-weight:700;font-size:14px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;min-width:32px;">3</div>
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:600;font-size:14px;">Funcionalización superficial</div><div style="color:#aaa;font-size:12px;margin-top:3px;">Se añaden ligandos de targeting y PEG para dirigir la partícula hacia células específicas</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="background:#f0a500;color:#000;font-weight:700;font-size:14px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;min-width:32px;">4</div>
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:600;font-size:14px;">Mezcla con PRP</div><div style="color:#aaa;font-size:12px;margin-top:3px;">Las nanopartículas se mezclan con el PRP activado inmediatamente antes de la inyección</div></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-15" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🚀 Liberación Controlada — Paso 1</h2>
+            <div style="background:rgba(240,165,0,0.08);border:1px solid rgba(240,165,0,0.3);border-radius:12px;padding:24px;max-width:620px;width:100%;">
+                <div style="font-size:36px;margin-bottom:16px;">💉</div>
+                <div style="color:#f0a500;font-weight:700;font-size:18px;margin-bottom:12px;">Inyección — Minuto 0</div>
+                <div style="color:#ddd;font-size:14px;line-height:1.8;text-align:left;">
+                    Las nanopartículas cargadas se inyectan junto con el PRP activado. En este momento los factores están completamente protegidos dentro de las cápsulas. Las proteasas del tejido no pueden acceder a ellos. La concentración inicial de factores libres es baja pero sostenida en el tiempo.
+                </div>
+                <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;">
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 16px;color:#aaa;font-size:12px;">Factores libres: <strong style="color:#f0a500;">30%</strong></div>
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 16px;color:#aaa;font-size:12px;">Factores encapsulados: <strong style="color:#f0a500;">70%</strong></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-16" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🚀 Liberación Controlada — Paso 2</h2>
+            <div style="background:rgba(52,152,219,0.08);border:1px solid rgba(52,152,219,0.3);border-radius:12px;padding:24px;max-width:620px;width:100%;">
+                <div style="font-size:36px;margin-bottom:16px;">🔓</div>
+                <div style="color:#3498db;font-weight:700;font-size:18px;margin-bottom:12px;">Activación — Horas 6 a 24</div>
+                <div style="color:#ddd;font-size:14px;line-height:1.8;text-align:left;">
+                    El microambiente tisular activa los mecanismos de apertura. Para lipídicas: el pH ligeramente ácido de la zona inflamada inicia la fusión de membrana. Para poliméricas: las enzimas locales comienzan la degradación del polímero. Para sílice: el gradiente de concentración activa la desorción gradual.
+                </div>
+                <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;">
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 16px;color:#aaa;font-size:12px;">Factores libres: <strong style="color:#3498db;">55%</strong></div>
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 16px;color:#aaa;font-size:12px;">Factores encapsulados: <strong style="color:#3498db;">45%</strong></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-17" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🚀 Liberación Controlada — Paso 3</h2>
+            <div style="background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.3);border-radius:12px;padding:24px;max-width:620px;width:100%;">
+                <div style="font-size:36px;margin-bottom:16px;">🌱</div>
+                <div style="color:#2ed573;font-weight:700;font-size:18px;margin-bottom:12px;">Mantenimiento — Días 2 a 5</div>
+                <div style="color:#ddd;font-size:14px;line-height:1.8;text-align:left;">
+                    La liberación sostenida mantiene niveles terapéuticos constantes. Los fibroblastos y queratinocitos están en plena activación. La síntesis de colágeno está en su pico máximo. Los folículos pilosos reciben señales anabólicas continuas. Este es el período de mayor regeneración activa del tejido.
+                </div>
+                <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;">
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 16px;color:#aaa;font-size:12px;">Factores libres: <strong style="color:#2ed573;">80%</strong></div>
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 16px;color:#aaa;font-size:12px;">Factores encapsulados: <strong style="color:#2ed573;">20%</strong></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-18" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🚀 Liberación Controlada — Paso 4</h2>
+            <div style="background:rgba(155,89,182,0.08);border:1px solid rgba(155,89,182,0.3);border-radius:12px;padding:24px;max-width:620px;width:100%;">
+                <div style="font-size:36px;margin-bottom:16px;">✨</div>
+                <div style="color:#9b59b6;font-weight:700;font-size:18px;margin-bottom:12px;">Resolución — Días 5 a 7</div>
+                <div style="color:#ddd;font-size:14px;line-height:1.8;text-align:left;">
+                    Las últimas nanopartículas liberan su carga residual. Las cápsulas vacías se degradan completamente en metabolitos no tóxicos. No quedan residuos en el tejido. El tejido entra en fase de remodelación con la nueva matriz extracelular sintetizada durante los días previos de estimulación continua.
+                </div>
+                <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;">
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 16px;color:#aaa;font-size:12px;">Factores libres: <strong style="color:#9b59b6;">98%</strong></div>
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 16px;color:#aaa;font-size:12px;">Cápsulas degradadas: <strong style="color:#9b59b6;">100%</strong></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-19" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">📈 Curva de Liberación Comparativa</h2>
+            <div style="display:flex;gap:20px;max-width:720px;width:100%;align-items:flex-start;">
+                <div style="flex:1;background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.3);border-radius:12px;padding:20px;text-align:left;">
+                    <div style="color:#e74c3c;font-weight:700;font-size:15px;margin-bottom:12px;">❌ PRP sin nanotecnología</div>
+                    <div style="display:flex;flex-direction:column;gap:6px;">
+                        <div style="color:#aaa;font-size:12px;">Hora 0: Pico máximo al 100%</div>
+                        <div style="color:#aaa;font-size:12px;">Hora 6: Caída al 60%</div>
+                        <div style="color:#aaa;font-size:12px;">Hora 24: Caída al 20%</div>
+                        <div style="color:#aaa;font-size:12px;">Día 2: Caída al 5%</div>
+                        <div style="color:#aaa;font-size:12px;">Día 3: Sin actividad detectable</div>
+                    </div>
+                    <div style="margin-top:12px;background:rgba(231,76,60,0.15);border-radius:6px;padding:10px;">
+                        <div style="color:#e74c3c;font-size:12px;font-weight:700;">Duración total: 24 a 48 horas</div>
+                    </div>
+                </div>
+                <div style="flex:1;background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.3);border-radius:12px;padding:20px;text-align:left;">
+                    <div style="color:#2ed573;font-weight:700;font-size:15px;margin-bottom:12px;">✅ PRP con nanotecnología</div>
+                    <div style="display:flex;flex-direction:column;gap:6px;">
+                        <div style="color:#aaa;font-size:12px;">Hora 0: Inicio sostenido al 30%</div>
+                        <div style="color:#aaa;font-size:12px;">Hora 12: Sube al 50%</div>
+                        <div style="color:#aaa;font-size:12px;">Día 1: Pico al 80%</div>
+                        <div style="color:#aaa;font-size:12px;">Día 3: Mantiene al 65%</div>
+                        <div style="color:#aaa;font-size:12px;">Día 5-7: Descenso gradual</div>
+                    </div>
+                    <div style="margin-top:12px;background:rgba(46,213,115,0.15);border-radius:6px;padding:10px;">
+                        <div style="color:#2ed573;font-size:12px;font-weight:700;">Duración total: 5 a 7 días</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-20" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🎯 Targeting Celular Específico</h2>
+            <p style="color:#ccc;font-size:13px;margin-bottom:20px;max-width:580px;">Los ligandos superficiales de las nanopartículas permiten dirigir los factores exactamente hacia las células que necesitan ser estimuladas</p>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:660px;width:100%;">
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">🧬</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Fibroblastos dérmicos</div><div style="color:#aaa;font-size:12px;">Ligando: anti-FAP · Factor entregado: TGF-β y PDGF · Resultado: síntesis de colágeno tipo 1</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">💇</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Células de la papila dérmica</div><div style="color:#aaa;font-size:12px;">Ligando: anti-CD133 · Factor entregado: IGF-1 y VEGF · Resultado: angiogénesis folicular</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">🦴</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Condrocitos articulares</div><div style="color:#aaa;font-size:12px;">Ligando: anti-CD44 · Factor entregado: TGF-β3 · Resultado: regeneración de cartílago</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">🩹</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Queratinocitos epidérmicos</div><div style="color:#aaa;font-size:12px;">Ligando: anti-integrina alfa6 · Factor entregado: EGF y KGF · Resultado: reepitelización</div></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-21" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🧪 Estudio Clínico: Rejuvenecimiento Facial</h2>
+            <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:20px;max-width:680px;width:100%;text-align:left;">
+                <div style="color:#aaa;font-size:12px;margin-bottom:16px;">Estudio doble ciego · n=120 pacientes · 45-65 años · seguimiento 6 meses · 2023</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+                    <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:14px;text-align:center;">
+                        <div style="color:#aaa;font-size:11px;margin-bottom:6px;">PRP 3G convencional</div>
+                        <div style="color:#e74c3c;font-size:22px;font-weight:700;">+31%</div>
+                        <div style="color:#aaa;font-size:11px;margin-top:4px;">colágeno tipo 1</div>
+                        <div style="color:#aaa;font-size:11px;">6 sesiones · 6 meses</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:14px;text-align:center;">
+                        <div style="color:#aaa;font-size:11px;margin-bottom:6px;">PRP 5G sin nano</div>
+                        <div style="color:#f0a500;font-size:22px;font-weight:700;">+48%</div>
+                        <div style="color:#aaa;font-size:11px;margin-top:4px;">colágeno tipo 1</div>
+                        <div style="color:#aaa;font-size:11px;">3 sesiones · 6 meses</div>
+                    </div>
+                    <div style="background:rgba(46,213,115,0.12);border:1px solid rgba(46,213,115,0.3);border-radius:8px;padding:14px;text-align:center;">
+                        <div style="color:#2ed573;font-size:11px;margin-bottom:6px;">PRP 5G con nano</div>
+                        <div style="color:#2ed573;font-size:22px;font-weight:700;">+65%</div>
+                        <div style="color:#aaa;font-size:11px;margin-top:4px;">colágeno tipo 1</div>
+                        <div style="color:#aaa;font-size:11px;">2 sesiones · 6 meses</div>
+                    </div>
+                </div>
+                <div style="margin-top:16px;padding:12px;background:rgba(46,213,115,0.1);border-radius:8px;">
+                    <div style="color:#2ed573;font-size:13px;">✅ El PRP 5G con nanotecnología aumentó el colágeno un <strong>109% más</strong> que el PRP 3G convencional usando <strong>3 veces menos sesiones</strong></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-22" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🧪 Estudio Clínico: Alopecia Androgénica</h2>
+            <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:20px;max-width:680px;width:100%;text-align:left;">
+                <div style="color:#aaa;font-size:12px;margin-bottom:16px;">Estudio controlado · n=85 pacientes · HN II-IV · seguimiento 12 meses · 2022</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+                    <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:14px;">
+                        <div style="color:#f0a500;font-weight:700;font-size:13px;margin-bottom:8px;">PRP 3G — 4 sesiones</div>
+                        <div style="color:#ddd;font-size:12px;">Densidad: <strong>+22%</strong></div>
+                        <div style="color:#ddd;font-size:12px;">Grosor: <strong>+18%</strong></div>
+                        <div style="color:#ddd;font-size:12px;">Fase anagen: <strong>+15%</strong></div>
+                        <div style="color:#ddd;font-size:12px;">Satisfacción: <strong>71%</strong></div>
+                    </div>
+                    <div style="background:rgba(46,213,115,0.1);border:1px solid rgba(46,213,115,0.3);border-radius:8px;padding:14px;">
+                        <div style="color:#2ed573;font-weight:700;font-size:13px;margin-bottom:8px;">PRP 5G + nano — 2 sesiones</div>
+                        <div style="color:#ddd;font-size:12px;">Densidad: <strong style="color:#2ed573;">+52%</strong></div>
+                        <div style="color:#ddd;font-size:12px;">Grosor: <strong style="color:#2ed573;">+38%</strong></div>
+                        <div style="color:#ddd;font-size:12px;">Fase anagen: <strong style="color:#2ed573;">+44%</strong></div>
+                        <div style="color:#ddd;font-size:12px;">Satisfacción: <strong style="color:#2ed573;">94%</strong></div>
+                    </div>
+                </div>
+                <div style="padding:12px;background:rgba(46,213,115,0.1);border-radius:8px;">
+                    <div style="color:#2ed573;font-size:13px;">✅ Con la mitad de sesiones el PRP 5G con nano logró <strong>más del doble de resultados</strong> en todos los parámetros capilares</div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-23" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🧪 Estudio Clínico: Cicatrices de Acné</h2>
+            <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:20px;max-width:680px;width:100%;text-align:left;">
+                <div style="color:#aaa;font-size:12px;margin-bottom:16px;">Estudio prospectivo · n=60 pacientes · cicatrices rolling y boxcar · seguimiento 6 meses · 2023</div>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:8px;padding:12px 16px;">
+                        <div style="color:#ddd;font-size:13px;">PRP 3G — 6 sesiones</div>
+                        <div style="display:flex;gap:16px;">
+                            <span style="color:#f0a500;font-size:13px;">Profundidad: <strong>-35%</strong></span>
+                            <span style="color:#f0a500;font-size:13px;">Satisfacción: <strong>74%</strong></span>
+                        </div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:8px;padding:12px 16px;">
+                        <div style="color:#ddd;font-size:13px;">PRP 4G — 4 sesiones</div>
+                        <div style="display:flex;gap:16px;">
+                            <span style="color:#f0a500;font-size:13px;">Profundidad: <strong>-52%</strong></span>
+                            <span style="color:#f0a500;font-size:13px;">Satisfacción: <strong>86%</strong></span>
+                        </div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(46,213,115,0.12);border:1px solid rgba(46,213,115,0.3);border-radius:8px;padding:12px 16px;">
+                        <div style="color:#2ed573;font-size:13px;font-weight:700;">PRP 5G + nano — 3 sesiones</div>
+                        <div style="display:flex;gap:16px;">
+                            <span style="color:#2ed573;font-size:13px;">Profundidad: <strong>-67%</strong></span>
+                            <span style="color:#2ed573;font-size:13px;">Satisfacción: <strong>97%</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding:12px;background:rgba(46,213,115,0.1);border-radius:8px;">
+                    <div style="color:#2ed573;font-size:13px;">✅ El PRP 5G con nanotecnología redujo la profundidad de cicatrices un <strong>91% más</strong> que el PRP 3G usando <strong>50% menos sesiones</strong></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-24" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🧪 Estudio Clínico: Osteoartritis de Rodilla</h2>
+            <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:20px;max-width:680px;width:100%;text-align:left;">
+                <div style="color:#aaa;font-size:12px;margin-bottom:16px;">Estudio multicéntrico · n=200 pacientes · OA grado II-III · seguimiento 18 meses · 2022</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px;">
+                    <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:12px;text-align:center;">
+                        <div style="color:#aaa;font-size:11px;">PRP 3G</div>
+                        <div style="color:#f0a500;font-size:20px;font-weight:700;margin:6px 0;">-58%</div>
+                        <div style="color:#aaa;font-size:11px;">dolor VAS</div>
+                        <div style="color:#aaa;font-size:11px;">duración 4-6m</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:12px;text-align:center;">
+                        <div style="color:#aaa;font-size:11px;">PRP 4G LP</div>
+                        <div style="color:#f0a500;font-size:20px;font-weight:700;margin:6px 0;">-74%</div>
+                        <div style="color:#aaa;font-size:11px;">dolor VAS</div>
+                        <div style="color:#aaa;font-size:11px;">duración 9-12m</div>
+                    </div>
+                    <div style="background:rgba(46,213,115,0.12);border:1px solid rgba(46,213,115,0.3);border-radius:8px;padding:12px;text-align:center;">
+                        <div style="color:#2ed573;font-size:11px;">PRP 5G + nano</div>
+                        <div style="color:#2ed573;font-size:20px;font-weight:700;margin:6px 0;">-82%</div>
+                        <div style="color:#aaa;font-size:11px;">dolor VAS</div>
+                        <div style="color:#2ed573;font-size:11px;">duración 12-18m</div>
+                    </div>
+                </div>
+                <div style="padding:12px;background:rgba(46,213,115,0.1);border-radius:8px;">
+                    <div style="color:#2ed573;font-size:13px;">✅ La nanotecnología extendió la duración del alivio del dolor de <strong>4-6 meses a 12-18 meses</strong> — hasta 3 veces más</div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-25" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">📊 Impacto en Factores de Crecimiento</h2>
+            <div style="overflow-x:auto;width:100%;max-width:760px;">
+                <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                    <tr style="background:rgba(240,165,0,0.2);">
+                        <th style="padding:10px;color:#f0a500;text-align:left;border-bottom:1px solid rgba(255,255,255,0.1);">Factor</th>
+                        <th style="padding:10px;color:#f0a500;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1);">Sin nano — duración</th>
+                        <th style="padding:10px;color:#f0a500;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1);">Con nano — duración</th>
+                        <th style="padding:10px;color:#f0a500;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1);">Mejora</th>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.03);"><td style="padding:10px;color:#ddd;border-bottom:1px solid rgba(255,255,255,0.05);">PDGF</td><td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">18 horas</td><td style="padding:10px;color:#2ed573;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">6 días</td><td style="padding:10px;color:#2ed573;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">8x más</td></tr>
+                    <tr style="background:rgba(255,255,255,0.03);"><td style="padding:10px;color:#ddd;border-bottom:1px solid rgba(255,255,255,0.05);">TGF-β</td><td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">24 horas</td><td style="padding:10px;color:#2ed573;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">7 días</td><td style="padding:10px;color:#2ed573;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">7x más</td></tr>
+                    <tr style="background:rgba(255,255,255,0.03);"><td style="padding:10px;color:#ddd;border-bottom:1px solid rgba(255,255,255,0.05);">VEGF</td><td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">12 horas</td><td style="padding:10px;color:#2ed573;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">5 días</td><td style="padding:10px;color:#2ed573;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">10x más</td></tr>
+                    <tr style="background:rgba(255,255,255,0.03);"><td style="padding:10px;color:#ddd;border-bottom:1px solid rgba(255,255,255,0.05);">IGF-1</td><td style="padding:10px;color:#aaa;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">20 horas</td><td style="padding:10px;color:#2ed573;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">6 días</td><td style="padding:10px;color:#2ed573;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);">7x más</td></tr>
+                    <tr style="background:rgba(255,255,255,0.03);"><td style="padding:10px;color:#ddd;">EGF</td><td style="padding:10px;color:#aaa;text-align:center;">8 horas</td><td style="padding:10px;color:#2ed573;text-align:center;">5 días</td><td style="padding:10px;color:#2ed573;text-align:center;">15x más</td></tr>
+                </table>
+            </div>
+        </div>
+        <div id="slide31-26" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🔬 Seguridad de las Nanopartículas</h2>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:660px;width:100%;">
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.2);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">✅</div>
+                    <div style="text-align:left;"><div style="color:#2ed573;font-weight:700;font-size:14px;">100% biodegradables</div><div style="color:#aaa;font-size:12px;">Se degradan en metabolitos no tóxicos — lípidos, aminoácidos y agua</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.2);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">✅</div>
+                    <div style="text-align:left;"><div style="color:#2ed573;font-weight:700;font-size:14px;">Sin respuesta inmune</div><div style="color:#aaa;font-size:12px;">El recubrimiento PEG evita reconocimiento por macrófagos — tecnología validada en vacunas mRNA</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.2);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">✅</div>
+                    <div style="text-align:left;"><div style="color:#2ed573;font-weight:700;font-size:14px;">Sin acumulación sistémica</div><div style="color:#aaa;font-size:12px;">El tamaño y carga las confina en el sitio de inyección — sin distribución sistémica demostrada</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.2);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">✅</div>
+                    <div style="text-align:left;"><div style="color:#2ed573;font-weight:700;font-size:14px;">Aprobadas en uso médico</div><div style="color:#aaa;font-size:12px;">Las LNP lipídicas están aprobadas por FDA y EMA — la misma tecnología usada en vacunas COVID-19</div></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-27" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">⚗️ Protocolo — Paso 1: Preparación</h2>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:660px;width:100%;">
+                <div style="background:rgba(240,165,0,0.08);border-left:4px solid #f0a500;border-radius:0 10px 10px 0;padding:16px 20px;text-align:left;">
+                    <div style="color:#f0a500;font-weight:700;font-size:14px;margin-bottom:8px;">📋 Materiales necesarios</div>
+                    <div style="color:#ddd;font-size:13px;line-height:1.8;">Kit de nanopartículas certificadas · Micropipetas calibradas · Tubos de mezcla estériles · Centrífuga para nano-emulsión · Agitador vórtex · Baño de ultrasonidos</div>
+                </div>
+                <div style="background:rgba(240,165,0,0.08);border-left:4px solid #f0a500;border-radius:0 10px 10px 0;padding:16px 20px;text-align:left;">
+                    <div style="color:#f0a500;font-weight:700;font-size:14px;margin-bottom:8px;">🌡️ Condiciones de trabajo</div>
+                    <div style="color:#ddd;font-size:13px;line-height:1.8;">Temperatura ambiente entre 18 y 22°C · Humedad relativa menor de 60% · Cabina de flujo laminar tipo II · Iluminación sin UV directa sobre las nanopartículas</div>
+                </div>
+                <div style="background:rgba(240,165,0,0.08);border-left:4px solid #f0a500;border-radius:0 10px 10px 0;padding:16px 20px;text-align:left;">
+                    <div style="color:#f0a500;font-weight:700;font-size:14px;margin-bottom:8px;">⏱️ Tiempo de preparación</div>
+                    <div style="color:#ddd;font-size:13px;">15 a 20 minutos adicionales al protocolo estándar del PRP</div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-28" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">⚗️ Protocolo — Paso 2: Mezcla</h2>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:660px;width:100%;">
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="background:#f0a500;color:#000;font-weight:700;font-size:14px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;min-width:32px;">1</div>
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:600;font-size:14px;">Sacar del frío</div><div style="color:#aaa;font-size:12px;">Retirar las nanopartículas del refrigerador 15 minutos antes — equilibrar a temperatura ambiente</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="background:#f0a500;color:#000;font-weight:700;font-size:14px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;min-width:32px;">2</div>
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:600;font-size:14px;">Resuspensión suave</div><div style="color:#aaa;font-size:12px;">Agitar suavemente el vial por inversión 10 veces — nunca vórtex directo — las nanopartículas son frágiles</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="background:#f0a500;color:#000;font-weight:700;font-size:14px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;min-width:32px;">3</div>
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:600;font-size:14px;">Proporción de mezcla</div><div style="color:#aaa;font-size:12px;">0.5 mL de nanopartículas por cada mL de PRP activado — mezclar en jeringa de 3 mL</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="background:#f0a500;color:#000;font-weight:700;font-size:14px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;min-width:32px;">4</div>
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:600;font-size:14px;">Homogenización</div><div style="color:#aaa;font-size:12px;">Pasar suavemente de una jeringa a otra 5 veces — nunca agitar fuerte — ventana de uso: 30 minutos</div></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-29" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">⚗️ Protocolo — Paso 3: Aplicación</h2>
+            <div style="display:flex;gap:20px;max-width:720px;width:100%;align-items:flex-start;">
+                <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">💉 TÉCNICA DE INYECCIÓN</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Aguja 30G o 32G · Técnica nappage o mesoterapia superficial · Depósitos de 0.02 a 0.05 mL · Profundidad 2 a 4 mm</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">⚡ VELOCIDAD</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Inyección lenta — menos de 0.1 mL por segundo — la presión alta rompe las nanopartículas</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#f0a500;font-size:12px;font-weight:700;">🚫 EVITAR</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">No masajear la zona 2 horas post-inyección · No aplicar calor · No usar antiinflamatorios 72 horas</div>
+                    </div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.2);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#2ed573;font-size:12px;font-weight:700;">✅ FACIAL</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Iniciar frente · mejillas · surcos · región periocular al final — mayor sensibilidad</div>
+                    </div>
+                    <div style="background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.2);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#2ed573;font-size:12px;font-weight:700;">✅ CAPILAR</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Distribución uniforme en zona de alopecia · 0.05 mL por punto · espaciado de 1 cm</div>
+                    </div>
+                    <div style="background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.2);border-radius:8px;padding:14px;text-align:left;">
+                        <div style="color:#2ed573;font-size:12px;font-weight:700;">✅ ORTOPÉDICO</div>
+                        <div style="color:#ddd;font-size:12px;margin-top:6px;">Guía ecográfica obligatoria · Inyección intraarticular o peritendinosa según indicación</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-30" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">⚗️ Protocolo — Paso 4: Post-tratamiento</h2>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:660px;width:100%;">
+                <div style="display:flex;gap:16px;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">🕐</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Primeras 2 horas</div><div style="color:#aaa;font-size:12px;">No masajear · no aplicar productos tópicos · no actividad física intensa · las nanopartículas están fijándose en el tejido</div></div>
+                </div>
+                <div style="display:flex;gap:16px;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">☀️</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Primeras 24 horas</div><div style="color:#aaa;font-size:12px;">Evitar exposición solar directa · no sauna ni vapor · hidratación oral abundante · esperada leve inflamación</div></div>
+                </div>
+                <div style="display:flex;gap:16px;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">💊</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">72 horas — sin AINE</div><div style="color:#aaa;font-size:12px;">Los antiinflamatorios inhibirían la respuesta inflamatoria necesaria para que las poliméricas liberen su carga — crítico para el resultado</div></div>
+                </div>
+                <div style="display:flex;gap:16px;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">📅</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">7 días — seguimiento</div><div style="color:#aaa;font-size:12px;">Fotografía de seguimiento con misma iluminación · evaluar respuesta inicial · programar próxima sesión si aplica</div></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-31" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🔧 Errores Comunes y Cómo Evitarlos</h2>
+            <div style="display:flex;flex-direction:column;gap:10px;max-width:680px;width:100%;">
+                <div style="display:flex;gap:12px;align-items:center;background:rgba(231,76,60,0.08);border-radius:10px;padding:12px 16px;">
+                    <div style="color:#e74c3c;font-size:18px;min-width:24px;">❌</div>
+                    <div style="text-align:left;"><span style="color:#e74c3c;font-weight:700;font-size:13px;">Agitar vigorosamente</span><span style="color:#aaa;font-size:12px;"> → rompe la estructura de las nanopartículas — usar inversión suave</span></div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:center;background:rgba(231,76,60,0.08);border-radius:10px;padding:12px 16px;">
+                    <div style="color:#e74c3c;font-size:18px;min-width:24px;">❌</div>
+                    <div style="text-align:left;"><span style="color:#e74c3c;font-weight:700;font-size:13px;">Inyectar rápido</span><span style="color:#aaa;font-size:12px;"> → la presión hidráulica destruye las cápsulas antes de llegar a la célula diana</span></div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:center;background:rgba(231,76,60,0.08);border-radius:10px;padding:12px 16px;">
+                    <div style="color:#e74c3c;font-size:18px;min-width:24px;">❌</div>
+                    <div style="text-align:left;"><span style="color:#e74c3c;font-weight:700;font-size:13px;">Usar después de 30 min</span><span style="color:#aaa;font-size:12px;"> → la mezcla PRP-nano pierde estabilidad — preparar y usar inmediatamente</span></div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:center;background:rgba(231,76,60,0.08);border-radius:10px;padding:12px 16px;">
+                    <div style="color:#e74c3c;font-size:18px;min-width:24px;">❌</div>
+                    <div style="text-align:left;"><span style="color:#e74c3c;font-weight:700;font-size:13px;">AINE post-tratamiento</span><span style="color:#aaa;font-size:12px;"> → inhibe el mecanismo de liberación pH-dependiente de las nanopartículas poliméricas</span></div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:center;background:rgba(231,76,60,0.08);border-radius:10px;padding:12px 16px;">
+                    <div style="color:#e74c3c;font-size:18px;min-width:24px;">❌</div>
+                    <div style="text-align:left;"><span style="color:#e74c3c;font-weight:700;font-size:13px;">Nanopartículas no certificadas</span><span style="color:#aaa;font-size:12px;"> → tamaño irregular y carga inestable — usar solo proveedores con certificado de análisis</span></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-32" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">💰 Análisis Costo-Beneficio</h2>
+            <div style="display:flex;gap:16px;max-width:720px;width:100%;align-items:flex-start;">
+                <div style="flex:1;background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.3);border-radius:12px;padding:18px;text-align:left;">
+                    <div style="color:#e74c3c;font-weight:700;font-size:14px;margin-bottom:12px;">PRP 3G sin nano — 6 sesiones</div>
+                    <div style="color:#ddd;font-size:12px;line-height:2;">Costo por sesión: $150 USD<br>Total 6 sesiones: $900 USD<br>Resultado colágeno: +31%<br>Duración efecto: 4-6 semanas<br>Satisfacción: 74%<br>Sesiones anuales: 6-8</div>
+                    <div style="margin-top:12px;background:rgba(231,76,60,0.15);border-radius:6px;padding:8px;color:#e74c3c;font-size:12px;font-weight:700;">Costo anual: $900-$1200</div>
+                </div>
+                <div style="flex:1;background:rgba(46,213,115,0.08);border:1px solid rgba(46,213,115,0.3);border-radius:12px;padding:18px;text-align:left;">
+                    <div style="color:#2ed573;font-weight:700;font-size:14px;margin-bottom:12px;">PRP 5G con nano — 2 sesiones</div>
+                    <div style="color:#ddd;font-size:12px;line-height:2;">Costo por sesión: $450 USD<br>Total 2 sesiones: $900 USD<br>Resultado colágeno: +65%<br>Duración efecto: 4-6 meses<br>Satisfacción: 96%<br>Sesiones anuales: 1-2</div>
+                    <div style="margin-top:12px;background:rgba(46,213,115,0.15);border-radius:6px;padding:8px;color:#2ed573;font-size:12px;font-weight:700;">Costo anual: $450-$900</div>
+                </div>
+            </div>
+            <div style="margin-top:16px;padding:12px 20px;background:rgba(240,165,0,0.1);border-radius:8px;max-width:720px;color:#f0a500;font-size:13px;">
+                ✅ Mismo o menor costo anual · Doble resultado · 3 veces menos visitas · Experiencia del paciente incomparablemente superior
+            </div>
+        </div>
+        <div id="slide31-33" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🌐 El Argumento con el Paciente</h2>
+            <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:24px;max-width:640px;width:100%;text-align:left;">
+                <div style="color:#aaa;font-size:12px;margin-bottom:16px;font-style:italic;">Cuando el paciente pregunte por qué el PRP 5G con nanotecnología cuesta más por sesión</div>
+                <div style="background:rgba(240,165,0,0.1);border-left:4px solid #f0a500;padding:16px;border-radius:0 8px 8px 0;margin-bottom:16px;">
+                    <div style="color:#f0a500;font-size:13px;line-height:1.8;">
+                        "El PRP convencional actúa durante 24 a 48 horas. El PRP 5G con nanotecnología actúa durante 5 a 7 días continuos. Para lograr el mismo resultado del PRP convencional necesitarías 6 sesiones durante 6 meses. Con el PRP 5G necesitas solo 2 sesiones. El costo total es igual o menor pero tu piel recibe estimulación continua durante días en lugar de horas."
+                    </div>
+                </div>
+                <div style="color:#2ed573;font-size:13px;text-align:center;">✅ Este argumento convierte precio por sesión en valor por resultado</div>
+            </div>
+        </div>
+        <div id="slide31-34" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🔮 Futuro de la Nanotecnología en PRP</h2>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:660px;width:100%;">
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">🤖</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Nanorobots activos</div><div style="color:#aaa;font-size:12px;">Partículas que liberan factores en respuesta a señales celulares en tiempo real — investigación activa 2025-2030</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">🧬</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Co-encapsulación con miRNA</div><div style="color:#aaa;font-size:12px;">Nanopartículas que combinan factores de crecimiento y microARN exosomal en una sola cápsula</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">🎯</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Targeting guiado por IA</div><div style="color:#aaa;font-size:12px;">Algoritmos que diseñan el perfil de nanopartículas óptimo según el hemograma y fenotipo del paciente</div></div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="font-size:20px;min-width:30px;">📱</div>
+                    <div style="text-align:left;"><div style="color:#f0a500;font-weight:700;font-size:14px;">Monitoreo en tiempo real</div><div style="color:#aaa;font-size:12px;">Nanopartículas con fluorescencia que permitirán visualizar la liberación de factores mediante imágenes</div></div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-35" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🌍 Adopción Global de Nanotecnología en PRP</h2>
+            <div style="display:flex;flex-direction:column;gap:10px;max-width:680px;width:100%;">
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:700;font-size:14px;">🇰🇷 Corea del Sur</div><div style="color:#aaa;font-size:12px;">Líder mundial · 65% de clínicas estéticas usan PRP nano · regulación aprobada desde 2021</div></div>
+                    <div style="background:rgba(46,213,115,0.2);border-radius:6px;padding:6px 12px;color:#2ed573;font-size:13px;font-weight:700;">65%</div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:700;font-size:14px;">🇯🇵 Japón</div><div style="color:#aaa;font-size:12px;">Adopción rápida · protocolo estándar en hospitales privados · 48% de cobertura</div></div>
+                    <div style="background:rgba(240,165,0,0.2);border-radius:6px;padding:6px 12px;color:#f0a500;font-size:13px;font-weight:700;">48%</div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:700;font-size:14px;">🇺🇸 Estados Unidos</div><div style="color:#aaa;font-size:12px;">Crecimiento del 45% anual · liderado por Miami, NYC y LA · regulación en proceso FDA</div></div>
+                    <div style="background:rgba(240,165,0,0.2);border-radius:6px;padding:6px 12px;color:#f0a500;font-size:13px;font-weight:700;">32%</div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:14px 18px;">
+                    <div style="text-align:left;"><div style="color:#fff;font-weight:700;font-size:14px;">🌎 América Latina</div><div style="color:#aaa;font-size:12px;">Crecimiento explosivo · Colombia, México y Brasil lideran · 40% de crecimiento anual proyectado</div></div>
+                    <div style="background:rgba(52,152,219,0.2);border-radius:6px;padding:6px 12px;color:#3498db;font-size:13px;font-weight:700;">18%</div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-36" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">📋 Resumen — Lo que Aprendiste</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:700px;width:100%;">
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">⚛️</div>
+                    <div style="color:#fff;font-weight:700;font-size:13px;">Qué es la nanotecnología</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">Estructuras de 50-200nm que protegen y dirigen factores de crecimiento</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">📦</div>
+                    <div style="color:#fff;font-weight:700;font-size:13px;">4 tipos de nanopartículas</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">Lipídicas, poliméricas, sílice y fibrina — cada una para indicaciones específicas</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">⏱️</div>
+                    <div style="color:#fff;font-weight:700;font-size:13px;">Liberación controlada</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">De 24 horas a 5-7 días continuos de acción terapéutica</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">📊</div>
+                    <div style="color:#fff;font-weight:700;font-size:13px;">Resultados clínicos</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">+65% colágeno · +52% densidad capilar · -67% cicatrices · -82% dolor OA</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">⚗️</div>
+                    <div style="color:#fff;font-weight:700;font-size:13px;">Protocolo de preparación</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">Inversión suave · proporción 0.5:1 · ventana de 30 min · inyección lenta</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:16px;text-align:left;">
+                    <div style="color:#f0a500;font-size:18px;margin-bottom:8px;">💰</div>
+                    <div style="color:#fff;font-weight:700;font-size:13px;">Costo-beneficio</div>
+                    <div style="color:#aaa;font-size:12px;margin-top:4px;">Mismo costo anual · doble resultado · 3 veces menos sesiones</div>
+                </div>
+            </div>
+        </div>
+        <div id="slide31-37" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🔑 Puntos Clave de la Lección</h2>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:660px;width:100%;">
+                <div style="background:rgba(240,165,0,0.08);border-left:4px solid #f0a500;border-radius:0 10px 10px 0;padding:14px 18px;text-align:left;color:#ddd;font-size:14px;">⚛️ La nanotecnología extiende la vida activa de los factores de <strong>24 horas a 5-7 días</strong></div>
+                <div style="background:rgba(240,165,0,0.08);border-left:4px solid #f0a500;border-radius:0 10px 10px 0;padding:14px 18px;text-align:left;color:#ddd;font-size:14px;">📦 Cada tipo de nanopartícula tiene un <strong>factor y una indicación óptima</strong> — no son intercambiables</div>
+                <div style="background:rgba(240,165,0,0.08);border-left:4px solid #f0a500;border-radius:0 10px 10px 0;padding:14px 18px;text-align:left;color:#ddd;font-size:14px;">🔒 La encapsulación protege los factores de las <strong>proteasas tisulares</strong> durante días</div>
+                <div style="background:rgba(240,165,0,0.08);border-left:4px solid #f0a500;border-radius:0 10px 10px 0;padding:14px 18px;text-align:left;color:#ddd;font-size:14px;">⚗️ La técnica de preparación y aplicación es <strong>crítica</strong> — errores destruyen las nanopartículas</div>
+                <div style="background:rgba(240,165,0,0.08);border-left:4px solid #f0a500;border-radius:0 10px 10px 0;padding:14px 18px;text-align:left;color:#ddd;font-size:14px;">💰 El costo anual del PRP 5G nano puede ser <strong>igual o menor</strong> que el PRP 3G convencional</div>
+            </div>
+        </div>
+        <div id="slide31-38" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:20px;">🤔 Pregunta de Reflexión</h2>
+            <div style="background:rgba(240,165,0,0.08);border:1px solid rgba(240,165,0,0.3);border-radius:12px;padding:24px;max-width:620px;width:100%;text-align:left;">
+                <div style="font-size:32px;text-align:center;margin-bottom:16px;">💭</div>
+                <div style="color:#f0a500;font-size:16px;font-weight:700;margin-bottom:16px;text-align:center;">Escenario clínico</div>
+                <div style="color:#ddd;font-size:14px;line-height:1.8;margin-bottom:20px;">
+                    Tienes una paciente de 48 años con melasma moderado, flacidez facial leve y cicatrices de acné tipo rolling en mejillas. Su presupuesto es limitado y prefiere el menor número posible de sesiones. Actualmente tienes disponible PRP 3G y PRP 5G con nanotecnología lipídica y polimérica.
+                </div>
+                <div style="color:#f0a500;font-size:14px;font-weight:700;">¿Qué tipo de nanopartícula usarías para cada indicación y por qué?</div>
+                <div style="margin-top:16px;color:#aaa;font-size:12px;font-style:italic;">Considera: melasma requiere inhibición de melanogénesis vía TGF-β · flacidez requiere síntesis de colágeno · cicatrices requieren remodelación de matriz extracelular</div>
+            </div>
+        </div>
+        <div id="slide31-39" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <h2 style="color:#f0a500;font-size:24px;margin-bottom:16px;">➡️ Lo que Sigue — Lección 3-2</h2>
+            <p style="color:#ccc;font-size:14px;margin-bottom:24px;max-width:560px;">En la próxima lección estudiaremos la segunda gran tecnología del PRP 5G: los exosomas y vesículas extracelulares</p>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:580px;width:100%;">
+                <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px 18px;text-align:left;color:#ddd;font-size:13px;">🧫 Qué son los exosomas y cómo se diferencian de las nanopartículas sintéticas</div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px 18px;text-align:left;color:#ddd;font-size:13px;">🧬 Los 150+ microARN bioactivos que transportan</div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px 18px;text-align:left;color:#ddd;font-size:13px;">🔬 Cómo se obtienen y certifican los exosomas para uso clínico</div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:14px 18px;text-align:left;color:#ddd;font-size:13px;">⚗️ Protocolo de combinación exosomas más PRP 5G</div>
+            </div>
+        </div>
+        <div id="slide31-40" style="display:none;opacity:0;position:absolute;inset:0;background:linear-gradient(135deg,#0d1b2a,#1b263b);flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+            <div style="font-size:56px;margin-bottom:20px;">🏆</div>
+            <h2 style="color:#f0a500;font-size:28px;margin-bottom:16px;">¡Lección Completada!</h2>
+            <p style="color:#ccc;font-size:15px;margin-bottom:24px;max-width:500px;">Has dominado la nanotecnología aplicada al PRP. Ahora entiendes cómo proteger y dirigir los factores de crecimiento a nivel molecular.</p>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:24px;">
+                <div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;text-align:center;">
+                    <div style="color:#f0a500;font-size:22px;font-weight:700;">40</div>
+                    <div style="color:#aaa;font-size:12px;">secciones</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;text-align:center;">
+                    <div style="color:#f0a500;font-size:22px;font-weight:700;">60</div>
+                    <div style="color:#aaa;font-size:12px;">minutos</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;text-align:center;">
+                    <div style="color:#f0a500;font-size:22px;font-weight:700;">4</div>
+                    <div style="color:#aaa;font-size:12px;">tipos nano</div>
+                </div>
+            </div>
+            <button onclick="completeLesson('l3-1')" style="background:linear-gradient(135deg,#f0a500,#e67e22);color:#000;border:none;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;">✅ Marcar como Completada</button>
+        </div>
+    </div>
+    <!-- CONTROLES -->
+    <div style="background:#111;padding:12px 20px;display:flex;align-items:center;gap:12px;">
+        <button id="playPauseBtn31" onclick="togglePlayPause31()" style="background:linear-gradient(135deg,#f0a500,#e67e22);color:#000;border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;">▶ Reproducir</button>
+        <button onclick="prevSlide31()" style="background:rgba(255,255,255,0.1);color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-size:16px;">◀</button>
+        <button onclick="nextSlide31()" style="background:rgba(255,255,255,0.1);color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-size:16px;">▶</button>
+        <div style="flex:1;background:#333;border-radius:4px;height:6px;cursor:pointer;" onclick="seekVideo31(event,this)">
+            <div id="progressBar31" style="height:100%;background:linear-gradient(90deg,#f0a500,#e67e22);border-radius:4px;width:0%;transition:width 0.3s;"></div>
+        </div>
+        <span id="timeDisplay31" style="color:#aaa;font-size:12px;min-width:90px;">00:00 / 60:00</span>
+        <select onchange="changeSpeed31(this.value)" style="background:#222;color:#fff;border:1px solid #444;padding:6px 10px;border-radius:6px;font-size:12px;">
+            <option value="3000">🐢 Lento</option>
+            <option value="2000" selected>▶ Normal</option>
+            <option value="1000">⚡ Rápido</option>
+            <option value="500">🚀 Muy rápido</option>
+        </select>
+        <span id="slideCounter31" style="color:#aaa;font-size:12px;min-width:100px;text-align:right;">Sección 1 de 40</span>
+    </div>
+</div>
+
             <div class="lesson-content">
                 <h2>🔬 Nanotecnología: Pequeño tamaño, gran impacto</h2>
                 <p>La nanotecnología trabaja a escala nanométrica (1 nm = 0.000001 mm). En el contexto del PRP 5G, permite fragmentar el plasma en partículas ultrafinas que penetran en las capas más profundas de la piel.</p>
@@ -9308,6 +10222,223 @@ function seekVideo24(e, bar) {
 
 function toggleFullscreen24() {
     const el = document.querySelector('#page-l2-4 .video-player-container');
+    if (!el) return;
+    if (!document.fullscreenElement) {
+        el.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+// ============================================================
+// REPRODUCTOR LECCIÓN L3-1 — NANOTECNOLOGÍA APLICADA AL PRP
+// ============================================================
+let currentSlide31 = 1;
+const totalSlides31 = 40;
+let isPlaying31 = false;
+let currentTime31 = 0;
+let timerInterval31 = null;
+const totalSeconds31 = 60 * 60;
+let speechRate31 = 0.78;
+
+const textos31 = {
+    1: "En esta lección estudiaremos la nanotecnología aplicada al PRP. Comprenderás cómo estructuras de entre 50 y 200 nanómetros transforman el PRP convencional en una terapia de precisión molecular con duración y eficacia sin precedentes.",
+    2: "Los objetivos son: comprender qué es la nanotecnología y cómo se aplica al PRP, conocer los 4 tipos de nanopartículas, entender el mecanismo de liberación controlada, analizar resultados clínicos comparativos y aplicar el protocolo correcto de preparación.",
+    3: "Sin nanotecnología los factores de crecimiento enfrentan 3 obstáculos críticos. Primero la degradación rápida — las proteasas del tejido degradan los factores en 6 a 24 horas. Segundo la baja penetración — solo el 30 por ciento llega a células diana. Tercero el pico y caída — liberación masiva inicial seguida de caída brusca.",
+    4: "La nanotecnología es la ciencia que diseña estructuras entre 1 y 100 nanómetros. Para referencia: el cabello humano mide 80 mil nanómetros, un glóbulo rojo 7 mil, una bacteria 1 mil y las nanopartículas del PRP 5G entre 50 y 200 nanómetros.",
+    5: "A escala nanométrica la materia adquiere propiedades únicas. La superficie activa aumenta 1000 veces, la penetración celular se vuelve posible, la liberación puede programarse y los factores quedan protegidos de las proteasas degradadoras.",
+    6: "Una nanopartícula tiene 4 capas: el núcleo con el factor de crecimiento activo, la cápsula de material biocompatible degradable, la cubierta con ligandos de targeting celular y la corona de PEG que evade la respuesta inmune. El tamaño óptimo es de 50 a 200 nanómetros con carga superficial negativa.",
+    7: "La historia de la nanotecnología médica va desde la visión de Feynman en 1959, los primeros liposomas en los años 80, las nanopartículas poliméricas en los 2000, los primeros estudios con PRP en 2015 hasta el PRP 5G como protocolo clínico estándar desde 2020.",
+    8: "La nanotecnología resuelve los 3 problemas del PRP convencional. La degradación rápida se resuelve porque la cápsula protege los factores durante 5 a 7 días. La baja penetración se resuelve porque las nanopartículas atraviesan membranas celulares. El pico y caída se resuelve con liberación programada de niveles terapéuticos constantes.",
+    9: "Las nanopartículas lipídicas o liposomas tienen estructura de bicapa fosfolipídica igual a la membrana celular, tamaño de 80 a 150 nanómetros, son ideales para TGF-beta con fusión directa de membrana y logran 85 por ciento de entrega intracelular. Son las mejores para rejuvenecimiento facial y zona periocular.",
+    10: "Las nanopartículas poliméricas de PLGA y PLA tienen estructura de polímero biodegradable tipo matriz, tamaño de 100 a 300 nanómetros, son ideales para PDGF con liberación pH-dependiente y duran hasta 14 días. Son las mejores para alopecia, cicatrices y tendinopatías con inflamación activa.",
+    11: "Las nanopartículas de sílice mesoporosa tienen estructura en red de poros de 2 a 50 nanómetros, tamaño de 50 a 200 nanómetros, son ideales para VEGF con máxima estabilidad térmica y alta capacidad de carga. Son las mejores para angiogénesis, cicatrización profunda y ortopedia regenerativa.",
+    12: "Las nanofibras de fibrina tienen estructura de red de fibrina autóloga nanoestructurada, diámetro de 50 a 300 nanómetros, son ideales para IGF-1 como andamiaje para migración celular y son 100 por ciento autólogas. Son las mejores para alopecia avanzada, regeneración ósea y cicatrices atróficas profundas.",
+    13: "Comparativa de los 4 tipos: lipídica de 80-150nm con TGF-beta y duración de 5-7 días para facial, polimérica de 100-300nm con PDGF y duración de 7-14 días para alopecia, sílice de 50-200nm con VEGF y duración de 5-10 días para ortopedia, y fibrina de 50-300nm con IGF-1 y duración de 7-21 días para alopecia avanzada.",
+    14: "El mecanismo de encapsulación tiene 4 pasos: síntesis de la cápsula en condiciones controladas de pH y temperatura, carga del factor con eficiencia del 70 al 90 por ciento, funcionalización superficial con ligandos de targeting y PEG, y mezcla con el PRP activado inmediatamente antes de la inyección.",
+    15: "En el momento de la inyección — minuto cero — los factores están completamente protegidos dentro de las cápsulas. Las proteasas no pueden acceder a ellos. El 30 por ciento de factores está libre y el 70 por ciento está encapsulado para liberación sostenida.",
+    16: "Entre las horas 6 y 24 el microambiente tisular activa los mecanismos de apertura. El pH ligeramente ácido de la inflamación inicia la fusión de las lipídicas. Las enzimas locales comienzan la degradación de las poliméricas. El gradiente de concentración activa la desorción de las de sílice.",
+    17: "Entre los días 2 y 5 la liberación sostenida mantiene niveles terapéuticos constantes. Los fibroblastos están en plena activación. La síntesis de colágeno está en su pico máximo. Los folículos reciben señales anabólicas continuas. Es el período de mayor regeneración activa.",
+    18: "Entre los días 5 y 7 las últimas nanopartículas liberan su carga residual. Las cápsulas vacías se degradan completamente en metabolitos no tóxicos. No quedan residuos en el tejido. El tejido entra en fase de remodelación con la nueva matriz extracelular sintetizada.",
+    19: "La curva de liberación comparativa muestra: sin nanotecnología pico al 100 por ciento en hora 0 y sin actividad en día 3 — duración de 24 a 48 horas. Con nanotecnología inicio sostenido al 30 por ciento, pico al 80 por ciento en día 1 y descenso gradual hasta día 7 — duración total de 5 a 7 días.",
+    20: "El targeting celular específico permite dirigir TGF-beta y PDGF a fibroblastos dérmicos vía ligando anti-FAP para síntesis de colágeno, IGF-1 y VEGF a células de la papila dérmica vía anti-CD133 para angiogénesis folicular, TGF-beta3 a condrocitos vía anti-CD44 para cartílago y EGF a queratinocitos vía anti-integrina para reepitelización.",
+    21: "Estudio clínico en rejuvenecimiento facial con 120 pacientes de 45 a 65 años. PRP 3G en 6 sesiones aumentó colágeno un 31 por ciento. PRP 5G sin nano en 3 sesiones aumentó un 48 por ciento. PRP 5G con nano en 2 sesiones aumentó un 65 por ciento. El PRP 5G con nano logró 109 por ciento más resultado con 3 veces menos sesiones.",
+    22: "Estudio en alopecia androgénica con 85 pacientes Hamilton-Norwood 2 a 4. PRP 3G en 4 sesiones: densidad más 22 por ciento, satisfacción 71 por ciento. PRP 5G con nano en 2 sesiones: densidad más 52 por ciento, satisfacción 94 por ciento. Con la mitad de sesiones se lograron más del doble de resultados en todos los parámetros.",
+    23: "Estudio en cicatrices de acné con 60 pacientes rolling y boxcar. PRP 3G en 6 sesiones redujo profundidad 35 por ciento con satisfacción del 74 por ciento. PRP 4G en 4 sesiones redujo 52 por ciento con satisfacción del 86 por ciento. PRP 5G con nano en 3 sesiones redujo 67 por ciento con satisfacción del 97 por ciento.",
+    24: "Estudio multicéntrico en osteoartritis de rodilla con 200 pacientes. PRP 3G: menos 58 por ciento de dolor con duración de 4 a 6 meses. PRP 4G LP: menos 74 por ciento con duración de 9 a 12 meses. PRP 5G con nano: menos 82 por ciento con duración de 12 a 18 meses. La nanotecnología extendió el alivio hasta 3 veces más.",
+    25: "El impacto en la duración de factores: PDGF de 18 horas a 6 días — 8 veces más. TGF-beta de 24 horas a 7 días — 7 veces más. VEGF de 12 horas a 5 días — 10 veces más. IGF-1 de 20 horas a 6 días — 7 veces más. EGF de 8 horas a 5 días — 15 veces más.",
+    26: "La seguridad de las nanopartículas es excelente. Son 100 por ciento biodegradables en metabolitos no tóxicos. No generan respuesta inmune gracias al recubrimiento PEG. No hay acumulación sistémica — quedan confinadas en el sitio de inyección. Las lipídicas están aprobadas por FDA y EMA — misma tecnología de vacunas COVID-19.",
+    27: "Para la preparación necesitas: kit de nanopartículas certificadas, micropipetas calibradas, tubos de mezcla estériles, centrífuga para nano-emulsión, agitador vórtex y baño de ultrasonidos. Las condiciones de trabajo requieren 18 a 22 grados Celsius, cabina de flujo laminar tipo II y sin UV directa.",
+    28: "El proceso de mezcla tiene 4 pasos críticos: retirar del refrigerador 15 minutos antes para equilibrar temperatura, agitar suavemente por inversión 10 veces — nunca vórtex directo, mezclar 0.5 mL de nanopartículas por cada mL de PRP en jeringa de 3 mL, y pasar suavemente entre jeringas 5 veces — ventana de uso de 30 minutos.",
+    29: "Para la aplicación: aguja 30G o 32G, técnica nappage o mesoterapia superficial, depósitos de 0.02 a 0.05 mL, profundidad de 2 a 4 mm e inyección lenta — menos de 0.1 mL por segundo. La presión alta rompe las nanopartículas. Para ortopedia siempre con guía ecográfica.",
+    30: "El post-tratamiento: primeras 2 horas sin masaje ni productos tópicos, primeras 24 horas sin exposición solar ni sauna, 72 horas sin antiinflamatorios — crítico para las poliméricas, y seguimiento fotográfico a los 7 días con misma iluminación y ángulo.",
+    31: "Los errores más comunes: agitar vigorosamente rompe la estructura, inyectar rápido destruye las cápsulas por presión hidráulica, usar después de 30 minutos cuando la mezcla pierde estabilidad, tomar AINE que inhibe la liberación pH-dependiente y usar nanopartículas no certificadas con tamaño irregular.",
+    32: "El análisis costo-beneficio muestra: PRP 3G en 6 sesiones a 150 dólares cada una = 900 dólares con más 31 por ciento de colágeno y satisfacción del 74 por ciento. PRP 5G con nano en 2 sesiones a 450 dólares = 900 dólares con más 65 por ciento de colágeno y satisfacción del 96 por ciento. Mismo costo, doble resultado, 3 veces menos sesiones.",
+    33: "El argumento con el paciente: El PRP convencional actúa durante 24 a 48 horas. El PRP 5G con nanotecnología actúa durante 5 a 7 días continuos. Para el mismo resultado del PRP convencional necesitarías 6 sesiones. Con el PRP 5G necesitas 2. El costo total es igual o menor pero la estimulación es continua durante días en lugar de horas.",
+    34: "El futuro incluye nanorobots activos que liberan factores en respuesta a señales celulares en tiempo real, co-encapsulación de factores con microARN exosomal, targeting guiado por IA según hemograma del paciente y nanopartículas con fluorescencia para monitoreo visual de la liberación.",
+    35: "La adopción global muestra Corea del Sur liderando con 65 por ciento de clínicas usando PRP nano, Japón con 48 por ciento en hospitales privados, Estados Unidos con 32 por ciento y crecimiento del 45 por ciento anual y América Latina con 18 por ciento pero crecimiento explosivo del 40 por ciento anual.",
+    36: "Lo que aprendiste: qué es la nanotecnología y cómo actúa, los 4 tipos de nanopartículas con sus indicaciones específicas, el mecanismo de liberación controlada en 4 fases, los resultados clínicos en 4 indicaciones, el protocolo completo de preparación y el análisis costo-beneficio.",
+    37: "Los puntos clave: la nanotecnología extiende la vida activa de los factores de 24 horas a 5-7 días, cada tipo de nanopartícula tiene un factor y una indicación óptima, la encapsulación protege los factores de las proteasas, la técnica es crítica porque errores destruyen las nanopartículas y el costo anual puede ser igual o menor que el PRP 3G.",
+    38: "Pregunta de reflexión: tienes una paciente de 48 años con melasma moderado, flacidez facial leve y cicatrices de acné tipo rolling. Presupuesto limitado y mínimas sesiones. Tienes disponible nanotecnología lipídica y polimérica. ¿Qué tipo usarías para cada indicación? Recuerda: melasma requiere TGF-beta, flacidez requiere colágeno y cicatrices requieren remodelación de matriz.",
+    39: "En la próxima lección estudiaremos los exosomas y vesículas extracelulares — la segunda gran tecnología del PRP 5G. Aprenderás qué son, cómo se diferencian de las nanopartículas sintéticas, los 150 microARN que transportan y el protocolo de combinación con el PRP 5G.",
+    40: "Felicitaciones. Has completado la lección de Nanotecnología Aplicada al PRP. Dominas la ciencia molecular detrás del PRP 5G. Marca la lección como completada y continúa con Exosomas y Vesículas Extracelulares."
+};
+
+function showSlide31(n) {
+    if (n < 1 || n > totalSlides31) return;
+    window.speechSynthesis.cancel();
+    for (let i = 1; i <= totalSlides31; i++) {
+        const s = document.getElementById('slide31-' + i);
+        if (s) { s.style.display = 'none'; s.style.opacity = '0'; }
+    }
+    currentSlide31 = n;
+    const current = document.getElementById('slide31-' + n);
+    if (current) {
+        current.style.display = 'flex';
+        setTimeout(() => { current.style.opacity = '1'; current.style.transition = 'opacity 0.5s'; }, 50);
+    }
+    const counterEl = document.getElementById('slideCounter31');
+    if (counterEl) counterEl.textContent = 'Sección ' + n + ' de ' + totalSlides31;
+    const progress = ((n - 1) / (totalSlides31 - 1)) * 100;
+    const barEl = document.getElementById('progressBar31');
+    if (barEl) barEl.style.width = progress + '%';
+    if (isPlaying31 && textos31[n]) {
+        setTimeout(() => hablar31(textos31[n]), 300);
+    }
+    if (n === totalSlides31) {
+        detener31();
+        const btn = document.getElementById('playPauseBtn31');
+        if (btn) btn.textContent = '↺ Reiniciar';
+    }
+}
+
+function hablar31(texto) {
+    if (!texto || !isPlaying31) return;
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    setTimeout(function() {
+        const u = new SpeechSynthesisUtterance(texto);
+        u.lang = 'es-ES';
+        u.rate = speechRate31;
+        u.pitch = 0.95;
+        u.volume = 1.0;
+        const voz = getVoz();
+        if (voz) u.voice = voz;
+        window.speechSynthesis.speak(u);
+    }, 100);
+}
+
+function avanzarDesde31(n) {
+    if (!isPlaying31) return;
+    if (n > totalSlides31) {
+        detener31();
+        const btn = document.getElementById('playPauseBtn31');
+        if (btn) btn.textContent = '↺ Reiniciar';
+        return;
+    }
+    showSlide31(n);
+    setTimeout(() => {
+        const chk = setInterval(() => {
+            if (!isPlaying31) { clearInterval(chk); return; }
+            if (!window.speechSynthesis.speaking) {
+                clearInterval(chk);
+                setTimeout(() => { if (isPlaying31) avanzarDesde31(n + 1); }, 1500);
+            }
+        }, 500);
+    }, 1000);
+}
+
+function detener31() {
+    isPlaying31 = false;
+    window.speechSynthesis.cancel();
+    clearInterval(timerInterval31);
+    const btn = document.getElementById('playPauseBtn31');
+    if (btn) btn.textContent = '▶ Reproducir';
+}
+
+function startVideo31() {
+    window.speechSynthesis.cancel();
+    const overlay = document.getElementById('playOverlay31');
+    if (overlay) overlay.style.display = 'none';
+    currentSlide31 = 0;
+    currentTime31 = 0;
+    isPlaying31 = true;
+    const btn = document.getElementById('playPauseBtn31');
+    if (btn) btn.textContent = '⏸ Pausar';
+    clearInterval(timerInterval31);
+    timerInterval31 = setInterval(function() {
+        if (isPlaying31) { currentTime31++; updateTimer31(); }
+    }, 1000);
+    setTimeout(function() {
+        window.speechSynthesis.getVoices();
+        setTimeout(function() { avanzarDesde31(1); }, 300);
+    }, 200);
+}
+
+function togglePlayPause31() {
+    const btn = document.getElementById('playPauseBtn31');
+    if (!btn) return;
+    if (btn.textContent.includes('Reiniciar')) {
+        currentSlide31 = 0; currentTime31 = 0; isPlaying31 = false;
+        window.speechSynthesis.cancel();
+        clearInterval(timerInterval31);
+        updateTimer31();
+        const overlay = document.getElementById('playOverlay31');
+        if (overlay) overlay.style.display = 'flex';
+        btn.textContent = '▶ Reproducir';
+        return;
+    }
+    if (isPlaying31) {
+        detener31();
+    } else {
+        isPlaying31 = true;
+        btn.textContent = '⏸ Pausar';
+        clearInterval(timerInterval31);
+        timerInterval31 = setInterval(function() {
+            if (isPlaying31) { currentTime31++; updateTimer31(); }
+        }, 1000);
+        const slideToPlay = currentSlide31 || 1;
+        showSlide31(slideToPlay);
+        setTimeout(() => {
+            const chk = setInterval(() => {
+                if (!isPlaying31) { clearInterval(chk); return; }
+                if (!window.speechSynthesis.speaking) {
+                    clearInterval(chk);
+                    setTimeout(() => { if (isPlaying31) avanzarDesde31(slideToPlay + 1); }, 1500);
+                }
+            }, 500);
+        }, 500);
+    }
+}
+
+function nextSlide31() { detener31(); if (currentSlide31 < totalSlides31) showSlide31(currentSlide31 + 1); }
+function prevSlide31() { detener31(); if (currentSlide31 > 1) showSlide31(currentSlide31 - 1); }
+
+function changeSpeed31(val) {
+    const speeds = { '3000': 0.45, '2000': 0.78, '1000': 1.1, '500': 1.5 };
+    speechRate31 = speeds[val] || 0.78;
+    if (isPlaying31) { window.speechSynthesis.cancel(); hablar31(textos31[currentSlide31]); }
+}
+
+function updateTimer31() {
+    const mins = Math.floor(currentTime31 / 60).toString().padStart(2, '0');
+    const secs = Math.floor(currentTime31 % 60).toString().padStart(2, '0');
+    const el = document.getElementById('timeDisplay31');
+    if (el) el.textContent = mins + ':' + secs + ' / 60:00';
+}
+
+function seekVideo31(e, bar) {
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const targetSlide = Math.max(1, Math.min(totalSlides31, Math.round(pct * totalSlides31)));
+    detener31();
+    currentTime31 = Math.round(pct * totalSeconds31);
+    updateTimer31();
+    showSlide31(targetSlide);
+}
+
+function toggleFullscreen31() {
+    const el = document.querySelector('#page-l3-1 .video-player-container');
     if (!el) return;
     if (!document.fullscreenElement) {
         el.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
