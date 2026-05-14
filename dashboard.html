@@ -7686,46 +7686,99 @@
         </div>
 
         <!-- ========== QUIZ 3 ========== -->
-        <div id="page-quiz3" class="page">
-            <div class="lesson-header">
-                <div class="lesson-breadcrumb">Módulo 3 > <span>Evaluación</span></div>
-                <div class="lesson-title">📝 Evaluación — Módulo 3: Tecnologías 5G</div>
-            </div>
-            <div class="quiz-section">
-                <h2>📝 Evaluación Módulo 3</h2>
-                <p style="color:var(--text2);font-size:13px;margin-bottom:20px;">Necesitas un 70% para aprobar.</p>
-                <div class="question">
-                    <p>1. ¿Cuál es el tamaño aproximado de los exosomas utilizados en PRP 5G?</p>
-                    <div class="option" onclick="selectOption(this,'q3_1','a')"><input type="radio" name="q3_1"> A) 1-5 micrómetros</div>
-                    <div class="option" onclick="selectOption(this,'q3_1','b')"><input type="radio" name="q3_1"> B) 30-150 nanómetros</div>
-                    <div class="option" onclick="selectOption(this,'q3_1','c')"><input type="radio" name="q3_1"> C) 500-1000 nanómetros</div>
-                    <div class="option" onclick="selectOption(this,'q3_1','d')"><input type="radio" name="q3_1"> D) 10-20 micrómetros</div>
-                </div>
-                <div class="question">
-                    <p>2. ¿Qué mide el RCF en el proceso de centrifugación?</p>
-                    <div class="option" onclick="selectOption(this,'q3_2','a')"><input type="radio" name="q3_2"> A) La velocidad de rotación en revoluciones por minuto</div>
-                    <div class="option" onclick="selectOption(this,'q3_2','b')"><input type="radio" name="q3_2"> B) La temperatura del rotor durante el proceso</div>
-                    <div class="option" onclick="selectOption(this,'q3_2','c')"><input type="radio" name="q3_2"> C) La fuerza centrífuga relativa real aplicada a las células</div>
-                    <div class="option" onclick="selectOption(this,'q3_2','d')"><input type="radio" name="q3_2"> D) El tiempo total de centrifugación necesario</div>
-                </div>
-                <div class="question">
-                    <p>3. ¿Qué ventaja principal aporta la IA al protocolo PRP 5G?</p>
-                    <div class="option" onclick="selectOption(this,'q3_3','a')"><input type="radio" name="q3_3"> A) Reemplaza completamente el proceso de centrifugación</div>
-                    <div class="option" onclick="selectOption(this,'q3_3','b')"><input type="radio" name="q3_3"> B) Personalización total del tratamiento para cada paciente según sus datos</div>
-                    <div class="option" onclick="selectOption(this,'q3_3','c')"><input type="radio" name="q3_3"> C) Activa las plaquetas automáticamente sin activador químico</div>
-                    <div class="option" onclick="selectOption(this,'q3_3','d')"><input type="radio" name="q3_3"> D) Elimina la necesidad de usar exosomas en el protocolo</div>
-                </div>
-                <div class="question">
-                    <p>4. ¿Por qué NO se debe usar EDTA como anticoagulante para preparar PRP?</p>
-                    <div class="option" onclick="selectOption(this,'q3_4','a')"><input type="radio" name="q3_4"> A) Porque colorea el plasma de azul</div>
-                    <div class="option" onclick="selectOption(this,'q3_4','b')"><input type="radio" name="q3_4"> B) Porque quela el calcio necesario para la activación plaquetaria posterior</div>
-                    <div class="option" onclick="selectOption(this,'q3_4','c')"><input type="radio" name="q3_4"> C) Porque es más caro que otros anticoagulantes</div>
-                    <div class="option" onclick="selectOption(this,'q3_4','d')"><input type="radio" name="q3_4"> D) Porque no es estéril</div>
-                </div>
-                <button class="btn-quiz" onclick="checkQuiz('quiz3',['b','c','b','b'])">✓ Verificar Respuestas</button>
-                <div class="quiz-result" id="result-quiz3"></div>
-            </div>
+<div id="page-quiz3" class="page">
+    <div class="lesson-header">
+        <div class="lesson-breadcrumb">Módulo 3 > <span>Evaluación</span></div>
+        <div class="lesson-title">📝 Evaluación — Módulo 3: Tecnologías 5G</div>
+    </div>
+    <div class="quiz-section">
+        <h2>📝 Evaluación Módulo 3</h2>
+        <p style="color:var(--text2);font-size:13px;margin-bottom:20px;">Necesitas un 70% para aprobar.</p>
+
+        <div class="question">
+            <p>1. ¿Cuál es el tamaño aproximado de los exosomas utilizados en PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q3_1','a')"><input type="radio" name="q3_1"> A) 1-5 micrómetros</div>
+            <div class="option" onclick="selectOption(this,'q3_1','b')"><input type="radio" name="q3_1"> B) 30-150 nanómetros</div>
+            <div class="option" onclick="selectOption(this,'q3_1','c')"><input type="radio" name="q3_1"> C) 500-1000 nanómetros</div>
+            <div class="option" onclick="selectOption(this,'q3_1','d')"><input type="radio" name="q3_1"> D) 10-20 micrómetros</div>
         </div>
+
+        <div class="question">
+            <p>2. ¿Qué mide el RCF en el proceso de centrifugación?</p>
+            <div class="option" onclick="selectOption(this,'q3_2','a')"><input type="radio" name="q3_2"> A) La velocidad de rotación en revoluciones por minuto</div>
+            <div class="option" onclick="selectOption(this,'q3_2','b')"><input type="radio" name="q3_2"> B) La temperatura del rotor durante el proceso</div>
+            <div class="option" onclick="selectOption(this,'q3_2','c')"><input type="radio" name="q3_2"> C) La fuerza centrífuga relativa real aplicada a las células</div>
+            <div class="option" onclick="selectOption(this,'q3_2','d')"><input type="radio" name="q3_2"> D) El tiempo total de centrifugación necesario</div>
+        </div>
+
+        <div class="question">
+            <p>3. ¿Qué ventaja principal aporta la IA al protocolo PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q3_3','a')"><input type="radio" name="q3_3"> A) Reemplaza completamente el proceso de centrifugación</div>
+            <div class="option" onclick="selectOption(this,'q3_3','b')"><input type="radio" name="q3_3"> B) Personalización total del tratamiento para cada paciente según sus datos</div>
+            <div class="option" onclick="selectOption(this,'q3_3','c')"><input type="radio" name="q3_3"> C) Activa las plaquetas automáticamente sin activador químico</div>
+            <div class="option" onclick="selectOption(this,'q3_3','d')"><input type="radio" name="q3_3"> D) Elimina la necesidad de usar exosomas en el protocolo</div>
+        </div>
+
+        <div class="question">
+            <p>4. ¿Por qué NO se debe usar EDTA como anticoagulante para preparar PRP?</p>
+            <div class="option" onclick="selectOption(this,'q3_4','a')"><input type="radio" name="q3_4"> A) Porque colorea el plasma de azul</div>
+            <div class="option" onclick="selectOption(this,'q3_4','b')"><input type="radio" name="q3_4"> B) Porque quela el calcio necesario para la activación plaquetaria posterior</div>
+            <div class="option" onclick="selectOption(this,'q3_4','c')"><input type="radio" name="q3_4"> C) Porque es más caro que otros anticoagulantes</div>
+            <div class="option" onclick="selectOption(this,'q3_4','d')"><input type="radio" name="q3_4"> D) Porque no es estéril</div>
+        </div>
+
+        <div class="question">
+            <p>5. ¿Cuántas variables simultáneas analiza el algoritmo de IA en el PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q3_5','a')"><input type="radio" name="q3_5"> A) 12 variables</div>
+            <div class="option" onclick="selectOption(this,'q3_5','b')"><input type="radio" name="q3_5"> B) 25 variables</div>
+            <div class="option" onclick="selectOption(this,'q3_5','c')"><input type="radio" name="q3_5"> C) 47 variables</div>
+            <div class="option" onclick="selectOption(this,'q3_5','d')"><input type="radio" name="q3_5"> D) 100 variables</div>
+        </div>
+
+        <div class="question">
+            <p>6. ¿Qué concentración plaquetaria mínima se obtiene con el protocolo de doble centrifugación para PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q3_6','a')"><input type="radio" name="q3_6"> A) 2-3 veces la concentración basal</div>
+            <div class="option" onclick="selectOption(this,'q3_6','b')"><input type="radio" name="q3_6"> B) 4-5 veces la concentración basal</div>
+            <div class="option" onclick="selectOption(this,'q3_6','c')"><input type="radio" name="q3_6"> C) 7-8 veces la concentración basal</div>
+            <div class="option" onclick="selectOption(this,'q3_6','d')"><input type="radio" name="q3_6"> D) 15-20 veces la concentración basal</div>
+        </div>
+
+        <div class="question">
+            <p>7. ¿De qué tipo de células se obtienen los exosomas utilizados en el PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q3_7','a')"><input type="radio" name="q3_7"> A) Células epiteliales de la piel</div>
+            <div class="option" onclick="selectOption(this,'q3_7','b')"><input type="radio" name="q3_7"> B) Células madre mesenquimales</div>
+            <div class="option" onclick="selectOption(this,'q3_7','c')"><input type="radio" name="q3_7"> C) Glóbulos rojos del propio paciente</div>
+            <div class="option" onclick="selectOption(this,'q3_7','d')"><input type="radio" name="q3_7"> D) Fibroblastos dérmicos cultivados</div>
+        </div>
+
+        <div class="question">
+            <p>8. ¿Cuál es el rango de temperatura óptimo durante el proceso de centrifugación para preservar los factores de crecimiento?</p>
+            <div class="option" onclick="selectOption(this,'q3_8','a')"><input type="radio" name="q3_8"> A) Entre 30°C y 37°C</div>
+            <div class="option" onclick="selectOption(this,'q3_8','b')"><input type="radio" name="q3_8"> B) Entre 4°C y 22°C</div>
+            <div class="option" onclick="selectOption(this,'q3_8','c')"><input type="radio" name="q3_8"> C) Entre -10°C y 0°C</div>
+            <div class="option" onclick="selectOption(this,'q3_8','d')"><input type="radio" name="q3_8"> D) Entre 25°C y 40°C</div>
+        </div>
+
+        <div class="question">
+            <p>9. ¿Qué función tiene el microARN miR-126 presente en los exosomas del PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q3_9','a')"><input type="radio" name="q3_9"> A) Inhibir la producción de colágeno tipo 1</div>
+            <div class="option" onclick="selectOption(this,'q3_9','b')"><input type="radio" name="q3_9"> B) Reducir la proliferación de fibroblastos</div>
+            <div class="option" onclick="selectOption(this,'q3_9','c')"><input type="radio" name="q3_9"> C) Estimular la angiogénesis activando el VEGF endógeno</div>
+            <div class="option" onclick="selectOption(this,'q3_9','d')"><input type="radio" name="q3_9"> D) Aumentar la respuesta inflamatoria post-tratamiento</div>
+        </div>
+
+        <div class="question">
+            <p>10. ¿Qué indica visualmente un PRP de buena calidad después de la centrifugación?</p>
+            <div class="option" onclick="selectOption(this,'q3_10','a')"><input type="radio" name="q3_10"> A) Color rojo intenso uniforme sin separación de capas</div>
+            <div class="option" onclick="selectOption(this,'q3_10','b')"><input type="radio" name="q3_10"> B) Color marrón oscuro con precipitado en el fondo</div>
+            <div class="option" onclick="selectOption(this,'q3_10','c')"><input type="radio" name="q3_10"> C) Capa amarilla-dorada clara sobre capa rojiza densa con separación nítida</div>
+            <div class="option" onclick="selectOption(this,'q3_10','d')"><input type="radio" name="q3_10"> D) Color rosado uniforme sin distinción de zonas</div>
+        </div>
+
+        <button class="btn-quiz" onclick="checkQuiz('quiz3',['b','c','b','b','c','c','b','b','c','c'])">✓ Verificar Respuestas</button>
+        <div class="quiz-result" id="result-quiz3"></div>
+    </div>
+</div>
 
         <!-- ========== L4-1: SELECCIÓN DEL PACIENTE ========== -->
         <div id="page-l4-1" class="page">
