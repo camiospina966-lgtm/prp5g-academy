@@ -9801,54 +9801,101 @@
             </div>
         </div>
 
-        <!-- ========== QUIZ 4 ========== -->
-        <div id="page-quiz4" class="page">
-            <div class="lesson-header">
-                <div class="lesson-breadcrumb">Módulo 4 > <span>Evaluación</span></div>
-                <div class="lesson-title">📝 Evaluación — Módulo 4: Protocolo</div>
-            </div>
-            <div class="quiz-section">
-                <h2>📝 Evaluación Módulo 4</h2>
-                <p style="color:var(--text2);font-size:13px;margin-bottom:20px;">Necesitas un 70% para aprobar.</p>
-                <div class="question">
-                    <p>1. ¿Cuál es el tiempo máximo para aplicar el PRP después de la activación combinada?</p>
-                    <div class="option" onclick="selectOption(this,'q4_1','a')"><input type="radio" name="q4_1"> A) 10-15 minutos</div>
-                    <div class="option" onclick="selectOption(this,'q4_1','b')"><input type="radio" name="q4_1"> B) 30-45 minutos</div>
-                    <div class="option" onclick="selectOption(this,'q4_1','c')"><input type="radio" name="q4_1"> C) 2 horas</div>
-                    <div class="option" onclick="selectOption(this,'q4_1','d')"><input type="radio" name="q4_1"> D) 24 horas en refrigeración</div>
-                </div>
-                <div class="question">
-                    <p>2. ¿Qué técnica se recomienda para la zona periocular y por qué?</p>
-                    <div class="option" onclick="selectOption(this,'q4_2','a')"><input type="radio" name="q4_2"> A) Inyección subdérmica profunda con aguja 21G por mayor alcance</div>
-                    <div class="option" onclick="selectOption(this,'q4_2','b')"><input type="radio" name="q4_2"> B) Nappage superficial con aguja 32G y volúmenes mínimos por riesgo vascular</div>
-                    <div class="option" onclick="selectOption(this,'q4_2','c')"><input type="radio" name="q4_2"> C) Retrotracing con cánula gruesa para mayor cobertura</div>
-                    <div class="option" onclick="selectOption(this,'q4_2','d')"><input type="radio" name="q4_2"> D) Aplicación masiva sin restricción de volumen ni técnica</div>
-                </div>
-                <div class="question">
-                    <p>3. ¿Cuál es el valor mínimo de plaquetas en sangre requerido para aplicar PRP 5G?</p>
-                    <div class="option" onclick="selectOption(this,'q4_3','a')"><input type="radio" name="q4_3"> A) 50.000/μL</div>
-                    <div class="option" onclick="selectOption(this,'q4_3','b')"><input type="radio" name="q4_3"> B) 100.000/μL</div>
-                    <div class="option" onclick="selectOption(this,'q4_3','c')"><input type="radio" name="q4_3"> C) 150.000/μL</div>
-                    <div class="option" onclick="selectOption(this,'q4_3','d')"><input type="radio" name="q4_3"> D) 500.000/μL</div>
-                </div>
-                <div class="question">
-                    <p>4. ¿Cuántos días antes del procedimiento debe suspenderse la aspirina u otros antiagregantes?</p>
-                    <div class="option" onclick="selectOption(this,'q4_4','a')"><input type="radio" name="q4_4"> A) 1 día</div>
-                    <div class="option" onclick="selectOption(this,'q4_4','b')"><input type="radio" name="q4_4"> B) 3 días</div>
-                    <div class="option" onclick="selectOption(this,'q4_4','c')"><input type="radio" name="q4_4"> C) 7 días</div>
-                    <div class="option" onclick="selectOption(this,'q4_4','d')"><input type="radio" name="q4_4"> D) 30 días</div>
-                </div>
-                <div class="question">
-                    <p>5. ¿Cuál es la proporción correcta de CaCl2 10% para activar el PRP?</p>
-                    <div class="option" onclick="selectOption(this,'q4_5','a')"><input type="radio" name="q4_5"> A) 1:1 (igual proporción)</div>
-                    <div class="option" onclick="selectOption(this,'q4_5','b')"><input type="radio" name="q4_5"> B) 1:5 (1ml CaCl2 por 5ml PRP)</div>
-                    <div class="option" onclick="selectOption(this,'q4_5','c')"><input type="radio" name="q4_5"> C) 1:10 (0.1ml CaCl2 por 1ml PRP)</div>
-                    <div class="option" onclick="selectOption(this,'q4_5','d')"><input type="radio" name="q4_5"> D) 1:20 (0.05ml CaCl2 por 1ml PRP)</div>
-                </div>
-                <button class="btn-quiz" onclick="checkQuiz('quiz4',['b','b','c','c','c'])">✓ Verificar Respuestas</button>
-                <div class="quiz-result" id="result-quiz4"></div>
-            </div>
+       <!-- ========== QUIZ 4 ========== -->
+<div id="page-quiz4" class="page">
+    <div class="lesson-header">
+        <div class="lesson-breadcrumb">Módulo 4 > <span>Evaluación</span></div>
+        <div class="lesson-title">📝 Evaluación — Módulo 4: Protocolo</div>
+    </div>
+    <div class="quiz-section">
+        <h2>📝 Evaluación Módulo 4</h2>
+        <p style="color:var(--text2);font-size:13px;margin-bottom:20px;">Necesitas un 70% para aprobar.</p>
+
+        <div class="question">
+            <p>1. ¿Cuál es el tiempo máximo para aplicar el PRP después de la activación combinada?</p>
+            <div class="option" onclick="selectOption(this,'q4_1','a')"><input type="radio" name="q4_1"> A) 10-15 minutos</div>
+            <div class="option" onclick="selectOption(this,'q4_1','b')"><input type="radio" name="q4_1"> B) 30-45 minutos</div>
+            <div class="option" onclick="selectOption(this,'q4_1','c')"><input type="radio" name="q4_1"> C) 2 horas</div>
+            <div class="option" onclick="selectOption(this,'q4_1','d')"><input type="radio" name="q4_1"> D) 24 horas en refrigeración</div>
         </div>
+
+        <div class="question">
+            <p>2. ¿Qué técnica se recomienda para la zona periocular y por qué?</p>
+            <div class="option" onclick="selectOption(this,'q4_2','a')"><input type="radio" name="q4_2"> A) Inyección subdérmica profunda con aguja 21G por mayor alcance</div>
+            <div class="option" onclick="selectOption(this,'q4_2','b')"><input type="radio" name="q4_2"> B) Nappage superficial con aguja 30G y volúmenes mínimos por riesgo vascular</div>
+            <div class="option" onclick="selectOption(this,'q4_2','c')"><input type="radio" name="q4_2"> C) Retrotracing con cánula gruesa para mayor cobertura</div>
+            <div class="option" onclick="selectOption(this,'q4_2','d')"><input type="radio" name="q4_2"> D) Aplicación masiva sin restricción de volumen ni técnica</div>
+        </div>
+
+        <div class="question">
+            <p>3. ¿Cuál es el valor mínimo de plaquetas en sangre requerido para aplicar PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q4_3','a')"><input type="radio" name="q4_3"> A) 50.000/μL</div>
+            <div class="option" onclick="selectOption(this,'q4_3','b')"><input type="radio" name="q4_3"> B) 100.000/μL</div>
+            <div class="option" onclick="selectOption(this,'q4_3','c')"><input type="radio" name="q4_3"> C) 150.000/μL</div>
+            <div class="option" onclick="selectOption(this,'q4_3','d')"><input type="radio" name="q4_3"> D) 500.000/μL</div>
+        </div>
+
+        <div class="question">
+            <p>4. ¿Cuántos días antes del procedimiento debe suspenderse la aspirina u otros antiagregantes?</p>
+            <div class="option" onclick="selectOption(this,'q4_4','a')"><input type="radio" name="q4_4"> A) 1 día</div>
+            <div class="option" onclick="selectOption(this,'q4_4','b')"><input type="radio" name="q4_4"> B) 3 días</div>
+            <div class="option" onclick="selectOption(this,'q4_4','c')"><input type="radio" name="q4_4"> C) 7 días</div>
+            <div class="option" onclick="selectOption(this,'q4_4','d')"><input type="radio" name="q4_4"> D) 30 días</div>
+        </div>
+
+        <div class="question">
+            <p>5. ¿Cuál es la proporción correcta de CaCl₂ 10% para activar el PRP?</p>
+            <div class="option" onclick="selectOption(this,'q4_5','a')"><input type="radio" name="q4_5"> A) 1:1 — igual proporción</div>
+            <div class="option" onclick="selectOption(this,'q4_5','b')"><input type="radio" name="q4_5"> B) 1:5 — 1 mL de CaCl₂ por 5 mL de PRP</div>
+            <div class="option" onclick="selectOption(this,'q4_5','c')"><input type="radio" name="q4_5"> C) 1:10 — 0.1 mL de CaCl₂ por 1 mL de PRP</div>
+            <div class="option" onclick="selectOption(this,'q4_5','d')"><input type="radio" name="q4_5"> D) 1:20 — 0.05 mL de CaCl₂ por 1 mL de PRP</div>
+        </div>
+
+        <div class="question">
+            <p>6. ¿Cuál es la temperatura exacta del biorreactor en el protocolo PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q4_6','a')"><input type="radio" name="q4_6"> A) 37°C — temperatura corporal normal</div>
+            <div class="option" onclick="selectOption(this,'q4_6','b')"><input type="radio" name="q4_6"> B) 40°C — umbral de activación plaquetaria</div>
+            <div class="option" onclick="selectOption(this,'q4_6','c')"><input type="radio" name="q4_6"> C) 42°C — activación óptima de proteínas HSP70</div>
+            <div class="option" onclick="selectOption(this,'q4_6','d')"><input type="radio" name="q4_6"> D) 45°C — temperatura de esterilización</div>
+        </div>
+
+        <div class="question">
+            <p>7. ¿Cuál es el volumen mínimo de sangre recomendado para obtener un PRP 5G completo?</p>
+            <div class="option" onclick="selectOption(this,'q4_7','a')"><input type="radio" name="q4_7"> A) 5 mL</div>
+            <div class="option" onclick="selectOption(this,'q4_7','b')"><input type="radio" name="q4_7"> B) 10 mL</div>
+            <div class="option" onclick="selectOption(this,'q4_7','c')"><input type="radio" name="q4_7"> C) 20-30 mL</div>
+            <div class="option" onclick="selectOption(this,'q4_7','d')"><input type="radio" name="q4_7"> D) 50 mL o más</div>
+        </div>
+
+        <div class="question">
+            <p>8. ¿Qué ocurre si se superan los 44°C en el biorreactor durante la activación del PRP?</p>
+            <div class="option" onclick="selectOption(this,'q4_8','a')"><input type="radio" name="q4_8"> A) Se activan más factores de crecimiento por mayor temperatura</div>
+            <div class="option" onclick="selectOption(this,'q4_8','b')"><input type="radio" name="q4_8"> B) Se produce desnaturalización irreversible de las proteínas activas</div>
+            <div class="option" onclick="selectOption(this,'q4_8','c')"><input type="radio" name="q4_8"> C) Las plaquetas se multiplican por división celular</div>
+            <div class="option" onclick="selectOption(this,'q4_8','d')"><input type="radio" name="q4_8"> D) El PRP cambia de color pero mantiene su actividad</div>
+        </div>
+
+        <div class="question">
+            <p>9. ¿Cuál es la técnica de inyección recomendada para los surcos nasolabiales profundos?</p>
+            <div class="option" onclick="selectOption(this,'q4_9','a')"><input type="radio" name="q4_9"> A) Nappage superficial con aguja 30G</div>
+            <div class="option" onclick="selectOption(this,'q4_9','b')"><input type="radio" name="q4_9"> B) Inyección lineal retrógrada con aguja 27G aspirando antes</div>
+            <div class="option" onclick="selectOption(this,'q4_9','c')"><input type="radio" name="q4_9"> C) Bolo profundo único de 2 mL por surco</div>
+            <div class="option" onclick="selectOption(this,'q4_9','d')"><input type="radio" name="q4_9"> D) Aplicación tópica sin inyección por zona de riesgo</div>
+        </div>
+
+        <div class="question">
+            <p>10. ¿Cuál es una contraindicación ABSOLUTA para el tratamiento con PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q4_10','a')"><input type="radio" name="q4_10"> A) Diabetes mellitus con HbA1c menor al 8%</div>
+            <div class="option" onclick="selectOption(this,'q4_10','b')"><input type="radio" name="q4_10"> B) Tabaquismo activo moderado</div>
+            <div class="option" onclick="selectOption(this,'q4_10','c')"><input type="radio" name="q4_10"> C) Cáncer activo o en tratamiento oncológico</div>
+            <div class="option" onclick="selectOption(this,'q4_10','d')"><input type="radio" name="q4_10"> D) Uso de anticonceptivos orales</div>
+        </div>
+
+        <button class="btn-quiz" onclick="checkQuiz('quiz4',['b','b','c','c','c','c','c','b','b','c'])">✓ Verificar Respuestas</button>
+        <div class="quiz-result" id="result-quiz4"></div>
+    </div>
+</div>
+
 
         <!-- ========== L5-1: REJUVENECIMIENTO FACIAL ========== -->
         <div id="page-l5-1" class="page">
