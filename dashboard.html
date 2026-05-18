@@ -11735,53 +11735,100 @@
         </div>
 
         <!-- ========== QUIZ 5 ========== -->
-        <div id="page-quiz5" class="page">
-            <div class="lesson-header">
-                <div class="lesson-breadcrumb">Módulo 5 > <span>Evaluación</span></div>
-                <div class="lesson-title">📝 Evaluación — Módulo 5: Indicaciones</div>
-            </div>
-            <div class="quiz-section">
-                <h2>📝 Evaluación Módulo 5</h2>
-                <p style="color:var(--text2);font-size:13px;margin-bottom:20px;">Necesitas un 70% para aprobar.</p>
-                <div class="question">
-                    <p>1. ¿Cuántas sesiones se recomiendan en la fase de inducción para rejuvenecimiento facial con PRP 5G?</p>
-                    <div class="option" onclick="selectOption(this,'q5_1','a')"><input type="radio" name="q5_1"> A) 1 sesión única</div>
-                    <div class="option" onclick="selectOption(this,'q5_1','b')"><input type="radio" name="q5_1"> B) 3 sesiones cada 3-4 semanas</div>
-                    <div class="option" onclick="selectOption(this,'q5_1','c')"><input type="radio" name="q5_1"> C) 10 sesiones semanales</div>
-                    <div class="option" onclick="selectOption(this,'q5_1','d')"><input type="radio" name="q5_1"> D) 1 sesión anual de mantenimiento</div>
-                </div>
-                <div class="question">
-                    <p>2. ¿Qué tipo de cicatriz de acné tiene MEJOR respuesta al PRP 5G?</p>
-                    <div class="option" onclick="selectOption(this,'q5_2','a')"><input type="radio" name="q5_2"> A) Ice pick profundas y angostas</div>
-                    <div class="option" onclick="selectOption(this,'q5_2','b')"><input type="radio" name="q5_2"> B) Rolling y post-inflamatorias superficiales</div>
-                    <div class="option" onclick="selectOption(this,'q5_2','c')"><input type="radio" name="q5_2"> C) Queloides elevadas</div>
-                    <div class="option" onclick="selectOption(this,'q5_2','d')"><input type="radio" name="q5_2"> D) Todas responden igual</div>
-                </div>
-                <div class="question">
-                    <p>3. ¿Qué factor de crecimiento prolonga principalmente la fase anágena del cabello?</p>
-                    <div class="option" onclick="selectOption(this,'q5_3','a')"><input type="radio" name="q5_3"> A) TGF-β</div>
-                    <div class="option" onclick="selectOption(this,'q5_3','b')"><input type="radio" name="q5_3"> B) VEGF</div>
-                    <div class="option" onclick="selectOption(this,'q5_3','c')"><input type="radio" name="q5_3"> C) IGF-1</div>
-                    <div class="option" onclick="selectOption(this,'q5_3','d')"><input type="radio" name="q5_3"> D) HGF</div>
-                </div>
-                <div class="question">
-                    <p>4. ¿Cuál es el volumen máximo recomendado por punto en zona periocular (párpado inferior)?</p>
-                    <div class="option" onclick="selectOption(this,'q5_4','a')"><input type="radio" name="q5_4"> A) 0.5ml por punto</div>
-                    <div class="option" onclick="selectOption(this,'q5_4','b')"><input type="radio" name="q5_4"> B) 1ml por punto</div>
-                    <div class="option" onclick="selectOption(this,'q5_4','c')"><input type="radio" name="q5_4"> C) 0.03-0.05ml por punto</div>
-                    <div class="option" onclick="selectOption(this,'q5_4','d')"><input type="radio" name="q5_4"> D) 0.3ml por punto</div>
-                </div>
-                <div class="question">
-                    <p>5. ¿Por qué NO se deben tratar cicatrices de acné cuando el acné está activo?</p>
-                    <div class="option" onclick="selectOption(this,'q5_5','a')"><input type="radio" name="q5_5"> A) Porque el PRP no funciona con acné activo</div>
-                    <div class="option" onclick="selectOption(this,'q5_5','b')"><input type="radio" name="q5_5"> B) Porque puede empeorar la inflamación, generar nuevas cicatrices y diseminar infección</div>
-                    <div class="option" onclick="selectOption(this,'q5_5','c')"><input type="radio" name="q5_5"> C) Porque es más doloroso para el paciente</div>
-                    <div class="option" onclick="selectOption(this,'q5_5','d')"><input type="radio" name="q5_5"> D) No hay problema en tratar con acné activo</div>
-                </div>
-                <button class="btn-quiz" onclick="checkQuiz('quiz5',['b','b','c','c','b'])">✓ Verificar Respuestas</button>
-                <div class="quiz-result" id="result-quiz5"></div>
-            </div>
+<div id="page-quiz5" class="page">
+    <div class="lesson-header">
+        <div class="lesson-breadcrumb">Módulo 5 > <span>Evaluación</span></div>
+        <div class="lesson-title">📝 Evaluación — Módulo 5: Indicaciones</div>
+    </div>
+    <div class="quiz-section">
+        <h2>📝 Evaluación Módulo 5</h2>
+        <p style="color:var(--text2);font-size:13px;margin-bottom:20px;">Necesitas un 70% para aprobar.</p>
+
+        <div class="question">
+            <p>1. ¿Cuántas sesiones se recomiendan en la fase de inducción para rejuvenecimiento facial con PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q5_1','a')"><input type="radio" name="q5_1"> A) 1 sesión única</div>
+            <div class="option" onclick="selectOption(this,'q5_1','b')"><input type="radio" name="q5_1"> B) 3 sesiones cada 3-4 semanas</div>
+            <div class="option" onclick="selectOption(this,'q5_1','c')"><input type="radio" name="q5_1"> C) 10 sesiones semanales</div>
+            <div class="option" onclick="selectOption(this,'q5_1','d')"><input type="radio" name="q5_1"> D) 1 sesión anual de mantenimiento</div>
         </div>
+
+        <div class="question">
+            <p>2. ¿Qué tipo de cicatriz de acné tiene MEJOR respuesta al PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q5_2','a')"><input type="radio" name="q5_2"> A) Icepick profundas y angostas</div>
+            <div class="option" onclick="selectOption(this,'q5_2','b')"><input type="radio" name="q5_2"> B) Rolling con fibrosis subcutánea</div>
+            <div class="option" onclick="selectOption(this,'q5_2','c')"><input type="radio" name="q5_2"> C) Queloides elevadas</div>
+            <div class="option" onclick="selectOption(this,'q5_2','d')"><input type="radio" name="q5_2"> D) Todas responden igual al PRP</div>
+        </div>
+
+        <div class="question">
+            <p>3. ¿Qué factor de crecimiento prolonga principalmente la fase anágena del cabello?</p>
+            <div class="option" onclick="selectOption(this,'q5_3','a')"><input type="radio" name="q5_3"> A) TGF-β</div>
+            <div class="option" onclick="selectOption(this,'q5_3','b')"><input type="radio" name="q5_3"> B) VEGF</div>
+            <div class="option" onclick="selectOption(this,'q5_3','c')"><input type="radio" name="q5_3"> C) IGF-1</div>
+            <div class="option" onclick="selectOption(this,'q5_3','d')"><input type="radio" name="q5_3"> D) EGF</div>
+        </div>
+
+        <div class="question">
+            <p>4. ¿Cuál es el volumen máximo recomendado por punto en zona periocular?</p>
+            <div class="option" onclick="selectOption(this,'q5_4','a')"><input type="radio" name="q5_4"> A) 0.5 mL por punto</div>
+            <div class="option" onclick="selectOption(this,'q5_4','b')"><input type="radio" name="q5_4"> B) 0.01-0.02 mL por punto</div>
+            <div class="option" onclick="selectOption(this,'q5_4','c')"><input type="radio" name="q5_4"> C) 0.3 mL por punto</div>
+            <div class="option" onclick="selectOption(this,'q5_4','d')"><input type="radio" name="q5_4"> D) 1 mL por punto</div>
+        </div>
+
+        <div class="question">
+            <p>5. ¿Por qué NO se deben tratar cicatrices de acné cuando el acné está activo?</p>
+            <div class="option" onclick="selectOption(this,'q5_5','a')"><input type="radio" name="q5_5"> A) Porque el PRP no funciona con acné activo</div>
+            <div class="option" onclick="selectOption(this,'q5_5','b')"><input type="radio" name="q5_5"> B) Porque empeora inflamación — genera nuevas cicatrices — puede diseminar infección</div>
+            <div class="option" onclick="selectOption(this,'q5_5','c')"><input type="radio" name="q5_5"> C) Porque es más doloroso para el paciente</div>
+            <div class="option" onclick="selectOption(this,'q5_5','d')"><input type="radio" name="q5_5"> D) No hay ningún problema en tratar con acné activo</div>
+        </div>
+
+        <div class="question">
+            <p>6. ¿Qué grado de alopecia androgenética Hamilton tiene la MEJOR respuesta al PRP 5G capilar?</p>
+            <div class="option" onclick="selectOption(this,'q5_6','a')"><input type="radio" name="q5_6"> A) Hamilton VI-VII con calvicie avanzada</div>
+            <div class="option" onclick="selectOption(this,'q5_6','b')"><input type="radio" name="q5_6"> B) Hamilton I-IV con folículos activos en tricoscopia</div>
+            <div class="option" onclick="selectOption(this,'q5_6','c')"><input type="radio" name="q5_6"> C) Alopecia cicatricial con fibrosis total</div>
+            <div class="option" onclick="selectOption(this,'q5_6','d')"><input type="radio" name="q5_6"> D) Todos los grados responden igual</div>
+        </div>
+
+        <div class="question">
+            <p>7. ¿Cuál es el mecanismo del TGF-β del PRP 5G en el tratamiento del melasma?</p>
+            <div class="option" onclick="selectOption(this,'q5_7','a')"><input type="radio" name="q5_7"> A) Estimula la producción de melanina para uniformar el tono</div>
+            <div class="option" onclick="selectOption(this,'q5_7','b')"><input type="radio" name="q5_7"> B) Inhibe la tirosinasa reduciendo la melanogénesis local</div>
+            <div class="option" onclick="selectOption(this,'q5_7','c')"><input type="radio" name="q5_7"> C) Destruye los melanocitos de la dermis</div>
+            <div class="option" onclick="selectOption(this,'q5_7','d')"><input type="radio" name="q5_7"> D) Aumenta el grosor de la epidermis para ocultar las manchas</div>
+        </div>
+
+        <div class="question">
+            <p>8. ¿Qué debe hacerse INMEDIATAMENTE si ocurre blanqueamiento cutáneo durante una inyección periocular?</p>
+            <div class="option" onclick="selectOption(this,'q5_8','a')"><input type="radio" name="q5_8"> A) Continuar inyectando más lentamente</div>
+            <div class="option" onclick="selectOption(this,'q5_8','b')"><input type="radio" name="q5_8"> B) Aplicar hielo en la zona afectada</div>
+            <div class="option" onclick="selectOption(this,'q5_8','c')"><input type="radio" name="q5_8"> C) Detener inmediatamente — masaje enérgico — calor local — derivar urgente</div>
+            <div class="option" onclick="selectOption(this,'q5_8','d')"><input type="radio" name="q5_8"> D) Es normal — continuar el procedimiento sin cambios</div>
+        </div>
+
+        <div class="question">
+            <p>9. ¿Cuál es el paso INMEDIATAMENTE posterior a la subcisión en el protocolo de cicatrices de acné?</p>
+            <div class="option" onclick="selectOption(this,'q5_9','a')"><input type="radio" name="q5_9"> A) Aplicar microagujas 2mm sobre la cicatriz</div>
+            <div class="option" onclick="selectOption(this,'q5_9','b')"><input type="radio" name="q5_9"> B) Inyectar PRP 5G intralesional dentro de los primeros 5 minutos post-subcisión</div>
+            <div class="option" onclick="selectOption(this,'q5_9','c')"><input type="radio" name="q5_9"> C) Limpiar la zona y esperar 24 horas antes de continuar</div>
+            <div class="option" onclick="selectOption(this,'q5_9','d')"><input type="radio" name="q5_9"> D) Aplicar vitamina C tópica sobre la cicatriz subcisionada</div>
+        </div>
+
+        <div class="question">
+            <p>10. ¿Qué combinación produce los mejores resultados en alopecia androgenética masculina según la evidencia?</p>
+            <div class="option" onclick="selectOption(this,'q5_10','a')"><input type="radio" name="q5_10"> A) PRP 5G solo sin ningún complemento farmacológico</div>
+            <div class="option" onclick="selectOption(this,'q5_10','b')"><input type="radio" name="q5_10"> B) PRP 5G + finasterida oral + LED 660nm capilar</div>
+            <div class="option" onclick="selectOption(this,'q5_10','c')"><input type="radio" name="q5_10"> C) Solo finasterida oral sin procedimientos</div>
+            <div class="option" onclick="selectOption(this,'q5_10','d')"><input type="radio" name="q5_10"> D) PRP convencional sin activación combinado con minoxidil tópico</div>
+        </div>
+
+        <button class="btn-quiz" onclick="checkQuiz('quiz5',['b','b','c','b','b','b','b','c','b','b'])">✓ Verificar Respuestas</button>
+        <div class="quiz-result" id="result-quiz5"></div>
+    </div>
+</div>
+
 
         <!-- ========== L6-1: CONTRAINDICACIONES ========== -->
         <div id="page-l6-1" class="page">
