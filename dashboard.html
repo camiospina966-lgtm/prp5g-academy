@@ -13031,54 +13031,101 @@
             </div>
         </div>
 
-        <!-- ========== QUIZ 6 ========== -->
-        <div id="page-quiz6" class="page">
-            <div class="lesson-header">
-                <div class="lesson-breadcrumb">Módulo 6 > <span>Evaluación</span></div>
-                <div class="lesson-title">📝 Evaluación — Módulo 6: Seguridad</div>
-            </div>
-            <div class="quiz-section">
-                <h2>📝 Evaluación Módulo 6</h2>
-                <p style="color:var(--text2);font-size:13px;margin-bottom:20px;">Necesitas un 70% para aprobar.</p>
-                <div class="question">
-                    <p>1. ¿Qué analgésico SÍ puede tomar el paciente si tiene dolor después del PRP?</p>
-                    <div class="option" onclick="selectOption(this,'q6_1','a')"><input type="radio" name="q6_1"> A) Ibuprofeno 400mg — es antiinflamatorio potente</div>
-                    <div class="option" onclick="selectOption(this,'q6_1','b')"><input type="radio" name="q6_1"> B) Naproxeno 500mg — es más suave</div>
-                    <div class="option" onclick="selectOption(this,'q6_1','c')"><input type="radio" name="q6_1"> C) Paracetamol (acetaminofén) 500-1000mg</div>
-                    <div class="option" onclick="selectOption(this,'q6_1','d')"><input type="radio" name="q6_1"> D) Aspirina 500mg — es la más efectiva</div>
-                </div>
-                <div class="question">
-                    <p>2. ¿Cuántos momentos de lavado de manos establece el protocolo de la OMS?</p>
-                    <div class="option" onclick="selectOption(this,'q6_2','a')"><input type="radio" name="q6_2"> A) 3 momentos</div>
-                    <div class="option" onclick="selectOption(this,'q6_2','b')"><input type="radio" name="q6_2"> B) 5 momentos</div>
-                    <div class="option" onclick="selectOption(this,'q6_2','c')"><input type="radio" name="q6_2"> C) 7 momentos</div>
-                    <div class="option" onclick="selectOption(this,'q6_2','d')"><input type="radio" name="q6_2"> D) 2 momentos básicos</div>
-                </div>
-                <div class="question">
-                    <p>3. ¿Qué se debe hacer PRIMERO ante un accidente con material cortopunzante contaminado?</p>
-                    <div class="option" onclick="selectOption(this,'q6_3','a')"><input type="radio" name="q6_3"> A) Exprimir la herida para sacar la sangre contaminada</div>
-                    <div class="option" onclick="selectOption(this,'q6_3','b')"><input type="radio" name="q6_3"> B) Lavar inmediatamente con agua corriente y jabón durante 5 minutos</div>
-                    <div class="option" onclick="selectOption(this,'q6_3','c')"><input type="radio" name="q6_3"> C) Aplicar yodo directamente sin lavar primero</div>
-                    <div class="option" onclick="selectOption(this,'q6_3','d')"><input type="radio" name="q6_3"> D) Ignorar si la herida es pequeña y seguir trabajando</div>
-                </div>
-                <div class="question">
-                    <p>4. ¿Cuántas horas después del PRP puede el paciente lavarse la cara con normalidad?</p>
-                    <div class="option" onclick="selectOption(this,'q6_4','a')"><input type="radio" name="q6_4"> A) Inmediatamente — no hay restricción</div>
-                    <div class="option" onclick="selectOption(this,'q6_4','b')"><input type="radio" name="q6_4"> B) A las 4 horas con agua fría y limpiador suave sin fragancias</div>
-                    <div class="option" onclick="selectOption(this,'q6_4','c')"><input type="radio" name="q6_4"> C) A las 48 horas sin excepción</div>
-                    <div class="option" onclick="selectOption(this,'q6_4','d')"><input type="radio" name="q6_4"> D) A la semana de realizado el procedimiento</div>
-                </div>
-                <div class="question">
-                    <p>5. ¿Por qué el cáncer activo es una contraindicación absoluta para el PRP 5G?</p>
-                    <div class="option" onclick="selectOption(this,'q6_5','a')"><input type="radio" name="q6_5"> A) Porque el PRP no funciona en pacientes con cáncer</div>
-                    <div class="option" onclick="selectOption(this,'q6_5','b')"><input type="radio" name="q6_5"> B) Porque los factores de crecimiento pueden estimular la proliferación de células tumorales</div>
-                    <div class="option" onclick="selectOption(this,'q6_5','c')"><input type="radio" name="q6_5"> C) Porque es más doloroso en pacientes oncológicos</div>
-                    <div class="option" onclick="selectOption(this,'q6_5','d')"><input type="radio" name="q6_5"> D) Porque el seguro médico no lo cubre</div>
-                </div>
-                <button class="btn-quiz" onclick="checkQuiz('quiz6',['c','b','b','b','b'])">✓ Verificar Respuestas</button>
-                <div class="quiz-result" id="result-quiz6"></div>
-            </div>
+       <!-- ========== QUIZ 6 ========== -->
+<div id="page-quiz6" class="page">
+    <div class="lesson-header">
+        <div class="lesson-breadcrumb">Módulo 6 > <span>Evaluación</span></div>
+        <div class="lesson-title">📝 Evaluación — Módulo 6: Seguridad</div>
+    </div>
+    <div class="quiz-section">
+        <h2>📝 Evaluación Módulo 6</h2>
+        <p style="color:var(--text2);font-size:13px;margin-bottom:20px;">Necesitas un 70% para aprobar.</p>
+
+        <div class="question">
+            <p>1. ¿Qué analgésico SÍ puede tomar el paciente si tiene dolor después del PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q6_1','a')"><input type="radio" name="q6_1"> A) Ibuprofeno 400mg — es antiinflamatorio potente</div>
+            <div class="option" onclick="selectOption(this,'q6_1','b')"><input type="radio" name="q6_1"> B) Naproxeno 500mg — es más suave que el ibuprofeno</div>
+            <div class="option" onclick="selectOption(this,'q6_1','c')"><input type="radio" name="q6_1"> C) Paracetamol 500-1000mg — no inhibe plaquetas</div>
+            <div class="option" onclick="selectOption(this,'q6_1','d')"><input type="radio" name="q6_1"> D) Aspirina 500mg — es la más efectiva para el dolor</div>
         </div>
+
+        <div class="question">
+            <p>2. ¿Cuántos momentos de lavado de manos establece el protocolo de la OMS?</p>
+            <div class="option" onclick="selectOption(this,'q6_2','a')"><input type="radio" name="q6_2"> A) 3 momentos básicos</div>
+            <div class="option" onclick="selectOption(this,'q6_2','b')"><input type="radio" name="q6_2"> B) 5 momentos obligatorios</div>
+            <div class="option" onclick="selectOption(this,'q6_2','c')"><input type="radio" name="q6_2"> C) 7 momentos completos</div>
+            <div class="option" onclick="selectOption(this,'q6_2','d')"><input type="radio" name="q6_2"> D) 2 momentos — antes y después del paciente</div>
+        </div>
+
+        <div class="question">
+            <p>3. ¿Qué se debe hacer PRIMERO ante un accidente con material cortopunzante contaminado?</p>
+            <div class="option" onclick="selectOption(this,'q6_3','a')"><input type="radio" name="q6_3"> A) Exprimir la herida para sacar la sangre contaminada</div>
+            <div class="option" onclick="selectOption(this,'q6_3','b')"><input type="radio" name="q6_3"> B) Lavar inmediatamente con agua corriente y jabón durante 5 minutos</div>
+            <div class="option" onclick="selectOption(this,'q6_3','c')"><input type="radio" name="q6_3"> C) Aplicar yodo directamente sin lavar primero</div>
+            <div class="option" onclick="selectOption(this,'q6_3','d')"><input type="radio" name="q6_3"> D) Ignorar si la herida es pequeña y continuar trabajando</div>
+        </div>
+
+        <div class="question">
+            <p>4. ¿Por qué el cáncer activo es una contraindicación ABSOLUTA para el PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q6_4','a')"><input type="radio" name="q6_4"> A) Porque el PRP no funciona en pacientes oncológicos</div>
+            <div class="option" onclick="selectOption(this,'q6_4','b')"><input type="radio" name="q6_4"> B) Porque los factores de crecimiento pueden estimular la proliferación de células tumorales</div>
+            <div class="option" onclick="selectOption(this,'q6_4','c')"><input type="radio" name="q6_4"> C) Porque el procedimiento es más doloroso en pacientes con cáncer</div>
+            <div class="option" onclick="selectOption(this,'q6_4','d')"><input type="radio" name="q6_4"> D) Porque el seguro médico no cubre el procedimiento en oncológicos</div>
+        </div>
+
+        <div class="question">
+            <p>5. ¿Cuál es la ventana de tiempo máxima para iniciar la profilaxis post-exposición al VIH tras un accidente con punzocortante?</p>
+            <div class="option" onclick="selectOption(this,'q6_5','a')"><input type="radio" name="q6_5"> A) 24 horas como máximo</div>
+            <div class="option" onclick="selectOption(this,'q6_5','b')"><input type="radio" name="q6_5"> B) 72 horas — idealmente dentro de las 2 primeras horas</div>
+            <div class="option" onclick="selectOption(this,'q6_5','c')"><input type="radio" name="q6_5"> C) 7 días — hay tiempo suficiente</div>
+            <div class="option" onclick="selectOption(this,'q6_5','d')"><input type="radio" name="q6_5"> D) No es necesaria si el paciente no tiene VIH conocido</div>
+        </div>
+
+        <div class="question">
+            <p>6. ¿Cuál es la temperatura correcta del biorreactor en el protocolo PRP 5G y qué ocurre si se superan los 44°C?</p>
+            <div class="option" onclick="selectOption(this,'q6_6','a')"><input type="radio" name="q6_6"> A) 37°C — superarlos activa más factores de crecimiento</div>
+            <div class="option" onclick="selectOption(this,'q6_6','b')"><input type="radio" name="q6_6"> B) 42°C — superar 44°C desnaturaliza proteínas activas irreversiblemente</div>
+            <div class="option" onclick="selectOption(this,'q6_6','c')"><input type="radio" name="q6_6"> C) 50°C — la temperatura alta es necesaria para activar el PRP</div>
+            <div class="option" onclick="selectOption(this,'q6_6','d')"><input type="radio" name="q6_6"> D) 35°C — temperaturas bajas conservan mejor los factores</div>
+        </div>
+
+        <div class="question">
+            <p>7. ¿Qué antiséptico es la primera línea para la antisepsia de piel antes de aplicar PRP 5G?</p>
+            <div class="option" onclick="selectOption(this,'q6_7','a')"><input type="radio" name="q6_7"> A) Alcohol 70% — el más accesible y efectivo</div>
+            <div class="option" onclick="selectOption(this,'q6_7','b')"><input type="radio" name="q6_7"> B) Clorhexidina alcohólica al 2% — efecto residual 6 horas</div>
+            <div class="option" onclick="selectOption(this,'q6_7','c')"><input type="radio" name="q6_7"> C) Yodopovidona al 10% — el más amplio espectro</div>
+            <div class="option" onclick="selectOption(this,'q6_7','d')"><input type="radio" name="q6_7"> D) Agua oxigenada — elimina bacterias y virus eficazmente</div>
+        </div>
+
+        <div class="question">
+            <p>8. ¿Cuál es la respuesta correcta ante blanqueamiento cutáneo durante una inyección periocular?</p>
+            <div class="option" onclick="selectOption(this,'q6_8','a')"><input type="radio" name="q6_8"> A) Continuar inyectando más lentamente para no interrumpir el procedimiento</div>
+            <div class="option" onclick="selectOption(this,'q6_8','b')"><input type="radio" name="q6_8"> B) Aplicar hielo en la zona para reducir la inflamación</div>
+            <div class="option" onclick="selectOption(this,'q6_8','c')"><input type="radio" name="q6_8"> C) STOP inmediato — masaje enérgico — calor local — derivar urgente si no mejora en 5 minutos</div>
+            <div class="option" onclick="selectOption(this,'q6_8','d')"><input type="radio" name="q6_8"> D) Es una reacción normal — esperar que resuelva sola en 30 minutos</div>
+        </div>
+
+        <div class="question">
+            <p>9. ¿Hasta qué porcentaje debe llenarse el contenedor rígido de residuos punzocortantes antes de cerrarlo?</p>
+            <div class="option" onclick="selectOption(this,'q6_9','a')"><input type="radio" name="q6_9"> A) 100% — aprovecharlo al máximo antes de descartar</div>
+            <div class="option" onclick="selectOption(this,'q6_9','b')"><input type="radio" name="q6_9"> B) 80% máximo — para poder cerrarlo herméticamente con seguridad</div>
+            <div class="option" onclick="selectOption(this,'q6_9','c')"><input type="radio" name="q6_9"> C) 50% — cambiarlo a la mitad por seguridad</div>
+            <div class="option" onclick="selectOption(this,'q6_9','d')"><input type="radio" name="q6_9"> D) No hay límite — agregar hasta que no quepan más</div>
+        </div>
+
+        <div class="question">
+            <p>10. ¿Cuál de estas afirmaciones sobre los residuos biológicos del PRP 5G es CORRECTA?</p>
+            <div class="option" onclick="selectOption(this,'q6_10','a')"><input type="radio" name="q6_10"> A) Las gasas con sangre se descartan en bolsa negra común junto con la basura doméstica</div>
+            <div class="option" onclick="selectOption(this,'q6_10','b')"><input type="radio" name="q6_10"> B) Las agujas usadas van en bolsa roja biohazard flexible para facilitar el manejo</div>
+            <div class="option" onclick="selectOption(this,'q6_10','c')"><input type="radio" name="q6_10"> C) Las gasas con sangre van en bolsa roja biohazard y las agujas en contenedor rígido</div>
+            <div class="option" onclick="selectOption(this,'q6_10','d')"><input type="radio" name="q6_10"> D) Todo el material del procedimiento va en el mismo contenedor sin clasificación</div>
+        </div>
+
+        <button class="btn-quiz" onclick="checkQuiz('quiz6',['c','b','b','b','b','b','b','c','b','c'])">✓ Verificar Respuestas</button>
+        <div class="quiz-result" id="result-quiz6"></div>
+    </div>
+</div>
+
         <!-- ========== EXAMEN FINAL ========== -->
         <div id="page-final-exam" class="page">
             <div class="lesson-header">
