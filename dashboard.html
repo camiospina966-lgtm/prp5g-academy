@@ -6109,23 +6109,33 @@ body {
         </div>
     </div>
     <!-- CONTROLES -->
-    <div style="background:#111;padding:12px 20px;display:flex;align-items:center;gap:12px;">
-        <button id="playPauseBtn31" onclick="togglePlayPause31()" style="background:linear-gradient(135deg,#f0a500,#e67e22);color:#000;border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;">▶ Reproducir</button>
-        <button onclick="prevSlide31()" style="background:rgba(255,255,255,0.1);color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-size:16px;">◀</button>
-        <button onclick="nextSlide31()" style="background:rgba(255,255,255,0.1);color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-size:16px;">▶</button>
-        <div style="flex:1;background:#333;border-radius:4px;height:6px;cursor:pointer;" onclick="seekVideo31(event,this)">
-            <div id="progressBar31" style="height:100%;background:linear-gradient(90deg,#f0a500,#e67e22);border-radius:4px;width:0%;transition:width 0.3s;"></div>
+    <div style="background:#111;border-radius:0 0 12px 12px;padding:12px 16px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;cursor:pointer;" onclick="seekVideo31(event,this)">
+            <div style="flex:1;background:rgba(255,255,255,0.1);border-radius:4px;height:6px;position:relative;">
+                <div id="progressBar31" style="background:#f0a500;width:0%;height:100%;border-radius:4px;transition:width 0.3s;"></div>
+            </div>
         </div>
-        <span id="timeDisplay31" style="color:#aaa;font-size:12px;min-width:90px;">00:00 / 60:00</span>
-        <select onchange="changeSpeed31(this.value)" style="background:#222;color:#fff;border:1px solid #444;padding:6px 10px;border-radius:6px;font-size:12px;">
-            <option value="3000">🐢 Lento</option>
-            <option value="2000" selected>▶ Normal</option>
-            <option value="1000">⚡ Rápido</option>
-            <option value="500">🚀 Muy rápido</option>
-        </select>
-        <span id="slideCounter31" style="color:#aaa;font-size:12px;min-width:100px;text-align:right;">Sección 1 de 40</span>
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+                <button onclick="prevSlide31()" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px;">◀ Anterior</button>
+                <button id="playPauseBtn31" onclick="togglePlayPause31()" style="background:#f0a500;border:none;color:#000;padding:6px 16px;border-radius:6px;cursor:pointer;font-weight:700;font-size:13px;">▶ Reproducir</button>
+                <button onclick="nextSlide31()" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px;">Siguiente ▶</button>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                <span id="slideCounter31" style="color:#f0a500;font-size:12px;">Sección 1 de 40</span>
+                <span id="timeDisplay31" style="color:#f0a500;font-size:12px;">00:00 / 60:00</span>
+                <select onchange="changeSpeed31(this.value)" style="background:#222;color:#fff;border:1px solid #444;border-radius:4px;padding:4px 6px;font-size:12px;">
+                    <option value="3000">🐢 Lenta</option>
+                    <option value="2000" selected>▶ Normal</option>
+                    <option value="1000">⚡ Rápida</option>
+                    <option value="500">🚀 Muy rápida</option>
+                </select>
+                <button onclick="toggleFullscreen31()" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:13px;">⛶</button>
+            </div>
+        </div>
     </div>
 </div>
+
 
             <div class="lesson-content">
                 <h2>🔬 Nanotecnología: Pequeño tamaño, gran impacto</h2>
