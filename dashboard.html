@@ -13703,7 +13703,7 @@ function checkAccess() {
             const paidDate = new Date(user.paidAt);
             const now = new Date();
             const diffDays = Math.floor((now - paidDate) / (1000 * 60 * 60 * 24));
-            const daysLeft = 365 - diffDays;
+            const daysLeft = 99999 - diffDays;
             if (daysLeft <= 0) {
                 showAccessExpired();
                 return false;
@@ -13727,30 +13727,11 @@ function showAccessBanner(daysLeft) {
         z-index:999;box-shadow:0 4px 20px rgba(0,0,0,0.5);
         font-family:'Segoe UI',sans-serif;
     `;
-    banner.innerHTML = `⏰ <strong>${daysLeft} días</strong> de acceso restantes`;
+    banner.innerHTML = `♾️ <strong>Acceso de por vida</strong> activo`;
     document.body.appendChild(banner);
     setTimeout(() => {
         if (banner.parentNode) banner.remove();
     }, 6000);
-}
-
-function showAccessExpired() {
-    document.body.innerHTML = `
-        <div style="min-height:100vh;background:#0a0a0a;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',sans-serif;">
-            <div style="text-align:center;padding:40px;background:#111;border:2px solid #e74c3c;border-radius:20px;max-width:420px;width:90%;">
-                <div style="font-size:60px;margin-bottom:20px;">⏰</div>
-                <h2 style="color:#e74c3c;margin-bottom:10px;font-size:24px;">Acceso Expirado</h2>
-                <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:25px;">
-                    Tu acceso de 12 meses a PRP 5G Academy ha expirado.<br>
-                    Renueva ahora para continuar aprendiendo y actualizándote.
-                </p>
-                <a href="payment.html?plan=renewal&price=97"
-                    style="display:inline-block;padding:14px 30px;background:linear-gradient(135deg,#c9a84c,#f0d080);color:#000;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;">
-                    🔄 Renovar Acceso — $97 USD
-                </a>
-            </div>
-        </div>
-    `;
 }
 
 // ============================================================
