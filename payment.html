@@ -115,7 +115,7 @@
     <div class="pay-header">
         <div style="font-size:30px; margin-bottom:10px;">🔐</div>
         <h1>Secure Payment — PRP 5G Academy</h1>
-        <p>Complete your registration and get immediate 12-month access to the course</p>
+        <p>¡Oferta especial! Acceso completo 12 meses por solo <strong style="color:var(--gold)">$25 USD</strong></p>
         <div class="secure-badges">
             <div class="secure-badge">🔒 SSL Encrypted</div>
             <div class="secure-badge">✅ 100% Secure Payment</div>
@@ -339,7 +339,7 @@
                     <li>Mobile app included</li>
                     <li>Downloadable PDF materials</li>
                     <li>Email support included</li>
-                    <li>Renewal available at $97 USD</li>
+                    <li>Renewal available at $25 USD</li>
                 </ul>
 
                 <button class="btn-pay" onclick="procesarPago()">
@@ -368,13 +368,13 @@
     const userName = params.get('name') || '';
     const planParam = params.get('plan') || 'complete';
 
-    // ✅ PRECIO ÚNICO $197 USD
+    // ✅ PRECIO ÚNICO $25 USD
     const prices = {
-        basico:   { original: 297, sale: 197 },
-        premium:  { original: 297, sale: 197 },
-        complete: { original: 297, sale: 197 },
-        renewal:  { original: 197, sale: 97  }
-    };
+    basico:   { original: 197, sale: 25 },
+    premium:  { original: 197, sale: 25 },
+    complete: { original: 197, sale: 25 },
+    renewal:  { original: 97,  sale: 25 }
+};
 
     const plan = prices[planParam] || prices.complete;
     let finalPrice = plan.sale;
