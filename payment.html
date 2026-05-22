@@ -145,10 +145,10 @@
                         <div class="method-icon">💙</div>
                         <div class="method-name">Mercado Pago</div>
                     </div>
-                    <div class="method-btn" onclick="selectMethod('crypto', this)">
-                        <div class="method-icon">₿</div>
-                        <div class="method-name">Crypto</div>
-                    </div>
+                    <div class="method-btn" onclick="selectMethod('apple', this)">
+    <div class="method-icon">🍎</div>
+    <div class="method-name">Apple Pay</div>
+</div>
                 </div>
 
                 <div class="payment-form active" id="form-card">
@@ -221,24 +221,24 @@
                     </div>
                 </div>
 
+               <div class="payment-form" id="form-apple">
+    <div style="text-align:center; padding:30px;">
+        <div style="font-size:50px; margin-bottom:15px;">🍎</div>
+        <h3 style="color:white; margin-bottom:10px;">Apple Pay</h3>
+        <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">Pay quickly and securely with Apple Pay using your iPhone, iPad or Mac.</p>
+        <button onclick="redirectPayment('Apple Pay')" style="padding:14px 35px; background:linear-gradient(135deg,#000000,#333333); border:none; border-radius:10px; color:white; font-weight:700; cursor:pointer; font-size:15px; width:100%; display:flex; align-items:center; justify-content:center; gap:10px;">
+            🍎 Pay with Apple Pay
+        </button>
+        <p style="color:var(--text2); font-size:11px; margin-top:15px;">🔒 Secured by Apple · Touch ID or Face ID required</p>
+    </div>
+</div>
+
                 <div class="payment-form" id="form-mp">
                     <div style="text-align:center; padding:30px;">
                         <div style="font-size:50px; margin-bottom:15px;">💙</div>
                         <h3 style="color:white; margin-bottom:10px;">Mercado Pago</h3>
                         <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">Pay with Mercado Pago balance, card or cash at 1000+ payment points.</p>
                         <button onclick="redirectPayment('Mercado Pago')" style="padding:14px 35px; background:linear-gradient(135deg,#009ee3,#00cbff); border:none; border-radius:10px; color:white; font-weight:700; cursor:pointer; font-size:15px; width:100%;">💙 Pay with Mercado Pago</button>
-                    </div>
-                </div>
-
-                <div class="payment-form" id="form-crypto">
-                    <div style="text-align:center; padding:30px;">
-                        <div style="font-size:50px; margin-bottom:15px;">₿</div>
-                        <h3 style="color:white; margin-bottom:10px;">Pay with Cryptocurrency</h3>
-                        <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">We accept Bitcoin, Ethereum and USDT.</p>
-                        <div style="background:var(--dark3); border:1px solid #2a2a2a; border-radius:12px; padding:20px;">
-                            <p style="font-size:12px; color:var(--text2); margin-bottom:8px;">Bitcoin Wallet (BTC)</p>
-                            <p style="font-size:13px; color:var(--gold); word-break:break-all; cursor:pointer;" onclick="copyText('1A1zP1eP5QGefi2DMPTfTL5SLmv7Divf')">1A1zP1eP5QGefi2DMPTfTL5SLmv7Divf 📋</p>
-                        </div>
                     </div>
                 </div>
             </div>
