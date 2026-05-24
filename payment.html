@@ -465,30 +465,8 @@
     }
 
     function procesarPago() {
-        const activeMethod = document.querySelector('.method-btn.active .method-name').textContent;
-        if (activeMethod === 'Card') {
-            const cardNum = document.getElementById('cardNumber').value.replace(/\s/g, '');
-            const cardName = document.getElementById('cardName').value;
-            const cardExp = document.getElementById('cardExp').value;
-            const cardCvv = document.getElementById('cardCvv').value;
-            if (!cardNum || cardNum.length < 16) { alert('⚠️ Please enter a valid card number'); return; }
-            if (!cardName) { alert('⚠️ Please enter the cardholder name'); return; }
-            if (!cardExp || cardExp.length < 5) { alert('⚠️ Please enter the expiration date'); return; }
-            if (!cardCvv || cardCvv.length < 3) { alert('⚠️ Please enter the CVV'); return; }
-        }
-        const overlay = document.getElementById('loadingOverlay');
-        overlay.classList.add('active');
-        const steps = ['Verifying data...','Connecting to payment processor...','Validating card...','Processing transaction...','Activating course access...','Payment complete!'];
-        let i = 0;
-        const interval = setInterval(() => {
-            document.getElementById('loadingSteps').textContent = steps[i] || steps[steps.length - 1];
-            i++;
-            if (i >= steps.length) {
-                clearInterval(interval);
-                setTimeout(() => { overlay.classList.remove('active'); simulateSuccess(); }, 500);
-            }
-        }, 700);
-    }
+    window.location.href = 'https://buy.stripe.com/3cI14n1ug7w7dAH4J45Vu01';
+}
 
     function simulateSuccess() {
         const users = JSON.parse(localStorage.getItem('prp5g_users') || '[]');
