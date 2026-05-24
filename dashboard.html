@@ -606,6 +606,37 @@ body {
             }
         }
     @media(max-width:768px){[id^="player-l"]{overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;}[id^="player-l"] .video-wrapper{aspect-ratio:unset!important;max-height:none!important;height:auto!important;overflow:visible!important;}[id^="player-l"] .slide-frame{position:relative!important;inset:unset!important;height:auto!important;min-height:auto!important;overflow:visible!important;}[id^="playOverlay"]{position:absolute!important;inset:0!important;}} 
+    .sidebar-resources {
+    padding: 16px;
+    border-top: 1px solid #2a2a2a;
+    margin-top: 10px;
+}
+.sidebar-resources-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #FFD700;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.resource-link {
+    display: block;
+    padding: 10px 12px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 8px;
+    transition: all 0.2s;
+}
+.resource-link:hover {
+    background: #222;
+    border-color: #FFD700;
+    color: #FFD700;
+}
+
     </style>
 </head>
 <body>
@@ -685,6 +716,19 @@ body {
             <div class="lesson-item" onclick="showPage('certificate')" id="nav-certificate">🎓 Mi Certificado</div>
         </div>
     </nav>
+    <!-- RECURSOS DESCARGABLES -->
+<div class="sidebar-resources">
+    <div class="sidebar-resources-title">
+        📥 Recursos
+    </div>
+    <a href="/consentimiento.html" target="_blank" class="resource-link">
+        📄 Consentimiento Informado
+    </a>
+    <a href="/contraindicaciones.html" target="_blank" class="resource-link">
+        ⚕️ Guía de Contraindicaciones
+    </a>
+</div>
+
 </div>
 
 <!-- ========== MAIN ========== -->
