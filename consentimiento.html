@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consentimiento Informado PRP / PRP Informed Consent</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: #fff;
+            color: #111;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px double #111;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo-area {
+            width: 120px;
+            height: 60px;
+            border: 2px dashed #ccc;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 12px;
+        }
+        .clinic-info {
+            margin-bottom: 10px;
+        }
+        .clinic-info .field-line {
+            display: inline-block;
+            width: 250px;
+            border-bottom: 1px solid #111;
+            margin: 0 5px;
+        }
+        h1 {
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 15px 0 5px;
+        }
+        h1 span {
+            font-size: 15px;
+            display: block;
+            letter-spacing: 1px;
+            color: #444;
+            margin-top: 4px;
+        }
+        .section {
+            margin-bottom: 24px;
+        }
+        .section-title {
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 4px solid #111;
+            padding-left: 10px;
+            margin-bottom: 12px;
+            color: #111;
+        }
+        .section-title span {
+            display: block;
+            font-size: 11px;
+            color: #555;
+            font-style: italic;
+            margin-top: 2px;
+        }
+        p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #222;
+            margin-bottom: 8px;
+        }
+        .field-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .field {
+            flex: 1;
+            min-width: 200px;
+        }
+        .field label {
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .field label span {
+            font-style: italic;
+            font-weight: normal;
+            color: #888;
+        }
+        .field-line {
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #111;
+            height: 22px;
+        }
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .checkbox-item input {
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .risks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .risk-item {
+            font-size: 12px;
+            padding: 5px 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .consent-box {
+            border: 2px solid #111;
+            padding: 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+        .consent-box p {
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        .signature-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .signature-box {
+            text-align: center;
+        }
+        .signature-line {
+            border-top: 1px solid #111;
+            margin-bottom: 6px;
+            height: 60px;
+        }
+        .signature-label {
+            font-size: 11px;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .signature-label span {
+            display: block;
+            font-style: italic;
+            font-weight: normal;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ccc;
+            font-size: 11px;
+            color: #888;
+            text-align: center;
+        }
+        .lang-divider {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .lang-divider::before,
+        .lang-divider::after {
+            content: '';
+            flex: 1;
+            border-top: 1px dashed #ccc;
+        }
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #111;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+        .print-btn:hover { background: #333; }
+        @media print {
+            .print-btn { display: none; }
+            body { padding: 20px; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨️ Imprimir / Print PDF</button>
+
+<!-- ===== ESPAÑOL ===== -->
+<div class="header">
+    <div class="logo-area">LOGO / CLÍNICA</div>
+    <div class="clinic-info">
+        <span>Clínica: </span><span class="field-line"></span>
+        &nbsp;&nbsp;
+        <span>Dr./Dra.: </span><span class="field-line"></span>
+    </div>
+    <h1>
+        Consentimiento Informado
+        <span>Tratamiento con Plasma Rico en Plaquetas (PRP)</span>
+    </h1>
+</div>
+
+<div class="section">
+    <div class="section-title">1. Datos del Paciente</div>
+    <div class="field-row">
+        <div class="field">
+            <label>Nombre completo</label>
+            <span class="field-line"></span>
+        </div>
+        <div class="field">
+            <label>Fecha de nacimiento</label>
+            <span class="field-line"></span>
+        </div>
+    </div>
+    <div class="field-row">
+        <div class="field">
+            <label>Documento de identidad</label>
+            <span class="field-line"></span>
+        </div>
+        <div class="field">
+            <label>Teléfono</label>
+            <span class="field-line"></span>
+        </div>
+    </div>
+    <div class="field-row">
+        <div class="field">
+            <label>Email</label>
+            <span class="field-line"></span>
+        </div>
+        <div class="field">
+            <label>Fecha del procedimiento</label>
+            <span class="field-line"></span>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">2. ¿Qué es el PRP?</div>
+    <p>El Plasma Rico en Plaquetas (PRP) es un tratamiento biológico que utiliza una concentración de plaquetas obtenida de la propia sangre del paciente. Las plaquetas contienen factores de crecimiento que estimulan la regeneración celular, mejoran la cicatrización y promueven la producción de colágeno.</p>
+    <p>El procedimiento consiste en extraer una pequeña cantidad de sangre, centrifugarla para separar el plasma rico en plaquetas y reinyectarlo en la zona de tratamiento.</p>
+</div>
+
+<div class="section">
+    <div class="section-title">3. Área de Tratamiento</div>
+    <div class="checkbox-group">
+        <div class="checkbox-item"><input type="checkbox"> Cuero cabelludo / Caída del cabello</div>
+        <div class="checkbox-item"><input type="checkbox"> Rostro / Rejuvenecimiento facial</div>
+        <div class="checkbox-item"><input type="checkbox"> Bajo los ojos / Ojeras</div>
+        <div class="checkbox-item"><input type="checkbox"> Cuello y escote</div>
+        <div class="checkbox-item"><input type="checkbox"> Articulaciones / Ortopedia</div>
+        <div class="checkbox-item"><input type="checkbox"> Cicatrices / Estrías</div>
+        <div class="checkbox-item"><input type="checkbox"> Zona íntima</div>
+        <div class="checkbox-item"><input type="checkbox"> Otro: <span class="field-line" style="width:80px"></span></div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">4. Riesgos y Efectos Secundarios</div>
+    <p>El médico me ha informado sobre los posibles riesgos del procedimiento:</p>
+    <div class="risks-grid">
+        <div class="risk-item">⚠️ Dolor leve en zona de inyección</div>
+        <div class="risk-item">⚠️ Enrojecimiento temporal</div>
+        <div class="risk-item">⚠️ Hematomas o moretones</div>
+        <div class="risk-item">⚠️ Inflamación leve (24-72h)</div>
+        <div class="risk-item">⚠️ Infección (poco frecuente)</div>
+        <div class="risk-item">⚠️ Reacción alérgica (rara)</div>
+        <div class="risk-item">⚠️ Resultados variables por paciente</div>
+        <div class="risk-item">⚠️ Cicatriz pequeña en zona extracción</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">5. Contraindicaciones Declaradas por el Paciente</div>
+    <p>Confirmo que NO padezco ninguna de las siguientes condiciones (marcar si SÍ padece):</p>
+    <div class="checkbox-group">
+        <div class="checkbox-item"><input type="checkbox"> Trastornos de coagulación</div>
+        <div class="checkbox-item"><input type="checkbox"> Uso de anticoagulantes</div>
+        <div class="checkbox-item"><input type="checkbox"> Infección activa en zona de tratamiento</div>
+        <div class="checkbox-item"><input type="checkbox"> Cáncer activo o en tratamiento</div>
+        <div class="checkbox-item"><input type="checkbox"> Embarazo o lactancia</div>
+        <div class="checkbox-item"><input type="checkbox"> Anemia severa</div>
+        <div class="checkbox-item"><input type="checkbox"> Trombocitopenia</div>
+        <div class="checkbox-item"><input type="checkbox"> Enfermedades autoinmunes activas</div>
+        <div class="checkbox-item"><input type="checkbox"> Uso de AINEs (últimas 72h)</div>
+        <div class="checkbox-item"><input type="checkbox"> Fiebre o infección sistémica</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">6. Cuidados Post-Procedimiento</div>
+    <p>He sido informado/a de los siguientes cuidados:</p>
+    <div class="checkbox-group">
+        <div class="checkbox-item"><input type="checkbox"> No lavar la zona tratada por 24 horas</div>
+        <div class="checkbox-item"><input type="checkbox"> Evitar sol directo por 72 horas</div>
+        <div class="checkbox-item"><input type="checkbox"> No usar maquillaje por 24 horas</div>
+        <div class="checkbox-item"><input type="checkbox"> Evitar actividad física intensa por 48h</div>
+        <div class="checkbox-item"><input type="checkbox"> No tomar antiinflamatorios post-procedimiento</div>
+        <div class="checkbox-item"><input type="checkbox"> Hidratación abundante</div>
+    </div>
+</div>
+
+<div class="consent-box">
+    <p><strong>DECLARACIÓN DE CONSENTIMIENTO:</strong></p>
+    <p>Yo, <span class="field-line" style="display:inline-block; width:200px"></span>, declaro que he leído y comprendido toda la información anterior. He tenido la oportunidad de hacer preguntas y han sido respondidas satisfactoriamente. Entiendo los riesgos y beneficios del procedimiento y doy mi consentimiento libre y voluntario para la realización del tratamiento con PRP.</p>
+</div>
+
+<div class="signature-area">
+    <div class="signature-box">
+        <div class="signature-line"></div>
+        <div class="signature-label">Firma del Paciente<span>Patient Signature</span></div>
+        <br>
+        <small>Nombre: ___________________________</small>
+        <br><small>Fecha: ____________________________</small>
+    </div>
+    <div class="signature-box">
+        <div class="signature-line"></div>
+        <div class="signature-label">Firma del Médico<span>Physician Signature</span></div>
+        <br>
+        <small>Dr./Dra.: _________________________</small>
+        <br><small>Matrícula: ________________________</small>
+    </div>
+</div>
+
+<!-- ===== ENGLISH VERSION ===== -->
+<div class="lang-divider page-break">✦ ENGLISH VERSION BELOW ✦</div>
+
+<div class="header">
+    <div class="logo-area">LOGO / CLINIC</div>
+    <div class="clinic-info">
+        <span>Clinic: </span><span class="field-line"></span>
+        &nbsp;&nbsp;
+        <span>Dr.: </span><span class="field-line"></span>
+    </div>
+    <h1>
+        Informed Consent Form
+        <span>Platelet-Rich Plasma (PRP) Treatment</span>
+    </h1>
+</div>
+
+<div class="section">
+    <div class="section-title">1. Patient Information</div>
+    <div class="field-row">
+        <div class="field">
+            <label>Full Name</label>
+            <span class="field-line"></span>
+        </div>
+        <div class="field">
+            <label>Date of Birth</label>
+            <span class="field-line"></span>
+        </div>
+    </div>
+    <div class="field-row">
+        <div class="field">
+            <label>ID / Passport Number</label>
+            <span class="field-line"></span>
+        </div>
+        <div class="field">
+            <label>Phone Number</label>
+            <span class="field-line"></span>
+        </div>
+    </div>
+    <div class="field-row">
+        <div class="field">
+            <label>Email</label>
+            <span class="field-line"></span>
+        </div>
+        <div class="field">
+            <label>Procedure Date</label>
+            <span class="field-line"></span>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">2. What is PRP?</div>
+    <p>Platelet-Rich Plasma (PRP) is a biological treatment that uses a concentration of platelets obtained from the patient's own blood. Platelets contain growth factors that stimulate cell regeneration, improve healing, and promote collagen production.</p>
+    <p>The procedure consists of drawing a small amount of blood, centrifuging it to separate the platelet-rich plasma, and reinjecting it into the treatment area.</p>
+</div>
+
+<div class="section">
+    <div class="section-title">3. Treatment Area</div>
+    <div class="checkbox-group">
+        <div class="checkbox-item"><input type="checkbox"> Scalp / Hair Loss</div>
+        <div class="checkbox-item"><input type="checkbox"> Face / Facial Rejuvenation</div>
+        <div class="checkbox-item"><input type="checkbox"> Under Eyes / Dark Circles</div>
+        <div class="checkbox-item"><input type="checkbox"> Neck and Décolleté</div>
+        <div class="checkbox-item"><input type="checkbox"> Joints / Orthopedics</div>
+        <div class="checkbox-item"><input type="checkbox"> Scars / Stretch Marks</div>
+        <div class="checkbox-item"><input type="checkbox"> Intimate Area</div>
+        <div class="checkbox-item"><input type="checkbox"> Other: <span class="field-line" style="width:80px"></span></div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">4. Risks and Side Effects</div>
+    <p>My physician has informed me about the possible risks of the procedure:</p>
+    <div class="risks-grid">
+        <div class="risk-item">⚠️ Mild pain at injection site</div>
+        <div class="risk-item">⚠️ Temporary redness</div>
+        <div class="risk-item">⚠️ Bruising or hematoma</div>
+        <div class="risk-item">⚠️ Mild swelling (24-72h)</div>
+        <div class="risk-item">⚠️ Infection (uncommon)</div>
+        <div class="risk-item">⚠️ Allergic reaction (rare)</div>
+        <div class="risk-item">⚠️ Variable results per patient</div>
+        <div class="risk-item">⚠️ Small scar at extraction site</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">5. Contraindications Declared by Patient</div>
+    <p>I confirm that I do NOT have any of the following conditions (check if YES):</p>
+    <div class="checkbox-group">
+        <div class="checkbox-item"><input type="checkbox"> Coagulation disorders</div>
+        <div class="checkbox-item"><input type="checkbox"> Use of anticoagulants</div>
+        <div class="checkbox-item"><input type="checkbox"> Active infection in treatment area</div>
+        <div class="checkbox-item"><input type="checkbox"> Active cancer or cancer treatment</div>
+        <div class="checkbox-item"><input type="checkbox"> Pregnancy or breastfeeding</div>
+        <div class="checkbox-item"><input type="checkbox"> Severe anemia</div>
+        <div class="checkbox-item"><input type="checkbox"> Thrombocytopenia</div>
+        <div class="checkbox-item"><input type="checkbox"> Active autoimmune diseases</div>
+        <div class="checkbox-item"><input type="checkbox"> NSAIDs use (last 72h)</div>
+        <div class="checkbox-item"><input type="checkbox"> Fever or systemic infection</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">6. Post-Procedure Care</div>
+    <p>I have been informed of the following post-care instructions:</p>
+    <div class="checkbox-group">
+        <div class="checkbox-item"><input type="checkbox"> Do not wash treated area for 24 hours</div>
+        <div class="checkbox-item"><input type="checkbox"> Avoid direct sun exposure for 72 hours</div>
+        <div class="checkbox-item"><input type="checkbox"> No makeup for 24 hours</div>
+        <div class="checkbox-item"><input type="checkbox"> Avoid intense physical activity for 48h</div>
+        <div class="checkbox-item"><input type="checkbox"> Do not take anti-inflammatory medication</div>
+        <div class="checkbox-item"><input type="checkbox"> Stay well hydrated</div>
+    </div>
+</div>
+
+<div class="consent-box">
+    <p><strong>CONSENT DECLARATION:</strong></p>
+    <p>I, <span class="field-line" style="display:inline-block; width:200px"></span>, declare that I have read and understood all of the above information. I have had the opportunity to ask questions and they have been answered satisfactorily. I understand the risks and benefits of the procedure and give my free and voluntary consent for the PRP treatment.</p>
+</div>
+
+<div class="signature-area">
+    <div class="signature-box">
+        <div class="signature-line"></div>
+        <div class="signature-label">Patient Signature<span>Firma del Paciente</span></div>
+        <br>
+        <small>Name: _____________________________</small>
+        <br><small>Date: ______________________________</small>
+    </div>
+    <div class="signature-box">
+        <div class="signature-line"></div>
+        <div class="signature-label">Physician Signature<span>Firma del Médico</span></div>
+        <br>
+        <small>Dr.: ______________________________</small>
+        <br><small>License #: ________________________</small>
+    </div>
+</div>
+
+<div class="footer">
+    <p>PRP 5G Academy — Material educativo para uso profesional médico</p>
+    <p>Educational material for professional medical use only</p>
+</div>
+
+</body>
+</html>
