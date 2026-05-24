@@ -654,6 +654,43 @@ body {
     border-color: #FFD700;
     color: #FFD700;
 }
+        @media print {
+            body * {
+                visibility: hidden !important;
+            }
+            
+            .certificate, .certificate * {
+                visibility: visible !important;
+            }
+            
+            .certificate {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                margin: 0 !important;
+                padding: 40px !important;
+                background: #1a1a2e !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                box-shadow: none !important;
+                border: 6px double #c9a84c !important;
+            }
+
+            .cert-name {
+                color: #c9a84c !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .btn-print,
+            input#certNameInput,
+            .lesson-nav,
+            .sidebar {
+                display: none !important;
+            }
+        }
 
     </style>
 </head>
