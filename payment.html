@@ -3,467 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Payment — PRP 5G Academy</title>
+    <title>PRP 5G Academy — Checkout</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --gold: #c9a84c; --gold-light: #f0d080;
-            --dark: #0a0a0a; --dark2: #111111; --dark3: #1a1a1a;
-            --text: #e0e0e0; --text2: #aaaaaa;
-            --green: #2ecc71; --red: #e74c3c;
+        body {
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; padding: 20px; }
-        .payment-container { max-width: 900px; margin: 0 auto; }
-        .pay-header { text-align: center; padding: 30px 20px; margin-bottom: 30px; }
-        .pay-header h1 { font-size: 24px; font-weight: 800; color: white; margin-bottom: 8px; }
-        .pay-header p { color: var(--text2); font-size: 14px; }
-        .secure-badges { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
-        .secure-badge { display: flex; align-items: center; gap: 6px; background: var(--dark2); border: 1px solid #2a2a2a; padding: 6px 14px; border-radius: 20px; font-size: 12px; color: var(--text2); }
-        .pay-grid { display: grid; grid-template-columns: 1fr 380px; gap: 25px; }
-        .pay-card { background: var(--dark2); border: 1px solid #2a2a2a; border-radius: 16px; padding: 28px; margin-bottom: 20px; }
-        .pay-card h2 { font-size: 16px; color: var(--gold); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #2a2a2a; display: flex; align-items: center; gap: 8px; }
-        .payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 22px; }
-        .method-btn { padding: 14px 10px; border: 1.5px solid #2a2a2a; border-radius: 12px; background: var(--dark3); cursor: pointer; text-align: center; transition: all 0.3s; }
-        .method-btn:hover, .method-btn.active { border-color: var(--gold); background: rgba(201,168,76,0.08); }
-        .method-btn .method-icon { font-size: 22px; margin-bottom: 5px; }
-        .method-btn .method-name { font-size: 12px; color: var(--text2); font-weight: 600; }
-        .method-btn.active .method-name { color: var(--gold); }
-        .payment-form { display: none; }
-        .payment-form.active { display: block; }
-        .field { margin-bottom: 16px; }
-        .field label { display: block; font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 7px; }
-        .field input, .field select { width: 100%; padding: 12px 15px; background: var(--dark3); border: 1.5px solid #2a2a2a; border-radius: 10px; color: var(--text); font-size: 14px; outline: none; transition: all 0.3s; font-family: inherit; }
-        .field input:focus, .field select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
-        .field select option { background: var(--dark3); }
-        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .card-visual { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); border-radius: 16px; padding: 25px; margin-bottom: 20px; position: relative; overflow: hidden; min-height: 180px; }
-        .card-visual::before { content: ''; position: absolute; top: -50%; right: -30%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(201,168,76,0.15), transparent); border-radius: 50%; }
-        .card-chip { width: 45px; height: 35px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 6px; margin-bottom: 20px; }
-        .card-number-display { font-size: 18px; letter-spacing: 3px; color: white; margin-bottom: 15px; font-family: monospace; }
-        .card-info-row { display: flex; justify-content: space-between; }
-        .card-info-item .label { font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 3px; }
-        .card-info-item .value { font-size: 14px; color: white; font-weight: 600; }
-        .transfer-info { background: var(--dark3); border: 1px solid #2a2a2a; border-radius: 12px; padding: 20px; }
-        .transfer-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2a2a2a; font-size: 14px; }
-        .transfer-row:last-child { border-bottom: none; }
-        .transfer-row .label { color: var(--text2); }
-        .transfer-row .value { color: white; font-weight: 600; }
-        .transfer-row .value.copyable { color: var(--gold); cursor: pointer; display: flex; align-items: center; gap: 6px; }
-        .order-summary { position: sticky; top: 20px; }
-        .summary-item { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #2a2a2a; }
-        .summary-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-        .summary-details h3 { font-size: 14px; color: white; margin-bottom: 4px; }
-        .summary-details p { font-size: 12px; color: var(--text2); line-height: 1.5; }
-        .price-breakdown { padding: 15px 0; }
-        .price-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; }
-        .price-row .label { color: var(--text2); }
-        .price-row .value { color: var(--text); font-weight: 600; }
-        .price-row.total { border-top: 1px solid #2a2a2a; margin-top: 8px; padding-top: 15px; }
-        .price-row.total .label { color: white; font-size: 16px; font-weight: 700; }
-        .price-row.total .value { color: var(--gold); font-size: 22px; font-weight: 800; }
-        .discount-row { display: flex; gap: 10px; margin: 15px 0; }
-        .discount-row input { flex: 1; padding: 10px 14px; background: var(--dark3); border: 1.5px solid #2a2a2a; border-radius: 10px; color: var(--text); font-size: 13px; outline: none; font-family: inherit; }
-        .discount-row input:focus { border-color: var(--gold); }
-        .btn-discount { padding: 10px 16px; background: var(--dark3); border: 1.5px solid var(--gold); border-radius: 10px; color: var(--gold); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
-        .includes-list { list-style: none; padding: 15px 0; }
-        .includes-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text2); padding: 5px 0; }
-        .includes-list li::before { content: '✓'; color: var(--green); font-weight: 700; }
-        .btn-pay { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--dark); border: none; border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; transition: all 0.3s; margin-top: 5px; }
-        .btn-pay:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.4); }
-        .garantia { display: flex; align-items: flex-start; gap: 12px; background: rgba(46,204,113,0.05); border: 1px solid rgba(46,204,113,0.2); border-radius: 12px; padding: 15px; margin-top: 15px; }
-        .garantia-icon { font-size: 28px; }
-        .garantia-text h4 { font-size: 14px; color: var(--green); margin-bottom: 4px; }
-        .garantia-text p { font-size: 12px; color: var(--text2); line-height: 1.5; }
-        .success-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; }
-        .success-modal.active { display: flex; }
-        .success-box { background: var(--dark2); border: 2px solid var(--green); border-radius: 20px; padding: 50px 40px; text-align: center; max-width: 420px; width: 90%; }
-        .success-box .success-icon { font-size: 70px; margin-bottom: 20px; animation: bounce 0.6s ease; }
-        @keyframes bounce { 0% { transform: scale(0); } 60% { transform: scale(1.2); } 100% { transform: scale(1); } }
-        .success-box h2 { font-size: 24px; color: var(--green); margin-bottom: 10px; }
-        .success-box p { color: var(--text2); font-size: 14px; line-height: 1.7; margin-bottom: 25px; }
-        .loading-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 999; align-items: center; justify-content: center; flex-direction: column; gap: 20px; }
-        .loading-overlay.active { display: flex; }
-        .big-spinner { width: 60px; height: 60px; border: 4px solid #333; border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .loading-overlay p { color: var(--text2); font-size: 16px; }
-        .loading-overlay .loading-steps { color: var(--text2); font-size: 14px; text-align: center; }
-        @media (max-width: 768px) { .pay-grid { grid-template-columns: 1fr; } .payment-methods { grid-template-columns: repeat(3, 1fr); } .order-summary { position: static; } }
-        @media (max-width: 480px) { .payment-methods { grid-template-columns: 1fr 1fr; } .field-row { grid-template-columns: 1fr; } }
+        .container {
+            max-width: 480px;
+            width: 100%;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header .emoji { font-size: 50px; }
+        .header h1 {
+            font-size: 26px;
+            color: #FFD700;
+            margin-top: 10px;
+        }
+        .header p {
+            color: #aaa;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+        .order-card {
+            background: #141414;
+            border: 1.5px solid #2a2a2a;
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+        .order-card h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+        .product-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #2a2a2a;
+            margin-bottom: 20px;
+        }
+        .product-icon {
+            font-size: 36px;
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 10px;
+        }
+        .product-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .product-info p {
+            font-size: 13px;
+            color: #888;
+            margin-top: 4px;
+        }
+        .badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .badge {
+            font-size: 11px;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 3px 10px;
+            color: #ccc;
+        }
+        .price-rows {
+            margin-bottom: 20px;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .price-row.original span:last-child {
+            text-decoration: line-through;
+            color: #555;
+        }
+        .price-row.discount span:last-child {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        .price-row.total {
+            border-top: 1px solid #2a2a2a;
+            padding-top: 14px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+        .features-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        .features-list li {
+            font-size: 14px;
+            color: #ccc;
+            padding: 7px 0;
+            border-bottom: 1px solid #1e1e1e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        .pay-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: #FFD700;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.2s, background 0.2s;
+            margin-bottom: 14px;
+        }
+        .pay-btn:hover {
+            background: #FFC200;
+            transform: scale(1.02);
+        }
+        .secure-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .secure-badge {
+            font-size: 12px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        @media (max-width: 480px) {
+            .order-card { padding: 20px; }
+            .pay-btn { font-size: 16px; }
+        }
     </style>
 </head>
 <body>
+    <div class="container">
 
-<div class="loading-overlay" id="loadingOverlay">
-    <div class="big-spinner"></div>
-    <p>Processing your payment...</p>
-    <div class="loading-steps" id="loadingSteps">Verifying data...</div>
-</div>
-
-<div class="success-modal" id="successModal">
-    <div class="success-box">
-        <div class="success-icon">🎉</div>
-        <h2>Payment Successful!</h2>
-        <p>Your course access has been activated.<br>
-        You will receive a confirmation email with your access details.<br><br>
-        <strong style="color:var(--gold)">Welcome to PRP 5G Academy!</strong></p>
-        <button class="btn-pay" onclick="goToCourse()">🚀 Start the Course Now</button>
-    </div>
-</div>
-
-<div class="payment-container">
-
-    <div class="pay-header">
-        <div style="font-size:30px; margin-bottom:10px;">🔐</div>
-        <h1>Secure Payment — PRP 5G Academy</h1>
-        <p>¡Oferta especial! Acceso de por vida por solo <strong style="color:var(--gold)">$25 USD</strong> 🔥</p>
-        <div class="secure-badges">
-            <div class="secure-badge">🔒 SSL Encrypted</div>
-            <div class="secure-badge">✅ 100% Secure Payment</div>
-            <div class="secure-badge">💳 Multiple methods</div>
-            <div class="secure-badge">🛡️ 7-day guarantee</div>
+        <div class="header">
+            <div class="emoji">🧬</div>
+            <h1>PRP 5G Academy</h1>
+            <p>Completa tu inscripción al curso</p>
         </div>
-    </div>
 
-    <div class="pay-grid" style="grid-template-columns: 1fr; max-width: 500px; margin: 0 auto;">
-      <div style="text-align:center; padding: 20px 0;">
-    <a href="https://buy.stripe.com/3cI14n1ug7w7dAH4J45Vu01" 
-       style="background:#FFD700; color:#000; padding:18px 40px; border-radius:10px; font-size:20px; font-weight:bold; text-decoration:none; display:inline-block;">
-        🔒 Pay $25 USD — Secure Checkout
-    </a>
-</div>
+        <div class="order-card">
+            <h2>📋 Resumen del Pedido</h2>
 
-                <div class="payment-form active" id="form-card">
-                    <div class="card-visual" id="cardVisual">
-                        <div class="card-chip"></div>
-                        <div class="card-number-display" id="cardNumDisplay">•••• •••• •••• ••••</div>
-                        <div class="card-info-row">
-                            <div class="card-info-item">
-                                <div class="label">Cardholder</div>
-                                <div class="value" id="cardNameDisplay">FULL NAME</div>
-                            </div>
-                            <div class="card-info-item">
-                                <div class="label">Expires</div>
-                                <div class="value" id="cardExpDisplay">MM/YY</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Card Number</label>
-                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)" onkeyup="document.getElementById('cardNumDisplay').textContent = this.value || '•••• •••• •••• ••••'">
-                    </div>
-                    <div class="field">
-                        <label>Name on Card</label>
-                        <input type="text" id="cardName" placeholder="Name as it appears on card" oninput="document.getElementById('cardNameDisplay').textContent = this.value.toUpperCase() || 'FULL NAME'">
-                    </div>
-                    <div class="field-row">
-                        <div class="field">
-                            <label>Expiration Date</label>
-                            <input type="text" id="cardExp" placeholder="MM/YY" maxlength="5" oninput="formatExp(this)" onkeyup="document.getElementById('cardExpDisplay').textContent = this.value || 'MM/YY'">
-                        </div>
-                        <div class="field">
-                            <label>CVV</label>
-                            <input type="text" id="cardCvv" placeholder="123" maxlength="4">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Installments</label>
-                        <select id="cuotas">
-                            <option value="1">Pay in full (no interest)</option>
-                            <option value="3">3 installments</option>
-                            <option value="6">6 installments</option>
-                            <option value="12">12 installments</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="payment-form" id="form-transfer">
-                    <div class="transfer-info">
-                        <div class="transfer-row"><span class="label">Bank</span><span class="value">Bank of America</span></div>
-                        <div class="transfer-row"><span class="label">Account Type</span><span class="value">Checking Account</span></div>
-                        <div class="transfer-row"><span class="label">Account Number</span><span class="value copyable" onclick="copyText('123456789')">123456789 📋</span></div>
-                        <div class="transfer-row"><span class="label">Routing Number</span><span class="value copyable" onclick="copyText('021000021')">021000021 📋</span></div>
-                        <div class="transfer-row"><span class="label">Account Name</span><span class="value">PRP 5G Academy LLC</span></div>
-                        <div class="transfer-row"><span class="label">Email for receipt</span><span class="value copyable" onclick="copyText('payments@prp5gacademy.com')">payments@prp5gacademy.com 📋</span></div>
-                    </div>
-                    <div style="margin-top:15px;">
-                        <div class="field">
-                            <label>📎 Attach Receipt</label>
-                            <input type="file" accept="image/*,.pdf" style="color:var(--text2)">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="payment-form" id="form-paypal">
-                    <div style="text-align:center; padding:30px;">
-                        <div style="font-size:50px; margin-bottom:15px;">🅿️</div>
-                        <h3 style="color:white; margin-bottom:10px;">Pay with PayPal</h3>
-                        <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">Pay securely with your PayPal account or international credit card.</p>
-                        <button onclick="redirectPayment('PayPal')" style="padding:14px 35px; background:linear-gradient(135deg,#003087,#009cde); border:none; border-radius:10px; color:white; font-weight:700; cursor:pointer; font-size:15px; width:100%;">🅿️ Continue with PayPal</button>
-                    </div>
-                </div>
-
-               <div class="payment-form" id="form-apple">
-    <div style="text-align:center; padding:30px;">
-        <div style="font-size:50px; margin-bottom:15px;">🍎</div>
-        <h3 style="color:white; margin-bottom:10px;">Apple Pay</h3>
-        <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">Pay quickly and securely with Apple Pay using your iPhone, iPad or Mac.</p>
-        <button onclick="redirectPayment('Apple Pay')" style="padding:14px 35px; background:linear-gradient(135deg,#000000,#333333); border:none; border-radius:10px; color:white; font-weight:700; cursor:pointer; font-size:15px; width:100%; display:flex; align-items:center; justify-content:center; gap:10px;">
-            🍎 Pay with Apple Pay
-        </button>
-        <p style="color:var(--text2); font-size:11px; margin-top:15px;">🔒 Secured by Apple · Touch ID or Face ID required</p>
-    </div>
-</div>
-
-                <div class="payment-form" id="form-mp">
-                    <div style="text-align:center; padding:30px;">
-                        <div style="font-size:50px; margin-bottom:15px;">💙</div>
-                        <h3 style="color:white; margin-bottom:10px;">Mercado Pago</h3>
-                        <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">Pay with Mercado Pago balance, card or cash at 1000+ payment points.</p>
-                        <button onclick="redirectPayment('Mercado Pago')" style="padding:14px 35px; background:linear-gradient(135deg,#009ee3,#00cbff); border:none; border-radius:10px; color:white; font-weight:700; cursor:pointer; font-size:15px; width:100%;">💙 Pay with Mercado Pago</button>
+            <div class="product-row">
+                <div class="product-icon">🧬</div>
+                <div class="product-info">
+                    <h3>PRP 5ª Generación</h3>
+                    <p>Curso completo de PRP avanzado</p>
+                    <div class="badges">
+                        <span class="badge">♾️ Acceso de por vida</span>
+                        <span class="badge">🏆 Certificado</span>
+                        <span class="badge">📱 App incluida</span>
                     </div>
                 </div>
             </div>
 
-            <div class="pay-card">
-                <h2>👤 Billing Details</h2>
-                <div class="field-row">
-                    <div class="field">
-                        <label>First Name</label>
-                        <input type="text" id="billName" placeholder="Your first name">
-                    </div>
-                    <div class="field">
-                        <label>Last Name</label>
-                        <input type="text" id="billLastname" placeholder="Your last name">
-                    </div>
+            <div class="price-rows">
+                <div class="price-row original">
+                    <span>Precio original</span>
+                    <span>$197 USD</span>
                 </div>
-                <div class="field">
-                    <label>Email Address</label>
-                    <input type="email" id="billEmail" placeholder="you@email.com">
+                <div class="price-row discount">
+                    <span>Descuento especial</span>
+                    <span>-$172 USD</span>
                 </div>
-                <div class="field-row">
-                    <div class="field">
-                        <label>Phone Number</label>
-                        <input type="tel" id="billPhone" placeholder="+1 (555) 000-0000">
-                    </div>
-                    <div class="field">
-                        <label>ZIP Code</label>
-                        <input type="text" id="billZip" placeholder="10001">
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Country</label>
-                    <select id="billCountry">
-                        <option value="us">🇺🇸 United States</option>
-                        <option value="ca">🇨🇦 Canada</option>
-                        <option value="mx">🇲🇽 Mexico</option>
-                        <option value="co">🇨🇴 Colombia</option>
-                        <option value="ar">🇦🇷 Argentina</option>
-                        <option value="cl">🇨🇱 Chile</option>
-                        <option value="pe">🇵🇪 Peru</option>
-                        <option value="other">🌎 Other</option>
-                    </select>
+                <div class="price-row total">
+                    <span>Total</span>
+                    <span>$25 USD</span>
                 </div>
             </div>
-        </div>
 
-        <!-- ORDER SUMMARY -->
-        <div class="order-summary">
-            <div class="pay-card">
-                <h2>🛒 Order Summary</h2>
+            <ul class="features-list">
+                <li>✅ Acceso completo a todos los módulos</li>
+                <li>✅ Certificado solo al completar 100%</li>
+                <li>✅ Acceso de por vida — paga una vez</li>
+                <li>✅ Actualizaciones futuras incluidas</li>
+                <li>✅ Soporte por WhatsApp</li>
+                <li>✅ Materiales PDF descargables</li>
+            </ul>
 
-                <div class="summary-item">
-                    <div class="summary-icon">🧬</div>
-                    <div class="summary-details">
-                        <h3>PRP 5th Generation Course</h3>
-                        <p><span id="planName">Complete ⭐</span> · ♾️ Lifetime Access · Certificate included</p>
-                  </div>
-                </div>
+            <a href="https://buy.stripe.com/3cI14n1ug7w7dAH4J45Vu01" class="pay-btn">
+                🔒 Pagar $25 USD — Checkout Seguro
+            </a>
 
-                <!-- ACCESS BADGE -->
-                <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:12px 15px;margin:15px 0;display:flex;align-items:center;gap:10px;">
-                    <span style="font-size:22px;">⏰</span>
-                    <div>
-                        <p style="font-size:13px;color:white;font-weight:700;">♾️ Lifetime Access</p>
-                        <p style="font-size:11px;color:var(--text2);">Once you pay, you have access forever</p>
-
-                  </div>
-                </div>
-
-                <div class="price-breakdown">
-                    <div class="price-row">
-                        <span class="label">Original price</span>
-                        <span class="value" style="text-decoration:line-through; color:#555;" id="originalPrice">$297 USD</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="label" style="color:var(--green)">Discount</span>
-                        <span class="value" style="color:var(--green);" id="discountAmount">-$100 USD</span>
-                    </div>
-                    <div class="price-row" id="couponRow" style="display:none">
-                        <span class="label" style="color:var(--gold)">🎟️ Coupon</span>
-                        <span class="value" style="color:var(--gold);" id="couponAmount">-$0</span>
-                    </div>
-                    <div class="price-row total">
-                        <span class="label">TOTAL</span>
-                        <span class="value" id="totalPrice">$197 USD</span>
-                    </div>
-                </div>
-
-                <div class="discount-row">
-                    <input type="text" id="couponInput" placeholder="🎟️ Discount code">
-                    <button class="btn-discount" onclick="applyCoupon()">Apply</button>
-                </div>
-                <div id="couponMsg" style="font-size:12px; margin-bottom:10px;"></div>
-
-                <ul class="includes-list">
-                    <li>♾️ Lifetime access — pay once, access forever</li>
-                    <li>6 complete modules + evaluations</li>
-                    <li>Certificate only after 100% completion</li>
-                    <li>Mobile app included</li>
-                    <li>Downloadable PDF materials</li>
-                    <li>Email support included</li>
-                </ul>
-
-                <button class="btn-pay" onclick="procesarPago()">
-                    🔐 Pay <span id="btnPrice">$197 USD</span>
-                </button>
-
-                <div class="garantia">
-                    <div class="garantia-icon">🛡️</div>
-                    <div class="garantia-text">
-                        <h4>7-Day Money Back Guarantee</h4>
-                        <p>If you are not satisfied with the course, we will refund 100% of your money, no questions asked.</p>
-                    </div>
-                </div>
-
-                <div style="text-align:center; margin-top:15px;">
-                    <p style="font-size:11px; color:#555;">🔒 Secure payment · 💳 SSL Encryption · ✅ No surprises</p>
-                </div>
+            <div class="secure-badges">
+                <span class="secure-badge">🔐 SSL Encriptado</span>
+                <span class="secure-badge">💳 Stripe Seguro</span>
+                <span class="secure-badge">🌎 Pago Internacional</span>
             </div>
+
         </div>
+
     </div>
-</div>
-
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const userEmail = params.get('email') || '';
-    const userName = params.get('name') || '';
-    const planParam = params.get('plan') || 'complete';
-
-    // ✅ PRECIO ÚNICO $25 USD
-    const prices = {
-    basico:   { original: 197, sale: 25 },
-    premium:  { original: 197, sale: 25 },
-    complete: { original: 197, sale: 25 },
-    renewal:  { original: 97,  sale: 25 }
-};
-
-    const plan = prices[planParam] || prices.complete;
-    let finalPrice = plan.sale;
-    let couponApplied = false;
-
-    // Pre-fill data
-    document.getElementById('billEmail').value = userEmail;
-    document.getElementById('billName').value = userName.split(' ')[0] || '';
-    document.getElementById('billLastname').value = userName.split(' ').slice(1).join(' ') || '';
-
-    // Plan name
-    if (planParam === 'renewal') {
-        document.getElementById('planName').textContent = '🔄 Renewal';
-    } else {
-        document.getElementById('planName').textContent = 'Complete ⭐';
-    }
-
-    // Set prices
-    document.getElementById('originalPrice').textContent = '$' + plan.original + ' USD';
-    document.getElementById('discountAmount').textContent = '-$' + (plan.original - plan.sale) + ' USD';
-    document.getElementById('totalPrice').textContent = '$' + plan.sale + ' USD';
-    document.getElementById('btnPrice').textContent = '$' + plan.sale + ' USD';
-
-    function selectMethod(method, el) {
-        document.querySelectorAll('.method-btn').forEach(b => b.classList.remove('active'));
-        el.classList.add('active');
-        document.querySelectorAll('.payment-form').forEach(f => f.classList.remove('active'));
-        document.getElementById('form-' + method).classList.add('active');
-    }
-
-    function formatCard(input) {
-        let v = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
-        let matches = v.match(/\d{4,16}/g);
-        let match = matches && matches[0] || '';
-        let parts = [];
-        for (let i = 0; i < match.length; i += 4) parts.push(match.substring(i, i + 4));
-        input.value = parts.length ? parts.join(' ') : v;
-        document.getElementById('cardNumDisplay').textContent = input.value || '•••• •••• •••• ••••';
-        const num = input.value.replace(/\s/g, '');
-        const visual = document.getElementById('cardVisual');
-        if (num.startsWith('4')) visual.style.background = 'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
-        else if (num.startsWith('5')) visual.style.background = 'linear-gradient(135deg, #1a0a2e, #2d1b4e, #4a1a6e)';
-        else if (num.startsWith('3')) visual.style.background = 'linear-gradient(135deg, #0a2e1a, #1a4e2d, #1a6e4a)';
-    }
-
-    function formatExp(input) {
-        let v = input.value.replace(/\D/g, '');
-        if (v.length >= 2) v = v.slice(0,2) + '/' + v.slice(2);
-        input.value = v;
-        document.getElementById('cardExpDisplay').textContent = input.value || 'MM/YY';
-    }
-
-    const coupons = { 'WELCOME': 20, 'PRP5G': 15, 'PROMO2025': 30, 'VIP50': 50 };
-
-    function applyCoupon() {
-        const code = document.getElementById('couponInput').value.toUpperCase().trim();
-        const msg = document.getElementById('couponMsg');
-        if (couponApplied) { msg.textContent = '⚠️ A coupon is already applied'; msg.style.color = 'orange'; return; }
-        if (coupons[code]) {
-            const discount = Math.round(plan.sale * coupons[code] / 100);
-            finalPrice = plan.sale - discount;
-            couponApplied = true;
-            document.getElementById('couponRow').style.display = 'flex';
-            document.getElementById('couponAmount').textContent = '-$' + discount + ' USD';
-            document.getElementById('totalPrice').textContent = '$' + finalPrice + ' USD';
-            document.getElementById('btnPrice').textContent = '$' + finalPrice + ' USD';
-            msg.textContent = `✅ Coupon applied: ${coupons[code]}% discount`;
-            msg.style.color = '#2ecc71';
-        } else {
-            msg.textContent = '❌ Invalid or expired coupon';
-            msg.style.color = '#e74c3c';
-        }
-    }
-
-    function copyText(text) {
-        navigator.clipboard.writeText(text).then(() => { alert('✅ Copied: ' + text); });
-    }
-
-    function redirectPayment(platform) {
-        const overlay = document.getElementById('loadingOverlay');
-        overlay.classList.add('active');
-        document.getElementById('loadingSteps').textContent = `Connecting to ${platform}...`;
-        setTimeout(() => {
-            overlay.classList.remove('active');
-            alert(`💡 To integrate with ${platform}:\n• Create account\n• Get API Keys\n• Implement webhooks\n\nSimulating successful payment.`);
-            simulateSuccess();
-        }, 2000);
-    }
-
-    function procesarPago() {
-    window.location.href = 'https://buy.stripe.com/3cI14n1ug7w7dAH4J45Vu01';
-}
-
-    function simulateSuccess() {
-        const users = JSON.parse(localStorage.getItem('prp5g_users') || '[]');
-        const idx = users.findIndex(u => u.email === userEmail);
-        if (idx !== -1) {
-            users[idx].paid = true;
-            users[idx].paidAt = new Date().toISOString();
-            users[idx].finalPrice = finalPrice;
-            localStorage.setItem('prp5g_users', JSON.stringify(users));
-            sessionStorage.setItem('prp5g_session', JSON.stringify(users[idx]));
-        }
-        document.getElementById('successModal').classList.add('active');
-    }
-
-    function goToCourse() { window.location.href = 'dashboard.html'; }
-</script>
-
 </body>
 </html>
