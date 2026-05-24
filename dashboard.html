@@ -526,21 +526,39 @@ body {
 
         /* ===== CERTIFICADO ===== */
         .certificate {
-            background: linear-gradient(135deg, var(--dark2), var(--dark3));
-            border: 2px solid var(--gold);
-            border-radius: 20px;
-            padding: 50px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+    background: linear-gradient(135deg, var(--dark2), var(--dark3));
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    box-shadow: 
+        0 0 0 2px var(--gold),
+        0 0 0 4px var(--dark),
+        0 0 0 6px var(--gold),
+        0 0 30px rgba(201,168,76,0.3),
+        0 0 60px rgba(201,168,76,0.1);
+}
         .certificate::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 60%);
-        }
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+            .certificate {
+    ...
+    position: relative;
+    z-index: 1;
+}
+
+}
+       .certificate > * {
+    position: relative;
+    z-index: 2;
+}
         .certificate h1 { font-size: 28px; color: var(--gold); margin-bottom: 10px; }
         .certificate .cert-name { font-size: 36px; font-weight: 800; color: white; margin: 20px 0; }
         .certificate p { color: var(--text2); font-size: 14px; line-height: 1.7; }
