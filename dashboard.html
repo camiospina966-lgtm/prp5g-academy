@@ -685,11 +685,16 @@ body {
             }
 
             .btn-print,
-            input#certNameInput,
-            .lesson-nav,
-            .sidebar {
-                display: none !important;
-            }
+input#certNameInput,
+.lesson-nav,
+.sidebar,
+.cert-actions,
+.cert-customize,
+<button class="btn-print" onclick="printCertificate()">
+p[style*="Personaliza"],
+label[for="certNameInput"] {
+    display: none !important;
+}
         }
 
     </style>
