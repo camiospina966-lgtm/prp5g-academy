@@ -13860,9 +13860,15 @@ function showPage(id) {
                 year: 'numeric', month: 'long', day: 'numeric'
             });
         }
-        if (certCode) {
-            certCode.textContent = 'PRP5G-' + Math.random().toString(36).substr(2, 8).toUpperCase();
-        }
+      if (certCode) {
+    let savedCode = localStorage.getItem('prp5g_certCode');
+    if (!savedCode) {
+        savedCode = 'PRP5G-' + Math.random().toString(36).substr(2, 8).toUpperCase();
+        localStorage.setItem('prp5g_certCode', savedCode);
+    }
+    certCode.textContent = savedCode;
+}
+
     }
 }
 
@@ -14165,6 +14171,7 @@ function updateCertName(val) {
     const certNameEl = document.getElementById('certName');
     if (!certNameEl) return;
     certNameEl.textContent = nombre || 'Profesional del Curso';
+    if (nombre) localStorage.setItem('prp5g_certName', nombre);
     if (nombre.length > 35) {
         certNameEl.style.fontSize = '20px';
     } else if (nombre.length > 25) {
@@ -14175,6 +14182,16 @@ function updateCertName(val) {
         certNameEl.style.fontSize = '36px';
     }
 }
+// Cargar nombre guardado
+const savedName = localStorage.getItem('prp5g_certName');
+if (savedName) {
+    const input = document.getElementById('certNameInput');
+    if (input) {
+        input.value = savedName;
+        updateCertName(savedName);
+    }
+}
+
 
 // ============================================================
 // FUNCIÓN PLAY VIDEO — CONTENEDORES SIMPLES
