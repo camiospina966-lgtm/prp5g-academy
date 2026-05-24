@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Contraindicaciones PRP / PRP Contraindications Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: #fff;
+            color: #111;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px double #111;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo-area {
+            width: 120px;
+            height: 60px;
+            border: 2px dashed #ccc;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 12px;
+        }
+        h1 {
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 15px 0 5px;
+        }
+        h1 span {
+            font-size: 15px;
+            display: block;
+            letter-spacing: 1px;
+            color: #444;
+            margin-top: 4px;
+        }
+        .intro {
+            background: #f9f9f9;
+            border-left: 4px solid #111;
+            padding: 14px 18px;
+            margin-bottom: 28px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #333;
+        }
+        .section {
+            margin-bottom: 28px;
+        }
+        .section-title {
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: #111;
+            color: #fff;
+            padding: 8px 14px;
+            margin-bottom: 14px;
+            border-radius: 4px;
+        }
+        .section-title span {
+            display: block;
+            font-size: 11px;
+            color: #ccc;
+            font-style: italic;
+            font-weight: normal;
+            margin-top: 2px;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .card {
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px 14px;
+        }
+        .card.red { border-left: 4px solid #d32f2f; }
+        .card.orange { border-left: 4px solid #e65100; }
+        .card.yellow { border-left: 4px solid #f9a825; }
+        .card.green { border-left: 4px solid #2e7d32; }
+        .card-title {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .card-body {
+            font-size: 12px;
+            color: #444;
+            line-height: 1.6;
+        }
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        .card-body ul li {
+            padding: 3px 0;
+            padding-left: 14px;
+            position: relative;
+        }
+        .card-body ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+        .alert-box {
+            border: 2px solid #d32f2f;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            background: #fff8f8;
+        }
+        .alert-box .alert-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .alert-box p {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li .check-box {
+            width: 16px;
+            height: 16px;
+            border: 1.5px solid #111;
+            border-radius: 3px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .checklist li .tag {
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 10px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .tag.absoluta { background: #ffebee; color: #c62828; }
+        .tag.relativa { background: #fff3e0; color: #e65100; }
+        .tag.precaucion { background: #fffde7; color: #f57f17; }
+        .dosage-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .dosage-table th {
+            background: #111;
+            color: #fff;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .dosage-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .dosage-table tr:nth-child(even) td {
+            background: #f9f9f9;
+        }
+        .lang-divider {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .lang-divider::before,
+        .lang-divider::after {
+            content: '';
+            flex: 1;
+            border-top: 1px dashed #ccc;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ccc;
+            font-size: 11px;
+            color: #888;
+            text-align: center;
+        }
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #111;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+        .print-btn:hover { background: #333; }
+        @media print {
+            .print-btn { display: none; }
+            body { padding: 20px; }
+            .page-break { page-break-before: always; }
+        }
+        @media (max-width: 600px) {
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨️ Imprimir / Print PDF</button>
+
+<!-- ===== ESPAÑOL ===== -->
+<div class="header">
+    <div class="logo-area">LOGO / CLÍNICA</div>
+    <h1>
+        Guía de Contraindicaciones
+        <span>Tratamiento con Plasma Rico en Plaquetas (PRP)</span>
+    </h1>
+</div>
+
+<div class="intro">
+    <strong>⚕️ Uso exclusivo para profesionales de la salud.</strong> Esta guía establece las contraindicaciones absolutas, relativas y precauciones para la aplicación de PRP. Evalúe cada paciente individualmente antes de proceder con el tratamiento.
+</div>
+
+<div class="section">
+    <div class="section-title">1. Contraindicaciones Absolutas
+        <span>El procedimiento NO debe realizarse bajo ninguna circunstancia</span>
+    </div>
+    <div class="cards-grid">
+        <div class="card red">
+            <div class="card-title">🩸 Trastornos Hematológicos</div>
+            <div class="card-body">
+                <ul>
+                    <li>Trombocitopenia severa (&lt;100,000/μL)</li>
+                    <li>Trastornos de coagulación</li>
+                    <li>Hemofilia</li>
+                    <li>Disfunción plaquetaria</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card red">
+            <div class="card-title">🦠 Infecciones Activas</div>
+            <div class="card-body">
+                <ul>
+                    <li>Infección local en zona de tratamiento</li>
+                    <li>Sepsis o infección sistémica activa</li>
+                    <li>Fiebre activa (&gt;38°C)</li>
+                    <li>Herpes activo en zona a tratar</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card red">
+            <div class="card-title">🎗️ Oncología</div>
+            <div class="card-body">
+                <ul>
+                    <li>Cáncer activo (cualquier tipo)</li>
+                    <li>Pacientes en quimioterapia</li>
+                    <li>Pacientes en radioterapia</li>
+                    <li>Tumores en zona a tratar</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card red">
+            <div class="card-title">💊 Medicamentos</div>
+            <div class="card-body">
+                <ul>
+                    <li>Anticoagulantes activos (Warfarina)</li>
+                    <li>Corticoides sistémicos recientes</li>
+                    <li>AINEs en últimas 72 horas</li>
+                    <li>Aspirina en últimas 72 horas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">2. Contraindicaciones Relativas
+        <span>Evaluar riesgo-beneficio — requieren valoración médica detallada</span>
+    </div>
+    <div class="cards-grid">
+        <div class="card orange">
+            <div class="card-title">🤰 Condiciones Especiales</div>
+            <div class="card-body">
+                <ul>
+                    <li>Embarazo (cualquier trimestre)</li>
+                    <li>Período de lactancia</li>
+                    <li>Menores de 18 años</li>
+                    <li>Mayores de 75 años (valorar)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card orange">
+            <div class="card-title">🫀 Enfermedades Sistémicas</div>
+            <div class="card-body">
+                <ul>
+                    <li>Diabetes no controlada</li>
+                    <li>Enfermedades autoinmunes activas</li>
+                    <li>Lupus eritematoso sistémico</li>
+                    <li>Hepatitis viral activa</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card orange">
+            <div class="card-title">🩺 Condiciones Dermatológicas</div>
+            <div class="card-body">
+                <ul>
+                    <li>Psoriasis activa en zona</li>
+                    <li>Dermatitis activa severa</li>
+                    <li>Queloides previos</li>
+                    <li>Cicatrización deficiente</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card orange">
+            <div class="card-title">🧬 Otras Condiciones</div>
+            <div class="card-body">
+                <ul>
+                    <li>Anemia severa (Hb &lt;10 g/dL)</li>
+                    <li>Hipofibrinogenemia</li>
+                    <li>Inmunosupresión severa</li>
+                    <li>VIH con carga viral detectable</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">3. Precauciones
+        <span>Proceder con cuidado y monitoreo adicional</span>
+    </div>
+    <ul class="checklist">
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">PRECAUCIÓN</span>
+            <span>Pacientes fumadores — puede reducir eficacia del tratamiento hasta un 40%</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">PRECAUCIÓN</span>
+            <span>Consumo de alcohol — evitar 48h antes y después del procedimiento</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">PRECAUCIÓN</span>
+            <span>Piel muy bronceada o quemada por sol — esperar recuperación completa</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">PRECAUCIÓN</span>
+            <span>Tratamientos previos con fillers — esperar mínimo 2 semanas</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">PRECAUCIÓN</span>
+            <span>Uso de retinoides tópicos — suspender 5 días antes</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">PRECAUCIÓN</span>
+            <span>Historial de alergias severas — tener protocolo de emergencia disponible</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">PRECAUCIÓN</span>
+            <span>Pacientes con miedo a agujas — considerar anestesia tópica previa</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">PRECAUCIÓN</span>
+            <span>Diabetes controlada — monitorear cicatrización post-procedimiento</span>
+        </li>
+    </ul>
+</div>
+
+<div class="section">
+    <div class="section-title">4. Valores de Laboratorio Mínimos Recomendados
+        <span>Solicitar antes del primer tratamiento en pacientes de riesgo</span>
+    </div>
+    <table class="dosage-table">
+        <tr>
+            <th>Parámetro</th>
+            <th>Valor Mínimo</th>
+            <th>Observación</th>
+        </tr>
+        <tr>
+            <td>Plaquetas</td>
+            <td>&gt; 150,000/μL</td>
+            <td>Óptimo: 200,000-400,000/μL</td>
+        </tr>
+        <tr>
+            <td>Hemoglobina</td>
+            <td>&gt; 10 g/dL</td>
+            <td>Evaluar si es menor</td>
+        </tr>
+        <tr>
+            <td>Hematocrito</td>
+            <td>&gt; 30%</td>
+            <td>Necesario para buena centrifugación</td>
+        </tr>
+        <tr>
+            <td>TP / INR</td>
+            <td>INR &lt; 1.5</td>
+            <td>Contraindicado si INR &gt; 2.0</td>
+        </tr>
+        <tr>
+            <td>Glucosa en ayuno</td>
+            <td>&lt; 126 mg/dL</td>
+            <td>Diabetes controlada aceptable</td>
+        </tr>
+        <tr>
+            <td>Proteínas totales</td>
+            <td>&gt; 6.0 g/dL</td>
+            <td>Importante para regeneración</td>
+        </tr>
+    </table>
+</div>
+
+<div class="alert-box">
+    <div class="alert-title">🚨 Protocolo de Emergencia</div>
+    <p>En caso de reacción adversa severa: suspender procedimiento inmediatamente, posicionar al paciente en decúbito supino, evaluar vía aérea y signos vitales, administrar epinefrina si hay signos de anafilaxia, activar servicio de emergencias médicas.</p>
+    <br>
+    <p><strong>Número de emergencia local:</strong> ___________________________</p>
+</div>
+
+<div class="footer">
+    <p>PRP 5G Academy — Material educativo para uso exclusivo de profesionales de la salud</p>
+    <p>Esta guía es informativa y no reemplaza el criterio clínico del médico tratante</p>
+</div>
+
+<!-- ===== ENGLISH VERSION ===== -->
+<div class="lang-divider page-break">✦ ENGLISH VERSION BELOW ✦</div>
+
+<div class="header">
+    <div class="logo-area">LOGO / CLINIC</div>
+    <h1>
+        Contraindications Guide
+        <span>Platelet-Rich Plasma (PRP) Treatment</span>
+    </h1>
+</div>
+
+<div class="intro">
+    <strong>⚕️ For healthcare professionals use only.</strong> This guide establishes absolute, relative contraindications and precautions for PRP application. Evaluate each patient individually before proceeding with treatment.
+</div>
+
+<div class="section">
+    <div class="section-title">1. Absolute Contraindications
+        <span>Procedure must NOT be performed under any circumstances</span>
+    </div>
+    <div class="cards-grid">
+        <div class="card red">
+            <div class="card-title">🩸 Hematological Disorders</div>
+            <div class="card-body">
+                <ul>
+                    <li>Severe thrombocytopenia (&lt;100,000/μL)</li>
+                    <li>Coagulation disorders</li>
+                    <li>Hemophilia</li>
+                    <li>Platelet dysfunction</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card red">
+            <div class="card-title">🦠 Active Infections</div>
+            <div class="card-body">
+                <ul>
+                    <li>Local infection at treatment site</li>
+                    <li>Sepsis or active systemic infection</li>
+                    <li>Active fever (&gt;38°C / 100.4°F)</li>
+                    <li>Active herpes at treatment site</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card red">
+            <div class="card-title">🎗️ Oncology</div>
+            <div class="card-body">
+                <ul>
+                    <li>Active cancer (any type)</li>
+                    <li>Patients undergoing chemotherapy</li>
+                    <li>Patients undergoing radiotherapy</li>
+                    <li>Tumors at treatment site</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card red">
+            <div class="card-title">💊 Medications</div>
+            <div class="card-body">
+                <ul>
+                    <li>Active anticoagulants (Warfarin)</li>
+                    <li>Recent systemic corticosteroids</li>
+                    <li>NSAIDs within last 72 hours</li>
+                    <li>Aspirin within last 72 hours</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">2. Relative Contraindications
+        <span>Evaluate risk-benefit — requires detailed medical assessment</span>
+    </div>
+    <div class="cards-grid">
+        <div class="card orange">
+            <div class="card-title">🤰 Special Conditions</div>
+            <div class="card-body">
+                <ul>
+                    <li>Pregnancy (any trimester)</li>
+                    <li>Breastfeeding period</li>
+                    <li>Under 18 years of age</li>
+                    <li>Over 75 years (assess carefully)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card orange">
+            <div class="card-title">🫀 Systemic Diseases</div>
+            <div class="card-body">
+                <ul>
+                    <li>Uncontrolled diabetes</li>
+                    <li>Active autoimmune diseases</li>
+                    <li>Systemic lupus erythematosus</li>
+                    <li>Active viral hepatitis</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card orange">
+            <div class="card-title">🩺 Dermatological Conditions</div>
+            <div class="card-body">
+                <ul>
+                    <li>Active psoriasis in treatment area</li>
+                    <li>Severe active dermatitis</li>
+                    <li>History of keloids</li>
+                    <li>Poor wound healing history</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card orange">
+            <div class="card-title">🧬 Other Conditions</div>
+            <div class="card-body">
+                <ul>
+                    <li>Severe anemia (Hb &lt;10 g/dL)</li>
+                    <li>Hypofibrinogenemia</li>
+                    <li>Severe immunosuppression</li>
+                    <li>HIV with detectable viral load</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">3. Precautions
+        <span>Proceed with care and additional monitoring</span>
+    </div>
+    <ul class="checklist">
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">CAUTION</span>
+            <span>Smokers — may reduce treatment efficacy by up to 40%</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">CAUTION</span>
+            <span>Alcohol consumption — avoid 48h before and after procedure</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">CAUTION</span>
+            <span>Very tanned or sunburned skin — wait for complete recovery</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">CAUTION</span>
+            <span>Previous filler treatments — wait at least 2 weeks</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">CAUTION</span>
+            <span>Topical retinoid use — discontinue 5 days before procedure</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">CAUTION</span>
+            <span>History of severe allergies — have emergency protocol available</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">CAUTION</span>
+            <span>Needle phobia — consider topical anesthesia prior to procedure</span>
+        </li>
+        <li>
+            <div class="check-box"></div>
+            <span class="tag precaucion">CAUTION</span>
+            <span>Controlled diabetes — monitor post-procedure wound healing</span>
+        </li>
+    </ul>
+</div>
+
+<div class="section">
+    <div class="section-title">4. Minimum Recommended Lab Values
+        <span>Request before first treatment in at-risk patients</span>
+    </div>
+    <table class="dosage-table">
+        <tr>
+            <th>Parameter</th>
+            <th>Minimum Value</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>Platelets</td>
+            <td>&gt; 150,000/μL</td>
+            <td>Optimal: 200,000-400,000/μL</td>
+        </tr>
+        <tr>
+            <td>Hemoglobin</td>
+            <td>&gt; 10 g/dL</td>
+            <td>Evaluate if lower</td>
+        </tr>
+        <tr>
+            <td>Hematocrit</td>
+            <td>&gt; 30%</td>
+            <td>Required for proper centrifugation</td>
+        </tr>
+        <tr>
+            <td>PT / INR</td>
+            <td>INR &lt; 1.5</td>
+            <td>Contraindicated if INR &gt; 2.0</td>
+        </tr>
+        <tr>
+            <td>Fasting glucose</td>
+            <td>&lt; 126 mg/dL</td>
+            <td>Controlled diabetes acceptable</td>
+        </tr>
+        <tr>
+            <td>Total proteins</td>
+            <td>&gt; 6.0 g/dL</td>
+            <td>Important for regeneration</td>
+        </tr>
+    </table>
+</div>
+
+<div class="alert-box">
+    <div class="alert-title">🚨 Emergency Protocol</div>
+    <p>In case of severe adverse reaction: stop procedure immediately, position patient in supine position, assess airway and vital signs, administer epinephrine if signs of anaphylaxis are present, activate emergency medical services.</p>
+    <br>
+    <p><strong>Local emergency number:</strong> ___________________________</p>
+</div>
+
+<div class="footer">
+    <p>PRP 5G Academy — Educational material for healthcare professionals use only</p>
+    <p>This guide is informational and does not replace the clinical judgment of the treating physician</p>
+</div>
+
+</body>
+</html>
