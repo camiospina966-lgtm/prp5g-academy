@@ -696,6 +696,23 @@ label[for="certNameInput"] {
     display: none !important;
 }
         }
+body.printing * {
+    visibility: hidden !important;
+}
+body.printing .certificate,
+body.printing .certificate * {
+    visibility: visible !important;
+}
+body.printing .certificate {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: #1a1a2e !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
 
     </style>
 </head>
@@ -19165,6 +19182,34 @@ function toggleFullscreen63() {
     } else {
         document.exitFullscreen();
     }
+}
+function printCertificate() {
+    // Ocultar elementos antes de imprimir
+    const elementsToHide = document.querySelectorAll('.btn-print, #certNameInput, .lesson-nav, .sidebar, label[for="certNameInput"], p');
+    const hiddenElements = [];
+    
+    elementsToHide.forEach(el => {
+        if (el.style.display !== 'none') {
+            el.dataset.wasVisible = 'true';
+            el.style.display = 'none';
+        }
+    });
+
+    // Ocultar todo excepto certificado
+    document.body.classList.add('printing');
+    
+    // Imprimir
+    window.print();
+    
+    // Restaurar después de imprimir
+    elementsToHide.forEach(el => {
+        if (el.dataset.wasVisible) {
+            el.style.display = '';
+            delete el.dataset.wasVisible;
+        }
+    });
+    
+    document.body.classList.remove('printing');
 }
 
 </script>
