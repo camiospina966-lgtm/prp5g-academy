@@ -124,32 +124,13 @@
         </div>
     </div>
 
-    <div class="pay-grid">
-        <div>
-            <div class="pay-card">
-                <h2>💳 Payment Method</h2>
-                <div class="payment-methods">
-                    <div class="method-btn active" onclick="selectMethod('card', this)">
-                        <div class="method-icon">💳</div>
-                        <div class="method-name">Card</div>
-                    </div>
-                    <div class="method-btn" onclick="selectMethod('transfer', this)">
-                        <div class="method-icon">🏦</div>
-                        <div class="method-name">Wire Transfer</div>
-                    </div>
-                    <div class="method-btn" onclick="selectMethod('paypal', this)">
-                        <div class="method-icon">🅿️</div>
-                        <div class="method-name">PayPal</div>
-                    </div>
-                    <div class="method-btn" onclick="selectMethod('mp', this)">
-                        <div class="method-icon">💙</div>
-                        <div class="method-name">Mercado Pago</div>
-                    </div>
-                    <div class="method-btn" onclick="selectMethod('apple', this)">
-    <div class="method-icon">🍎</div>
-    <div class="method-name">Apple Pay</div>
+    <div class="pay-grid" style="grid-template-columns: 1fr; max-width: 500px; margin: 0 auto;">
+      <div style="text-align:center; padding: 20px 0;">
+    <a href="https://buy.stripe.com/3cI14n1ug7w7dAH4J45Vu01" 
+       style="background:#FFD700; color:#000; padding:18px 40px; border-radius:10px; font-size:20px; font-weight:bold; text-decoration:none; display:inline-block;">
+        🔒 Pay $25 USD — Secure Checkout
+    </a>
 </div>
-                </div>
 
                 <div class="payment-form active" id="form-card">
                     <div class="card-visual" id="cardVisual">
