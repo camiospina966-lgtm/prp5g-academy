@@ -723,40 +723,23 @@ body.printing .certificate {
     }
     @page {
         size: landscape;
-        margin: 0;
+        margin: 10mm;
     }
-    html, body {
-        margin: 0 !important;
-        padding: 0 !important;
+    body {
         background: #0d0d1a !important;
-        height: 100% !important;
-        width: 100% !important;
-    }
-    .sidebar, header, .lesson-nav,
-    .page-header, nav, footer {
-        display: none !important;
-    }
-    .page {
-        display: block !important;
         margin: 0 !important;
         padding: 0 !important;
     }
     .certificate {
-        width: 100vw !important;
-        height: 100vh !important;
-        min-height: unset !important;
+        width: 100% !important;
+        min-height: 90vh !important;
         margin: 0 !important;
-        padding: 30px 50px !important;
-        box-sizing: border-box !important;
         page-break-inside: avoid !important;
-        break-inside: avoid !important;
-        border-radius: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
+    }
+    .sidebar, header, .lesson-nav {
+        display: none !important;
     }
 }
-
 
 
 
