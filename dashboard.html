@@ -713,6 +713,11 @@ body.printing .certificate {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
 }
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
 
     </style>
 </head>
@@ -13453,10 +13458,10 @@ body.printing .certificate {
                         </div>
                     </div>
                 </div>
-                <button onclick="window.print()" style="background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);border:none;padding:14px 35px;border-radius:25px;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:20px;">
+                <button class="no-print" onclick="window.print()" style="background:linear-gradient(135deg
                     🖨️ Imprimir / Guardar Certificado
                 </button>
-                <div style="margin-top:20px;">
+               <div style="margin-top:20px;" class="no-print">
                     <label style="color:var(--text2);font-size:13px;">Personaliza tu nombre en el certificado:</label>
                     <input type="text" id="certNameInput"
                         placeholder="Escribe tu nombre completo aquí"
