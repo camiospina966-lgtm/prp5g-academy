@@ -14027,7 +14027,7 @@ function toggleModule(id) {
 // ============================================================
 function showPage(id) {
     if (id === 'certificate') {
-       if (false) {
+       if (!isCourseComplete()) {
             showCertificateLocked();
             return;
         }
