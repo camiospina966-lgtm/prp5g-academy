@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Pago Exitoso! — PRP 5G Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            background: #141414;
+            border: 1.5px solid #d4af37;
+            border-radius: 18px;
+            padding: 50px 40px;
+            max-width: 480px;
+            width: 100%;
+        }
+        .emoji { font-size: 70px; margin-bottom: 20px; }
+        h1 { color: #FFD700; font-size: 28px; margin-bottom: 12px; }
+        p { color: #aaa; font-size: 15px; line-height: 1.6; margin-bottom: 10px; }
+        .redirect-msg {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #555;
+        }
+        .bar-wrap {
+            width: 100%;
+            background: #222;
+            border-radius: 10px;
+            height: 6px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        .bar {
+            height: 6px;
+            background: #FFD700;
+            border-radius: 10px;
+            width: 0%;
+            animation: load 3s linear forwards;
+        }
+        @keyframes load {
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="emoji">🎉</div>
+        <h1>¡Pago Exitoso!</h1>
+        <p>Bienvenido a <strong style="color:#FFD700;">PRP 5G Academy</strong></p>
+        <p>Tu acceso de por vida ha sido activado.</p>
+        <p>Serás redirigido al curso en unos segundos...</p>
+        <div class="redirect-msg">
+            Redirigiendo...
+            <div class="bar-wrap"><div class="bar"></div></div>
+        </div>
+    </div>
+
+    <script>
+        // Guardar sesión de pago
+        const session = {
+            paidAt: new Date().toISOString(),
+            email: 'estudiante@prp5g.com',
+            name: 'Estudiante PRP',
+            plan: 'lifetime'
+        };
+        localStorage.setItem('prp5g_session', JSON.stringify(session));
+        sessionStorage.setItem('prp5g_session', JSON.stringify(session));
+
+        // Redirigir al dashboard después de 3 segundos
+        setTimeout(() => {
+            window.location.href = 'dashboard.html';
+        }, 3000);
+    </script>
+</body>
+</html>
