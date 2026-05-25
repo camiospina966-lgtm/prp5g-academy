@@ -717,23 +717,7 @@ body.printing .certificate {
     .no-print {
         display: none !important;
     }
-    body {
-        background: #1a1a2e !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-    .sidebar, .lesson-nav, header {
-        display: none !important;
-    }
-    #certDate, #certCode, #certName {
-        color: #d4af37 !important;
-    }
 }
-
 
     </style>
 </head>
@@ -13462,7 +13446,7 @@ body.printing .certificate {
                     <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;">
                         <div>
                             <p style="font-size:11px;color:var(--text2);">FECHA DE EMISIÓN</p>
-                           <p style="color:white;font-weight:600;print-color-adjust:exact;" id="certDate">
+                            <p style="color:white;font-weight:600;" id="certDate">—</p>
                         </div>
                         <div>
                             <p style="font-size:11px;color:var(--text2);">CÓDIGO DE VERIFICACIÓN</p>
@@ -13474,6 +13458,9 @@ body.printing .certificate {
                         </div>
                     </div>
                 </div>
+                <button class="no-print" onclick="window.print()" style="background:linear-gradient(135deg
+                    🖨️ Imprimir / Guardar Certificado
+                </button>
                <div style="margin-top:20px;" class="no-print">
                     <label style="color:var(--text2);font-size:13px;">Personaliza tu nombre en el certificado:</label>
                     <input type="text" id="certNameInput"
@@ -13481,9 +13468,6 @@ body.printing .certificate {
                         style="display:block;margin:8px auto;padding:10px 20px;background:#222;border:1px solid var(--gold);border-radius:25px;color:white;font-size:14px;width:320px;text-align:center;outline:none;"
                         oninput="updateCertName(this.value)">
                 </div>
-                <button class="no-print" onclick="window.print()" style="background:linear-gradient(135deg
-                    🖨️ Imprimir / Guardar Certificado
-                </button>
             </div>
         </div>
 
