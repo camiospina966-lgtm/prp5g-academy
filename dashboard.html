@@ -19184,19 +19184,23 @@ function toggleFullscreen63() {
     }
 }
 function printCertificate() {
-    // Agregar clase printing
-    document.body.classList.add('printing');
-    
-    // Esperar que el navegador aplique los estilos
-    setTimeout(function() {
-        window.print();
-        
-        // Restaurar después de imprimir
-        setTimeout(function() {
-            document.body.classList.remove('printing');
-        }, 1000);
-    }, 300);
+    window.print();
 }
+
+window.addEventListener('beforeprint', function() {
+    document.querySelectorAll('.btn-print, #certNameInput, label[for="certNameInput"], .cert-customize, .cert-actions, p.cert-customize-text').forEach(function(el) {
+        el.setAttribute('data-print-hidden', 'true');
+        el.style.setProperty('display', 'none', 'important');
+    });
+});
+
+window.addEventListener('afterprint', function() {
+    document.querySelectorAll('[data-print-hidden]').forEach(function(el) {
+        el.removeAttribute('data-print-hidden');
+        el.style.removeProperty('display');
+    });
+});
+
 </script>
 </body>
 </html>
