@@ -13938,43 +13938,51 @@ if (window.speechSynthesis) {
 function checkAccess() {
     const session = localStorage.getItem('prp5g_session') ||
                     sessionStorage.getItem('prp5g_session');
-    if (!session) return true;
+    
+    if (!session) {
+        // Sin sesión = redirigir al pago
+        window.location.href = 'payment.html';
+        return false;
+    }
+    
     try {
         const user = JSON.parse(session);
-        if (user.paidAt) {
-            const paidDate = new Date(user.paidAt);
-            const now = new Date();
-            const diffDays = Math.floor((now - paidDate) / (1000 * 60 * 60 * 24));
-            const daysLeft = 99999 - diffDays;
-            if (daysLeft <= 0) {
-                showAccessExpired();
-                return false;
-            }
-            showAccessBanner(daysLeft);
+        
+        if (!user.paidAt) {
+            // Sin fecha de pago = redirigir al pago
+            window.location.href = 'payment.html';
+            return false;
         }
+        
+        // Tiene pago = acceso de por vida ✅
+        showAccessBanner();
+        return true;
+        
     } catch(e) {
         console.log('Error parsing session:', e);
+        window.location.href = 'payment.html';
+        return false;
     }
-    return true;
 }
+
 
 function showAccessBanner(daysLeft) {
     const banner = document.createElement('div');
-    const color = daysLeft <= 30 ? '#e74c3c' : daysLeft <= 60 ? '#f39c12' : '#2ecc71';
     banner.style.cssText = `
         position:fixed;bottom:20px;right:20px;
-        background:#111;border:1px solid ${color};
+        background:#111;border:1px solid #d4af37;
         border-radius:12px;padding:12px 18px;
-        font-size:12px;color:${color};
+        font-size:12px;color:#d4af37;
         z-index:999;box-shadow:0 4px 20px rgba(0,0,0,0.5);
         font-family:'Segoe UI',sans-serif;
     `;
-    banner.innerHTML = `♾️ <strong>Acceso de por vida</strong> activo`;
+    banner.innerHTML = `♾️ <strong>Acceso de por vida</strong> activo ✅`;
     document.body.appendChild(banner);
     setTimeout(() => {
         if (banner.parentNode) banner.remove();
     }, 6000);
 }
+
 
 // ============================================================
 // VERIFICACIÓN DE CURSO COMPLETO
