@@ -19184,34 +19184,19 @@ function toggleFullscreen63() {
     }
 }
 function printCertificate() {
-    // Ocultar elementos antes de imprimir
-    const elementsToHide = document.querySelectorAll('.btn-print, #certNameInput, .lesson-nav, .sidebar, label[for="certNameInput"], p');
-    const hiddenElements = [];
-    
-    elementsToHide.forEach(el => {
-        if (el.style.display !== 'none') {
-            el.dataset.wasVisible = 'true';
-            el.style.display = 'none';
-        }
-    });
-
-    // Ocultar todo excepto certificado
+    // Agregar clase printing
     document.body.classList.add('printing');
     
-    // Imprimir
-    window.print();
-    
-    // Restaurar después de imprimir
-    elementsToHide.forEach(el => {
-        if (el.dataset.wasVisible) {
-            el.style.display = '';
-            delete el.dataset.wasVisible;
-        }
-    });
-    
-    document.body.classList.remove('printing');
+    // Esperar que el navegador aplique los estilos
+    setTimeout(function() {
+        window.print();
+        
+        // Restaurar después de imprimir
+        setTimeout(function() {
+            document.body.classList.remove('printing');
+        }, 1000);
+    }, 300);
 }
-
 </script>
 </body>
 </html>
