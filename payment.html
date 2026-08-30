@@ -166,6 +166,18 @@
     </style>
 </head>
 <body>
+<script>
+    // Guardar email del usuario antes de ir a Stripe, para activar acceso en success.html
+    (function() {
+        const params = new URLSearchParams(window.location.search);
+        const email = params.get('email');
+        const name = params.get('name');
+        if (email) {
+            localStorage.setItem('prp5g_pending_email', email);
+            if (name) localStorage.setItem('prp5g_pending_name', name);
+        }
+    })();
+</script>
     <div class="container">
 
         <div class="header">

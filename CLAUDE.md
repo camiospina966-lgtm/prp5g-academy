@@ -30,15 +30,27 @@ The Service Worker (`sw.js`) caches aggressively. During development, disable it
 
 | File | Role |
 |------|------|
-| `index.html` | Login / registration landing page |
-| `dashboard.html` | **Core SPA** — entire course experience (19,335 lines) |
+| `index.html` | **Sales landing page** — entry point for new visitors |
+| `login.html` | Login / registration form |
+| `dashboard.html` | **Core SPA** — entire course experience (~19,000 lines) |
 | `modulo1.html` | Standalone presentation view for Module 1 |
-| `payment.html` | Paywall / checkout page |
-| `success.html` | Post-payment confirmation |
+| `payment.html` | Stripe checkout page — reads `?email=` and `?name=` URL params to store them in localStorage before redirect |
+| `success.html` | Post-payment confirmation — activates the user's paid access by reading `prp5g_pending_email` from localStorage |
 | `consentimiento.html` | Printable informed consent form |
 | `contraindicaciones.html` | Printable contraindications guide |
-| `sw.js` | Service Worker (PWA offline support) |
+| `icon.svg` | PWA icon (SVG, works across browsers) |
+| `sw.js` | Service Worker (PWA offline support, cache version `prp5g-v2`) |
 | `manifest.json` | PWA manifest |
+
+### User Flow
+
+1. Visitor → `index.html` (landing page, redirects paid users to `dashboard.html`)
+2. Clicks CTA → `login.html?tab=registro` (register tab opens by default)
+3. Registers → `payment.html?email=...&name=...` (stores email in localStorage)
+4. Pays via Stripe → redirects to `success.html`
+5. `success.html` marks user as paid in localStorage → redirects to `dashboard.html`
+
+Returning users: `index.html` → `login.html` → `dashboard.html`
 
 ### SPA Routing in `dashboard.html`
 

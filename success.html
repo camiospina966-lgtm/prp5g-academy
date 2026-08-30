@@ -67,17 +67,56 @@
     </div>
 
     <script>
-        // Guardar sesión de pago
-        const session = {
-            paidAt: new Date().toISOString(),
-            email: 'estudiante@prp5g.com',
-            name: 'Estudiante PRP',
-            plan: 'lifetime'
-        };
-        localStorage.setItem('prp5g_session', JSON.stringify(session));
-        sessionStorage.setItem('prp5g_session', JSON.stringify(session));
+        // Activar acceso del usuario que viene de Stripe
+        (function() {
+            const pendingEmail = localStorage.getItem('prp5g_pending_email');
+            const pendingName = localStorage.getItem('prp5g_pending_name') || 'Médico PRP';
 
-        // Redirigir al dashboard después de 3 segundos
+            let session;
+
+            if (pendingEmail) {
+                // Buscar usuario registrado y marcarlo como pagado
+                const users = JSON.parse(localStorage.getItem('prp5g_users') || '[]');
+                const user = users.find(u => u.email === pendingEmail);
+
+                if (user) {
+                    user.paid = true;
+                    user.paidAt = new Date().toISOString();
+                    user.plan = 'lifetime';
+                    localStorage.setItem('prp5g_users', JSON.stringify(users));
+                    session = user;
+                } else {
+                    // Pagó sin registrarse previamente
+                    session = {
+                        name: pendingName,
+                        email: pendingEmail,
+                        plan: 'lifetime',
+                        paid: true,
+                        paidAt: new Date().toISOString()
+                    };
+                }
+
+                localStorage.removeItem('prp5g_pending_email');
+                localStorage.removeItem('prp5g_pending_name');
+            } else {
+                // Acceso directo sin flujo de pago (fallback)
+                const existing = localStorage.getItem('prp5g_session');
+                if (!existing) {
+                    session = {
+                        name: 'Médico PRP',
+                        email: 'medico@prp5g.com',
+                        plan: 'lifetime',
+                        paid: true,
+                        paidAt: new Date().toISOString()
+                    };
+                }
+            }
+
+            if (session) {
+                localStorage.setItem('prp5g_session', JSON.stringify(session));
+            }
+        })();
+
         setTimeout(() => {
             window.location.href = 'dashboard.html';
         }, 3000);

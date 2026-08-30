@@ -1,10 +1,13 @@
-const CACHE_NAME = 'prp5g-v1';
+const CACHE_NAME = 'prp5g-v2';
 const urlsToCache = [
     '/',
     '/index.html',
+    '/login.html',
     '/dashboard.html',
     '/payment.html',
-    '/manifest.json'
+    '/success.html',
+    '/manifest.json',
+    '/icon.svg'
 ];
 
 // INSTALAR

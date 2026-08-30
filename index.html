@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRP 5G Academy — Acceso</title>
+    <title>PRP 5G Academy — Curso de PRP de 5ª Generación para Médicos</title>
+    <meta name="description" content="Certifícate en el protocolo de PRP de 5ª Generación. Nanotecnología, exosomas e IA aplicados a medicina regenerativa. 6 módulos, 40h de contenido, certificado digital. $25 USD acceso de por vida.">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#c9a84c">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --gold: #c9a84c;
@@ -20,838 +19,759 @@
             --text: #e0e0e0;
             --text2: #aaaaaa;
             --green: #2ecc71;
-            --red: #e74c3c;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Segoe UI', sans-serif;
             background: var(--dark);
-            min-height: 100vh;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10,10,10,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1e1e1e;
+            padding: 0 max(20px, 5vw);
+            height: 64px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
+            justify-content: space-between;
         }
-
-        .bg-animation {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .bg-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(201,168,76,0.08), transparent);
-            animation: float 8s infinite ease-in-out;
-        }
-
-        .bg-circle:nth-child(1) { width: 600px; height: 600px; top: -200px; left: -200px; animation-delay: 0s; }
-        .bg-circle:nth-child(2) { width: 400px; height: 400px; bottom: -100px; right: -100px; animation-delay: 3s; }
-        .bg-circle:nth-child(3) { width: 300px; height: 300px; top: 50%; left: 50%; animation-delay: 5s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
-            50% { transform: translateY(-30px) scale(1.05); opacity: 1; }
-        }
-
-        .container {
-            width: 100%;
-            max-width: 440px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-section {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .logo-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            border-radius: 20px;
+        .nav-logo {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            margin: 0 auto 15px;
-            box-shadow: 0 10px 40px rgba(201,168,76,0.3);
+            gap: 10px;
+            text-decoration: none;
         }
-
-        .logo-section h1 {
-            font-size: 26px;
+        .nav-logo-icon { font-size: 22px; }
+        .nav-logo-text {
+            font-size: 15px;
             font-weight: 800;
             background: linear-gradient(135deg, var(--gold), var(--gold-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .logo-section p {
-            font-size: 13px;
+        .nav-actions { display: flex; align-items: center; gap: 12px; }
+        .nav-link {
             color: var(--text2);
-            margin-top: 5px;
-        }
-
-        .card {
-            background: var(--dark2);
-            border: 1px solid #2a2a2a;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-
-        .tabs {
-            display: flex;
-            background: var(--dark3);
-            border-radius: 12px;
-            padding: 4px;
-            margin-bottom: 28px;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text2);
-            transition: all 0.3s;
-            border: none;
-            background: none;
-        }
-
-        .tab.active {
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            color: var(--dark);
-        }
-
-        .form { display: none; }
-        .form.active { display: block; }
-
-        .field { margin-bottom: 18px; }
-
-        .field label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 7px;
-        }
-
-        .field input, .field select {
-            width: 100%;
-            padding: 13px 16px;
-            background: var(--dark3);
-            border: 1.5px solid #2a2a2a;
-            border-radius: 10px;
-            color: var(--text);
-            font-size: 14px;
-            outline: none;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-
-        .field input:focus, .field select:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
-            background: #1f1f1f;
-        }
-
-        .field select option { background: var(--dark3); }
-
-        .field .input-wrapper { position: relative; }
-
-        .field .input-wrapper input { padding-right: 45px; }
-
-        .toggle-pass {
-            position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: var(--text2);
-            font-size: 16px;
-            background: none;
-            border: none;
-        }
-
-        .remember-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            font-size: 13px;
-            color: var(--text2);
-        }
-
-        .checkbox-label input {
-            accent-color: var(--gold);
-            width: 15px;
-            height: 15px;
-        }
-
-        .forgot-link {
-            font-size: 13px;
-            color: var(--gold);
             text-decoration: none;
-            cursor: pointer;
+            font-size: 14px;
+            transition: color 0.2s;
         }
-
-        .forgot-link:hover { text-decoration: underline; }
-
-        .btn-primary {
-            width: 100%;
-            padding: 14px;
+        .nav-link:hover { color: var(--gold); }
+        .btn-gold {
+            padding: 9px 22px;
             background: linear-gradient(135deg, var(--gold), var(--gold-light));
             color: var(--dark);
-            border: none;
-            border-radius: 12px;
-            font-size: 15px;
             font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            letter-spacing: 0.5px;
+            font-size: 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-gold:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(201,168,76,0.35);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201,168,76,0.4);
+        /* HERO */
+        .hero {
+            padding: 80px max(20px, 5vw) 64px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-
-        .btn-primary:active { transform: translateY(0); }
-
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin: 20px 0;
-            color: var(--text2);
-            font-size: 12px;
-        }
-
-        .divider::before, .divider::after {
+        .hero::before {
             content: '';
-            flex: 1;
-            height: 1px;
-            background: #2a2a2a;
-        }
-
-        .social-btns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .btn-social {
-            padding: 11px;
-            border-radius: 10px;
-            border: 1.5px solid #2a2a2a;
-            background: var(--dark3);
-            color: var(--text);
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-weight: 600;
-        }
-
-        .btn-social:hover {
-            border-color: var(--gold);
-            background: rgba(201,168,76,0.05);
-        }
-
-        /* PLAN ÚNICO */
-        .plan-unique {
-            background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05));
-            border: 1.5px solid var(--gold);
-            border-radius: 14px;
-            padding: 18px 20px;
-            margin-bottom: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .plan-unique .plan-left h3 {
-            color: white;
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 3px;
-        }
-
-        .plan-unique .plan-left p {
-            color: var(--text2);
-            font-size: 12px;
-        }
-
-        .plan-unique .plan-right {
-            text-align: right;
-        }
-
-        .plan-unique .plan-right .original {
-            color: #555;
-            font-size: 13px;
-            text-decoration: line-through;
-        }
-
-        .plan-unique .plan-right .price {
-            color: var(--gold);
-            font-size: 22px;
-            font-weight: 800;
-        }
-
-        .plan-unique .plan-right .period {
-            color: var(--text2);
-            font-size: 11px;
-        }
-
-        .plan-includes {
-            list-style: none;
-            margin-bottom: 18px;
-        }
-
-        .plan-includes li {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--text2);
-            padding: 4px 0;
-        }
-
-        .plan-includes li::before {
-            content: '✓';
-            color: var(--green);
-            font-weight: 700;
-            font-size: 13px;
-        }
-
-        .alert {
-            padding: 12px 15px;
-            border-radius: 10px;
-            font-size: 13px;
-            margin-bottom: 15px;
-            display: none;
-        }
-
-        .alert.success {
-            background: rgba(46,204,113,0.1);
-            border: 1px solid var(--green);
-            color: var(--green);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .alert.error {
-            background: rgba(231,76,60,0.1);
-            border: 1px solid var(--red);
-            color: #ff9999;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .spinner {
-            width: 30px;
-            height: 30px;
-            border: 3px solid #333;
-            border-top-color: var(--gold);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 0 auto 10px;
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        .card-footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 12px;
-            color: var(--text2);
-        }
-
-        .card-footer a {
-            color: var(--gold);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal {
-            background: var(--dark2);
-            border: 1px solid #333;
-            border-radius: 20px;
-            padding: 35px;
-            width: 90%;
-            max-width: 380px;
-        }
-
-        .modal h3 {
-            color: var(--gold);
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .modal p {
-            color: var(--text2);
-            font-size: 13px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .pwa-banner {
-            display: none;
-            position: fixed;
-            bottom: 20px;
+            position: absolute;
+            top: -180px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--dark2);
-            border: 1px solid var(--gold);
-            border-radius: 15px;
-            padding: 15px 20px;
-            width: 90%;
-            max-width: 400px;
-            z-index: 999;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%);
+            pointer-events: none;
         }
-
-        .pwa-banner.show { display: flex; align-items: center; gap: 15px; }
-        .pwa-banner .pwa-icon { font-size: 30px; }
-        .pwa-banner .pwa-text { flex: 1; }
-        .pwa-banner .pwa-text p { font-size: 13px; color: var(--text2); }
-        .pwa-banner .pwa-text strong { font-size: 14px; color: white; display: block; margin-bottom: 2px; }
-
-        .btn-install {
-            padding: 8px 16px;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201,168,76,0.1);
+            border: 1px solid rgba(201,168,76,0.3);
+            color: var(--gold);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 54px);
+            font-weight: 900;
+            line-height: 1.12;
+            max-width: 760px;
+            margin: 0 auto 20px;
+        }
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-sub {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--text2);
+            max-width: 600px;
+            margin: 0 auto 36px;
+            line-height: 1.75;
+        }
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 44px;
+        }
+        .btn-primary-lg {
+            padding: 16px 36px;
             background: linear-gradient(135deg, var(--gold), var(--gold-light));
             color: var(--dark);
-            border: none;
-            border-radius: 20px;
+            font-weight: 800;
+            font-size: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.25s;
+            display: inline-block;
+        }
+        .btn-primary-lg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+        }
+        .btn-outline-lg {
+            padding: 16px 36px;
+            background: transparent;
+            color: var(--text2);
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            border: 1.5px solid #333;
+            transition: all 0.25s;
+            display: inline-block;
+        }
+        .btn-outline-lg:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .hero-trust {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            white-space: nowrap;
+            color: var(--text2);
         }
 
-        @media (max-width: 480px) {
-            .card { padding: 25px 20px; }
-            .social-btns { grid-template-columns: 1fr; }
+        /* STATS */
+        .stats-bar {
+            background: var(--dark2);
+            border-top: 1px solid #1e1e1e;
+            border-bottom: 1px solid #1e1e1e;
+            padding: 32px max(20px, 5vw);
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        .stat { text-align: center; }
+        .stat .num {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .stat .lbl {
+            font-size: 13px;
+            color: var(--text2);
+            margin-top: 4px;
+        }
+
+        /* SECTIONS */
+        section { padding: 70px max(20px, 5vw); }
+        .section-tag {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-size: clamp(22px, 3vw, 34px);
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .section-sub {
+            font-size: 16px;
+            color: var(--text2);
+            max-width: 580px;
+            line-height: 1.7;
+        }
+        .section-header { margin-bottom: 48px; }
+        .section-header.centered {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-header.centered .section-sub { margin: 0 auto; }
+
+        /* PARA QUIÉN */
+        .for-whom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .for-whom-card {
+            background: var(--dark2);
+            border: 1px solid #1e1e1e;
+            border-radius: 14px;
+            padding: 28px 22px;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+        .for-whom-card:hover { border-color: var(--gold); }
+        .for-whom-icon { font-size: 34px; margin-bottom: 14px; }
+        .for-whom-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .for-whom-card p { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+        /* CURRICULUM */
+        .curriculum-bg { background: var(--dark2); }
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .module-card {
+            background: var(--dark);
+            border: 1px solid #1e1e1e;
+            border-radius: 14px;
+            padding: 24px;
+            transition: all 0.2s;
+        }
+        .module-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+        .module-num {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .module-icon { font-size: 26px; margin-bottom: 10px; }
+        .module-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+        .module-card p { font-size: 13px; color: var(--text2); line-height: 1.55; }
+        .module-lessons-count {
+            font-size: 11px;
+            color: var(--gold);
+            margin-top: 12px;
+            font-weight: 600;
+        }
+
+        /* INCLUDES */
+        .includes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .include-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: var(--dark2);
+            border: 1px solid #1e1e1e;
+            border-radius: 12px;
+            padding: 18px;
+        }
+        .include-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+        .include-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+        .include-item p { font-size: 12px; color: var(--text2); }
+
+        /* PRICING */
+        .pricing-bg { background: var(--dark2); }
+        .pricing-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--dark);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 44px 40px 36px;
+            text-align: center;
+            position: relative;
+        }
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+            font-size: 12px;
+            font-weight: 800;
+            padding: 5px 20px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .price-original {
+            font-size: 17px;
+            color: #555;
+            text-decoration: line-through;
+            margin-bottom: 6px;
+        }
+        .price-main {
+            font-size: 64px;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .price-main sup { font-size: 28px; vertical-align: super; }
+        .price-sub {
+            font-size: 14px;
+            color: var(--text2);
+            margin-bottom: 28px;
+        }
+        .price-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+        .price-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text);
+            padding: 8px 0;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .price-features li:last-child { border-bottom: none; }
+        .chk { color: var(--green); font-weight: 700; flex-shrink: 0; }
+        .pay-cta {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark);
+            font-weight: 800;
+            font-size: 17px;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.25s;
+        }
+        .pay-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+        }
+        .secure-note {
+            font-size: 12px;
+            color: var(--text2);
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .faq-item { border-bottom: 1px solid #1e1e1e; }
+        .faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text);
+            text-align: left;
+            padding: 20px 0;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-family: inherit;
+            transition: color 0.2s;
+        }
+        .faq-q:hover { color: var(--gold); }
+        .faq-arrow {
+            font-size: 16px;
+            color: var(--gold);
+            transition: transform 0.25s;
+            flex-shrink: 0;
+        }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .faq-a {
+            display: none;
+            color: var(--text2);
+            font-size: 15px;
+            line-height: 1.75;
+            padding-bottom: 20px;
+        }
+        .faq-item.open .faq-a { display: block; }
+
+        /* FINAL CTA */
+        .final-cta {
+            background: var(--dark2);
+            text-align: center;
+            padding: 80px max(20px, 5vw);
+        }
+        .final-cta h2 {
+            font-size: clamp(24px, 4vw, 40px);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .final-cta p {
+            font-size: 16px;
+            color: var(--text2);
+            margin-bottom: 36px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid #1a1a1a;
+            padding: 28px max(20px, 5vw);
+            text-align: center;
+            font-size: 13px;
+            color: var(--text2);
+        }
+        footer a {
+            color: var(--text2);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+        footer a:hover { color: var(--gold); }
+
+        @media (max-width: 600px) {
+            .stats-bar { gap: 28px; }
+            .stat .num { font-size: 28px; }
+            .pricing-card { padding: 36px 22px 28px; }
+            .price-main { font-size: 52px; }
+            .hero-ctas { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
 
-<div class="bg-animation">
-    <div class="bg-circle"></div>
-    <div class="bg-circle"></div>
-    <div class="bg-circle"></div>
+<nav class="nav">
+    <a class="nav-logo" href="index.html">
+        <span class="nav-logo-icon">🧬</span>
+        <span class="nav-logo-text">PRP 5G ACADEMY</span>
+    </a>
+    <div class="nav-actions">
+        <a href="login.html" class="nav-link">Iniciar sesión</a>
+        <a href="login.html?tab=registro" class="btn-gold">Inscribirme</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">🔬 Exclusivo para profesionales de la salud</div>
+    <h1>Domina el Protocolo de<br><span class="accent">PRP 5ª Generación</span></h1>
+    <p class="hero-sub">El único curso que integra nanotecnología, exosomas e inteligencia artificial en el protocolo de Plasma Rico en Plaquetas más avanzado del mundo.</p>
+    <div class="hero-ctas">
+        <a href="login.html?tab=registro" class="btn-primary-lg">Comenzar ahora — $25 USD</a>
+        <a href="#programa" class="btn-outline-lg">Ver el programa</a>
+    </div>
+    <div class="hero-trust">
+        <span class="trust-item">✅ Acceso de por vida</span>
+        <span class="trust-item">🏆 Certificado digital</span>
+        <span class="trust-item">📱 App incluida</span>
+        <span class="trust-item">🔒 Pago seguro con Stripe</span>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="stat"><div class="num">6</div><div class="lbl">Módulos</div></div>
+    <div class="stat"><div class="num">28</div><div class="lbl">Lecciones</div></div>
+    <div class="stat"><div class="num">40h</div><div class="lbl">Contenido</div></div>
+    <div class="stat"><div class="num">7</div><div class="lbl">Evaluaciones</div></div>
 </div>
 
-<!-- MODAL RECUPERAR CONTRASEÑA -->
-<div class="modal-overlay" id="forgotModal">
-    <div class="modal">
-        <h3>🔑 Recover Password</h3>
-        <p>Enter your email and we will send you instructions to reset your password.</p>
-        <div class="field">
-            <label>Email Address</label>
-            <input type="email" id="forgotEmail" placeholder="you@email.com">
+<!-- PARA QUIÉN -->
+<section>
+    <div class="section-header centered">
+        <p class="section-tag">Para quién es</p>
+        <h2 class="section-title">Diseñado para el médico que quiere diferenciarse</h2>
+        <p class="section-sub">Este curso está pensado para profesionales de la salud que buscan implementar el protocolo más avanzado de medicina regenerativa.</p>
+    </div>
+    <div class="for-whom-grid">
+        <div class="for-whom-card">
+            <div class="for-whom-icon">👨‍⚕️</div>
+            <h3>Médicos generales</h3>
+            <p>Que quieren incorporar terapias regenerativas de alto valor a su práctica clínica.</p>
         </div>
-        <div id="forgotAlert" class="alert"></div>
-        <button class="btn-primary" onclick="sendRecovery()" style="margin-bottom:10px;">
-            📧 Send Instructions
-        </button>
-        <button onclick="document.getElementById('forgotModal').classList.remove('active')"
-            style="width:100%;padding:12px;background:none;border:1px solid #333;border-radius:10px;color:var(--text2);cursor:pointer;font-size:14px;">
-            Cancel
-        </button>
-    </div>
-</div>
-
-<!-- PWA BANNER -->
-<div class="pwa-banner" id="pwaBanner">
-    <div class="pwa-icon">📱</div>
-    <div class="pwa-text">
-        <strong>Install App</strong>
-        <p>Add PRP 5G Academy to your home screen</p>
-    </div>
-    <button class="btn-install" id="installBtn">Install</button>
-    <button onclick="document.getElementById('pwaBanner').classList.remove('show')"
-        style="background:none;border:none;color:var(--text2);cursor:pointer;font-size:18px;">✕</button>
-</div>
-
-<div class="container">
-
-    <div class="logo-section">
-        <div class="logo-icon">🧬</div>
-        <h1>PRP 5G ACADEMY</h1>
-        <p>Advanced Regenerative Medicine</p>
-    </div>
-
-    <div class="card">
-
-        <div class="tabs">
-            <button class="tab active" onclick="switchTab('login')">Sign In</button>
-            <button class="tab" onclick="switchTab('register')">Register</button>
+        <div class="for-whom-card">
+            <div class="for-whom-icon">🏥</div>
+            <h3>Especialistas</h3>
+            <p>Traumatólogos, dermatólogos y esteticistas que buscan actualizar sus protocolos.</p>
         </div>
-
-        <!-- LOGIN FORM -->
-        <form class="form active" id="loginForm" onsubmit="handleLogin(event)">
-
-            <div id="loginAlert" class="alert"></div>
-
-            <div class="field">
-                <label>📧 Email Address</label>
-                <input type="email" id="loginEmail" placeholder="you@email.com" required>
-            </div>
-
-            <div class="field">
-                <label>🔒 Password</label>
-                <div class="input-wrapper">
-                    <input type="password" id="loginPass" placeholder="Your password" required>
-                    <button type="button" class="toggle-pass" onclick="togglePassword('loginPass', this)">👁️</button>
-                </div>
-            </div>
-
-            <div class="remember-row">
-                <label class="checkbox-label">
-                    <input type="checkbox" id="rememberMe"> Remember me
-                </label>
-                <span class="forgot-link" onclick="openForgot()">Forgot your password?</span>
-            </div>
-
-            <div class="loading" id="loginLoading">
-                <div class="spinner"></div>
-                <p style="color:var(--text2);font-size:13px;">Verifying...</p>
-            </div>
-
-            <button type="submit" class="btn-primary" id="loginBtn">
-                🚀 Access the Course
-            </button>
-
-            <div class="divider">Or continue with</div>
-
-            <div class="social-btns">
-                <button type="button" class="btn-social" onclick="socialLogin('Google')">
-                    🔵 Google
-                </button>
-                <button type="button" class="btn-social" onclick="socialLogin('Facebook')">
-                    🔷 Facebook
-                </button>
-            </div>
-
-            <div class="card-footer">
-                Don't have an account?
-                <a onclick="switchTab('register')">Register here</a>
-            </div>
-
-        </form>
-
-        <!-- REGISTER FORM -->
-        <form class="form" id="registerForm" onsubmit="handleRegister(event)">
-
-            <div id="registerAlert" class="alert"></div>
-
-            <div class="field">
-                <label>👤 Full Name</label>
-                <input type="text" id="regName" placeholder="Your full name" required>
-            </div>
-
-            <div class="field">
-                <label>📧 Email Address</label>
-                <input type="email" id="regEmail" placeholder="you@email.com" required>
-            </div>
-
-            <div class="field">
-                <label>🌎 Country</label>
-                <select id="regCountry">
-                    <option value="us">🇺🇸 United States</option>
-                    <option value="ca">🇨🇦 Canada</option>
-                    <option value="mx">🇲🇽 Mexico</option>
-                    <option value="co">🇨🇴 Colombia</option>
-                    <option value="ar">🇦🇷 Argentina</option>
-                    <option value="cl">🇨🇱 Chile</option>
-                    <option value="pe">🇵🇪 Peru</option>
-                    <option value="other">🌎 Other</option>
-                </select>
-            </div>
-
-            <div class="field">
-                <label>🔒 Password</label>
-                <div class="input-wrapper">
-                    <input type="password" id="regPass" placeholder="Minimum 6 characters" required minlength="6">
-                    <button type="button" class="toggle-pass" onclick="togglePassword('regPass', this)">👁️</button>
-                </div>
-            </div>
-
-            <!-- PLAN ÚNICO -->
-            <div class="field">
-                <label>💎 Your Plan</label>
-                <div class="plan-unique">
-                    <div class="plan-left">
-                        <h3>PRP 5G Complete Course</h3>
-                        <p>⏰ 12 months access</p>
-                    </div>
-                    <div class="plan-right">
-                        <div class="original">$297 USD</div>
-                        <div class="price">$197 USD</div>
-                        <div class="period">one-time payment</div>
-                    </div>
-                </div>
-                <ul class="plan-includes">
-                    <li>6 complete modules + evaluations</li>
-                    <li>Verifiable digital certificate</li>
-                    <li>Downloadable PDF materials</li>
-                    <li>Mobile app included</li>
-                    <li>Email support</li>
-                    <li>12 months of access from payment date</li>
-                </ul>
-            </div>
-
-            <div class="loading" id="registerLoading">
-                <div class="spinner"></div>
-                <p style="color:var(--text2);font-size:13px;">Creating your account...</p>
-            </div>
-
-            <button type="submit" class="btn-primary" id="registerBtn">
-                ✨ Create Account & Proceed to Payment
-            </button>
-
-            <div class="card-footer" style="margin-top:15px;">
-                By registering you accept our
-                <a href="#">Terms and Conditions</a> and
-                <a href="#">Privacy Policy</a>
-            </div>
-
-        </form>
-
+        <div class="for-whom-card">
+            <div class="for-whom-icon">🎓</div>
+            <h3>Profesionales en formación</h3>
+            <p>Residentes y fellows que quieren adelantarse a las tendencias del sector.</p>
+        </div>
+        <div class="for-whom-card">
+            <div class="for-whom-icon">🔬</div>
+            <h3>Investigadores</h3>
+            <p>Que necesitan una base científica sólida sobre tecnologías regenerativas de última generación.</p>
+        </div>
     </div>
+</section>
 
-    <div style="text-align:center; margin-top:20px;">
-        <p style="font-size:11px; color:#555;">
-            🔒 SSL Secure Connection · 💳 Secure Payment · 📱 App Included
-        </p>
+<!-- CURRICULUM -->
+<section id="programa" class="curriculum-bg">
+    <div class="section-header centered">
+        <p class="section-tag">Programa completo</p>
+        <h2 class="section-title">6 módulos de formación avanzada</h2>
+        <p class="section-sub">Desde los fundamentos moleculares hasta la aplicación clínica real, con evidencia científica actualizada.</p>
     </div>
+    <div class="curriculum-grid">
+        <div class="module-card">
+            <div class="module-num">Módulo 1</div>
+            <div class="module-icon">🔬</div>
+            <h3>Fundamentos del PRP</h3>
+            <p>Base molecular y celular del Plasma Rico en Plaquetas. Ciencia de factores de crecimiento y mecanismos de acción.</p>
+            <div class="module-lessons-count">4 lecciones + evaluación</div>
+        </div>
+        <div class="module-card">
+            <div class="module-num">Módulo 2</div>
+            <div class="module-icon">⚗️</div>
+            <h3>Generaciones del PRP</h3>
+            <p>Evolución tecnológica desde la 1ª hasta la 5ª generación. Diferencias clínicas y ventajas de cada protocolo.</p>
+            <div class="module-lessons-count">4 lecciones + evaluación</div>
+        </div>
+        <div class="module-card">
+            <div class="module-num">Módulo 3</div>
+            <div class="module-icon">🧪</div>
+            <h3>Tecnologías 5G</h3>
+            <p>Nanotecnología, exosomas e inteligencia artificial aplicados al PRP. El futuro de la medicina regenerativa.</p>
+            <div class="module-lessons-count">4 lecciones + evaluación</div>
+        </div>
+        <div class="module-card">
+            <div class="module-num">Módulo 4</div>
+            <div class="module-icon">⚙️</div>
+            <h3>Protocolo Clínico</h3>
+            <p>Paso a paso completo: selección de paciente, preparación, técnica de extracción, activación y aplicación.</p>
+            <div class="module-lessons-count">4 lecciones + evaluación</div>
+        </div>
+        <div class="module-card">
+            <div class="module-num">Módulo 5</div>
+            <div class="module-icon">💆</div>
+            <h3>Indicaciones Clínicas</h3>
+            <p>Casos reales: ortopedia, dermatología, estética y medicina del dolor. Criterios de selección y contraindicaciones.</p>
+            <div class="module-lessons-count">4 lecciones + evaluación</div>
+        </div>
+        <div class="module-card">
+            <div class="module-num">Módulo 6</div>
+            <div class="module-icon">⚠️</div>
+            <h3>Seguridad y Certificación</h3>
+            <p>Protocolos de seguridad, manejo de efectos adversos, consideraciones éticas y proceso de certificación.</p>
+            <div class="module-lessons-count">4 lecciones + examen final</div>
+        </div>
+    </div>
+</section>
 
-</div>
+<!-- INCLUDES -->
+<section>
+    <div class="section-header centered">
+        <p class="section-tag">Qué incluye</p>
+        <h2 class="section-title">Todo con un solo pago</h2>
+        <p class="section-sub">Sin mensualidades, sin sorpresas. Paga una vez y accede a todo de por vida.</p>
+    </div>
+    <div class="includes-grid">
+        <div class="include-item">
+            <span class="include-icon">🎓</span>
+            <div>
+                <h4>Certificado digital</h4>
+                <p>Verificable en línea al completar el 100% del curso y aprobar el examen final</p>
+            </div>
+        </div>
+        <div class="include-item">
+            <span class="include-icon">📱</span>
+            <div>
+                <h4>App móvil PWA</h4>
+                <p>Instala el curso en tu celular como app nativa, con soporte offline</p>
+            </div>
+        </div>
+        <div class="include-item">
+            <span class="include-icon">📄</span>
+            <div>
+                <h4>Materiales PDF</h4>
+                <p>Protocolos, glosarios y tablas de dosificación descargables</p>
+            </div>
+        </div>
+        <div class="include-item">
+            <span class="include-icon">♾️</span>
+            <div>
+                <h4>Acceso de por vida</h4>
+                <p>Pago único, acceso ilimitado y actualizaciones futuras incluidas sin costo</p>
+            </div>
+        </div>
+        <div class="include-item">
+            <span class="include-icon">📝</span>
+            <div>
+                <h4>7 evaluaciones</h4>
+                <p>6 evaluaciones por módulo más examen final de certificación (80% mínimo)</p>
+            </div>
+        </div>
+        <div class="include-item">
+            <span class="include-icon">📧</span>
+            <div>
+                <h4>Soporte por email</h4>
+                <p>Dudas académicas y técnicas respondidas por el equipo docente</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-bg" id="precio">
+    <div class="section-header centered">
+        <p class="section-tag">Inversión</p>
+        <h2 class="section-title">Precio de lanzamiento</h2>
+    </div>
+    <div class="pricing-card">
+        <div class="pricing-badge">🔥 Oferta por tiempo limitado</div>
+        <div class="price-original">Precio regular: $197 USD</div>
+        <div class="price-main"><sup>$</sup>25</div>
+        <div class="price-sub">USD · pago único · acceso de por vida</div>
+        <ul class="price-features">
+            <li><span class="chk">✓</span> 6 módulos completos (28 lecciones)</li>
+            <li><span class="chk">✓</span> 7 evaluaciones + examen final</li>
+            <li><span class="chk">✓</span> Certificado digital verificable</li>
+            <li><span class="chk">✓</span> Materiales PDF descargables</li>
+            <li><span class="chk">✓</span> App móvil (PWA) incluida</li>
+            <li><span class="chk">✓</span> Actualizaciones futuras sin costo extra</li>
+            <li><span class="chk">✓</span> Soporte por email</li>
+        </ul>
+        <a href="login.html?tab=registro" class="pay-cta">
+            Inscribirme ahora — $25 USD
+        </a>
+        <div class="secure-note">
+            <span>🔐 Pago seguro con Stripe</span>
+            <span>🌎 Tarjeta internacional</span>
+            <span>🔒 SSL encriptado</span>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section>
+    <div class="section-header centered">
+        <p class="section-tag">Preguntas frecuentes</p>
+        <h2 class="section-title">Resolvemos tus dudas</h2>
+    </div>
+    <div class="faq-list">
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                ¿Necesito experiencia previa con PRP?
+                <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a">No. El curso está diseñado para comenzar desde cero, con una base molecular sólida en el Módulo 1. Si ya tienes experiencia, los módulos avanzados te permitirán actualizar y profundizar tus conocimientos.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                ¿Cuándo puedo comenzar el curso?
+                <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a">Inmediatamente después de completar tu pago. Tu acceso se activa en segundos y puedes comenzar el Módulo 1 desde cualquier dispositivo sin demoras.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                ¿El certificado tiene validez oficial?
+                <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a">El certificado es emitido digitalmente por PRP 5G Academy y es verificable en línea. Se obtiene al completar el 100% del contenido y aprobar el examen final con mínimo 80% de calificación.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                ¿Puedo acceder desde el celular?
+                <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a">Sí. PRP 5G Academy es una Progressive Web App (PWA). Puedes instalarla en tu teléfono como una app nativa y estudiar sin conexión constante a internet.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                ¿Por cuánto tiempo tengo acceso?
+                <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a">Acceso de por vida con un solo pago. Las actualizaciones de contenido futuras están incluidas sin costo adicional. Una vez pagado, el curso es tuyo para siempre.</div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+    <h2>Empieza hoy tu formación en <span style="background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">PRP 5G</span></h2>
+    <p>Únete a los médicos que ya dominan el protocolo de medicina regenerativa más avanzado del mundo.</p>
+    <a href="login.html?tab=registro" class="btn-primary-lg">Inscribirme ahora — $25 USD</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p style="margin-bottom: 12px;">
+        <a href="consentimiento.html">Consentimiento Informado</a>
+        <a href="contraindicaciones.html">Contraindicaciones</a>
+        <a href="login.html">Iniciar sesión</a>
+    </p>
+    <p>© 2025 PRP 5G Academy · prp5gacademy.com · Todos los derechos reservados</p>
+</footer>
 
 <script>
-    let deferredPrompt;
-
-    function switchTab(tab) {
-        document.querySelectorAll('.tab').forEach((t, i) => {
-            t.classList.toggle('active', (i === 0 && tab === 'login') || (i === 1 && tab === 'register'));
-        });
-        document.getElementById('loginForm').classList.toggle('active', tab === 'login');
-        document.getElementById('registerForm').classList.toggle('active', tab === 'register');
-        clearAlerts();
-    }
-
-    function handleLogin(e) {
-        e.preventDefault();
-        const email = document.getElementById('loginEmail').value;
-        const pass = document.getElementById('loginPass').value;
-        const remember = document.getElementById('rememberMe').checked;
-
-        showLoading('loginLoading', 'loginBtn');
-
-        setTimeout(() => {
-            hideLoading('loginLoading', 'loginBtn', '🚀 Access the Course');
-
-            const users = JSON.parse(localStorage.getItem('prp5g_users') || '[]');
-            const user = users.find(u => u.email === email && u.password === pass);
-
-            if (email === 'demo@prp5g.com' && pass === 'demo123') {
-                loginSuccess({ name: 'Demo User', email, plan: 'complete', paid: true }, remember);
-                return;
+    // Redirigir si ya tiene sesión pagada
+    (function() {
+        try {
+            const raw = localStorage.getItem('prp5g_session') || sessionStorage.getItem('prp5g_session');
+            if (raw) {
+                const user = JSON.parse(raw);
+                if (user && user.paid) window.location.href = 'dashboard.html';
             }
+        } catch(e) {}
+    })();
 
-            if (user) {
-                if (!user.paid) {
-                    window.location.href = `payment.html?email=${encodeURIComponent(email)}&plan=complete&price=197`;
-                    return;
-                }
-                // Verificar acceso de 12 meses
-                if (user.paidAt) {
-                    const paidDate = new Date(user.paidAt);
-                    const now = new Date();
-                    const diffMonths = (now - paidDate) / (1000 * 60 * 60 * 24 * 30);
-                    if (diffMonths > 12) {
-                        showAlert('loginAlert', 'error', '⏰ Your 12-month access has expired. Please renew to continue.');
-                        return;
-                    }
-                }
-                loginSuccess(user, remember);
-            } else {
-                showAlert('loginAlert', 'error', '❌ Incorrect email or password');
-            }
-        }, 1500);
-    }
-
-    function loginSuccess(user, remember) {
-        const storage = remember ? localStorage : sessionStorage;
-        storage.setItem('prp5g_session', JSON.stringify(user));
-        showAlert('loginAlert', 'success', `✅ Welcome ${user.name}! Redirecting...`);
-        setTimeout(() => { window.location.href = 'dashboard.html'; }, 1200);
-    }
-
-    function handleRegister(e) {
-        e.preventDefault();
-        const name = document.getElementById('regName').value;
-        const email = document.getElementById('regEmail').value;
-        const country = document.getElementById('regCountry').value;
-        const pass = document.getElementById('regPass').value;
-
-        if (pass.length < 6) {
-            showAlert('registerAlert', 'error', '❌ Password must be at least 6 characters');
-            return;
-        }
-
-        showLoading('registerLoading', 'registerBtn');
-
-        setTimeout(() => {
-            hideLoading('registerLoading', 'registerBtn', '✨ Create Account & Proceed to Payment');
-
-            const users = JSON.parse(localStorage.getItem('prp5g_users') || '[]');
-
-            if (users.find(u => u.email === email)) {
-                showAlert('registerAlert', 'error', '❌ This email is already registered');
-                return;
-            }
-
-            const newUser = {
-                name, email, country, password: pass,
-                plan: 'complete',
-                planPrice: 197,
-                paid: false,
-                createdAt: new Date().toISOString()
-            };
-
-            users.push(newUser);
-            localStorage.setItem('prp5g_users', JSON.stringify(users));
-
-            showAlert('registerAlert', 'success', '✅ Account created! Redirecting to payment...');
-
-            setTimeout(() => {
-                window.location.href = `payment.html?email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&plan=complete&price=197`;
-            }, 1200);
-        }, 1500);
-    }
-
-    function socialLogin(provider) {
-        showAlert('loginAlert', 'success', `✅ Connecting with ${provider}...`);
-        setTimeout(() => {
-            const fakeUser = {
-                name: `${provider} User`,
-                email: `user@${provider.toLowerCase()}.com`,
-                plan: 'complete',
-                paid: true,
-                paidAt: new Date().toISOString()
-            };
-            sessionStorage.setItem('prp5g_session', JSON.stringify(fakeUser));
-            window.location.href = 'dashboard.html';
-        }, 1500);
-    }
-
-    function openForgot() {
-        document.getElementById('forgotModal').classList.add('active');
-    }
-
-    function sendRecovery() {
-        const email = document.getElementById('forgotEmail').value;
-        if (!email) return;
-        const alert = document.getElementById('forgotAlert');
-        alert.className = 'alert success';
-        alert.innerHTML = '✅ Instructions sent to ' + email;
-        alert.style.display = 'flex';
-    }
-
-    function togglePassword(inputId, btn) {
-        const input = document.getElementById(inputId);
-        input.type = input.type === 'password' ? 'text' : 'password';
-        btn.textContent = input.type === 'password' ? '👁️' : '🙈';
-    }
-
-    function showAlert(id, type, msg) {
-        const el = document.getElementById(id);
-        el.className = 'alert ' + type;
-        el.innerHTML = msg;
-        el.style.display = 'flex';
-    }
-
-    function clearAlerts() {
-        document.querySelectorAll('.alert').forEach(a => a.style.display = 'none');
-    }
-
-    function showLoading(loadId, btnId) {
-        document.getElementById(loadId).style.display = 'block';
-        document.getElementById(btnId).style.display = 'none';
-    }
-
-    function hideLoading(loadId, btnId, btnText) {
-        document.getElementById(loadId).style.display = 'none';
-        const btn = document.getElementById(btnId);
-        btn.style.display = 'block';
-        btn.textContent = btnText;
-    }
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        document.getElementById('pwaBanner').classList.add('show');
-    });
-
-    document.getElementById('installBtn').addEventListener('click', async () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            deferredPrompt = null;
-            document.getElementById('pwaBanner').classList.remove('show');
-        }
-    });
-
-    const session = localStorage.getItem('prp5g_session') || sessionStorage.getItem('prp5g_session');
-    if (session) {
-        window.location.href = 'dashboard.html';
+    function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
     }
 </script>
-
 </body>
 </html>
